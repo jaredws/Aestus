@@ -7,8 +7,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Background {
-	int sizeX;
-	int sizeY;
+	private int sizeX;
+	private int sizeY;
 	public BufferedImage perfect;
 	public BufferedImage ok;
 	public BufferedImage bad;
@@ -20,8 +20,26 @@ public class Background {
 	          perfect = ImageIO.read(new File("./img/estuary.png"));
 	          ok = ImageIO.read(new File("./img/ok.png")); 
 	          bad = ImageIO.read(new File("./img/bad.png")); 
-	       } catch (IOException ex) {
+       } catch (IOException ex) {
 	            // handle exception...
-	       }
+       }
+	}
+	
+	public BufferedImage check(/*int crabs*/){
+		/*if(crabs < 9){
+			return bad;
+		}else if(crabs < 15){
+			return ok;
+		}else
+			return perfect;*/
+		return perfect;
+	}
+	
+	public int getX() {
+		return sizeX;
+	}
+	
+	public int getY() {
+		return sizeY;
 	}
 }
