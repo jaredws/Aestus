@@ -10,13 +10,13 @@ public class ScreenButton extends JButton {
 	int x;
 	int y;
 	int j = 0;
-	int clickx;
+	public int clickx;
 	int clicky;
-	boolean addCrab;
+	public boolean addCrab;
 	Crab grabbed;
 	boolean grabbing;
 
-	ScreenButton(){
+	public ScreenButton(){
 		setSize(1500,1000);
 	    setBorderPainted(false);
 	    setFocusPainted(false);

@@ -74,12 +74,12 @@ public class PaintingPanel extends JPanel {
 	public static void main(String[] args){
 		PaintingPanel P = new PaintingPanel();
 		P.background = new Estuary(0,0);
-		P.addCrab(600, 600);
+		/*P.addCrab(600, 600);
 		P.addCrab(200, 400);
 		P.addCrab(700, 500);
 		P.addCrab(400, 400);
 		P.addButton(0, 500, 0);
-		P.addButton(0, 625, 1);
+		P.addButton(0, 625, 1);*/
 		ScreenButton s = new ScreenButton();
 		JFrame frame = new JFrame();
 		frame.setLayout(null);
