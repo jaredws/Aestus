@@ -6,11 +6,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Crab {
-	int x;
-	int y;
+	private int x;
+	private int y;
 	int sizeX;
 	int sizeY;
 	public BufferedImage image;
+	
 	public Crab(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -21,5 +22,22 @@ public class Crab {
 	       } catch (IOException ex) {
 	            // handle exception...
 	       }
-	    }
+    }
+	
+	public int getX() {
+		return x;
+	}
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	public void setY(int y) {
+		this.y = y;
+	}
+	
 }

@@ -19,17 +19,21 @@ public class Game extends JPanel {
 	public static void main(String[] args){
 		Game G = new Game();
 		G.background = new Background(0,0);
-		//ScreenButton s = new ScreenButton();
+		ScreenButton s = new ScreenButton();
 		JFrame frame = new JFrame();
 		frame.setLayout(null);
 		G.setSize(1600,900);
 		frame.add(G);
-		//frame.add(s);
+		frame.add(s);
 		frame.setSize(1600,900);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 		while(true){
+			//G.clickAddCrab(s);
+			//s.checkPos(G);
+			//G.moveCrabs();
+			//G.deleteCrabs();
 			G.repaint();
 			try {
     			Thread.sleep(50);
