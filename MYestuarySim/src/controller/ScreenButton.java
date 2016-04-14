@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -20,7 +22,8 @@ public class ScreenButton extends JButton {
 	boolean grabbing;
 
 	public ScreenButton(){
-		setSize(1500,1000);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
