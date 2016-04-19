@@ -55,8 +55,9 @@ public class ScreenButton extends JButton {
 	addMouseMotionListener(new MouseMotionAdapter(){
     	//If mouse is being dragged whilst holding the button
         public void mouseDragged(MouseEvent e){
-        	x = e.getX()-165/2;
-        	y = e.getY()-165/2;
+        	//must be replaced by image height and width /2
+        	x = e.getX()- 100/2;
+        	y = e.getY()- 75/2;
         }
     });
 	}
