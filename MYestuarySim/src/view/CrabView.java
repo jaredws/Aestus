@@ -25,7 +25,7 @@ public class CrabView extends ViewTemplate{
 	public CrabView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"Crab Front", "Crab Back","Crab side left", "Crab side right", "crabswing"};
+		String[] names = {"Crab Front", "Crab Back","Crab side left", "Crab side right"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
@@ -40,7 +40,7 @@ public class CrabView extends ViewTemplate{
 	 * 
 	 * @param i
 	 * @return The buffered image of the crab
-	 * 0-Front, 1-back, 2-left, 3-right, 4-swing
+	 * 0-Front, 1-back, 2-left, 3-right
 	 */
 	public BufferedImage getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
