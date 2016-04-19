@@ -1,6 +1,8 @@
 package model;
 
 public class Crab {
+	//Needs a moving picture
+	
 	private int x;
 	private int y;
 	//The sizes may need to be a ratio to the screen size. -JS

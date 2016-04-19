@@ -23,10 +23,10 @@ public class Game {
 		BC = new ButtonControl();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
-		CC.addCrab(600, 600);
-		CC.addCrab(200, 400);
-		CC.addCrab(700, 500);
-		CC.addCrab(400, 400);
+//		CC.addCrab(600, 600);
+//		CC.addCrab(200, 400);
+//		CC.addCrab(700, 500);
+//		CC.addCrab(400, 400);
 
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function
@@ -37,7 +37,7 @@ public class Game {
 			TV.update(G);
 			TV.repaint();
 			try {
-    			Thread.sleep(50);
+    			Thread.sleep(10);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}

@@ -43,7 +43,8 @@ public class CrabView extends ViewTemplate{
 	 * 0-Front, 1-back, 2-left, 3-right, 4-swing
 	 */
 	public BufferedImage getImage(int i){
-		return(images.get(i));
+		//Must remove %4 will be changed when calling it from above with motion idicator.
+		return(images.get(i%4));
 	}
 
 }

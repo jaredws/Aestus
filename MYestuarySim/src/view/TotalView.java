@@ -47,6 +47,7 @@ public class TotalView extends JPanel{
 		JFrame frame = new JFrame();
 		frame.setLayout(null);
 		frame.add(S);
+		frame.add(this);
 		frame.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -62,7 +63,7 @@ public class TotalView extends JPanel{
         super.paintComponent(g);
         
         g.drawImage(BGV.switchImage(background.check(G.getCrabControl().getCrabs().size())),
-        		background.getX(), background.getY(), null);
+        		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
         			G.getButtonControl().getButtons().get(i).getY(), null);
