@@ -61,7 +61,8 @@ public class ScreenButton extends JButton {
     });
 	}
 	public void checkPos(CrabControl c){
-		
+		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
+		//do we want this? or should we wait for release
 		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
 				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
