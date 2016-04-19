@@ -12,6 +12,8 @@ import model.Crab;
 import controller.Game;
 
 public class ScreenButton extends JButton {
+	
+	//Implament listener on the frame??? -JS
 	int x;
 	int y;
 	int j = 0;
