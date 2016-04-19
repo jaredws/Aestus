@@ -19,7 +19,7 @@ public class ScreenButton extends JButton {
 	int j = 0;
 	public int clickx;
 	int clicky;
-	public boolean addCrab;
+	public boolean addCrab;//Do we really need this?
 	Crab grabbed;
 	boolean grabbing;
 
