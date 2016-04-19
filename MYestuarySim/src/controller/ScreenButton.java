@@ -58,12 +58,12 @@ public class ScreenButton extends JButton {
         }
     });
 	}
-	public void checkPos(Game c){
+	public void checkPos(CrabControl c){
 		
-		/*if(!grabbing){
+		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
-				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).x) && (c.crabs.get(i).x < (x+c.crabs.get(i).sizeX/2))){
-					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).y) && (c.crabs.get(i).y < (y+c.crabs.get(i).sizeY/2))){
+				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
+					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).getY()) && (c.crabs.get(i).getY() < (y+c.crabs.get(i).sizeY/2))){
 						grabbed = c.crabs.get(i);
 						grabbing = true;
 						j = i;
@@ -73,9 +73,9 @@ public class ScreenButton extends JButton {
 			}
 		}
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-			c.crabs.get(j).x = x;
-			c.crabs.get(j).y = y;	
-		}*/
+			c.crabs.get(j).setX(x);
+			c.crabs.get(j).setY(y);	
+		}
 	}
 }
 	

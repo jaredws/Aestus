@@ -1,38 +1,22 @@
 package model;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 public class Background {
 	private int sizeX;
 	private int sizeY;
-	public BufferedImage perfect;
-	public BufferedImage ok;
-	public BufferedImage bad;
 	
 	public Background(int x, int y) {
 		this.sizeX = x;
 		this.sizeY = y;
-		try {                
-	          perfect = ImageIO.read(new File("./img/estuary.png"));
-	          ok = ImageIO.read(new File("./img/ok.png")); 
-	          bad = ImageIO.read(new File("./img/bad.png")); 
-       } catch (IOException ex) {
-	            // handle exception...
-       }
 	}
 	
-	public BufferedImage check(/*int crabs*/){
-		/*if(crabs < 9){
-			return bad;
+	public int check(int crabs){
+		if(crabs < 9){
+			return 2;
 		}else if(crabs < 15){
-			return ok;
+			return 1;
 		}else
-			return perfect;*/
-		return perfect;
+			return 0;
 	}
 	
 	public int getX() {

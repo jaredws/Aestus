@@ -1,40 +1,41 @@
 package controller;
 
-import java.awt.Graphics;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Random;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 import model.Background;
+import view.TotalView;
 
-public class Game extends JPanel {
-	Background background;
+public class Game {
 	Random rand = new Random();
+	static CrabControl CC;
+	static ButtonControl BC;
+	static TotalView TV;
 
-	@Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(background.check(),background.getX(), background.getY(), null);
-	}
+
 	
 	public static void main(String[] args){
 		Game G = new Game();
-		G.background = new Background(0,0);
-		ScreenButton s = new ScreenButton();
-		JFrame frame = new JFrame();
-		frame.setLayout(null);
-		G.setSize(1600,900);
-		frame.add(G);
-		frame.add(s);
-		frame.setSize(1600,900);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+		ScreenButton S = new ScreenButton();
+		TV = new TotalView(S);
+		CC = new CrabControl();
+		BC = new ButtonControl();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
+		CC.addCrab(600, 600);
+		CC.addCrab(200, 400);
+		CC.addCrab(700, 500);
+		CC.addCrab(400, 400);
+
 		while(true){
-			//G.clickAddCrab(s);
-			//s.checkPos(G);
-			//G.moveCrabs();
-			//G.deleteCrabs();
-			G.repaint();
+			//We can later compile all the CC. and s. stuff into a CC.tick() function
+			CC.clickAddCrab(S);
+			S.checkPos(CC);
+			CC.moveCrabs();
+			CC.deleteCrabs(BC);
+			TV.update(G);
+			TV.repaint();
 			try {
     			Thread.sleep(50);
     		} catch (InterruptedException e) {
@@ -42,4 +43,22 @@ public class Game extends JPanel {
     		}
 		}
 	}
+
+	public Random getRand() {
+		return rand;
+	}
+
+
+	public static CrabControl getCrabControl() {
+		return CC;
+	}
+
+	public static ButtonControl getButtonControl() {
+		return BC;
+	}
+
+	public static TotalView getTotalView() {
+		return TV;
+	}
+	
 }

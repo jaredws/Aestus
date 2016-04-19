@@ -3,31 +3,38 @@ package view;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
-public class ButtonView {
-	int x;
-	int y;
-	int type;
-	int sizeX;
-	int sizeY;
-	public BufferedImage image;
-	public ButtonView(int x, int y, int type){
-		this.x = x;
-		this.y = y;
-		this.sizeX = 100;
-		this.sizeY = 100;
-		this.type = type;
-		try {    
-			if(type == 0){
-	          image = ImageIO.read(new File("./img/trashB.png"));
-			}
-			else if(type == 1){
-				image = ImageIO.read(new File("./img/bucket.png"));
-			}
+
+
+public class ButtonView{
+
+	private List<BufferedImage> images;
+
+	public ButtonView(){
+		images = new ArrayList<BufferedImage>();
+		BufferedImage image;
+		String[] fileNames = {"trashB", "bucket"};
+		for(String name: fileNames){
+			try {    
+				image = ImageIO.read(new File("./img/"+name+".png"));
+				images.add(image);
 			} catch (IOException ex) {
-	            // handle exception...
-	       }
-	    }
+				// handle exception...
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param i
+	 * @return BufferedImage
+	 * 0-trash, 1-bucket
+	 */
+	public BufferedImage getImage(int i){
+		return images.get(i);
+	}
 }
