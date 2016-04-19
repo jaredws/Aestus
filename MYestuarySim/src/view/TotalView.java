@@ -64,12 +64,14 @@ public class TotalView extends JPanel{
         
         g.drawImage(BGV.switchImage(background.check(G.getCrabControl().getCrabs().size())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
+        
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
         			G.getButtonControl().getButtons().get(i).getY(), null);
         
         for(int i = 0; i < G.getCrabControl().getCrabs().size(); i++)
-        	g.drawImage(CV.getImage(i), G.getCrabControl().getCrabs().get(i).getX(), 
+        	//Made the default get Image 0 here, a movement may need to be called instead
+        	g.drawImage(CV.getImage(0), G.getCrabControl().getCrabs().get(i).getX(), 
         			G.getCrabControl().getCrabs().get(i).getY(), null); // see javadoc for more info on the parameters            
         
 	}
