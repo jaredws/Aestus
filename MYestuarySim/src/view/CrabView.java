@@ -25,7 +25,7 @@ public class CrabView extends ViewTemplate{
 	public CrabView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"Crab Front", "Crab Back","Crab side left", "Crab side right"};
+		String[] names = {"Blue Crab", "Crab Front", "Crab side left", "Crab side right"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
