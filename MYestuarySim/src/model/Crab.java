@@ -12,6 +12,7 @@ public class Crab {
 	public int sizeX;
 	public int sizeY;
 	
+	
 	public Crab(int x, int y){
 		this.x = x;
 		this.y = y;

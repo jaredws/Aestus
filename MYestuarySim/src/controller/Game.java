@@ -37,7 +37,7 @@ public class Game {
 			TV.update(G);
 			TV.repaint();
 			try {
-    			Thread.sleep(10);
+    			Thread.sleep(50);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
