@@ -13,14 +13,10 @@ import model.Grabbable;
 public class ScreenButtonStart extends JButton {
 
 	//Implament listener on the frame??? -JS
-	int x;
-	int y;
-	int j = 0;
+
 	public int clickx;
 	int clicky;
-	public boolean addCrab;//Do we really need this?
-	Grabbable grabbed;
-	boolean grabbing;
+
 
 	public ScreenButtonStart(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,7 +29,8 @@ public class ScreenButtonStart extends JButton {
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-       
+        	clickx = e.getX();
+        	clicky = e.getY();
         }
         
         public void mouseReleased(MouseEvent e){

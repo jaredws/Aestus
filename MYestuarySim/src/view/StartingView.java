@@ -4,14 +4,16 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import controller.Game;
-import controller.ScreenButton;
 import controller.ScreenButtonStart;
-import model.Background;
+
 
 public class StartingView extends JPanel {
 	
@@ -23,15 +25,23 @@ public class StartingView extends JPanel {
 	private Game G;
 	static ButtonView BV;
 	public ScreenButtonStart S;
-	private BufferedImage BG;
- 	
+	public BufferedImage BG;
+ 	public boolean Showing;
+ 	public JFrame frame;
 	
 	public StartingView(ScreenButtonStart s){
+		Showing = true;
 		BV = new ButtonView();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s;
-		//BG = import background for start screen
-		JFrame frame = new JFrame();
+		
+		try {                
+			BG = ImageIO.read(new File("./img/startscreen1.png"));
+	       } catch (IOException ex) {
+	    	   System.out.println("Crab Image read error");
+	       }
+		
+		frame = new JFrame();
 		frame.setLayout(null);
 		frame.add(S);
 		frame.add(this);
@@ -49,7 +59,16 @@ public class StartingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
-        
+        if(!Showing){
+        	frame.dispose();
+        }
+	}
+
+	public void checkStart() {
+		if(S.clickx > 0 && S.clickx < 1600){
+			Showing = false;
+		}
+		
 	}
 	
 
