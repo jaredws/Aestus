@@ -8,14 +8,14 @@ import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JButton;
 
-import model.Grabbable;
+
 
 public class ScreenButtonStart extends JButton {
 
 	//Implament listener on the frame??? -JS
 
 	public int clickx;
-	int clicky;
+	public int clicky;
 
 
 	public ScreenButtonStart(){

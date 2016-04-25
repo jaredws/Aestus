@@ -57,8 +57,8 @@ public class ScreenButton extends JButton {
     	//If mouse is being dragged whilst holding the button
         public void mouseDragged(MouseEvent e){
         	//must be replaced by image height and width /2
-        	x = e.getX()- 100/2;
-        	y = e.getY()- 75/2;
+        	x = e.getX();
+        	y = e.getY();
         }
     });
 	}
@@ -79,8 +79,8 @@ public class ScreenButton extends JButton {
 			}
 		}
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-			c.crabs.get(j).setX(x);
-			c.crabs.get(j).setY(y);	
+			c.crabs.get(j).setX(x - 100/2);
+			c.crabs.get(j).setY(y - 75/2);	
 		}
 	}
 }
