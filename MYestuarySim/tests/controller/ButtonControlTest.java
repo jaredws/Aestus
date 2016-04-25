@@ -6,6 +6,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * @author Steven Sell
+ * @Test Tests all functions of ButtonControl
+ */
+
 public class ButtonControlTest {
 
 	static ButtonControl b;

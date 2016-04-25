@@ -6,6 +6,11 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * @author Steven Sell
+ * @Test Tests all functions of CrabControl
+ */
+
 public class CrabControlTest {
 
 	static CrabControl c;
@@ -19,7 +24,11 @@ public class CrabControlTest {
 	public static void tearDownAfterClass() throws Exception {
 		c = null;
 	}
-
+	
+	/**
+	 * @author Steven
+	 * @Tests Adds a crab and tests the x/y coordinates of the crab.
+	 */
 	@Test
 	public void addCrabTest() {
 		c.addCrab(3, 2);

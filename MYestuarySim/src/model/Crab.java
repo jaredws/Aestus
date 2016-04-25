@@ -35,4 +35,12 @@ public class Crab {
 		this.y = y;
 	}
 	
+	public int getSizeX() {
+		return this.sizeX;
+	}
+	
+	public int getSizeY() {
+		return this.sizeY;
+	}
+	
 }
