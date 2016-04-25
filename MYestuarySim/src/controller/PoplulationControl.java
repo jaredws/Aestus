@@ -20,11 +20,21 @@ public class PoplulationControl {
 	private int InvasiveAnimal;
 	
 	public void calculate(){
+		int NIP = 0; //current noninvasive plant
+		int IP = 0; //current invasive plant
+		int NIA = 0 ;//current noninvasive animal
+		int IA = 0; //current invasive animal
+		int TP = NIP + IP;
+		int TA = NIA + IA;
 		TotalPlant = (int) (NonInvasivePlant + 0.8*InvasivePlant);
 		TotalAnimal = (int) ((-1/36)*TotalPlant + (35/18)*TotalPlant - 325/36);
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;
 		
+		
+	}
+	
+	public void spawn(){
 		
 	}
 
