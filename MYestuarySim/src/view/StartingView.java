@@ -59,9 +59,7 @@ public class StartingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
-        if(!Showing){
-        	frame.dispose();
-        }
+        
 	}
 
 	public void checkStart() {
@@ -69,6 +67,10 @@ public class StartingView extends JPanel {
 			Showing = false;
 		}
 		
+	}
+	
+	public void dispose(){
+		frame.dispose();
 	}
 	
 

@@ -34,7 +34,7 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
-		//SV.setVisible(false);
+		SV.dispose();
 		
 		ScreenButton S = new ScreenButton();
 		TV = new TotalView(S);
