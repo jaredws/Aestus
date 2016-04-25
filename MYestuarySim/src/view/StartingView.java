@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -25,18 +27,21 @@ public class StartingView extends JPanel {
 	private Game G;
 	static ButtonView BV;
 	public ScreenButtonStart S;
-	public BufferedImage BG;
+	public Image BG;
  	public boolean Showing;
  	public JFrame frame;
+ 	Dimension screenSize;
 	
 	public StartingView(ScreenButtonStart s){
 		Showing = true;
 		BV = new ButtonView();
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s;
 		
 		try {                
 			BG = ImageIO.read(new File("./img/startscreen1.png"));
+			System.out.println((int)screenSize.getWidth());
+			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
@@ -73,6 +78,7 @@ public class StartingView extends JPanel {
 		frame.dispose();
 	}
 	
+	 
 
 
 }

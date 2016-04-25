@@ -2,7 +2,7 @@ package controller;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
+
 import java.util.Random;
 
 import model.Background;
