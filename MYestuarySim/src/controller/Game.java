@@ -30,6 +30,7 @@ public class Game {
 
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function
+			//Population control needs to know a tick rate for spawning
 			CC.clickAddCrab(S);
 			S.checkPos(CC);
 			CC.moveCrabs();
