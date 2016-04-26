@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
+
+import controller.ScreenButton;
 
 /**
  * 
@@ -26,7 +29,7 @@ public class PhragmitesView extends ViewTemplate{
 	public PhragmitesView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"goose"};
+		String[] names = {"Crab Back"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
@@ -37,6 +40,10 @@ public class PhragmitesView extends ViewTemplate{
 		}
 		
 	}
+	
+
+	
+	
 	/**
 	 * 
 	 * @param i
