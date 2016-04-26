@@ -1,6 +1,6 @@
 package model;
 
-public class Turtle {
+public class Turtle extends Grabbable {
 	//With this outline, there's no difference between a crab and anyhting else. 
 	//We'll have to change the name of this class to Interactable Object or something
 	//Add a name and just name the different items
