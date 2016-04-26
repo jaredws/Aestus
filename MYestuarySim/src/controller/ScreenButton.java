@@ -114,12 +114,12 @@ public class ScreenButton extends JButton {
 			bc.BlueCrabs.get(j).setY(y - 75/2);	
 		}
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-			c.crabs.get(j).setX(x - 100/2);
-			c.crabs.get(j).setY(y - 75/2);	
+			c.crabs.get(j).setX(x - 165/2);
+			c.crabs.get(j).setY(y - 165/2);	
 		}
 		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
-			t.turtles.get(j).setX(x - 100/2);
-			t.turtles.get(j).setY(y - 75/2);	
+			t.turtles.get(j).setX(x - 120/2);
+			t.turtles.get(j).setY(y - 100/2);	
 		}
 	}
 }
