@@ -10,6 +10,7 @@ import model.BlueCrab;
 
 public class BlueCrabControl {
 	Random rand;
+	
 	public List<BlueCrab> BlueCrabs;
 
 	public void addBlueCrab(int x, int y){
