@@ -45,7 +45,6 @@ public class StartingView extends JPanel {
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
-		
 		frame = new JFrame();
 		frame.setLayout(null);
 		frame.add(S);
