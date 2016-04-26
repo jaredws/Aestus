@@ -77,12 +77,12 @@ public class TotalView extends JPanel{
        
         for(int i = 0; i < G.getCordGrassControl().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(BCV.getImage(0), G.getCordGrassControl().getCordGrass().get(i).getX(), 
+        	g.drawImage(CGV.getImage(0), G.getCordGrassControl().getCordGrass().get(i).getX(), 
         			G.getCordGrassControl().getCordGrass().get(i).getY(), null); // see javadoc for more info on the parameters  
        
         for(int i = 0; i < G.getPhragmitesControl().getPhragmites().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(BCV.getImage(0), G.getPhragmitesControl().getPhragmites().get(i).getX(), 
+        	g.drawImage(PV.getImage(0), G.getPhragmitesControl().getPhragmites().get(i).getX(), 
         			G.getPhragmitesControl().getPhragmites().get(i).getY(), null); // see javadoc for more info on the parameters  
         
         

@@ -42,7 +42,7 @@ public class PopulationControl {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) ((-1/36)*TotalPlant + (35/18)*TotalPlant - 325/36);
+		TotalAnimal = (int) ((-1/36)*TotalPlant*TotalPlant + (35/18)*TotalPlant - 325/36);
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 		spawn();

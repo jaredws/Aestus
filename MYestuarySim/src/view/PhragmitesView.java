@@ -26,7 +26,7 @@ public class PhragmitesView extends ViewTemplate{
 	public PhragmitesView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"Crab side left"};
+		String[] names = {"goose"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
