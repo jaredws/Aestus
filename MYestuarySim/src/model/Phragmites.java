@@ -4,7 +4,7 @@ package model;
  * @author Steven
  *
  */
-public class BlueCrab extends Grabbable {
+public class Phragmites extends Grabbable {
 	//With this outline, there's no difference between a crab and anyhting else. 
 	//We'll have to change the name of this class to Interactable Object or something
 	//Add a name and just name the different items
@@ -16,7 +16,7 @@ public class BlueCrab extends Grabbable {
 	public int sizeX;
 	public int sizeY;
 	
-	public BlueCrab(int x, int y){
+	public Phragmites(int x, int y){
 		this.x = x;
 		this.y = y;
 		this.sizeX = 165;
