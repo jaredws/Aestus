@@ -42,4 +42,12 @@ public class BlueCrab extends Grabbable {
 	public int getSizeY() {
 		return this.sizeY;
 	}
+	
+	public void setSizeY(int y) {
+		this.sizeY = y;
+	}
+	
+	public void setSizeX(int x) {
+		this.sizeX = x;
+	}
 }
