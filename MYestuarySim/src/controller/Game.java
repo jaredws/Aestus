@@ -17,6 +17,7 @@ public class Game {
 	static BlueCrabControl BCC;
 	static ButtonControl BC;
 	static TotalView TV;
+	static PopulationControl PopC;
 
 
 	
@@ -42,6 +43,7 @@ public class Game {
 		BC = new ButtonControl();
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
+		PopC = new PopulationControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		
@@ -62,6 +64,7 @@ public class Game {
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
+			PopC.update(G);
 			TV.update(G);
 			TV.repaint();
 			try {

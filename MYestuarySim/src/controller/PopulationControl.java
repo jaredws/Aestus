@@ -2,7 +2,7 @@ package controller;
 
 import java.util.Random;
 
-public class PoplulationControl {
+public class PopulationControl {
 	
 	/*
 	 * The total population of plants to be dependent on the number of animals
@@ -51,6 +51,7 @@ public class PoplulationControl {
 	
 	public void update(Game g){
 		game = g;
+		calculate();
 	}
 	
 	private void spawn(){//call calculate and spawn at appropriate intervals
