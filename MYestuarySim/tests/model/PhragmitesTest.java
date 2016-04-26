@@ -8,45 +8,45 @@ import org.junit.Test;
 
 /**
  * @author Steven Sell
- * @Test Tests all functions of Turtle
+ * @Test Tests all functions of Phragmites
  */
 
-public class TurtleTest {
+public class PhragmitesTest {
 	
-	static Turtle t;
+	static Phragmites p;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		t = new Turtle(8,7);
+		p = new Phragmites(8,7);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		t = null;
+		p = null;
 	}
 
 	@Test
 	public void setXTest() {
-		t.setX(10);
-		assertEquals("X should be 10",t.getX(),10);
+		p.setX(10);
+		assertEquals("X should be 10",p.getX(),10);
 	}
 	
 	@Test
 	public void setYTest() {
-		t.setY(12);
-		assertEquals("Y should be 12",t.getY(),12);
+		p.setY(12);
+		assertEquals("Y should be 12",p.getY(),12);
 	}
 	
 	@Test
 	public void setSizeXTest() {
-		t.setSizeX(170);
-		assertEquals("sizeX should be 170",t.getSizeX(),170);
+		p.setSizeX(180);
+		assertEquals("sizeX should be 180",p.getSizeX(),180);
 	}
 	
 	@Test
 	public void setSizeYTest() {
-		t.setSizeY(190);
-		assertEquals("sizeY should be 190",t.getSizeY(),190);
+		p.setSizeY(185);
+		assertEquals("sizeY should be 185",p.getSizeY(),185);
 	}
 
 }

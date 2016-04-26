@@ -8,45 +8,45 @@ import org.junit.Test;
 
 /**
  * @author Steven Sell
- * @Test Tests all functions of Turtle
+ * @Test Tests all functions of CordGrass
  */
 
-public class TurtleTest {
+public class CordGrassTest {
 	
-	static Turtle t;
+	static CordGrass cg;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		t = new Turtle(8,7);
+		cg = new CordGrass(8,7);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		t = null;
+		cg = null;
 	}
 
 	@Test
 	public void setXTest() {
-		t.setX(10);
-		assertEquals("X should be 10",t.getX(),10);
+		cg.setX(10);
+		assertEquals("X should be 10",cg.getX(),10);
 	}
 	
 	@Test
 	public void setYTest() {
-		t.setY(12);
-		assertEquals("Y should be 12",t.getY(),12);
+		cg.setY(12);
+		assertEquals("Y should be 12",cg.getY(),12);
 	}
 	
 	@Test
 	public void setSizeXTest() {
-		t.setSizeX(170);
-		assertEquals("sizeX should be 170",t.getSizeX(),170);
+		cg.setSizeX(170);
+		assertEquals("sizeX should be 170",cg.getSizeX(),170);
 	}
 	
 	@Test
 	public void setSizeYTest() {
-		t.setSizeY(190);
-		assertEquals("sizeY should be 190",t.getSizeY(),190);
+		cg.setSizeY(185);
+		assertEquals("sizeY should be 185",cg.getSizeY(),185);
 	}
 
 }

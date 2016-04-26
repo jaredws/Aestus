@@ -38,13 +38,15 @@ public class CrabTest {
 	}
 	
 	@Test
-	public void getSizeXTest() {
-		assertEquals("sizeX should be 165",c.getSizeX(),165);
+	public void setSizeXTest() {
+		c.setSizeX(180);
+		assertEquals("sizeX should be 180",c.getSizeX(),180);
 	}
 	
 	@Test
-	public void getSizeYTest() {
-		assertEquals("sizeY should be 165",c.getSizeY(),165);
+	public void setSizeYTest() {
+		c.setSizeY(185);
+		assertEquals("sizeY should be 185",c.getSizeY(),185);
 	}
 
 }

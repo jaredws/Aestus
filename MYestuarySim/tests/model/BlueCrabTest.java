@@ -38,13 +38,15 @@ public class BlueCrabTest {
 	}
 	
 	@Test
-	public void getSizeXTest() {
-		assertEquals("sizeX should be 165",bc.getSizeX(),165);
+	public void setSizeXTest() {
+		bc.setSizeX(185);
+		assertEquals("sizeX should be 185",bc.getSizeX(),185);
 	}
 	
 	@Test
-	public void getSizeYTest() {
-		assertEquals("sizeY should be 165",bc.getSizeY(),165);
+	public void setSizeYTest() {
+		bc.setSizeY(168);
+		assertEquals("sizeY should be 168",bc.getSizeY(),168);
 	}
 
 }
