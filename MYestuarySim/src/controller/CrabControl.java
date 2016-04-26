@@ -25,10 +25,12 @@ public class CrabControl {
 	}
 	
 	public void moveCrabs(){
+		int j = 0;
 		for(int i = 0; i < crabs.size(); i++){
-			if(rand.nextInt()%25 == 4){
-				crabs.get(i).setX(crabs.get(i).getX() + rand.nextInt()%8 - 3);
-				crabs.get(i).setY(crabs.get(i).getY() + rand.nextInt()%8 - 3);
+			j = rand.nextInt();
+			if(j%25 == 4){
+				crabs.get(i).setX(crabs.get(i).getX() + j%8 - 4);
+				crabs.get(i).setY(crabs.get(i).getY() + j%10 - 5);
 			}
 		}
 	}
