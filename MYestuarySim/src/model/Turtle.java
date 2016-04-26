@@ -1,6 +1,6 @@
 package model;
 
-public class Crab extends Grabbable {
+public class Turtle {
 	//With this outline, there's no difference between a crab and anyhting else. 
 	//We'll have to change the name of this class to Interactable Object or something
 	//Add a name and just name the different items
@@ -12,7 +12,7 @@ public class Crab extends Grabbable {
 	public int sizeX;
 	public int sizeY;
 	
-	public Crab(int x, int y){
+	public Turtle(int x, int y){
 		this.x = x;
 		this.y = y;
 		this.sizeX = 165;
@@ -42,5 +42,4 @@ public class Crab extends Grabbable {
 	public int getSizeY() {
 		return this.sizeY;
 	}
-	
 }
