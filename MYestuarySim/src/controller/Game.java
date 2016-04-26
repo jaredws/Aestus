@@ -50,11 +50,11 @@ public class Game {
 		CGC = new CordGrassControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-		for(int i = 0; i<5; i++){
-			int k = r.nextInt(1350);
-			int l = r.nextInt(300)+500;
-			PC.addPhragmites(k,l);
-		}
+//		for(int i = 0; i<5; i++){
+//			int k = r.nextInt(1350);
+//			int l = r.nextInt(300)+500;
+//			PC.addPhragmites(k,l);
+//		}
 		
 
 
@@ -74,7 +74,7 @@ public class Game {
 			BCC.deleteBlueCrabs(BC);
 			CGC.deleteCordGrass(BC);
 			PC.deletePhragmites(BC);
-			PopC.update(G);
+			//PopC.update(G);
 			TV.update(G);
 			TV.repaint();
 			try {
