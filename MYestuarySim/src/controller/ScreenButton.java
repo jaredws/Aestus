@@ -24,6 +24,8 @@ public class ScreenButton extends JButton {
 	public boolean addCrab;//Do we really need this?
 	public boolean addTurtle;
 	public boolean addBlueCrab;
+	public boolean addCordGrass;
+	public boolean addPhragmites;
 	Grabbable grabbed;
 	boolean grabbing;
 	Random rand = new Random();
@@ -40,11 +42,13 @@ public class ScreenButton extends JButton {
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
         	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
-        		int k = rand.nextInt(3);
+        		int k = rand.nextInt(5);
         		switch(k){
         		case (0):addCrab = true;break;
         		case (1):addTurtle = true;break;
         		case (2):addBlueCrab = true;break;
+        		case (3):addPhragmites = true;break;
+        		case (4):addCordGrass = true;break;
         		}
         	}
         	grabbing = false;

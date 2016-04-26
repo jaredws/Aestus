@@ -50,21 +50,23 @@ public class Game {
 		CGC = new CordGrassControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-//		for(int i = 0; i<5; i++){
-//			int k = r.nextInt(1350);
-//			int l = r.nextInt(300)+500;
-//			PC.addPhragmites(k,l);
-//		}
+		for(int i = 0; i<10; i++){
+			int k = r.nextInt(1350);
+			int l = r.nextInt(300)+500;
+			PC.addPhragmites(k,l);
+		}
 		
 
 
-		
+		TV.repaint();
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function
 			//Population control needs to know a tick rate for spawning
 			CC.clickAddCrab(S);
 			TC.clickAddTurtle(S);
 			BCC.clickAddBlueCrab(S);
+			PC.clickAddPhragmites(S);
+			CGC.clickAddCordGrass(S);
 			S.checkPos(CC,TC,BCC,CGC,PC);
 			CC.moveCrabs();
 			TC.moveTurtles();
@@ -74,7 +76,7 @@ public class Game {
 			BCC.deleteBlueCrabs(BC);
 			CGC.deleteCordGrass(BC);
 			PC.deletePhragmites(BC);
-			//PopC.update(G);
+			PopC.update(G);
 			TV.update(G);
 			TV.repaint();
 			try {

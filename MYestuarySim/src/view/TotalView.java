@@ -47,6 +47,8 @@ public class TotalView extends JPanel{
 		BV = new ButtonView();
 		TV = new TurtleView();
 		BCV = new BlueCrabView();
+		PV = new PhragmitesView();
+		CGV = new CordGrassView();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -84,7 +86,6 @@ public class TotalView extends JPanel{
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(PV.getImage(0), G.getPhragmitesControl().getPhragmites().get(i).getX(), 
         			G.getPhragmitesControl().getPhragmites().get(i).getY(), null); // see javadoc for more info on the parameters  
-        
         
         
         for(int i = 0; i < G.getTurtleControl().getTurtles().size(); i++)
