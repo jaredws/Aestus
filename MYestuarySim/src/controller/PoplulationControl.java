@@ -68,7 +68,12 @@ public class PoplulationControl {
 		}
 		if(TotalAnimal>TA){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
-				//spawn noninvasive
+				if(rand.nextInt(8)%2==0){//3/8ths probability of adding a turtle
+					
+				}
+				else{//add a crab
+					
+				}
 			}
 			else{
 				//spawn invasive
