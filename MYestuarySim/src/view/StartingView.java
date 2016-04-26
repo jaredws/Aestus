@@ -40,7 +40,6 @@ public class StartingView extends JPanel {
 		
 		try {                
 			BG = ImageIO.read(new File("./img/startscreen1.png"));
-			System.out.println((int)screenSize.getWidth());
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");

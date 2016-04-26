@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Random;
 
 import javax.swing.JButton;
 
@@ -25,6 +26,7 @@ public class ScreenButton extends JButton {
 	public boolean addBlueCrab;
 	Grabbable grabbed;
 	boolean grabbing;
+	Random rand = new Random();
 
 	public ScreenButton(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -38,9 +40,12 @@ public class ScreenButton extends JButton {
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
         	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
-        		addCrab = true;
-        		addTurtle = true;
-        		addBlueCrab = true;
+        		int k = rand.nextInt(3);
+        		switch(k){
+        		case (0):addCrab = true;break;
+        		case (1):addTurtle = true;break;
+        		case (2):addBlueCrab = true;break;
+        		}
         	}
         	grabbing = false;
             clickx = e.getX();

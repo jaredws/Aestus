@@ -54,6 +54,7 @@ public class Game {
 			//Population control needs to know a tick rate for spawning
 			CC.clickAddCrab(S);
 			TC.clickAddTurtle(S);
+			BCC.clickAddBlueCrab(S);
 			S.checkPos(CC,TC,BCC);
 			CC.moveCrabs();
 			TC.moveTurtles();

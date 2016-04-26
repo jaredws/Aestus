@@ -45,9 +45,9 @@ public class BlueCrabControl {
 	
 	public void clickAddBlueCrab(ScreenButton s){
 
-		if(s.clickx > 0 && s.addCrab){
+		if(s.clickx > 0 && s.addBlueCrab){
 			addBlueCrab(rand.nextInt(1350),rand.nextInt(100)+500);
-			s.addCrab = false;
+			s.addBlueCrab = false;
 		}
 	}
 }
