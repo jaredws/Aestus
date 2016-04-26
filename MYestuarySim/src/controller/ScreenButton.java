@@ -22,6 +22,7 @@ public class ScreenButton extends JButton {
 	int clicky;
 	public boolean addCrab;//Do we really need this?
 	public boolean addTurtle;
+	public boolean addBlueCrab;
 	Grabbable grabbed;
 	boolean grabbing;
 
@@ -39,11 +40,11 @@ public class ScreenButton extends JButton {
         	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
         		addCrab = true;
         		addTurtle = true;
+        		addBlueCrab = true;
         	}
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
-   			 
         }
         
         public void mouseReleased(MouseEvent e){
@@ -64,10 +65,21 @@ public class ScreenButton extends JButton {
         }
     });
 	}
-	public void checkPos(CrabControl c, TurtleControl t){
+	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc){
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
-		
+		if(!grabbing){
+			for(int i = 0; i < bc.BlueCrabs.size(); i++){
+				if(((x-bc.BlueCrabs.get(i).sizeX/2) < bc.BlueCrabs.get(i).getX()) && (bc.BlueCrabs.get(i).getX() < (x+bc.BlueCrabs.get(i).sizeX/2))){
+					if(((y-bc.BlueCrabs.get(i).sizeY/2) < bc.BlueCrabs.get(i).getY()) && (bc.BlueCrabs.get(i).getY() < (y+bc.BlueCrabs.get(i).sizeY/2))){
+						grabbed = bc.BlueCrabs.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
 		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
 				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
@@ -92,7 +104,10 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
-		
+		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
+			bc.BlueCrabs.get(j).setX(x - 100/2);
+			bc.BlueCrabs.get(j).setY(y - 75/2);	
+		}
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
 			c.crabs.get(j).setX(x - 100/2);
 			c.crabs.get(j).setY(y - 75/2);	

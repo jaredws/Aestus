@@ -33,6 +33,7 @@ public class TotalView extends JPanel{
 	static BackgroundView BGV;
 	static CrabView CV;
 	static ButtonView BV;
+	static TurtleView TV;
 	public ScreenButton S;
 	Background background;
  	
@@ -41,6 +42,7 @@ public class TotalView extends JPanel{
 		BGV = new BackgroundView();
 		CV = new CrabView();
 		BV = new ButtonView();
+		TV = new TurtleView();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -68,6 +70,16 @@ public class TotalView extends JPanel{
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
         			G.getButtonControl().getButtons().get(i).getY(), null);
+        
+        for(int i = 0; i < G.getBlueCrabControl().getBlueCrabs().size(); i++)
+        	//Made the default get Image 0 here, a movement may need to be called instead
+        	g.drawImage(TV.getImage(0), G.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
+        			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
+        
+        for(int i = 0; i < G.getTurtleControl().getTurtles().size(); i++)
+    	//Made the default get Image 0 here, a movement may need to be called instead
+    	g.drawImage(TV.getImage(0), G.getTurtleControl().getTurtles().get(i).getX(), 
+    			G.getTurtleControl().getTurtles().get(i).getY(), null); // see javadoc for more info on the parameters
         
         for(int i = 0; i < G.getCrabControl().getCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead

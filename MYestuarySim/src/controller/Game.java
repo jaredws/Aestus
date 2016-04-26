@@ -14,6 +14,7 @@ public class Game {
 	static StartingView SV;
 	static CrabControl CC;
 	static TurtleControl TC;
+	static BlueCrabControl BCC;
 	static ButtonControl BC;
 	static TotalView TV;
 
@@ -40,6 +41,7 @@ public class Game {
 		CC = new CrabControl();
 		BC = new ButtonControl();
 		TC = new TurtleControl();
+		BCC = new BlueCrabControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		
@@ -52,11 +54,13 @@ public class Game {
 			//Population control needs to know a tick rate for spawning
 			CC.clickAddCrab(S);
 			TC.clickAddTurtle(S);
-			S.checkPos(CC,TC);
+			S.checkPos(CC,TC,BCC);
 			CC.moveCrabs();
 			TC.moveTurtles();
+			BCC.moveBlueCrabs();
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
+			BCC.deleteBlueCrabs(BC);
 			TV.update(G);
 			TV.repaint();
 			try {
@@ -84,4 +88,11 @@ public class Game {
 		return TV;
 	}
 	
+	public static TurtleControl getTurtleControl() {
+		return TC;
+	}
+	
+	public static BlueCrabControl getBlueCrabControl() {
+		return BCC;
+	}
 }

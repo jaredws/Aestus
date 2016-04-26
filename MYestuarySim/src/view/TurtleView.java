@@ -25,13 +25,13 @@ public class TurtleView extends ViewTemplate{
 	public TurtleView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"Blue Crab", "Crab Front", "Crab side left", "Crab side right"};
+		String[] names = {"Turtle"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
 	         images.add(image);
 	       } catch (IOException ex) {
-	    	   System.out.println("Crab Image read error");
+	    	   System.out.println("Turtle Image read error");
 	       }
 		}
 		
@@ -44,7 +44,7 @@ public class TurtleView extends ViewTemplate{
 	 */
 	public BufferedImage getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
-		return(images.get(i%4));
+		return(images.get(0));
 	}
 
 }

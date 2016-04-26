@@ -8,35 +8,35 @@ import model.BlueCrab;
 
 public class BlueCrabControl {
 	Random rand;
-	List<BlueCrab> bcrabs;
+	public List<BlueCrab> BlueCrabs;
 
 	public void addBlueCrab(int x, int y){
-		bcrabs.add(new BlueCrab(x,y));
+		BlueCrabs.add(new BlueCrab(x,y));
 	}
 	
 	public List<BlueCrab> getBlueCrabs() {
-		return this.bcrabs;
+		return this.BlueCrabs;
 	}
 	
 	public BlueCrabControl(){
 		rand  = new Random();
-		bcrabs = new ArrayList<BlueCrab>();
+		BlueCrabs = new ArrayList<BlueCrab>();
 	}
 	
 	public void moveBlueCrabs(){
-		for(int i = 0; i < bcrabs.size(); i++){
+		for(int i = 0; i < BlueCrabs.size(); i++){
 			if(rand.nextInt()%25 == 4){
-				bcrabs.get(i).setX(bcrabs.get(i).getX() + rand.nextInt()%8 - 3);
-				bcrabs.get(i).setY(bcrabs.get(i).getY() + rand.nextInt()%8 - 3);
+				BlueCrabs.get(i).setX(BlueCrabs.get(i).getX() + rand.nextInt()%8 - 3);
+				BlueCrabs.get(i).setY(BlueCrabs.get(i).getY() + rand.nextInt()%8 - 3);
 			}
 		}
 	}
 	
 	public void deleteBlueCrabs(ButtonControl bc){
-		for(int i = 0; i < bcrabs.size(); i++){
-			if(bcrabs.get(i).getX() > bc.getButtons().get(0).getX() - bc.getButtons().get(0).getSizeX()/2 && bcrabs.get(i).getX() < bc.getButtons().get(0).getX() + bc.getButtons().get(0).getSizeX()/4){
-				if((bcrabs.get(i).getY() > bc.getButtons().get(0).getY()-bc.getButtons().get(0).getSizeY()) && (bcrabs.get(i).getY() < bc.getButtons().get(0).getY() + bc.getButtons().get(0).getSizeY()/2)){
-					bcrabs.remove(i);
+		for(int i = 0; i < BlueCrabs.size(); i++){
+			if(BlueCrabs.get(i).getX() > bc.getButtons().get(0).getX() - bc.getButtons().get(0).getSizeX()/2 && BlueCrabs.get(i).getX() < bc.getButtons().get(0).getX() + bc.getButtons().get(0).getSizeX()/4){
+				if((BlueCrabs.get(i).getY() > bc.getButtons().get(0).getY()-bc.getButtons().get(0).getSizeY()) && (BlueCrabs.get(i).getY() < bc.getButtons().get(0).getY() + bc.getButtons().get(0).getSizeY()/2)){
+					BlueCrabs.remove(i);
 					i--;
 				}
 			}
