@@ -26,7 +26,7 @@ public class CordGrassView extends ViewTemplate{
 	public CordGrassView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] names = {"Crab side right"};
+		String[] names = {"grass"};
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
