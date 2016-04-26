@@ -42,7 +42,7 @@ public class Game {
 		ScreenButton S = new ScreenButton();
 		TV = new TotalView(S);
 		CC = new CrabControl();
-		BC = new ButtonControl();
+		BC = new ButtonControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
 		PopC = new PopulationControl();

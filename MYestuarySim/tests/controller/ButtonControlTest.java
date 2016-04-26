@@ -17,12 +17,12 @@ public class ButtonControlTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		b = new ButtonControl();
+		//b = new ButtonControl();
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		b = null;
+		//b = null;
 	}
 
 	@Test
