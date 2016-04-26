@@ -45,9 +45,9 @@ public class TurtleControl {
 	
 	public void clickAddTurtle(ScreenButton s){
 
-		if(s.clickx > 0 && s.addCrab){
+		if(s.clickx > 0 && s.addTurtle){
 			addTurtle(rand.nextInt(1350),rand.nextInt(100)+500);
-			s.addCrab = false;
+			s.addTurtle = false;
 		}
 	}
 }

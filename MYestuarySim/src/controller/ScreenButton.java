@@ -21,6 +21,7 @@ public class ScreenButton extends JButton {
 	public int clickx;
 	int clicky;
 	public boolean addCrab;//Do we really need this?
+	public boolean addTurtle;
 	Grabbable grabbed;
 	boolean grabbing;
 
@@ -37,6 +38,7 @@ public class ScreenButton extends JButton {
         public void mousePressed(MouseEvent e){
         	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
         		addCrab = true;
+        		addTurtle = true;
         	}
         	grabbing = false;
             clickx = e.getX();
@@ -62,7 +64,7 @@ public class ScreenButton extends JButton {
         }
     });
 	}
-	public void checkPos(CrabControl c){
+	public void checkPos(CrabControl c, TurtleControl t){
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
 		
@@ -78,9 +80,26 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
+		if(!grabbing){
+			for(int i = 0; i < t.turtles.size(); i++){
+				if(((x-t.turtles.get(i).sizeX/2) < t.turtles.get(i).getX()) && (t.turtles.get(i).getX() < (x+t.turtles.get(i).sizeX/2))){
+					if(((y-t.turtles.get(i).sizeY/2) < t.turtles.get(i).getY()) && (t.turtles.get(i).getY() < (y+t.turtles.get(i).sizeY/2))){
+						grabbed = t.turtles.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
+		
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
 			c.crabs.get(j).setX(x - 100/2);
 			c.crabs.get(j).setY(y - 75/2);	
+		}
+		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
+			t.turtles.get(j).setX(x - 100/2);
+			t.turtles.get(j).setY(y - 75/2);	
 		}
 	}
 }

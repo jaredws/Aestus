@@ -13,6 +13,7 @@ public class Game {
 	Random rand = new Random();
 	static StartingView SV;
 	static CrabControl CC;
+	static TurtleControl TC;
 	static ButtonControl BC;
 	static TotalView TV;
 
@@ -24,7 +25,7 @@ public class Game {
 		
 		ScreenButtonStart s = new ScreenButtonStart();
 		SV = new StartingView(s);
-		SV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
+		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		while(SV.Showing){
 			SV.checkStart();
 			SV.repaint();
@@ -34,26 +35,28 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
-		SV.dispose(); 
-		
 		ScreenButton S = new ScreenButton();
 		TV = new TotalView(S);
 		CC = new CrabControl();
 		BC = new ButtonControl();
+		TC = new TurtleControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
-//		CC.addCrab(600, 600);
-//		CC.addCrab(200, 400);
-//		CC.addCrab(700, 500);
-//		CC.addCrab(400, 400);
+		SV.dispose(); 
+		
+		
+
 
 		
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function
 			//Population control needs to know a tick rate for spawning
 			CC.clickAddCrab(S);
-			S.checkPos(CC);
+			TC.clickAddTurtle(S);
+			S.checkPos(CC,TC);
 			CC.moveCrabs();
+			TC.moveTurtles();
 			CC.deleteCrabs(BC);
+			TC.deleteTurtles(BC);
 			TV.update(G);
 			TV.repaint();
 			try {
