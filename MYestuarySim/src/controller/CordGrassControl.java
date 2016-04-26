@@ -55,4 +55,8 @@ public class CordGrassControl {
 			s.addCrab = false;
 		}
 	}
+	
+	protected void removeCordGrass(int i){
+		cgrass.remove(i);
+	}
 }

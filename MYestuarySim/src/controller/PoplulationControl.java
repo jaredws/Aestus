@@ -28,6 +28,7 @@ public class PoplulationControl {
 	private int InvasivePlant;
 	private int NonInvasiveAnimal;
 	private int InvasiveAnimal;
+	private Game game;
 	
 	public void calculate(){
 		NIP = 0; //calculate current noninvasive plant
@@ -48,11 +49,15 @@ public class PoplulationControl {
 		
 	}
 	
+	public void update(Game g){
+		game = g;
+	}
+	
 	private void spawn(){//call calculate and spawn at appropriate intervals
 		Random rand = new Random();
 		if(TotalPlant>TP){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
-				//spawn noninvasive
+				game.getBlueCrabControl().addBlueCrab(rand.nextInt(1350),rand.nextInt(300)+500);
 			}
 			else{
 				//spawn invasive
