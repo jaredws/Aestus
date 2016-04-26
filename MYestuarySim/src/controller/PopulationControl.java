@@ -31,10 +31,10 @@ public class PopulationControl {
 	private Game game;
 	
 	public void calculate(){
-		NIP = 0; //calculate current noninvasive plant
-		IP = 0; //calculate current invasive plant
-		NIA = 0 ;//calculate current noninvasive animal
-		IA = 0; //calculate current invasive animal
+		NIP = game.getCordGrassControl().getCordGrass().size(); //calculate current noninvasive plant
+		IP = game.getPhragmitesControl().getPhragmites().size(); //calculate current invasive plant
+		NIA = game.getTurtleControl().getTurtles().size() + game.getBlueCrabControl().getBlueCrabs().size();//calculate current noninvasive animal
+		IA = game.getCrabControl().getCrabs().size(); //calculate current invasive animal
 		TP = NIP + IP;
 		TA = NIA + IA;
 		NonInvasivePlant = NIP;
@@ -58,39 +58,43 @@ public class PopulationControl {
 		Random rand = new Random();
 		if(TotalPlant>TP){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
-				game.getBlueCrabControl().addBlueCrab(rand.nextInt(1350),rand.nextInt(300)+500);
+				game.getCordGrassControl().addCordGrass(rand.nextInt(1350),rand.nextInt(300)+500);
 			}
 			else{
-				//spawn invasive
+				game.getPhragmitesControl().addPhragmites(rand.nextInt(1350),rand.nextInt(300)+500);
 				}
 		}
 		if(TotalPlant<TP){
 			if(rand.nextInt(2)%2==0){
-				//delete noninvasive
+				game.getCordGrassControl().removeCordGrass(0);
 			}
 			else{
-				//delete invasive
+				game.getPhragmitesControl().removePhragmites(0);
 			}
 		}
 		if(TotalAnimal>TA){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
 				if(rand.nextInt(8)%2==0){//3/8ths probability of adding a turtle
-					
+					game.getTurtleControl().addTurtle(rand.nextInt(1350),rand.nextInt(300)+500);
 				}
-				else{//add a crab
-					
+				else{//add a non-invasive
+					game.getBlueCrabControl().addBlueCrab(rand.nextInt(1350),rand.nextInt(300)+500);
 				}
 			}
 			else{
-				//spawn invasive
-				}
+				game.getCrabControl().addCrab(rand.nextInt(1350),rand.nextInt(300)+500);				}
 		}
 		if(TotalAnimal<TA){
 			if(rand.nextInt(2)%2==0){
-				//delete noninvasive
+				if(rand.nextInt(8)%2==0){//3/8ths probability of removing a turtle
+					game.getTurtleControl().removeTurtle(0);
+				}
+				else{//remove a non-invasive
+					game.getBlueCrabControl().removeBlueCrab(0);
+				}
 			}
-			else{
-				//delete invasive
+			else{//remove an invasive
+				game.getCrabControl().removeCrab(0);
 			}
 		}
 	}

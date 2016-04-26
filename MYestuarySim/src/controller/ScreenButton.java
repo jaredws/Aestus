@@ -70,7 +70,7 @@ public class ScreenButton extends JButton {
         }
     });
 	}
-	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc){
+	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc){
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
 		if(!grabbing){
@@ -85,6 +85,20 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
+		
+		if(!grabbing){
+			for(int i = 0; i < cgc.CordGrass.size(); i++){
+				if(((x-cgc.CordGrass.get(i).sizeX/2) < cgc.CordGrass.get(i).getX()) && (cgc.CordGrass.get(i).getX() < (x+cgc.CordGrass.get(i).sizeX/2))){
+					if(((y-cgc.CordGrass.get(i).sizeY/2) < cgc.CordGrass.get(i).getY()) && (cgc.CordGrass.get(i).getY() < (y+cgc.CordGrass.get(i).sizeY/2))){
+						grabbed = cgc.CordGrass.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
+		
 		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
 				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
@@ -109,6 +123,18 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
+		if(!grabbing){
+			for(int i = 0; i < pc.Phragmites.size(); i++){
+				if(((x-pc.Phragmites.get(i).sizeX/2) < pc.Phragmites.get(i).getX()) && (pc.Phragmites.get(i).getX() < (x+pc.Phragmites.get(i).sizeX/2))){
+					if(((y-pc.Phragmites.get(i).sizeY/2) < pc.Phragmites.get(i).getY()) && (pc.Phragmites.get(i).getY() < (y+pc.Phragmites.get(i).sizeY/2))){
+						grabbed = pc.Phragmites.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
 		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
 			bc.BlueCrabs.get(j).setX(x - 100/2);
 			bc.BlueCrabs.get(j).setY(y - 75/2);	
@@ -120,6 +146,14 @@ public class ScreenButton extends JButton {
 		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
 			t.turtles.get(j).setX(x - 120/2);
 			t.turtles.get(j).setY(y - 100/2);	
+		}
+		if((j > -1 && j < cgc.CordGrass.size()) && cgc.CordGrass.get(j).equals(grabbed)){
+			cgc.CordGrass.get(j).setX(x - 120/2);
+			cgc.CordGrass.get(j).setY(y - 100/2);	
+		}
+		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
+			pc.Phragmites.get(j).setX(x - 120/2);
+			pc.Phragmites.get(j).setY(y - 100/2);	
 		}
 	}
 }

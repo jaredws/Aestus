@@ -1,4 +1,6 @@
 package controller;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  * @author Steven
  */
@@ -10,6 +12,7 @@ import model.BlueCrab;
 
 public class BlueCrabControl {
 	Random rand;
+	
 	public List<BlueCrab> BlueCrabs;
 
 	public void addBlueCrab(int x, int y){
@@ -28,10 +31,18 @@ public class BlueCrabControl {
 	}
 	
 	public void moveBlueCrabs(){
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int j = 0;
 		for(int i = 0; i < BlueCrabs.size(); i++){
-			if(rand.nextInt()%25 == 4){
-				BlueCrabs.get(i).setX(BlueCrabs.get(i).getX() + rand.nextInt()%8 - 3);
-				BlueCrabs.get(i).setY(BlueCrabs.get(i).getY() + rand.nextInt()%8 - 3);
+			if(BlueCrabs.get(i).getX() >= screenSize.getWidth() || BlueCrabs.get(i).getY() >= screenSize.getHeight() || BlueCrabs.get(i).getX()<=0 || BlueCrabs.get(i).getY()<=0){
+				continue;
+			}
+			j = rand.nextInt();
+			if(j%20==4){
+				BlueCrabs.get(i).setX(BlueCrabs.get(i).getX() + j%10*(rand.nextInt()%2));
+			}
+			if(j%20==-4){
+				BlueCrabs.get(i).setY(BlueCrabs.get(i).getY() + j%10*(rand.nextInt()%2));
 			}
 		}
 	}

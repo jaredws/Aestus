@@ -1,4 +1,6 @@
 package controller;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  * @author Steven
  */
@@ -26,10 +28,18 @@ public class TurtleControl {
 	}
 	
 	public void moveTurtles(){
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int j = 0;
 		for(int i = 0; i < turtles.size(); i++){
-			if(rand.nextInt()%25 == 4){
-				turtles.get(i).setX(turtles.get(i).getX() + rand.nextInt()%8 - 3);
-				turtles.get(i).setY(turtles.get(i).getY() + rand.nextInt()%8 - 3);
+			if(turtles.get(i).getX() >= screenSize.getWidth() || turtles.get(i).getY() >= screenSize.getHeight() || turtles.get(i).getX()<=0 || turtles.get(i).getY()<=0){
+				continue;
+			}
+			j = rand.nextInt();
+			if(j%20==4){
+				turtles.get(i).setX(turtles.get(i).getX() + j%10*(rand.nextInt()%2));
+			}
+			if(j%20==-4){
+				turtles.get(i).setY(turtles.get(i).getY() + j%10*(rand.nextInt()%2));
 			}
 		}
 	}

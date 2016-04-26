@@ -11,6 +11,7 @@ import view.TotalView;
 
 public class Game {
 	Random rand = new Random();
+	static Random r = new Random();
 	static StartingView SV;
 	static CrabControl CC;
 	static TurtleControl TC;
@@ -18,7 +19,8 @@ public class Game {
 	static ButtonControl BC;
 	static TotalView TV;
 	static PopulationControl PopC;
-
+	static CordGrassControl CGC;
+	static PhragmitesControl PC;
 
 	
 	public static void main(String[] args){
@@ -44,9 +46,15 @@ public class Game {
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
 		PopC = new PopulationControl();
+		PC = new PhragmitesControl();
+		CGC = new CordGrassControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-		
+		for(int i = 0; i<5; i++){
+			int k = r.nextInt(1350);
+			int l = r.nextInt(300)+500;
+			PC.addPhragmites(k,l);
+		}
 		
 
 
@@ -57,13 +65,15 @@ public class Game {
 			CC.clickAddCrab(S);
 			TC.clickAddTurtle(S);
 			BCC.clickAddBlueCrab(S);
-			S.checkPos(CC,TC,BCC);
+			S.checkPos(CC,TC,BCC,CGC,PC);
 			CC.moveCrabs();
 			TC.moveTurtles();
 			BCC.moveBlueCrabs();
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
+			CGC.deleteCordGrass(BC);
+			PC.deletePhragmites(BC);
 			PopC.update(G);
 			TV.update(G);
 			TV.repaint();
@@ -99,4 +109,13 @@ public class Game {
 	public static BlueCrabControl getBlueCrabControl() {
 		return BCC;
 	}
+	
+	public static PhragmitesControl getPhragmitesControl(){
+		return PC;
+	}
+	
+	public static CordGrassControl getCordGrassControl(){
+		return CGC;
+	}
 }
+
