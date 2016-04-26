@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
  *
  */
 
+
 public class CrabView extends ViewTemplate{
 	
 	private List<BufferedImage> images;
