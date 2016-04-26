@@ -51,9 +51,7 @@ public class Game {
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		for(int i = 0; i<10; i++){
-			int k = r.nextInt(1350);
-			int l = r.nextInt(300)+500;
-			PC.addPhragmites(k,l);
+			CC.addCrab(300,200);
 		}
 		
 
@@ -80,7 +78,7 @@ public class Game {
 			TV.update(G);
 			TV.repaint();
 			try {
-    			Thread.sleep(5);
+    			Thread.sleep(50);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}

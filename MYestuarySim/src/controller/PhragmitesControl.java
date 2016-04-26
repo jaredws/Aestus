@@ -37,7 +37,6 @@ public class PhragmitesControl {
 	}
 	
 	public void clickAddPhragmites(ScreenButton s){
-
 		if(s.clickx > 0 && s.addPhragmites){
 			addPhragmites(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addPhragmites= false;
