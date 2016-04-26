@@ -16,6 +16,8 @@ public class BlueCrabControl {
 		BlueCrabs.add(new BlueCrab(x,y));
 	}
 	
+	//added a comment
+	
 	public List<BlueCrab> getBlueCrabs() {
 		return this.BlueCrabs;
 	}
@@ -51,5 +53,9 @@ public class BlueCrabControl {
 			addBlueCrab(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addBlueCrab = false;
 		}
+	}
+	
+	protected void removeBlueCrab(int i){
+		BlueCrabs.remove(i);
 	}
 }

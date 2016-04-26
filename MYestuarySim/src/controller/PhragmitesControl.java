@@ -53,4 +53,8 @@ public class PhragmitesControl {
 			s.addCrab = false;
 		}
 	}
+	
+	protected void removePhragmites(int i){
+		phrags.remove(i);
+	}
 }

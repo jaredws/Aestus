@@ -52,4 +52,8 @@ public class TurtleControl {
 			s.addTurtle = false;
 		}
 	}
+	
+	protected void removeTurtle(int i){
+		turtles.remove(i);
+	}
 }

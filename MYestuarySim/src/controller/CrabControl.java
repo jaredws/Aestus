@@ -61,4 +61,8 @@ public class CrabControl {
 			s.addCrab = false;
 		}
 	}
+	
+	protected void removeCrab(int i){
+		crabs.remove(i);
+	}
 }
