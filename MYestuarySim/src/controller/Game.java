@@ -11,6 +11,7 @@ import view.TotalView;
 
 public class Game {
 	Random rand = new Random();
+	static Random r = new Random();
 	static StartingView SV;
 	static CrabControl CC;
 	static TurtleControl TC;
@@ -49,7 +50,11 @@ public class Game {
 		CGC = new CordGrassControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-		
+		for(int i = 0; i<5; i++){
+			int k = r.nextInt(1350);
+			int l = r.nextInt(300)+500;
+			PC.addPhragmites(k,l);
+		}
 		
 
 
