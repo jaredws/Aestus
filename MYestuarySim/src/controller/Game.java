@@ -76,11 +76,11 @@ public class Game {
 			BCC.deleteBlueCrabs(BC);
 			CGC.deleteCordGrass(BC);
 			PC.deletePhragmites(BC);
-			PopC.update(G);
+			//PopC.update(G);
 			TV.update(G);
 			TV.repaint();
 			try {
-    			Thread.sleep(50);
+    			Thread.sleep(5);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}

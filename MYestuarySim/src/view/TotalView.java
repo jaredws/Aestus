@@ -22,6 +22,7 @@ import model.Background;
 import model.Button;
 import model.Crab;
 
+
 public class TotalView extends JPanel{
 
 	/**
@@ -70,7 +71,7 @@ public class TotalView extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        g.drawImage(BGV.switchImage(background.check(G.getCrabControl().getCrabs().size())),
+        g.drawImage(BGV.switchImage(background.check((G.getCrabControl().getCrabs().size()) + (G.getBlueCrabControl().getBlueCrabs().size()) + (G.getTurtleControl().getTurtles().size()))),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
