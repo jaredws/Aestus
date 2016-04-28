@@ -12,11 +12,11 @@ import model.BlueCrab;
 
 public class BlueCrabControl {
 	Random rand;
-	
+	Dimension screenSize;
 	public List<BlueCrab> BlueCrabs;
 
 	public void addBlueCrab(int x, int y){
-		BlueCrabs.add(new BlueCrab(x,y));
+		BlueCrabs.add(new BlueCrab(x,y,screenSize));
 	}
 	
 	//added a comment
@@ -28,10 +28,11 @@ public class BlueCrabControl {
 	public BlueCrabControl(){
 		rand  = new Random();
 		BlueCrabs = new ArrayList<BlueCrab>();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	public void moveBlueCrabs(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		for(int i = 0; i < BlueCrabs.size(); i++){
 			BlueCrabs.get(i).moveBlueCrab(rand.nextInt(),screenSize);
 		}
@@ -58,5 +59,9 @@ public class BlueCrabControl {
 	
 	protected void removeBlueCrab(int i){
 		BlueCrabs.remove(i);
+	}
+	
+	public BlueCrab getBlueCrab(int i){
+		return BlueCrabs.get(i);
 	}
 }

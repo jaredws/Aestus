@@ -1,4 +1,6 @@
 package controller;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  * @author Steven
  */
@@ -12,9 +14,10 @@ import model.CordGrass;
 public class CordGrassControl {
 	Random rand;
 	List<CordGrass> CordGrass;
+	Dimension screenSize;
 
 	public void addCordGrass(int x, int y){
-		CordGrass.add(new CordGrass(x,y));
+		CordGrass.add(new CordGrass(x,y,screenSize));
 	}
 	
 	public List<CordGrass> getCordGrass() {
@@ -24,6 +27,7 @@ public class CordGrassControl {
 	public CordGrassControl(){
 		rand  = new Random();
 		CordGrass = new ArrayList<CordGrass>();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	
@@ -49,5 +53,9 @@ public class CordGrassControl {
 	
 	protected void removeCordGrass(int i){
 		CordGrass.remove(i);
+	}
+	
+	public CordGrass getCordGrass(int i){
+		return CordGrass.get(i);
 	}
 }

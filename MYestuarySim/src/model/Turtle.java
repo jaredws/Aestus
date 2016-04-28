@@ -14,17 +14,20 @@ public class Turtle extends Grabbable {
 	private int y;
 	//The sizes may need to be a ratio to the screen size. -JS
 	//temporary public variables
-	public int sizeX;
-	public int sizeY;
+	public static int sizeX;
+	public static int sizeY;
 	public int move;
 	public int XDir;
 	public int YDir;
 	
-	public Turtle(int x, int y){
+	public Turtle(int x, int y, Dimension screenSize){
+		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = 165;
-		this.sizeY = 165;
+		this.sizeX = (int)screenSize.getWidth()/12;
+		this.sizeY = sizeX*392/648;
+		XDir = 0;
+		YDir = 0;
     }
 	
 	public int getX() {

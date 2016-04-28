@@ -12,18 +12,18 @@ public class Crab extends Grabbable {
 	private int y;
 	//The sizes may need to be a ratio to the screen size. -JS
 	//temporary public variables
-	public int sizeX;
-	public int sizeY;
+	public static int sizeX;
+	public static int sizeY;
 	public int move;
 	public int XDir;
 	public int YDir;
 	
-	public Crab(int x, int y){
+	public Crab(int x, int y,Dimension screenSize){
 		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = 165;
-		this.sizeY = 165;
+		this.sizeX = (int)screenSize.getWidth()/12;
+		this.sizeY = sizeX;
 		XDir = 0;
 		YDir = 0;
     }

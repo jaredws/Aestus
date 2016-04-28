@@ -10,6 +10,8 @@ import model.Phragmites;
 import model.Turtle;
 import model.eClasses;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class ControlObjects {
 	//example List<List<MovingObject>> MovingStuff;
 	private List<List> MovingStuff;
 	private List<List> Everything;
+	Dimension screenSize;
 	
 	protected ControlObjects() {
 		ButtonList = new ArrayList<Button>();
@@ -43,6 +46,7 @@ public class ControlObjects {
 		Everything.add(Phragmites);
 		Everything.add(Turtles);
 		Everything.add(CordGrass);
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	
@@ -95,23 +99,23 @@ public class ControlObjects {
 	 * @return successful addition
 	 */
 	public boolean addBlueCrab(int x, int y){
-		return BlueCrabs.add(new BlueCrab(x,y));
+		return BlueCrabs.add(new BlueCrab(x,y,screenSize));
 	}
 	
 	public boolean addCrab(int x, int y){
-		return Crabs.add(new Crab(x,y));
+		return Crabs.add(new Crab(x,y,screenSize));
 	}
 	
 	public boolean addPhragmites(int x, int y){
-		return Phragmites.add(new Phragmites(x,y));
+		return Phragmites.add(new Phragmites(x,y,screenSize));
 	}
 	
 	public boolean addCordGrass(int x, int y){
-		return CordGrass.add(new CordGrass(x,y));
+		return CordGrass.add(new CordGrass(x,y,screenSize));
 	}
 	
 	public boolean addTurtle(int x, int y){
-		return Turtles.add(new Turtle(x,y));
+		return Turtles.add(new Turtle(x,y,screenSize));
 	}
 	
 

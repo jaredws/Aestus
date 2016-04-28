@@ -1,4 +1,7 @@
 package model;
+
+import java.awt.Dimension;
+
 /**
  * 
  * @author Steven
@@ -13,14 +16,14 @@ public class CordGrass extends Grabbable {
 	private int y;
 	//The sizes may need to be a ratio to the screen size. -JS
 	//temporary public variables
-	public int sizeX;
-	public int sizeY;
+	public static int sizeX;
+	public static int sizeY;
 	
-	public CordGrass(int x, int y){
+	public CordGrass(int x, int y, Dimension screenSize){
 		this.x = x;
 		this.y = y;
-		this.sizeX = 165;
-		this.sizeY = 165;
+		this.sizeX = (int)screenSize.getWidth()/12;
+		this.sizeY = sizeX*436/300;
     }
 	
 	public int getX() {
