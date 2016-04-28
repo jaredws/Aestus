@@ -1,11 +1,12 @@
 package view;
 
-import java.awt.image.BufferedImage;
+
+import java.awt.Image;
 import java.util.List;
 
 public abstract class ViewTemplate {
 	
-	private List<BufferedImage> images;
+	private List<Image> images;
 	
 	
 

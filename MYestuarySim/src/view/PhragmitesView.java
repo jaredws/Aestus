@@ -37,7 +37,7 @@ public class PhragmitesView extends ViewTemplate{
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image.getScaledInstance((int)screenSize.getWidth()/15, -1,1));
+	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }

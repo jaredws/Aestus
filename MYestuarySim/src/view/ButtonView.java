@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.image.BufferedImage;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,14 +8,16 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
+import java.awt.Image;
+
 
 public class ButtonView{
 
-	private List<BufferedImage> images;
+	private List<Image> images;
 
 	public ButtonView(){
-		images = new ArrayList<BufferedImage>();
-		BufferedImage image;
+		images = new ArrayList<Image>();
+		Image image;
 		String[] fileNames = {"recycle", "bucket", "menuSmall", "help2","mag"};
 		for(String name: fileNames){
 			try {    
@@ -31,10 +33,10 @@ public class ButtonView{
 	/**
 	 * 
 	 * @param i
-	 * @return BufferedImage
+	 * @return Image
 	 * 0-trash, 1-bucket
 	 */
-	public BufferedImage getImage(int i){
+	public Image getImage(int i){
 		return images.get(i);
 	}
 }

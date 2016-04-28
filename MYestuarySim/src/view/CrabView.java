@@ -1,6 +1,8 @@
 package view;
 
-import java.awt.image.BufferedImage;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,20 +19,21 @@ import javax.imageio.ImageIO;
 
 public class CrabView extends ViewTemplate{
 	
-	private List<BufferedImage> images;
+	private List<Image> images;
 	
 	/**
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
 	//may consider making this private and using a method to only allow one instnace
 	public CrabView(){
-		images = new ArrayList<BufferedImage>();
-		BufferedImage image;
+		images = new ArrayList<Image>();
+		Image image;
 		String[] names = {"Crab Front"};
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image);
+	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1))	;
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
@@ -43,7 +46,7 @@ public class CrabView extends ViewTemplate{
 	 * @return The buffered image of the crab
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */
-	public BufferedImage getImage(int i){
+	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
 		return(images.get(0));
 	}
