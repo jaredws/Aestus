@@ -79,7 +79,7 @@ public class Game {
 			BCC.clickAddBlueCrab(S);
 			PC.clickAddPhragmites(S);
 			CGC.clickAddCordGrass(S);
-			S.checkPos(CC,TC,BCC,CGC,PC);
+			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			CC.moveCrabs();
 			TC.moveTurtles();
 			BCC.moveBlueCrabs();

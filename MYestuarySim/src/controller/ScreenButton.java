@@ -1,13 +1,20 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import model.BlueCrab;
 import model.CordGrass;
@@ -34,16 +41,24 @@ public class ScreenButton extends JButton {
 	boolean grabbing;
 	boolean clicked;
 	Random rand = new Random();
-	Dimension screenSize ;
+	Dimension screenSize;
+	boolean magGlass = false;
+	Image mag;
 	
 	public ScreenButton(){
-		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
-	
-	
+	    
+	    try {    
+			mag = ImageIO.read(new File("./img/mag.png"));
+			} catch (IOException ex) {
+				
+		}
+	    
+	    
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
@@ -73,6 +88,7 @@ public class ScreenButton extends JButton {
         	j = -1;
         	clicked = false;
         }
+        
 	});
 	
 	addMouseMotionListener(new MouseMotionAdapter(){
@@ -85,12 +101,29 @@ public class ScreenButton extends JButton {
         		y = e.getY();
         	}
         }
+        
+		public void mouseMoved(MouseEvent e) {
+	        if(magGlass == true) {
+	        	System.out.println("mag == true");
+
+	        } else {
+	        	System.out.println("mag == false");
+	        }
+    	}
     });
 	}
-	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc){
+	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc, ButtonControl b){
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
 		if(clicked){
+			if(clickx > b.getButtons().get(4).getX() && clickx < b.getButtons().get(4).getSizeX()+b.getButtons().get(4).getX() &&
+					clicky > b.getButtons().get(4).getY() && clicky < b.getButtons().get(4).getSizeY()+b.getButtons().get(4).getY()) {
+				if(magGlass == false) magGlass = true;
+				else magGlass = false;
+			}
+			
+			
+			
 		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
 				if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
