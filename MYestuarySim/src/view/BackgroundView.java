@@ -28,7 +28,7 @@ public class BackgroundView {
 	public BackgroundView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"estuary","ok","bad"};
+		String[] names = {"Good","Okay","bad"};
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                

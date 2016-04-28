@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Random;
 
 public class PopulationControl {
@@ -29,6 +31,7 @@ public class PopulationControl {
 	private int NonInvasiveAnimal;
 	private int InvasiveAnimal;
 	private Game game;
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public void calculate(){
 		NIP = game.getCordGrassControl().getCordGrass().size(); //calculate current noninvasive plant
