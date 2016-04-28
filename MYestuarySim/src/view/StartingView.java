@@ -46,9 +46,9 @@ public class StartingView extends JPanel {
 			BG = ImageIO.read(new File("./img/bg.jpg"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 			title = ImageIO.read(new File("./img/title.png"));
-			play = ImageIO.read(new File("./img/woodButton.png"));
-			settings = ImageIO.read(new File("./img/woodButton.png"));
-			exit = ImageIO.read(new File("./img/woodButton.png"));
+			play = ImageIO.read(new File("./img/playButton.png"));
+			settings = ImageIO.read(new File("./img/settingsButton.png"));
+			exit = ImageIO.read(new File("./img/exitButton.png"));
 			
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
@@ -73,8 +73,8 @@ public class StartingView extends JPanel {
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         g.drawImage(title, (int)screenSize.getWidth()/2-title.getWidth(null)/2, 125, null);
         g.drawImage(play, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 300, null);
-        g.drawImage(settings, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 400, null);
-        g.drawImage(exit, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 500, null);
+        g.drawImage(settings, (int)screenSize.getWidth()/2-settings.getWidth(null)/2, 400, null);
+        g.drawImage(exit, (int)screenSize.getWidth()/2-exit.getWidth(null)/2, 500, null);
         
 	}
 
