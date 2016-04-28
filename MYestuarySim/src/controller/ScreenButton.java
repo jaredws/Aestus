@@ -29,9 +29,10 @@ public class ScreenButton extends JButton {
 	Grabbable grabbed;
 	boolean grabbing;
 	Random rand = new Random();
-
+	Dimension screenSize ;
+	
 	public ScreenButton(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);

@@ -1,6 +1,8 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,13 +21,16 @@ public class ButtonView{
 		images = new ArrayList<Image>();
 		Image image;
 		String[] fileNames = {"recycle", "bucket", "menuSmall", "help2","mag"};
+		
+		
 		for(String name: fileNames){
 			try {    
 				image = ImageIO.read(new File("./img/"+name+".png"));
 				images.add(image);
-			} catch (IOException ex) {
+				} catch (IOException ex) {
 				// handle exception...
 			}
+
 		}
 		
 	}
