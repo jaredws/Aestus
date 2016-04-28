@@ -17,7 +17,7 @@ public class ButtonView{
 	public ButtonView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] fileNames = {"trashB", "bucket", "menuSmall", "help2",};
+		String[] fileNames = {"trashB", "bucket", "menuSmall", "help2","mag"};
 		for(String name: fileNames){
 			try {    
 				image = ImageIO.read(new File("./img/"+name+".png"));
