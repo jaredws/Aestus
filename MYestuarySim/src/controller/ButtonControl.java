@@ -12,11 +12,11 @@ public class ButtonControl {
 	private List<Button> buttons;
 	
 	public ButtonControl(int h,int w){
-		Button trash = new Button(0, 500, 0);
+		Button trash = new Button(20, 0, 0);
 		Button bucket = new Button(0, 625, 1);
 		Button menu = new Button(w-160,0,2);
 		Button help = new Button(w-250,0,3);
-		Button mag = new Button(20,0,4);
+		Button mag = new Button(200,0,4);
 		
 		menu.addMouseListener(new MouseListener(){
 
