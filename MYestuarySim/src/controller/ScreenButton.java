@@ -42,7 +42,7 @@ public class ScreenButton extends JButton {
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
+        	if((e.getX() > 0 && e.getX() < (100)) && (e.getY() > (screenSize.getHeight()-150) && e.getY() < screenSize.getHeight())){
         		int k = rand.nextInt(5);
         		switch(k){
         		case (0):addCrab = true;break;
@@ -141,24 +141,24 @@ public class ScreenButton extends JButton {
 			}
 		}
 		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
-			bc.BlueCrabs.get(j).setX(x - 100/2);
-			bc.BlueCrabs.get(j).setY(y - 75/2);	
+			bc.BlueCrabs.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			bc.BlueCrabs.get(j).setY(y - (int)(((screenSize.getWidth()/12)*3)/4)/2);	
 		}
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-			c.crabs.get(j).setX(x - 165/2);
-			c.crabs.get(j).setY(y - 165/2);	
+			c.crabs.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			c.crabs.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
 		}
 		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
-			t.turtles.get(j).setX(x - 150/2);
-			t.turtles.get(j).setY(y - 100/2);	
+			t.turtles.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			t.turtles.get(j).setY(y - (int)(((screenSize.getWidth()/12)*2)/3)/2);	
 		}
 		if((j > -1 && j < cgc.CordGrass.size()) && cgc.CordGrass.get(j).equals(grabbed)){
-			cgc.CordGrass.get(j).setX(x - 165/2);
-			cgc.CordGrass.get(j).setY(y - 165/2);	
+			cgc.CordGrass.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			cgc.CordGrass.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
 		}
 		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
-			pc.Phragmites.get(j).setX(x - 165/2);
-			pc.Phragmites.get(j).setY(y - 165/2);	
+			pc.Phragmites.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			pc.Phragmites.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
 		}
 	}
 }
