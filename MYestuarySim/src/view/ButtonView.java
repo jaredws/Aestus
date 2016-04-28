@@ -9,7 +9,6 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 
-
 public class ButtonView{
 
 	private List<BufferedImage> images;
