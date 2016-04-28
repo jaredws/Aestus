@@ -31,6 +31,10 @@ public class StartingView extends JPanel {
  	public boolean Showing;
  	public JFrame frame;
  	Dimension screenSize;
+ 	public Image title;
+ 	public Image play;
+ 	public Image settings;
+ 	public Image exit;
 	
 	public StartingView(ScreenButtonStart s){
 		Showing = true;
@@ -39,10 +43,15 @@ public class StartingView extends JPanel {
 		S=s;
 		
 		try {                
-			BG = ImageIO.read(new File("./img/startscreen1.png"));
+			BG = ImageIO.read(new File("./img/bg.jpg"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
+			title = ImageIO.read(new File("./img/title.png"));
+			play = ImageIO.read(new File("./img/woodButton.png"));
+			settings = ImageIO.read(new File("./img/woodButton.png"));
+			exit = ImageIO.read(new File("./img/woodButton.png"));
+			
 	       } catch (IOException ex) {
-	    	   System.out.println("Crab Image read error");
+	    	   System.out.println("Image read error");
 	       }
 		frame = new JFrame();
 		frame.setLayout(null);
@@ -62,6 +71,10 @@ public class StartingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
+        g.drawImage(title, (int)screenSize.getWidth()/2-title.getWidth(null)/2, 125, null);
+        g.drawImage(play, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 300, null);
+        g.drawImage(settings, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 400, null);
+        g.drawImage(exit, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 500, null);
         
 	}
 
