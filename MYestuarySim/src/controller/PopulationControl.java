@@ -41,8 +41,10 @@ public class PopulationControl {
 		InvasivePlant = IP;
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
-		TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) ((-1/36)*TotalPlant*TotalPlant + (35/18)*TotalPlant - 325/36);
+		//make plants a set max always approaching it
+		TotalPlant = 50; // - 2*TrashCount;
+		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
+		TotalAnimal = (int) ((-1/36)*TP*TP + (35/18)*TP - 325/36);
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 		spawn();
@@ -65,12 +67,12 @@ public class PopulationControl {
 				}
 		}
 		if(TotalPlant<TP){
-			if(rand.nextInt(2)%2==0){
-				game.getCordGrassControl().removeCordGrass(0);
-			}
-			else{
-				game.getPhragmitesControl().removePhragmites(0);
-			}
+				if(rand.nextInt(2)%2==0){
+					try{game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
+				}
+				else{
+					try{game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
+				}
 		}
 		if(TotalAnimal>TA){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
@@ -87,14 +89,14 @@ public class PopulationControl {
 		if(TotalAnimal<TA){
 			if(rand.nextInt(2)%2==0){
 				if(rand.nextInt(8)%2==0){//3/8ths probability of removing a turtle
-					game.getTurtleControl().removeTurtle(0);
+					try{game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
 				}
 				else{//remove a non-invasive
-					game.getBlueCrabControl().removeBlueCrab(0);
+					try{game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
 				}
 			}
 			else{//remove an invasive
-				game.getCrabControl().removeCrab(0);
+				try{game.getCrabControl().removeCrab(0);}catch(IndexOutOfBoundsException ex){}
 			}
 		}
 	}
