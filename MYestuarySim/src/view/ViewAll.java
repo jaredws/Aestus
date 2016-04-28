@@ -38,11 +38,11 @@ public class ViewAll extends ViewTemplate{
 	}
 	/**
 	 * 
-	 * @param enum the enumerated type of the object
+	 * @param index from the eClasses enum the enumerated type of the object
 	 * @return The buffered image of the object
 	 */
-	public BufferedImage getImage(ePictures num){
-		return(images.get(num.getIndex()));
+	public BufferedImage getImage(int i){
+		return(images.get(i));
 	}
 
 }

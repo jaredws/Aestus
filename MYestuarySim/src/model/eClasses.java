@@ -1,6 +1,6 @@
-package view;
+package model;
 
-public enum ePictures {
+public enum eClasses {
 	
 	BLUECRAB (0),
 	INVASIVECRAB (1),
@@ -11,7 +11,7 @@ public enum ePictures {
 	
 	private int index;
 	
-	ePictures(int i){
+	eClasses(int i){
 		this.index=i;
 	}
 	
