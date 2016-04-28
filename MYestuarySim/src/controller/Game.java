@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import model.Background;
 import view.StartingView;
@@ -50,12 +52,23 @@ public class Game {
 		CGC = new CordGrassControl();
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-		for(int i = 0; i<10; i++){
-			CC.addCrab(300,200);
+		for(int i = 0; i<3; i++){
+			PC.addPhragmites(300+100*i,200);
+			CGC.addCordGrass(200,300-100*i);
 		}
+		/**
+		 * Create a timerTask for updating the population.
+		 * Since the population will naturally correct itself, we want to delay that to allow the player
+		 * to mess with the estuary and see the effects.
+		 */
+		Timer timer = new Timer();
+		class updatePopulation extends TimerTask {
+			public void run() {
+				PopC.update(G);
+			}
+		}
+		timer.scheduleAtFixedRate(new updatePopulation(), 0,1000);//every 1 second
 		
-
-
 		TV.repaint();
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function

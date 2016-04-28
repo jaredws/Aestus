@@ -1,7 +1,7 @@
 package model;
 
 
-public class Button {
+public class Button extends java.awt.Button {
 	int x;
 	int y;
 	int type;

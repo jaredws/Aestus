@@ -9,7 +9,6 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 
-
 public class ButtonView{
 
 	private List<BufferedImage> images;
@@ -17,7 +16,7 @@ public class ButtonView{
 	public ButtonView(){
 		images = new ArrayList<BufferedImage>();
 		BufferedImage image;
-		String[] fileNames = {"trashB", "bucket", "bucket"};
+		String[] fileNames = {"recycle", "bucket", "menuSmall", "help2","mag"};
 		for(String name: fileNames){
 			try {    
 				image = ImageIO.read(new File("./img/"+name+".png"));
@@ -26,6 +25,7 @@ public class ButtonView{
 				// handle exception...
 			}
 		}
+		
 	}
 	
 	/**
