@@ -79,7 +79,8 @@ public class StartingView extends JPanel {
 	}
 
 	public void checkStart() {
-		if(S.clickx > 0 && S.clickx < 1600){
+		if((S.clickx > (int)screenSize.getWidth()/2-play.getWidth(null)/2) && (S.clickx < ((int)screenSize.getWidth()/2-play.getWidth(null)/2 + 600))){
+			if(S.clicky > 300 && S.clicky < 400)
 			Showing = false;
 		}
 		
