@@ -10,13 +10,14 @@ public class Background {
 		this.sizeY = y;
 	}
 	
-	public int check(int crabs){
-		if(crabs < 9){
+	public int check(int health){
+		if(health < 0){
 			return 2;
-		}else if(crabs < 15){
+		}else if(health < 10){
 			return 1;
 		}else
 			return 0;
+		
 	}
 	
 	public int getX() {

@@ -50,6 +50,7 @@ public class Game {
 		PopC = new PopulationControl();
 		PC = new PhragmitesControl();
 		CGC = new CordGrassControl();
+		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		for(int i = 0; i<3; i++){
@@ -129,6 +130,16 @@ public class Game {
 	
 	public static CordGrassControl getCordGrassControl(){
 		return CGC;
+	}
+	
+	public int calculateHealth(){
+		int c,bc,t,p,cg;
+		c = CC.getCrabs().size();
+		bc = BCC.getBlueCrabs().size();
+		t = TC.getTurtles().size();
+		p = PC.getPhragmites().size();
+		cg = CGC.getCordGrass().size();
+		return (bc+t+cg-p-c);
 	}
 }
 
