@@ -61,26 +61,27 @@ public class Crab extends Grabbable {
 	}
 	
 	public void moveCrab(int J,Dimension screenSize){
-		if((move%5)==0){
+		if((move%8)==0){
 			
-			XDir = J%5 - J%7;
-			YDir = J%5 + J%7;
+			XDir = J%6 - J%2;
+			YDir = J%2 + J%1;
 		}
 		if(x >= screenSize.getWidth() - 100){
-			XDir = -10;
+			XDir = -4;
 		}
 		if(x - 100 <= 0 ){
-			XDir = 10;
+			XDir = 4;
 		}
 		if(y >= screenSize.getHeight() - 100){
-			YDir = -10;
+			YDir = -1;
 		}
 		if(y - 100 <= 0 ){
-			YDir = 10;
+			YDir = 1;
 		}
 		
 		move++;
 		setX(getX() + XDir);
 		setY(getY() + YDir);
+		
 	}
 }

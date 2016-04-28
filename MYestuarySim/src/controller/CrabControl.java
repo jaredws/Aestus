@@ -28,22 +28,8 @@ public class CrabControl {
 	
 	public void moveCrabs(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//		int j = 0;
 		for(int i = 0; i < crabs.size(); i++){
-//			if(crabs.get(i).getX() >= screenSize.getWidth() || crabs.get(i).getY() >= screenSize.getHeight() || crabs.get(i).getX()<=0 || crabs.get(i).getY()<=0){
-//				continue;
-//			}
 			crabs.get(i).moveCrab(rand.nextInt(),screenSize);
-			
-			
-			
-//			j = rand.nextInt();
-//			if(j%20==4){
-//				crabs.get(i).setX(crabs.get(i).getX() + j%10*(rand.nextInt()%2));
-//			}
-//			if(j%20==-4){
-//				crabs.get(i).setY(crabs.get(i).getY() + j%10*(rand.nextInt()%2));
-//			}
 		}
 	}
 	

@@ -1,4 +1,7 @@
 package model;
+
+import java.awt.Dimension;
+
 /**
  * 
  * @author Steven
@@ -15,6 +18,9 @@ public class BlueCrab extends Grabbable {
 	//temporary public variables
 	public int sizeX;
 	public int sizeY;
+	public int move;
+	public int XDir;
+	public int YDir;
 	
 	public BlueCrab(int x, int y){
 		this.x = x;
@@ -53,5 +59,30 @@ public class BlueCrab extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	
+	public void moveBlueCrab(int J,Dimension screenSize){
+		if((move%7)==0){
+			
+			XDir = J%5 - J%2;
+			YDir = J%4 + J%2;
+		}
+		if(x >= screenSize.getWidth() - 100){
+			XDir = -3;
+		}
+		if(x - 100 <= 0 ){
+			XDir = 3;
+		}
+		if(y >= screenSize.getHeight() - 100){
+			YDir = -3;
+		}
+		if(y - 100 <= 0 ){
+			YDir = 3;
+		}
+		
+		move++;
+		setX(getX() + XDir);
+		setY(getY() + YDir);
+		
 	}
 }

@@ -1,4 +1,7 @@
 package model;
+
+import java.awt.Dimension;
+
 /**
  * @author Steven
  */
@@ -13,6 +16,9 @@ public class Turtle extends Grabbable {
 	//temporary public variables
 	public int sizeX;
 	public int sizeY;
+	public int move;
+	public int XDir;
+	public int YDir;
 	
 	public Turtle(int x, int y){
 		this.x = x;
@@ -51,5 +57,29 @@ public class Turtle extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	public void moveTurtle(int J,Dimension screenSize){
+		if((move%20)==0){
+			
+			XDir = J%2 - J%1;
+			YDir = J%2 + J%1;
+		}
+		if(x >= screenSize.getWidth() - 100){
+			XDir = -2;
+		}
+		if(x - 100 <= 0 ){
+			XDir = 2;
+		}
+		if(y >= screenSize.getHeight() - 100){
+			YDir = -2;
+		}
+		if(y - 100 <= 0 ){
+			YDir = 2;
+		}
+		
+		move++;
+		setX(getX() + XDir);
+		setY(getY() + YDir);
+		
 	}
 }

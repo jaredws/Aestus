@@ -148,16 +148,16 @@ public class ScreenButton extends JButton {
 			c.crabs.get(j).setY(y - 165/2);	
 		}
 		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
-			t.turtles.get(j).setX(x - 120/2);
+			t.turtles.get(j).setX(x - 150/2);
 			t.turtles.get(j).setY(y - 100/2);	
 		}
 		if((j > -1 && j < cgc.CordGrass.size()) && cgc.CordGrass.get(j).equals(grabbed)){
-			cgc.CordGrass.get(j).setX(x - 120/2);
-			cgc.CordGrass.get(j).setY(y - 100/2);	
+			cgc.CordGrass.get(j).setX(x - 165/2);
+			cgc.CordGrass.get(j).setY(y - 165/2);	
 		}
 		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
-			pc.Phragmites.get(j).setX(x - 120/2);
-			pc.Phragmites.get(j).setY(y - 100/2);	
+			pc.Phragmites.get(j).setX(x - 165/2);
+			pc.Phragmites.get(j).setY(y - 165/2);	
 		}
 	}
 }
