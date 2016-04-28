@@ -119,6 +119,11 @@ public class ScreenButton extends JButton {
 				else magGlass = false;
 			}
 			
+			if(clickx > b.getButtons().get(3).getX() && clickx < b.getButtons().get(3).getSizeX()+b.getButtons().get(3).getX() &&
+					clicky > b.getButtons().get(3).getY() && clicky < b.getButtons().get(3).getSizeY()+b.getButtons().get(3).getY()) {
+				
+			}
+			
 			
 			
 		if(!grabbing){
