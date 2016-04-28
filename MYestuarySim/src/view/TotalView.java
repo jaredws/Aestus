@@ -71,7 +71,7 @@ public class TotalView extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        g.drawImage(BGV.switchImage(background.check((G.getCrabControl().getCrabs().size()) + (G.getBlueCrabControl().getBlueCrabs().size()) + (G.getTurtleControl().getTurtles().size()))),
+        g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
