@@ -15,7 +15,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
 import model.BlueCrab;
 import model.CordGrass;
 import model.Crab;
@@ -43,21 +42,19 @@ public class ScreenButton extends JButton {
 	Random rand = new Random();
 	Dimension screenSize;
 	boolean magGlass = false;
-	Image mag;
+	ImageIcon icon;
 	
 	public ScreenButton(){
-	    screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		icon = new ImageIcon("../img/mag.png");
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
-	    
-	    try {    
-			mag = ImageIO.read(new File("./img/mag.png"));
-			} catch (IOException ex) {
-				
-		}
-	    
+	    JLabel magLabel = new JLabel(); 
+	    magLabel.setLocation(0, 0);
+	    magLabel.setIcon(icon);
+	    add(magLabel);
 	    
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
@@ -105,7 +102,7 @@ public class ScreenButton extends JButton {
 		public void mouseMoved(MouseEvent e) {
 	        if(magGlass == true) {
 	        	System.out.println("mag == true");
-
+	        	magLabel.setLocation(e.getX(), e.getY());
 	        } else {
 	        	System.out.println("mag == false");
 	        }
@@ -209,6 +206,17 @@ public class ScreenButton extends JButton {
 		}
 		
 	}
+	
+	/** Returns an ImageIcon, or null if the path was invalid. */
+    protected static ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = ScreenButton.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
 }
 	
 
