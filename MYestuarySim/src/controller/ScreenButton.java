@@ -79,6 +79,31 @@ public class ScreenButton extends JButton {
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
 		if(!grabbing){
+			for(int i = 0; i < c.crabs.size(); i++){
+				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
+					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).getY()) && (c.crabs.get(i).getY() < (y+c.crabs.get(i).sizeY/2))){
+						grabbed = c.crabs.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
+		
+		if(!grabbing){
+			for(int i = 0; i < pc.Phragmites.size(); i++){
+				if(((x-pc.Phragmites.get(i).sizeX/2) < pc.Phragmites.get(i).getX()) && (pc.Phragmites.get(i).getX() < (x+pc.Phragmites.get(i).sizeX/2))){
+					if(((y-pc.Phragmites.get(i).sizeY/2) < pc.Phragmites.get(i).getY()) && (pc.Phragmites.get(i).getY() < (y+pc.Phragmites.get(i).sizeY/2))){
+						grabbed = pc.Phragmites.get(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
+		if(!grabbing){
 			for(int i = 0; i < bc.BlueCrabs.size(); i++){
 				if(((x-bc.BlueCrabs.get(i).sizeX/2) < bc.BlueCrabs.get(i).getX()) && (bc.BlueCrabs.get(i).getX() < (x+bc.BlueCrabs.get(i).sizeX/2))){
 					if(((y-bc.BlueCrabs.get(i).sizeY/2) < bc.BlueCrabs.get(i).getY()) && (bc.BlueCrabs.get(i).getY() < (y+bc.BlueCrabs.get(i).sizeY/2))){
@@ -92,31 +117,6 @@ public class ScreenButton extends JButton {
 		}
 		
 		if(!grabbing){
-			for(int i = 0; i < cgc.CordGrass.size(); i++){
-				if(((x-cgc.CordGrass.get(i).sizeX/2) < cgc.CordGrass.get(i).getX()) && (cgc.CordGrass.get(i).getX() < (x+cgc.CordGrass.get(i).sizeX/2))){
-					if(((y-cgc.CordGrass.get(i).sizeY/2) < cgc.CordGrass.get(i).getY()) && (cgc.CordGrass.get(i).getY() < (y+cgc.CordGrass.get(i).sizeY/2))){
-						grabbed = cgc.CordGrass.get(i);
-						grabbing = true;
-						j = i;
-						break;
-						}
-					}
-			}
-		}
-		
-		if(!grabbing){
-			for(int i = 0; i < c.crabs.size(); i++){
-				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
-					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).getY()) && (c.crabs.get(i).getY() < (y+c.crabs.get(i).sizeY/2))){
-						grabbed = c.crabs.get(i);
-						grabbing = true;
-						j = i;
-						break;
-						}
-					}
-			}
-		}
-		if(!grabbing){
 			for(int i = 0; i < t.turtles.size(); i++){
 				if(((x-t.turtles.get(i).sizeX/2) < t.turtles.get(i).getX()) && (t.turtles.get(i).getX() < (x+t.turtles.get(i).sizeX/2))){
 					if(((y-t.turtles.get(i).sizeY/2) < t.turtles.get(i).getY()) && (t.turtles.get(i).getY() < (y+t.turtles.get(i).sizeY/2))){
@@ -129,10 +129,10 @@ public class ScreenButton extends JButton {
 			}
 		}
 		if(!grabbing){
-			for(int i = 0; i < pc.Phragmites.size(); i++){
-				if(((x-pc.Phragmites.get(i).sizeX/2) < pc.Phragmites.get(i).getX()) && (pc.Phragmites.get(i).getX() < (x+pc.Phragmites.get(i).sizeX/2))){
-					if(((y-pc.Phragmites.get(i).sizeY/2) < pc.Phragmites.get(i).getY()) && (pc.Phragmites.get(i).getY() < (y+pc.Phragmites.get(i).sizeY/2))){
-						grabbed = pc.Phragmites.get(i);
+			for(int i = 0; i < cgc.CordGrass.size(); i++){
+				if(((x-cgc.CordGrass.get(i).sizeX/2) < cgc.CordGrass.get(i).getX()) && (cgc.CordGrass.get(i).getX() < (x+cgc.CordGrass.get(i).sizeX/2))){
+					if(((y-cgc.CordGrass.get(i).sizeY/2) < cgc.CordGrass.get(i).getY()) && (cgc.CordGrass.get(i).getY() < (y+cgc.CordGrass.get(i).sizeY/2))){
+						grabbed = cgc.CordGrass.get(i);
 						grabbing = true;
 						j = i;
 						break;
@@ -140,13 +140,18 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
-		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
-			bc.BlueCrabs.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
-			bc.BlueCrabs.get(j).setY(y - (int)(((screenSize.getWidth()/12)*3)/4)/2);	
-		}
+		
 		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
 			c.crabs.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
 			c.crabs.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
+		}
+		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
+			pc.Phragmites.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			pc.Phragmites.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
+		}
+		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
+			bc.BlueCrabs.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
+			bc.BlueCrabs.get(j).setY(y - (int)(((screenSize.getWidth()/12)*3)/4)/2);	
 		}
 		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
 			t.turtles.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
@@ -156,10 +161,7 @@ public class ScreenButton extends JButton {
 			cgc.CordGrass.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
 			cgc.CordGrass.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
 		}
-		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
-			pc.Phragmites.get(j).setX(x - (int)(screenSize.getWidth()/12)/2);
-			pc.Phragmites.get(j).setY(y - (int)(screenSize.getWidth()/12)/2);	
-		}
+		
 	}
 }
 	

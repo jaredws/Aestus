@@ -31,7 +31,16 @@ public class PopulationControl {
 	private int NonInvasiveAnimal;
 	private int InvasiveAnimal;
 	private Game game;
+	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	
+	public int makeX(){
+		return rand.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12;
+	}
+	public int makeY(){
+		return rand.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12;
+	}
 	
 	public void calculate(){
 		NIP = game.getCordGrassControl().getCordGrass().size(); //calculate current noninvasive plant
@@ -60,13 +69,13 @@ public class PopulationControl {
 	}
 	
 	private void spawn(){//call calculate and spawn at appropriate intervals
-		Random rand = new Random();
+		rand = new Random();
 		if(TotalPlant>TP){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
-				game.getCordGrassControl().addCordGrass(rand.nextInt(1350),rand.nextInt(300)+500);
+				game.getCordGrassControl().addCordGrass(makeX(),makeY());
 			}
 			else{
-				game.getPhragmitesControl().addPhragmites(rand.nextInt(1350),rand.nextInt(300)+500);
+				game.getPhragmitesControl().addPhragmites(makeX(),makeY());
 				}
 		}
 		if(TotalPlant<TP){
@@ -80,14 +89,14 @@ public class PopulationControl {
 		if(TotalAnimal>TA){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
 				if(rand.nextInt(8)%2==0){//3/8ths probability of adding a turtle
-					game.getTurtleControl().addTurtle(rand.nextInt(1350),rand.nextInt(300)+500);
+					game.getTurtleControl().addTurtle(makeX(),makeY());
 				}
 				else{//add a non-invasive
-					game.getBlueCrabControl().addBlueCrab(rand.nextInt(1350),rand.nextInt(300)+500);
+					game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
 				}
 			}
 			else{
-				game.getCrabControl().addCrab(rand.nextInt(1350),rand.nextInt(300)+500);				}
+				game.getCrabControl().addCrab(makeX(),makeY());				}
 		}
 		if(TotalAnimal<TA){
 			if(rand.nextInt(2)%2==0){
