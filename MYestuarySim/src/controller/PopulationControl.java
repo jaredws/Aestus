@@ -60,6 +60,10 @@ public class PopulationControl {
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 		spawn();
+		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
+		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
+		System.out.println("Turtles: "+game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+game.getBlueCrabControl().getBlueCrabs().size());
+		
 		
 	}
 	

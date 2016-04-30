@@ -101,10 +101,10 @@ public class ScreenButton extends JButton {
         
 		public void mouseMoved(MouseEvent e) {
 	        if(magGlass == true) {
-	        	System.out.println("mag == true");
+	        	//System.out.println("mag == true");
 	        	magLabel.setLocation(e.getX(), e.getY());
 	        } else {
-	        	System.out.println("mag == false");
+	        	//System.out.println("mag == false");
 	        }
     	}
     });
