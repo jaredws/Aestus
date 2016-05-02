@@ -7,7 +7,8 @@ public enum eClasses {
 	PHRAGMITES (2),
 	CORDGRASS (3),
 	TURTLE (4),
-	POLLUTION (5);
+	POLLUTION1 (5),
+	POLLUTION2 (6);
 	
 	private int index;
 	

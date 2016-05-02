@@ -48,15 +48,7 @@ public class ViewAll extends ViewTemplate{
 	 * @return The buffered image of the object
 	 */
 	public Image getImage(eClasses obj){
-		switch (obj){
-		case POLLUTION :{
-			//Randomly choose a pollution image
-			Random r = new Random();
-			return(images.get(obj.getIndex()+r.nextInt(2)));
-		}
-		default: return(images.get(obj.getIndex()));
-		}
-		
+		return(images.get(obj.getIndex()));
 	}
 
 }
