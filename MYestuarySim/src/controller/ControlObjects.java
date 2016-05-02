@@ -1,6 +1,7 @@
 package controller;
 
 import model.Button;
+import model.Pollution;
 import model.BlueCrab;
 import model.Crab;
 import model.Grabbable;
@@ -23,6 +24,7 @@ public class ControlObjects {
 	private List<Turtle> Turtles;
 	private List<CordGrass> CordGrass;
 	private List<Phragmites> Phragmites;
+	private List<Pollution> Pollution;
 	//I want these to be lists of the higher classes
 	//example List<List<MovingObject>> MovingStuff;
 	private List<List> MovingStuff;
@@ -37,6 +39,7 @@ public class ControlObjects {
 		CordGrass = new ArrayList<CordGrass>();
 		Phragmites = new ArrayList<Phragmites>();
 		MovingStuff = new ArrayList<List>();
+		Pollution = new ArrayList<Pollution>();
 		MovingStuff.add(BlueCrabs);
 		MovingStuff.add(Crabs);
 		MovingStuff.add(Turtles);
@@ -46,6 +49,7 @@ public class ControlObjects {
 		Everything.add(Phragmites);
 		Everything.add(Turtles);
 		Everything.add(CordGrass);
+		Everything.add(Pollution);
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
