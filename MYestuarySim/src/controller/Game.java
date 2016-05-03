@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import model.Background;
 import view.StartingView;
@@ -42,22 +44,32 @@ public class Game {
 		ScreenButton S = new ScreenButton();
 		TV = new TotalView(S);
 		CC = new CrabControl();
-		BC = new ButtonControl();
+		BC = new ButtonControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
 		PopC = new PopulationControl();
 		PC = new PhragmitesControl();
 		CGC = new CordGrassControl();
+		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
-		for(int i = 0; i<10; i++){
-			int k = r.nextInt(1350);
-			int l = r.nextInt(300)+500;
-			PC.addPhragmites(k,l);
+		for(int i = 0; i<3; i++){
+			PC.addPhragmites(300+100*i,200);
+			CGC.addCordGrass(200,300-100*i);
 		}
+		/**
+		 * Create a timerTask for updating the population.
+		 * Since the population will naturally correct itself, we want to delay that to allow the player
+		 * to mess with the estuary and see the effects.
+		 */
+		Timer timer = new Timer();
+		class updatePopulation extends TimerTask {
+			public void run() {
+				PopC.update(G);
+			}
+		}
+		timer.scheduleAtFixedRate(new updatePopulation(), 0,1000);//every 1 second
 		
-
-
 		TV.repaint();
 		while(true){
 			//We can later compile all the CC. and s. stuff into a CC.tick() function
@@ -67,7 +79,8 @@ public class Game {
 			BCC.clickAddBlueCrab(S);
 			PC.clickAddPhragmites(S);
 			CGC.clickAddCordGrass(S);
-			S.checkPos(CC,TC,BCC,CGC,PC);
+			S.checkPos(CC,TC,BCC,CGC,PC,BC);
+			
 			CC.moveCrabs();
 			TC.moveTurtles();
 			BCC.moveBlueCrabs();
@@ -76,7 +89,7 @@ public class Game {
 			BCC.deleteBlueCrabs(BC);
 			CGC.deleteCordGrass(BC);
 			PC.deletePhragmites(BC);
-			PopC.update(G);
+			//PopC.update(G);
 			TV.update(G);
 			TV.repaint();
 			try {
@@ -118,6 +131,16 @@ public class Game {
 	
 	public static CordGrassControl getCordGrassControl(){
 		return CGC;
+	}
+	
+	public int calculateHealth(){
+		int c,bc,t,p,cg;
+		c = CC.getCrabs().size();
+		bc = BCC.getBlueCrabs().size();
+		t = TC.getTurtles().size();
+		p = PC.getPhragmites().size();
+		cg = CGC.getCordGrass().size();
+		return (bc+t+cg-p-c);
 	}
 }
 

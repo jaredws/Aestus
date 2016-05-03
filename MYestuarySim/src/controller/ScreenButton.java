@@ -1,16 +1,26 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
+import javax.swing.JLabel;
+import model.BlueCrab;
+import model.CordGrass;
 import model.Crab;
 import model.Grabbable;
+import model.Phragmites;
+import model.Turtle;
 import controller.Game;
 
 public class ScreenButton extends JButton {
@@ -28,20 +38,28 @@ public class ScreenButton extends JButton {
 	public boolean addPhragmites;
 	Grabbable grabbed;
 	boolean grabbing;
+	boolean clicked;
 	Random rand = new Random();
-
+	Dimension screenSize;
+	boolean magGlass = false;
+	ImageIcon icon;
+	
 	public ScreenButton(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		icon = new ImageIcon("../img/mag.png");
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
-	
-	
+	    JLabel magLabel = new JLabel(); 
+	    magLabel.setLocation(0, 0);
+	    magLabel.setIcon(icon);
+	    add(magLabel);
+	    
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	if((e.getX() > 0 && e.getX() < 100) && (e.getY() > 625 && e.getX() < 750)){
+        	if((e.getX() > 0 && e.getX() < (100)) && (e.getY() > (screenSize.getHeight()-150) && e.getY() < screenSize.getHeight())){
         		int k = rand.nextInt(5);
         		switch(k){
         		case (0):addCrab = true;break;
@@ -54,6 +72,9 @@ public class ScreenButton extends JButton {
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
+            x = e.getX();
+            y = e.getY();
+            clicked = true;
         }
         
         public void mouseReleased(MouseEvent e){
@@ -62,52 +83,54 @@ public class ScreenButton extends JButton {
         	x = -1;
         	y = -1;
         	j = -1;
+        	clicked = false;
         }
+        
 	});
 	
 	addMouseMotionListener(new MouseMotionAdapter(){
     	//If mouse is being dragged whilst holding the button
         public void mouseDragged(MouseEvent e){
         	//must be replaced by image height and width /2
-        	x = e.getX();
-        	y = e.getY();
+        	clicked = false;
+        	if(grabbing){
+        		x = e.getX();
+        		y = e.getY();
+        	}
         }
+        
+		public void mouseMoved(MouseEvent e) {
+	        if(magGlass == true) {
+	        	//System.out.println("mag == true");
+	        	magLabel.setLocation(e.getX(), e.getY());
+	        } else {
+	        	//System.out.println("mag == false");
+	        }
+    	}
     });
 	}
-	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc){
+	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc, ButtonControl b){
 		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
 		//do we want this? or should we wait for release
-		if(!grabbing){
-			for(int i = 0; i < bc.BlueCrabs.size(); i++){
-				if(((x-bc.BlueCrabs.get(i).sizeX/2) < bc.BlueCrabs.get(i).getX()) && (bc.BlueCrabs.get(i).getX() < (x+bc.BlueCrabs.get(i).sizeX/2))){
-					if(((y-bc.BlueCrabs.get(i).sizeY/2) < bc.BlueCrabs.get(i).getY()) && (bc.BlueCrabs.get(i).getY() < (y+bc.BlueCrabs.get(i).sizeY/2))){
-						grabbed = bc.BlueCrabs.get(i);
-						grabbing = true;
-						j = i;
-						break;
-						}
-					}
+		if(clicked){
+			if(clickx > b.getButtons().get(4).getX() && clickx < b.getButtons().get(4).getSizeX()+b.getButtons().get(4).getX() &&
+					clicky > b.getButtons().get(4).getY() && clicky < b.getButtons().get(4).getSizeY()+b.getButtons().get(4).getY()) {
+				if(magGlass == false) magGlass = true;
+				else magGlass = false;
 			}
-		}
-		
-		if(!grabbing){
-			for(int i = 0; i < cgc.CordGrass.size(); i++){
-				if(((x-cgc.CordGrass.get(i).sizeX/2) < cgc.CordGrass.get(i).getX()) && (cgc.CordGrass.get(i).getX() < (x+cgc.CordGrass.get(i).sizeX/2))){
-					if(((y-cgc.CordGrass.get(i).sizeY/2) < cgc.CordGrass.get(i).getY()) && (cgc.CordGrass.get(i).getY() < (y+cgc.CordGrass.get(i).sizeY/2))){
-						grabbed = cgc.CordGrass.get(i);
-						grabbing = true;
-						j = i;
-						break;
-						}
-					}
+			
+			if(clickx > b.getButtons().get(3).getX() && clickx < b.getButtons().get(3).getSizeX()+b.getButtons().get(3).getX() &&
+					clicky > b.getButtons().get(3).getY() && clicky < b.getButtons().get(3).getSizeY()+b.getButtons().get(3).getY()) {
+				
 			}
-		}
-		
+			
+			
+			
 		if(!grabbing){
 			for(int i = 0; i < c.crabs.size(); i++){
-				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
-					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).getY()) && (c.crabs.get(i).getY() < (y+c.crabs.get(i).sizeY/2))){
-						grabbed = c.crabs.get(i);
+				if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
+					if(((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY()+Crab.sizeY))){
+						grabbed = c.getCrab(i);
 						grabbing = true;
 						j = i;
 						break;
@@ -115,23 +138,12 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
-		if(!grabbing){
-			for(int i = 0; i < t.turtles.size(); i++){
-				if(((x-t.turtles.get(i).sizeX/2) < t.turtles.get(i).getX()) && (t.turtles.get(i).getX() < (x+t.turtles.get(i).sizeX/2))){
-					if(((y-t.turtles.get(i).sizeY/2) < t.turtles.get(i).getY()) && (t.turtles.get(i).getY() < (y+t.turtles.get(i).sizeY/2))){
-						grabbed = t.turtles.get(i);
-						grabbing = true;
-						j = i;
-						break;
-						}
-					}
-			}
-		}
+		
 		if(!grabbing){
 			for(int i = 0; i < pc.Phragmites.size(); i++){
-				if(((x-pc.Phragmites.get(i).sizeX/2) < pc.Phragmites.get(i).getX()) && (pc.Phragmites.get(i).getX() < (x+pc.Phragmites.get(i).sizeX/2))){
-					if(((y-pc.Phragmites.get(i).sizeY/2) < pc.Phragmites.get(i).getY()) && (pc.Phragmites.get(i).getY() < (y+pc.Phragmites.get(i).sizeY/2))){
-						grabbed = pc.Phragmites.get(i);
+				if((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))){
+					if(((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY()+Phragmites.sizeY))){
+						grabbed = pc.getPhragmites(i);
 						grabbing = true;
 						j = i;
 						break;
@@ -139,27 +151,77 @@ public class ScreenButton extends JButton {
 					}
 			}
 		}
-		if((j > -1 && j < bc.BlueCrabs.size()) && bc.BlueCrabs.get(j).equals(grabbed)){
-			bc.BlueCrabs.get(j).setX(x - 100/2);
-			bc.BlueCrabs.get(j).setY(y - 75/2);	
+		if(!grabbing){
+			for(int i = 0; i < bc.BlueCrabs.size(); i++){
+				if((clickx > bc.getBlueCrab(i).getX()) && (clickx < (bc.getBlueCrab(i).getX() + BlueCrab.sizeX))){
+					if(((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY()+BlueCrab.sizeY))){
+						grabbed = bc.getBlueCrab(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
 		}
-		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-			c.crabs.get(j).setX(x - 165/2);
-			c.crabs.get(j).setY(y - 165/2);	
+		
+		if(!grabbing){
+			for(int i = 0; i < t.turtles.size(); i++){
+				if((clickx > t.getTurtle(i).getX()) && (clickx < (t.getTurtle(i).getX() + Turtle.sizeX))){
+					if(((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY()+Turtle.sizeY))){
+						grabbed = t.getTurtle(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
 		}
-		if((j > -1 && j < t.turtles.size()) && t.turtles.get(j).equals(grabbed)){
-			t.turtles.get(j).setX(x - 120/2);
-			t.turtles.get(j).setY(y - 100/2);	
+		if(!grabbing){
+			for(int i = 0; i < cgc.CordGrass.size(); i++){
+				if((clickx > cgc.getCordGrass(i).getX()) && (clickx < (cgc.getCordGrass(i).getX() + CordGrass.sizeX))){
+					if(((clicky > cgc.getCordGrass(i).getY()) && (clicky < cgc.getCordGrass(i).getY()+CordGrass.sizeY))){
+						grabbed = cgc.getCordGrass(i);
+						grabbing = true;
+						j = i;
+						break;
+						}
+					}
+			}
+		}
+		}
+		if((j > -1 && j < c.crabs.size()) && c.getCrab(j).equals(grabbed)){
+			c.getCrab(j).setX(x - Crab.sizeX/2);
+			c.getCrab(j).setY(y - Crab.sizeY/2);	
+		}
+		if((j > -1 && j < pc.Phragmites.size()) && pc.getPhragmites(j).equals(grabbed)){
+			pc.getPhragmites(j).setX(x - Phragmites.sizeX/2);
+			pc.getPhragmites(j).setY(y - Phragmites.sizeY/2);	
+		}
+		if((j > -1 && j < bc.BlueCrabs.size()) && bc.getBlueCrab(j).equals(grabbed)){
+			bc.getBlueCrab(j).setX(x - BlueCrab.sizeX/2);
+			bc.getBlueCrab(j).setY(y - BlueCrab.sizeY/2);	
+		}
+		if((j > -1 && j < t.turtles.size()) && t.getTurtle(j).equals(grabbed)){
+			t.getTurtle(j).setX(x - Turtle.sizeX/2);
+			t.getTurtle(j).setY(y - Turtle.sizeY/2);	
 		}
 		if((j > -1 && j < cgc.CordGrass.size()) && cgc.CordGrass.get(j).equals(grabbed)){
-			cgc.CordGrass.get(j).setX(x - 120/2);
-			cgc.CordGrass.get(j).setY(y - 100/2);	
+			cgc.getCordGrass(j).setX(x - CordGrass.sizeX/2);
+			cgc.getCordGrass(j).setY(y - CordGrass.sizeY/2);	
 		}
-		if((j > -1 && j < pc.Phragmites.size()) && pc.Phragmites.get(j).equals(grabbed)){
-			pc.Phragmites.get(j).setX(x - 120/2);
-			pc.Phragmites.get(j).setY(y - 100/2);	
-		}
+		
 	}
+	
+	/** Returns an ImageIcon, or null if the path was invalid. */
+    protected static ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = ScreenButton.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
 }
 	
 

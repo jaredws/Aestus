@@ -33,7 +33,7 @@ public class TurtleView extends ViewTemplate{
 			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image.getScaledInstance((int)screenSize.getWidth()/10, -1,1));
+	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
 	    	   System.out.println("Turtle Image read error");
 	       }

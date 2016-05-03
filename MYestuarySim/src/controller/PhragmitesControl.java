@@ -1,4 +1,6 @@
 package controller;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  * @author Steven
  */
@@ -10,9 +12,10 @@ import model.Phragmites;
 public class PhragmitesControl {
 	Random rand;
 	List<Phragmites> Phragmites;
+	Dimension screenSize;
 
 	public void addPhragmites(int x, int y){
-		Phragmites.add(new Phragmites(x,y));
+		Phragmites.add(new Phragmites(x,y,screenSize));
 	}
 	
 	public List<Phragmites> getPhragmites() {
@@ -22,6 +25,7 @@ public class PhragmitesControl {
 	public PhragmitesControl(){
 		rand  = new Random();
 		Phragmites = new ArrayList<Phragmites>();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	
@@ -37,7 +41,6 @@ public class PhragmitesControl {
 	}
 	
 	public void clickAddPhragmites(ScreenButton s){
-
 		if(s.clickx > 0 && s.addPhragmites){
 			addPhragmites(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addPhragmites= false;
@@ -48,5 +51,9 @@ public class PhragmitesControl {
 	
 	protected void removePhragmites(int i){
 		Phragmites.remove(i);
+	}
+	
+	public Phragmites getPhragmites(int i){
+		return Phragmites.get(i);
 	}
 }

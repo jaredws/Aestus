@@ -13,9 +13,10 @@ import model.Turtle;
 public class TurtleControl {
 	Random rand;
 	List<Turtle> turtles;
+	Dimension screenSize;
 
 	public void addTurtle(int x, int y){
-		turtles.add(new Turtle(x,y));
+		turtles.add(new Turtle(x,y,screenSize));
 	}
 	
 	public List<Turtle> getTurtles() {
@@ -25,23 +26,14 @@ public class TurtleControl {
 	public TurtleControl(){
 		rand  = new Random();
 		turtles = new ArrayList<Turtle>();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	public void moveTurtles(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int j = 0;
-		for(int i = 0; i < turtles.size(); i++){
-			if(turtles.get(i).getX() >= screenSize.getWidth() || turtles.get(i).getY() >= screenSize.getHeight() || turtles.get(i).getX()<=0 || turtles.get(i).getY()<=0){
-				continue;
+			
+			for(int i = 0; i < turtles.size(); i++){
+				turtles.get(i).moveTurtle(rand.nextInt(),screenSize);
 			}
-			j = rand.nextInt();
-			if(j%20==4){
-				turtles.get(i).setX(turtles.get(i).getX() + j%10*(rand.nextInt()%2));
-			}
-			if(j%20==-4){
-				turtles.get(i).setY(turtles.get(i).getY() + j%10*(rand.nextInt()%2));
-			}
-		}
 	}
 	
 	public void deleteTurtles(ButtonControl bc){
@@ -65,5 +57,9 @@ public class TurtleControl {
 	
 	protected void removeTurtle(int i){
 		turtles.remove(i);
+	}
+	
+	public Turtle getTurtle(int i){
+		return turtles.get(i);
 	}
 }

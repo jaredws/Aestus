@@ -22,6 +22,7 @@ import model.Background;
 import model.Button;
 import model.Crab;
 
+
 public class TotalView extends JPanel{
 
 	/**
@@ -70,7 +71,7 @@ public class TotalView extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        g.drawImage(BGV.switchImage(background.check(G.getCrabControl().getCrabs().size())),
+        g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
@@ -101,7 +102,7 @@ public class TotalView extends JPanel{
         for(int i = 0; i < G.getBlueCrabControl().getBlueCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(BCV.getImage(0), G.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
-        			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
+        			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters 
 	}
 	
 

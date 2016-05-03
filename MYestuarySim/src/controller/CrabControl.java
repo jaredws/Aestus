@@ -12,9 +12,10 @@ import model.Crab;
 public class CrabControl {
 	Random rand;
 	List<Crab> crabs;
+	Dimension screenSize;
 
 	public void addCrab(int x, int y){
-		crabs.add(new Crab(x,y));
+		crabs.add(new Crab(x,y,screenSize));
 	}
 	
 	public List<Crab> getCrabs() {
@@ -24,22 +25,12 @@ public class CrabControl {
 	public CrabControl(){
 		rand  = new Random();
 		crabs = new ArrayList<Crab>();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	public void moveCrabs(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int j = 0;
 		for(int i = 0; i < crabs.size(); i++){
-			if(crabs.get(i).getX() >= screenSize.getWidth() || crabs.get(i).getY() >= screenSize.getHeight() || crabs.get(i).getX()<=0 || crabs.get(i).getY()<=0){
-				continue;
-			}
-			j = rand.nextInt();
-			if(j%20==4){
-				crabs.get(i).setX(crabs.get(i).getX() + j%10*(rand.nextInt()%2));
-			}
-			if(j%20==-4){
-				crabs.get(i).setY(crabs.get(i).getY() + j%10*(rand.nextInt()%2));
-			}
+			crabs.get(i).moveCrab(rand.nextInt(),screenSize);
 		}
 	}
 	
@@ -64,5 +55,9 @@ public class CrabControl {
 	
 	protected void removeCrab(int i){
 		crabs.remove(i);
+	}
+	
+	public Crab getCrab(int i){
+		return crabs.get(i);
 	}
 }
