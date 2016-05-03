@@ -83,9 +83,13 @@ public class TotalView extends JPanel{
         }
         
         
-        for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
+        for(int i = 0; i < G.getButtonControl().getButtons().size(); i++){
+        	if(i == 1){
+        		continue;
+        	}
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
         			G.getButtonControl().getButtons().get(i).getY(), null);
+        }
        
         for(int i = 0; i < G.getCordGrassControl().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
