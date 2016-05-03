@@ -41,6 +41,7 @@ public class TotalView extends JPanel{
 	static HealthView HV;
 	static MagView MV;
 	static ResearchView RV;
+	static ToolView TLV;
 	public ScreenButton S;
 	Background background;
 	Dimension screenSize;
@@ -57,6 +58,7 @@ public class TotalView extends JPanel{
 		HV = new HealthView();
 		MV = new MagView();
 		RV = new ResearchView();
+		TLV = new ToolView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -125,6 +127,8 @@ public class TotalView extends JPanel{
 	
         if(S.getMagGlass()) 
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
+        if(S.getShears()) 
+        	g.drawImage(TLV.getImage(0), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
         if(S.menu){
         	g.drawImage(BV.getImage(5),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);

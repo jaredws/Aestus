@@ -30,14 +30,16 @@ public class ScreenButton extends JButton {
 	int y;
 	int magX;
 	int magY;
+	int shearX;
+	int shearY;
 	int j = 0;
 	public int clickx;
 	int clicky;
-	public boolean addCrab;//Do we really need this?
+	/*public boolean addCrab;//Do we really need this?
 	public boolean addTurtle;
 	public boolean addBlueCrab;
 	public boolean addCordGrass;
-	public boolean addPhragmites;
+	public boolean addPhragmites;*/
 	Grabbable grabbed;
 	boolean grabbing;
 	boolean clicked;
@@ -47,12 +49,11 @@ public class ScreenButton extends JButton {
 	public boolean menu;
 	public int research;
 	public boolean pause;
-	public boolean shears;
+	public boolean shears = false;
 	
 	ImageIcon icon;
 	
 	public ScreenButton(){
-		icon = new ImageIcon("../img/mag.png");
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
@@ -112,6 +113,9 @@ public class ScreenButton extends JButton {
 	        if(magGlass == true) {
 	        	magX = e.getX();
 	        	magY = e.getY();
+	        } else if(shears == true) {
+	        	shearX = e.getX();
+	        	shearY = e.getY();
 	        }
     	}
     });
@@ -322,8 +326,20 @@ public class ScreenButton extends JButton {
     	return this.magY;
     }
     
+    public int getShearX() {
+    	return this.shearX;
+    }
+    
+    public int getShearY() {
+    	return this.shearY;
+    }
+    
     public boolean getMagGlass() {
     	return this.magGlass;
+    }
+    
+    public boolean getShears() {
+    	return this.shears;
     }
     
     public boolean getMenu() {
