@@ -33,11 +33,11 @@ public class HealthControl {
 	public int check(int health){
 		if(health < 0){
 			return 1;
-		}else if(health < 5){
-			return 2;
 		}else if(health < 10){
+			return 2;
+		}else if(health < 20){
 			return 3;
-		}else if(health < 15){
+		}else if(health < 30){
 			return 4;
 		}else
 			return 5;

@@ -86,7 +86,7 @@ public class Game {
 			}
 			}
 		}
-		timer.scheduleAtFixedRate(new updatePopulation(), 0,2000);//every 2 seconds
+		timer.scheduleAtFixedRate(new updatePopulation(), 0,3500);//every 3 seconds
 		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds
 		
 		TV.repaint();
@@ -156,8 +156,8 @@ public class Game {
 	
 	public int calculateHealth(){
 		int c,bc,t,p,cg;
-		c = CC.getCrabs().size();
-		bc = BCC.getBlueCrabs().size();
+		c = 2*CC.getCrabs().size();
+		bc = 2*BCC.getBlueCrabs().size();
 		t = TC.getTurtles().size();
 		p = PC.getPhragmites().size();
 		cg = CGC.getCordGrass().size();

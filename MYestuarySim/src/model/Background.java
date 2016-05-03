@@ -11,9 +11,9 @@ public class Background {
 	}
 	
 	public int check(int health){
-		if(health < 0){
+		if(health < 15){
 			return 2;
-		}else if(health < 10){
+		}else if(health < 30){
 			return 1;
 		}else
 			return 0;
