@@ -84,8 +84,6 @@ public class TotalView extends JPanel{
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
-       
-        
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++){
         	if(i == 1){
         		continue;
@@ -120,7 +118,7 @@ public class TotalView extends JPanel{
         	g.drawImage(BCV.getImage(G.getBlueCrabControl().getBlueCrabs().get(i).move), G.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
         			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
 	
-        if(S.magGlass) 
+        if(S.getMagGlass()) 
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
 	}
 	
