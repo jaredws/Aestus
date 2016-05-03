@@ -56,8 +56,9 @@ public class Game {
 		for(int i = 0; i<3; i++){
 			PC.addPhragmites(300+100*i,200);
 			CGC.addCordGrass(200,300-100*i);
-			CC.addCrab(200,200);
 		}
+		CC.addCrab(200,200);
+		CC.addCrab(200,300);
 		BCC.addBlueCrab(200, 100);
 		/**
 		 * Create a timerTask for updating the population.
