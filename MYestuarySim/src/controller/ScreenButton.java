@@ -47,6 +47,7 @@ public class ScreenButton extends JButton {
 	public boolean menu;
 	public int research;
 	public boolean pause;
+	public boolean shears;
 	
 	ImageIcon icon;
 	
@@ -61,11 +62,12 @@ public class ScreenButton extends JButton {
 	    menu = false;
 	    research = -1;
 		pause = false;
-	    
+		shears = false;
+		
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	if((e.getX() > 0 && e.getX() < (100)) && (e.getY() > (screenSize.getHeight()-150) && e.getY() < screenSize.getHeight())){
+        	/*if((e.getX() > 0 && e.getX() < (100)) && (e.getY() > (screenSize.getHeight()-150) && e.getY() < screenSize.getHeight())){
         		int k = rand.nextInt(5);
         		switch(k){
         		case (0):addCrab = true;break;
@@ -74,7 +76,7 @@ public class ScreenButton extends JButton {
         		case (3):addPhragmites = true;break;
         		case (4):addCordGrass = true;break;
         		}
-        	}
+        	}*/
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
@@ -132,8 +134,18 @@ public class ScreenButton extends JButton {
 				clicked = false;
 			}
 			
+			if(clickx > b.getButtons().get(1).getX() && clickx < b.getButtons().get(1).getSizeX()+b.getButtons().get(1).getX() &&
+					clicky > b.getButtons().get(1).getY() && clicky < b.getButtons().get(1).getSizeY()+b.getButtons().get(1).getY()) {
+				if(!shears) {
+					shears = true;
+				} else {
+					shears = false;
+				}
+				clicked = false;
+			}
 			
-		if(!magGlass){
+			
+		if(!magGlass && !shears){
 			if(!grabbing){
 				for(int i = 0; i < c.crabs.size(); i++){
 					if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
@@ -198,24 +210,28 @@ public class ScreenButton extends JButton {
 			}
 		}
 		
-		if(magGlass){
+		if(magGlass || shears){
 				for(int i = 0; i < c.crabs.size(); i++){
 					if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
 						if(((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY()+Crab.sizeY))){
-							research = 0;
-							magGlass = false;
-							pause = true;
-							clicked = false;
+							if(magGlass){
+								research = 0;
+								magGlass = false;
+								pause = true;
+								clicked = false;
+							}
 							}
 						}
 				}
 				for(int i = 0; i < bc.BlueCrabs.size(); i++){
 					if((clickx > bc.getBlueCrab(i).getX()) && (clickx < (bc.getBlueCrab(i).getX() + BlueCrab.sizeX))){
 						if(((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY()+BlueCrab.sizeY))){
-							research = 2;
-							magGlass = false;
-							pause = true;
-							clicked = false;
+							if(magGlass){
+								research = 2;
+								magGlass = false;
+								pause = true;
+								clicked = false;
+							}
 							}
 						}
 				}
@@ -223,20 +239,25 @@ public class ScreenButton extends JButton {
 				for(int i = 0; i < t.turtles.size(); i++){
 					if((clickx > t.getTurtle(i).getX()) && (clickx < (t.getTurtle(i).getX() + Turtle.sizeX))){
 						if(((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY()+Turtle.sizeY))){
-							research = 3;
-							magGlass = false;
-							pause = true;
-							clicked = false;
+							if(magGlass){
+								research = 3;
+								magGlass = false;
+								pause = true;
+								clicked = false;
+							}
 							}
 						}
 				}
 				for(int i = 0; i < pc.Phragmites.size(); i++){
 					if((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))){
 						if(((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY()+Phragmites.sizeY))){
-							research = 1;
-							magGlass = false;
-							pause = true;
-							clicked = false;
+							if(magGlass){
+								research = 1;
+								magGlass = false;
+								pause = true;
+							} else {
+								pc.removePhragmites(i);
+							}
 							}
 						}
 				}
@@ -244,10 +265,13 @@ public class ScreenButton extends JButton {
 				for(int i = 0; i < cgc.CordGrass.size(); i++){
 					if((clickx > cgc.getCordGrass(i).getX()) && (clickx < (cgc.getCordGrass(i).getX() + CordGrass.sizeX))){
 						if(((clicky > cgc.getCordGrass(i).getY()) && (clicky < cgc.getCordGrass(i).getY()+CordGrass.sizeY))){
-							research = 4;
-							magGlass = false;
-							pause = true;
-							clicked = false;
+							if(magGlass){
+								research = 4;
+								magGlass = false;
+								pause = true;
+							} else {
+								cgc.removeCordGrass(i);
+							}
 							}
 						}
 				}

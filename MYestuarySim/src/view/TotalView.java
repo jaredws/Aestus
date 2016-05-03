@@ -90,7 +90,7 @@ public class TotalView extends JPanel{
         }
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++){
-        	if(i == 1|| i == 5){
+        	if(i == 5){
         		continue;
         	}
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 

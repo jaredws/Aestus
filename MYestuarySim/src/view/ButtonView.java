@@ -20,7 +20,7 @@ public class ButtonView{
 	public ButtonView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] fileNames = {"recycle", "bucket", "menuSmall", "help2","mag","pause"};
+		String[] fileNames = {"recycle", "shears", "menuSmall", "help2", "mag", "pause"};
 		
 		
 		for(String name: fileNames){
