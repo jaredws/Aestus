@@ -40,6 +40,7 @@ public class TotalView extends JPanel{
 	static CordGrassView CGV;
 	static HealthView HV;
 	static MagView MV;
+	static ResearchView RV;
 	public ScreenButton S;
 	Background background;
 	Dimension screenSize;
@@ -55,6 +56,7 @@ public class TotalView extends JPanel{
 		CGV = new CordGrassView();
 		HV = new HealthView();
 		MV = new MagView();
+		RV = new ResearchView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -125,6 +127,10 @@ public class TotalView extends JPanel{
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
         if(S.menu){
         	g.drawImage(BV.getImage(5),(int)screenSize.getWidth()/2 - 100, 
+        			(int)screenSize.getHeight()/2-100, null);
+        }
+        if(S.pause){
+        	g.drawImage(RV.getImage(S.research),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
         }
 	

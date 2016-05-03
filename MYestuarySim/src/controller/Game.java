@@ -70,14 +70,14 @@ public class Game {
 		Timer timer = new Timer();
 		class updatePopulation extends TimerTask {
 			public void run() {
-				if(!S.menu){
+				if(!S.menu || !S.pause){
 				PopC.update(G);
 				}
 			}
 		}
 		class moveObjects extends TimerTask{
 			public void run(){
-				if(!S.menu){
+				if(!S.menu || !S.pause){
 				CC.moveCrabs();
 				TC.moveTurtles();
 				BCC.moveBlueCrabs();

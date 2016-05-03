@@ -45,6 +45,9 @@ public class ScreenButton extends JButton {
 	Dimension screenSize;
 	public boolean magGlass = false;
 	public boolean menu;
+	public int research;
+	public boolean pause;
+	
 	ImageIcon icon;
 	
 	public ScreenButton(){
@@ -54,11 +57,13 @@ public class ScreenButton extends JButton {
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
-	    JLabel magLabel = new JLabel(); 
-	    magLabel.setLocation(0, 0);
-	    magLabel.setIcon(icon);
-	    add(magLabel);
+//	    JLabel magLabel = new JLabel(); 
+//	    magLabel.setLocation(0, 0);
+//	    magLabel.setIcon(icon);
+//	    add(magLabel);
 	    menu = false;
+	    research = -1;
+		pause = false;
 	    
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
@@ -79,6 +84,7 @@ public class ScreenButton extends JButton {
             x = e.getX();
             y = e.getY();
             clicked = true;
+            pause = false;
         }
         
         public void mouseReleased(MouseEvent e){
@@ -112,8 +118,6 @@ public class ScreenButton extends JButton {
     });
 	}
 	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc, ButtonControl b){
-		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
-		//do we want this? or should we wait for release
 		if(clicked){
 			if(clickx > b.getButtons().get(4).getX() && clickx < b.getButtons().get(4).getSizeX()+b.getButtons().get(4).getX() &&
 					clicky > b.getButtons().get(4).getY() && clicky < b.getButtons().get(4).getSizeY()+b.getButtons().get(4).getY()) {
@@ -132,19 +136,19 @@ public class ScreenButton extends JButton {
 			}
 			
 			
-			
-		if(!grabbing){
-			for(int i = 0; i < c.crabs.size(); i++){
-				if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
-					if(((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY()+Crab.sizeY))){
-						grabbed = c.getCrab(i);
-						grabbing = true;
-						j = i;
-						break;
+		if(!magGlass){
+			if(!grabbing){
+				for(int i = 0; i < c.crabs.size(); i++){
+					if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
+						if(((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY()+Crab.sizeY))){
+							grabbed = c.getCrab(i);
+							grabbing = true;
+							j = i;
+							break;
+							}
 						}
-					}
+				}
 			}
-		}
 		
 		if(!grabbing){
 			for(int i = 0; i < pc.Phragmites.size(); i++){
@@ -194,8 +198,63 @@ public class ScreenButton extends JButton {
 						}
 					}
 			}
+			}
 		}
+		
+		if(magGlass){
+				for(int i = 0; i < c.crabs.size(); i++){
+					if((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))){
+						if(((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY()+Crab.sizeY))){
+							research = 0;
+							magGlass = false;
+							pause = true;
+							}
+						}
+				}
+				for(int i = 0; i < pc.Phragmites.size(); i++){
+					if((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))){
+						if(((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY()+Phragmites.sizeY))){
+							research = 1;
+							magGlass = false;
+							pause = true;
+							}
+						}
+				}
+			
+				for(int i = 0; i < bc.BlueCrabs.size(); i++){
+					if((clickx > bc.getBlueCrab(i).getX()) && (clickx < (bc.getBlueCrab(i).getX() + BlueCrab.sizeX))){
+						if(((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY()+BlueCrab.sizeY))){
+							research = 2;
+							magGlass = false;
+							pause = true;
+							}
+						}
+				}
+			
+				for(int i = 0; i < t.turtles.size(); i++){
+					if((clickx > t.getTurtle(i).getX()) && (clickx < (t.getTurtle(i).getX() + Turtle.sizeX))){
+						if(((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY()+Turtle.sizeY))){
+							research = 3;
+							magGlass = false;
+							pause = true;
+							}
+						}
+				}
+			
+			
+				for(int i = 0; i < cgc.CordGrass.size(); i++){
+					if((clickx > cgc.getCordGrass(i).getX()) && (clickx < (cgc.getCordGrass(i).getX() + CordGrass.sizeX))){
+						if(((clicky > cgc.getCordGrass(i).getY()) && (clicky < cgc.getCordGrass(i).getY()+CordGrass.sizeY))){
+							research = 4;
+							magGlass = false;
+							pause = true;
+							}
+						}
+				}
+			}
 		}
+		
+		
 		if((j > -1 && j < c.crabs.size()) && c.getCrab(j).equals(grabbed)){
 			c.getCrab(j).setX(x - Crab.sizeX/2);
 			c.getCrab(j).setY(y - Crab.sizeY/2);	
@@ -216,6 +275,7 @@ public class ScreenButton extends JButton {
 			cgc.getCordGrass(j).setX(x - CordGrass.sizeX/2);
 			cgc.getCordGrass(j).setY(y - CordGrass.sizeY/2);	
 		}
+		
 		
 	}
 	
