@@ -209,17 +209,6 @@ public class ScreenButton extends JButton {
 							}
 						}
 				}
-				for(int i = 0; i < pc.Phragmites.size(); i++){
-					if((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))){
-						if(((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY()+Phragmites.sizeY))){
-							research = 1;
-							magGlass = false;
-							pause = true;
-							clicked = false;
-							}
-						}
-				}
-			
 				for(int i = 0; i < bc.BlueCrabs.size(); i++){
 					if((clickx > bc.getBlueCrab(i).getX()) && (clickx < (bc.getBlueCrab(i).getX() + BlueCrab.sizeX))){
 						if(((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY()+BlueCrab.sizeY))){
@@ -241,7 +230,16 @@ public class ScreenButton extends JButton {
 							}
 						}
 				}
-			
+				for(int i = 0; i < pc.Phragmites.size(); i++){
+					if((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))){
+						if(((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY()+Phragmites.sizeY))){
+							research = 1;
+							magGlass = false;
+							pause = true;
+							clicked = false;
+							}
+						}
+				}
 			
 				for(int i = 0; i < cgc.CordGrass.size(); i++){
 					if((clickx > cgc.getCordGrass(i).getX()) && (clickx < (cgc.getCordGrass(i).getX() + CordGrass.sizeX))){

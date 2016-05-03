@@ -156,6 +156,7 @@ public class Game {
 	
 	public int calculateHealth(){
 		int c,bc,t,p,cg;
+		//Crabs are worth double plants right now
 		c = 2*CC.getCrabs().size();
 		bc = 2*BCC.getBlueCrabs().size();
 		t = TC.getTurtles().size();
