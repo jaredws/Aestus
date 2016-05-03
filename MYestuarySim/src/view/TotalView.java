@@ -76,8 +76,12 @@ public class TotalView extends JPanel{
         
         g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
+      
         
-        g.drawImage(HV.getImage(0), (int)screenSize.getWidth()-(int)screenSize.getWidth()/11, (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
+        for(int i = 0; i < G.getHealthControl().check(G.calculateHealth()); i++){
+        	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*i), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
+        }
+        
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
