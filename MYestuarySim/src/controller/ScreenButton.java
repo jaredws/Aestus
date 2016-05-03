@@ -208,6 +208,7 @@ public class ScreenButton extends JButton {
 							research = 0;
 							magGlass = false;
 							pause = true;
+							clicked = false;
 							}
 						}
 				}
@@ -217,6 +218,7 @@ public class ScreenButton extends JButton {
 							research = 1;
 							magGlass = false;
 							pause = true;
+							clicked = false;
 							}
 						}
 				}
@@ -227,6 +229,7 @@ public class ScreenButton extends JButton {
 							research = 2;
 							magGlass = false;
 							pause = true;
+							clicked = false;
 							}
 						}
 				}
@@ -237,6 +240,7 @@ public class ScreenButton extends JButton {
 							research = 3;
 							magGlass = false;
 							pause = true;
+							clicked = false;
 							}
 						}
 				}
@@ -248,6 +252,7 @@ public class ScreenButton extends JButton {
 							research = 4;
 							magGlass = false;
 							pause = true;
+							clicked = false;
 							}
 						}
 				}

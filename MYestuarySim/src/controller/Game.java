@@ -70,14 +70,14 @@ public class Game {
 		Timer timer = new Timer();
 		class updatePopulation extends TimerTask {
 			public void run() {
-				if(!S.menu || !S.pause){
+				if(!S.pause){
 				PopC.update(G);
 				}
 			}
 		}
 		class moveObjects extends TimerTask{
 			public void run(){
-				if(!S.menu || !S.pause){
+				if(!S.pause){
 				CC.moveCrabs();
 				TC.moveTurtles();
 				BCC.moveBlueCrabs();
@@ -101,7 +101,7 @@ public class Game {
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
-			if(S.getMenu()) continue;
+			if(S.pause) continue;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
