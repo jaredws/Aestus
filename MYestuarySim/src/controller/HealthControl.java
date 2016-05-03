@@ -48,7 +48,7 @@ public class HealthControl {
 	}
 	
 	public int check(int health){
-		if(health < 0){
+		/*if(health < 0){
 			return 0;
 		}else if(health < 5){
 			return 1;
@@ -56,7 +56,7 @@ public class HealthControl {
 			return 2;
 		}else if(health < 15){
 			return 3;
-		}else
+		}else*/
 			return 4;
 	}
 }
