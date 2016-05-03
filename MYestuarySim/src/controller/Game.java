@@ -68,7 +68,7 @@ public class Game {
 				PopC.update(G);
 			}
 		}
-		timer.scheduleAtFixedRate(new updatePopulation(), 0,1000);//every 1 second
+		timer.scheduleAtFixedRate(new updatePopulation(), 0,2000);//every 2 seconds
 		
 		TV.repaint();
 		while(true){

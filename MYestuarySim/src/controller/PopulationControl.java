@@ -57,7 +57,7 @@ public class PopulationControl {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		//make plants a set max always approaching it
-		TotalPlant = 50-P; // - 2*TrashCount;
+		TotalPlant = //-P; // - 2*TrashCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
 		TotalAnimal = (int) ((-1/36)*TP*TP + (35/18)*TP - 325/36);
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
