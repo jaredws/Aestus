@@ -23,6 +23,7 @@ public class PopulationControl {
 	int IA; //current invasive animal
 	int TP; //current total plants
 	int TA; //current total animals
+	int P; //current total pollution
 	
 	private int TotalPlant;
 	private int TotalAnimal;
@@ -30,6 +31,7 @@ public class PopulationControl {
 	private int InvasivePlant;
 	private int NonInvasiveAnimal;
 	private int InvasiveAnimal;
+	private int Pollution;
 	private Game game;
 	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -47,6 +49,7 @@ public class PopulationControl {
 		IP = game.getPhragmitesControl().getPhragmites().size(); //calculate current invasive plant
 		NIA = game.getTurtleControl().getTurtles().size() + game.getBlueCrabControl().getBlueCrabs().size();//calculate current noninvasive animal
 		IA = game.getCrabControl().getCrabs().size(); //calculate current invasive animal
+		//P=game.getPollutionControl().getPollution().size();
 		TP = NIP + IP;
 		TA = NIA + IA;
 		NonInvasivePlant = NIP;
@@ -54,12 +57,16 @@ public class PopulationControl {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		//make plants a set max always approaching it
-		TotalPlant = 50; // - 2*TrashCount;
+		TotalPlant = //-P; // - 2*TrashCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
 		TotalAnimal = (int) ((-1/36)*TP*TP + (35/18)*TP - 325/36);
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 		spawn();
+		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
+		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
+		System.out.println("Turtles: "+game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+game.getBlueCrabControl().getBlueCrabs().size());
+		
 		
 	}
 	
