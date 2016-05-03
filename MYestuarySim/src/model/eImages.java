@@ -1,6 +1,6 @@
 package model;
 
-public enum eClasses {
+public enum eImages {
 	
 	BLUECRAB (0),
 	INVASIVECRAB (1),
@@ -8,11 +8,12 @@ public enum eClasses {
 	CORDGRASS (3),
 	TURTLE (4),
 	POLLUTION1 (5),
-	POLLUTION2 (6);
+	POLLUTION2 (6),
+	STAR (7);
 	
 	private int index;
 	
-	eClasses(int i){
+	eImages(int i){
 		this.index=i;
 	}
 	
