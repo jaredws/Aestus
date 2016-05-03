@@ -49,10 +49,14 @@ public class HealthControl {
 	
 	public int check(int health){
 		if(health < 0){
-			return 2;
-		}else if(health < 10){
-			return 1;
-		}else
 			return 0;
+		}else if(health < 5){
+			return 1;
+		}else if(health < 10){
+			return 2;
+		}else if(health < 15){
+			return 3;
+		}else
+			return 4;
 	}
 }
