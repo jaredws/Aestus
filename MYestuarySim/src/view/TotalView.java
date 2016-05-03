@@ -79,7 +79,7 @@ public class TotalView extends JPanel{
       
         
         for(int i = 0; i < G.getHealthControl().check(G.calculateHealth()); i++){
-        	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*i), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
+        	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
         
