@@ -121,7 +121,7 @@ public class TotalView extends JPanel{
         			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
 	
         if(S.magGlass) 
-        	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24), (int)(S.getMagY()-screenSize.getWidth()/24), null);
+        	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
 	}
 	
 
