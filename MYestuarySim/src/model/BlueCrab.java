@@ -82,10 +82,10 @@ public class BlueCrab extends Grabbable {
 		if(y - 100 <= 0 ){
 			YDir = 3;
 		}
-		
+		move++;
 		if(move > 40){
 			setX(getX() + XDir);
 			setY(getY() + YDir);
-			}
+		}
 	}
 }

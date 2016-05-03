@@ -63,7 +63,6 @@ public class Turtle extends Grabbable {
 	}
 	public void moveTurtle(int J,Dimension screenSize){
 		if((move%20)==0){
-			
 			XDir = J%2 - J%1;
 			YDir = J%2 + J%1;
 		}
