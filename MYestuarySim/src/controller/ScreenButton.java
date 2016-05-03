@@ -57,10 +57,7 @@ public class ScreenButton extends JButton {
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
-//	    JLabel magLabel = new JLabel(); 
-//	    magLabel.setLocation(0, 0);
-//	    magLabel.setIcon(icon);
-//	    add(magLabel);
+
 	    menu = false;
 	    research = -1;
 		pause = false;

@@ -14,14 +14,13 @@ import org.junit.Test;
  */
 
 public class BlueCrabTest {
-	static Dimension screenSize;
+	static Dimension screenSize = new Dimension();
 	static BlueCrab bc;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		System.out.println("test");
-		screenSize.setSize(200, 300);
-		bc = new BlueCrab(8,7,screenSize);
+		screenSize.setSize(500, 500);
+		bc = new BlueCrab(101,101,screenSize);
 	}
 	
 
@@ -52,6 +51,41 @@ public class BlueCrabTest {
 	public void setSizeYTest() {
 		bc.setSizeY(168);
 		assertEquals("sizeY should be 168",bc.getSizeY(),168);
+	}
+	
+	@Test
+	public void setMoveTest() {
+		bc.setMove(30);
+		assertEquals("move should be 30",bc.getMove(),30);
+	}
+	
+	@Test
+	public void moveBlueCrabTest() {
+		//If 1
+		bc.setMove(7);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("XDir should be 0",bc.getXDir(),0);
+		assertEquals("YDir should be 2",bc.getYDir(),2);
+		
+		//If 2
+		bc.setX(1000);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("XDir should be -3",bc.getXDir(),-3);
+		
+		//If 3
+		bc.setX(20);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("XDir should be 3",bc.getXDir(),3);
+		
+		//If 4
+		bc.setY(1000);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("YDir should be -3",bc.getYDir(),-3);
+		
+		//If 5
+		bc.setY(20);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("YDir should be 3",bc.getYDir(),3);
 	}
 
 }

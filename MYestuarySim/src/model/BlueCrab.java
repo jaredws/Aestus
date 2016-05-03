@@ -64,6 +64,22 @@ public class BlueCrab extends Grabbable {
 		this.sizeX = x;
 	}
 	
+	public int getYDir() {
+		return this.YDir;
+	}
+	
+	public int getXDir() {
+		return this.XDir;
+	}
+	
+	public void setMove(int m) {
+		this.move = m;
+	}
+	
+	public int getMove() {
+		return this.move;
+	}
+	
 	public void moveBlueCrab(int J,Dimension screenSize){
 		if((move%7)==0){
 			

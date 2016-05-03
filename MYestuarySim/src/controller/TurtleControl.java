@@ -47,13 +47,13 @@ public class TurtleControl {
 		}
 	}
 	
-	public void clickAddTurtle(ScreenButton s){
+	/*public void clickAddTurtle(ScreenButton s){
 
 		if(s.clickx > 0 && s.addTurtle){
 			addTurtle(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addTurtle = false;
 		}
-	}
+	}*/
 	
 	protected void removeTurtle(int i){
 		turtles.remove(i);
