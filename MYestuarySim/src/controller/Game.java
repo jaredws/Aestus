@@ -105,8 +105,8 @@ public class Game {
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
-			CGC.deleteCordGrass(BC);
-			PC.deletePhragmites(BC);
+//			CGC.deleteCordGrass(BC);
+//			PC.deletePhragmites(BC);
 			//PopC.update(G);
 			
 			try {
