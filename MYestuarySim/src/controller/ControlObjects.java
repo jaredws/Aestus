@@ -9,7 +9,7 @@ import model.MovingObject;
 import model.CordGrass;
 import model.Phragmites;
 import model.Turtle;
-import model.eClasses;
+import model.eImages;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -86,7 +86,7 @@ public class ControlObjects {
 	 * @param class Enum
 	 * @return completion
 	 */
-	protected boolean remove(eClasses c){
+	protected boolean remove(eImages c){
 		switch (c){
 		case BLUECRAB:{ BlueCrabs.remove(0); return true;}
 		case INVASIVECRAB:{ Crabs.remove(0); return true;}

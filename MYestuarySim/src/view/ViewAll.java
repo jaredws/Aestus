@@ -11,7 +11,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import model.eClasses;
+import model.eImages;
 
 /**
  * 
@@ -30,7 +30,7 @@ public class ViewAll extends ViewTemplate{
 	public ViewAll(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"Blue Crab","Crab Front","Phragmites","grass","Turtle","Pollution1","Pollution2"};
+		String[] names = {"Blue Crab","Crab Front","Phragmites","grass","Turtle","Pollution1","Pollution2","Star"};
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
@@ -47,7 +47,7 @@ public class ViewAll extends ViewTemplate{
 	 * @param index from the eClasses enum the enumerated type of the object
 	 * @return The buffered image of the object
 	 */
-	public Image getImage(eClasses obj){
+	public Image getImage(eImages obj){
 		return(images.get(obj.getIndex()));
 	}
 
