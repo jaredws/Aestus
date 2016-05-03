@@ -72,12 +72,12 @@ public class TotalView extends JPanel{
 	
 	@Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        super.paintComponent(g); 
         
         g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
-        g.drawImage(HV.getImage(0), (int)screenSize.getWidth()-125, (int)screenSize.getHeight()-140, null);
+        g.drawImage(HV.getImage(0), (int)screenSize.getWidth()-(int)screenSize.getWidth()/12, (int)screenSize.getHeight()-(int)screenSize.getWidth()/12, null);
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
