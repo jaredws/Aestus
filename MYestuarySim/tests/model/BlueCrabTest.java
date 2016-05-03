@@ -19,6 +19,7 @@ public class BlueCrabTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		System.out.println("test");
 		screenSize.setSize(200, 300);
 		bc = new BlueCrab(8,7,screenSize);
 	}
