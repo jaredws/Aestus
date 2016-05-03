@@ -28,6 +28,8 @@ public class ScreenButton extends JButton {
 	//Implament listener on the frame??? -JS
 	int x;
 	int y;
+	int magX;
+	int magY;
 	int j = 0;
 	public int clickx;
 	int clicky;
@@ -41,7 +43,7 @@ public class ScreenButton extends JButton {
 	boolean clicked;
 	Random rand = new Random();
 	Dimension screenSize;
-	boolean magGlass = false;
+	public boolean magGlass = false;
 	ImageIcon icon;
 	
 	public ScreenButton(){
@@ -101,10 +103,12 @@ public class ScreenButton extends JButton {
         
 		public void mouseMoved(MouseEvent e) {
 	        if(magGlass == true) {
-	        	//System.out.println("mag == true");
-	        	magLabel.setLocation(e.getX(), e.getY());
+	        	System.out.println("mag == true " + e.getX() + " " + e.getY());
+	        	//magLabel.setLocation(e.getX(), e.getY());
+	        	magX = e.getX();
+	        	magY = e.getY();
 	        } else {
-	        	//System.out.println("mag == false");
+	        	System.out.println("mag == false");
 	        }
     	}
     });
@@ -221,6 +225,14 @@ public class ScreenButton extends JButton {
             System.err.println("Couldn't find file: " + path);
             return null;
         }
+    }
+    
+    public int getMagX() {
+    	return this.magX;
+    }
+    
+    public int getMagY() {
+    	return this.magY;
     }
 }
 	

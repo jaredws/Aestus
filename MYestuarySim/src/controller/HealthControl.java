@@ -18,29 +18,12 @@ public class HealthControl {
 		Stars.add(new Health(x,y,screenSize));
 	}
 	
-	//added a comment
-	
 	public List<Health> getStars() {
 		return this.Stars;
 	}
 	
 	public HealthControl(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	}
-	
-	public void deleteStars(ButtonControl bc){
-		/*for(int i = 0; i < BlueCrabs.size(); i++){
-			if(BlueCrabs.get(i).getX() > bc.getButtons().get(0).getX() - bc.getButtons().get(0).getSizeX()/2 && BlueCrabs.get(i).getX() < bc.getButtons().get(0).getX() + bc.getButtons().get(0).getSizeX()/4){
-				if((BlueCrabs.get(i).getY() > bc.getButtons().get(0).getY()-bc.getButtons().get(0).getSizeY()) && (BlueCrabs.get(i).getY() < bc.getButtons().get(0).getY() + bc.getButtons().get(0).getSizeY()/2)){
-					BlueCrabs.remove(i);
-					i--;
-				}
-			}
-		}*/
-	}
-	
-	protected void removeStar(int i){
-		Stars.remove(i);
 	}
 	
 	public Health getStar(int i){

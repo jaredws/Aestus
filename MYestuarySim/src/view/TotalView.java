@@ -39,6 +39,7 @@ public class TotalView extends JPanel{
 	static PhragmitesView PV;
 	static CordGrassView CGV;
 	static HealthView HV;
+	static MagView MV;
 	public ScreenButton S;
 	Background background;
 	Dimension screenSize;
@@ -53,6 +54,7 @@ public class TotalView extends JPanel{
 		PV = new PhragmitesView();
 		CGV = new CordGrassView();
 		HV = new HealthView();
+		MV = new MagView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -82,6 +84,7 @@ public class TotalView extends JPanel{
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
+       
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++){
         	if(i == 1){
@@ -116,6 +119,9 @@ public class TotalView extends JPanel{
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(BCV.getImage(G.getBlueCrabControl().getBlueCrabs().get(i).move), G.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
         			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
+	
+        if(S.magGlass) 
+        	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24), (int)(S.getMagY()-screenSize.getWidth()/24), null);
 	}
 	
 
