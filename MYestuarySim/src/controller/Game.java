@@ -68,7 +68,15 @@ public class Game {
 				PopC.update(G);
 			}
 		}
+		class moveObjects extends TimerTask{
+			public void run(){
+				CC.moveCrabs();
+				TC.moveTurtles();
+				BCC.moveBlueCrabs();
+			}
+		}
 		timer.scheduleAtFixedRate(new updatePopulation(), 0,2000);//every 2 seconds
+		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds
 		
 		TV.repaint();
 		while(true){
@@ -80,10 +88,6 @@ public class Game {
 			PC.clickAddPhragmites(S);
 			CGC.clickAddCordGrass(S);
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
-			
-			CC.moveCrabs();
-			TC.moveTurtles();
-			BCC.moveBlueCrabs();
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
