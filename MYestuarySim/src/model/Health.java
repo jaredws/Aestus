@@ -7,7 +7,7 @@ import java.awt.Dimension;
  * @author Steven
  *
  */
-public class BlueCrab extends Grabbable {
+public class Health {
 	//With this outline, there's no difference between a crab and anyhting else. 
 	//We'll have to change the name of this class to Interactable Object or something
 	//Add a name and just name the different items
@@ -22,7 +22,7 @@ public class BlueCrab extends Grabbable {
 	public int XDir;
 	public int YDir;
 	
-	public BlueCrab(int x, int y,Dimension screenSize){
+	public Health(int x, int y,Dimension screenSize){
 		move = 0;
 		this.x = x;
 		this.y = y;
@@ -62,30 +62,5 @@ public class BlueCrab extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
-	}
-	
-	public void moveBlueCrab(int J,Dimension screenSize){
-		if((move%7)==0){
-			
-			XDir = J%5 - J%2;
-			YDir = J%4 + J%2;
-		}
-		if(x >= screenSize.getWidth() - 100){
-			XDir = -3;
-		}
-		if(x - 100 <= 0 ){
-			XDir = 3;
-		}
-		if(y >= screenSize.getHeight() - 100){
-			YDir = -3;
-		}
-		if(y - 100 <= 0 ){
-			YDir = 3;
-		}
-		move++;
-		if(move > 40){
-			setX(getX() + XDir);
-			setY(getY() + YDir);
-		}
 	}
 }

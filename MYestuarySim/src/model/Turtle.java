@@ -63,9 +63,8 @@ public class Turtle extends Grabbable {
 	}
 	public void moveTurtle(int J,Dimension screenSize){
 		if((move%20)==0){
-			
-			XDir = J%2 - J%1;
-			YDir = J%2 + J%1;
+			XDir = J%3 - J%2;
+			YDir = J%3 + J%2;
 		}
 		if(x >= screenSize.getWidth() - 100){
 			XDir = -2;
@@ -81,7 +80,9 @@ public class Turtle extends Grabbable {
 		}
 		
 		move++;
+		if(move > 40){
 		setX(getX() + XDir);
 		setY(getY() + YDir);
+		}
 	}
 }
