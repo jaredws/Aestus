@@ -20,7 +20,7 @@ import javax.imageio.ImageIO;
 public class TurtleView extends ViewTemplate{
 	
 	private List<Image> images;
-	
+	Dimension screenSize;
 	/**
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
@@ -30,10 +30,11 @@ public class TurtleView extends ViewTemplate{
 		Image image;
 		String[] names = {"Turtle"};
 		for(String fileName: names){
-			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try {                
-	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
+			image = ImageIO.read(new File("./img/"+fileName+".png"));
+			images.add(image);
+			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
 	    	   System.out.println("Turtle Image read error");
 	       }
@@ -48,7 +49,10 @@ public class TurtleView extends ViewTemplate{
 	 */
 	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
-		return(images.get(0));
+		if(i < 38)
+			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+		else
+			return images.get(1);
 	}
 
 }
