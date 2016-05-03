@@ -80,8 +80,9 @@ public class Crab extends Grabbable {
 		}
 		
 		move++;
-		setX(getX() + XDir);
-		setY(getY() + YDir);
-		
+		if(move > 40){
+			setX(getX() + XDir);
+			setY(getY() + YDir);
+			}
 	}
 }

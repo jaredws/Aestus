@@ -28,7 +28,7 @@ public class Game {
 	public static void main(String[] args){
 		Game G = new Game();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		
+		//ugh
 		ScreenButtonStart s = new ScreenButtonStart();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());

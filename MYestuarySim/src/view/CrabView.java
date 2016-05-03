@@ -20,7 +20,7 @@ import javax.imageio.ImageIO;
 public class CrabView extends ViewTemplate{
 	
 	private List<Image> images;
-	
+	Dimension screenSize;
 	/**
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
@@ -48,7 +48,10 @@ public class CrabView extends ViewTemplate{
 	 */
 	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
-		return(images.get(0));
+		if(i < 38)
+			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+		else
+			return images.get(1);
 	}
 
 }
