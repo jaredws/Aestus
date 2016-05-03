@@ -81,7 +81,9 @@ public class Turtle extends Grabbable {
 		}
 		
 		move++;
+		if(move > 40){
 		setX(getX() + XDir);
 		setY(getY() + YDir);
+		}
 	}
 }
