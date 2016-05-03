@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.Assert.*;
 
+import java.awt.Dimension;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,12 +14,13 @@ import org.junit.Test;
  */
 
 public class CordGrassTest {
-	
+	static Dimension screenSize;
 	static CordGrass cg;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		cg = new CordGrass(8,7);
+		screenSize.setSize(200, 300);
+		cg = new CordGrass(8,7,screenSize);
 	}
 
 	@AfterClass

@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.Assert.*;
 
+import java.awt.Dimension;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,12 +14,13 @@ import org.junit.Test;
  */
 
 public class CrabTest {
-	
+	static Dimension screenSize;
 	static Crab c;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		c = new Crab(8,7);
+		screenSize.setSize(200, 300);
+		c = new Crab(8,7,screenSize);
 	}
 
 	@AfterClass
