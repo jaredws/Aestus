@@ -23,6 +23,7 @@ public class Game {
 	static PopulationControl PopC;
 	static CordGrassControl CGC;
 	static PhragmitesControl PC;
+	static HealthControl HC;
 
 	
 	public static void main(String[] args){
@@ -50,6 +51,7 @@ public class Game {
 		PopC = new PopulationControl();
 		PC = new PhragmitesControl();
 		CGC = new CordGrassControl();
+		HC = new HealthControl();
 		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
@@ -138,6 +140,10 @@ public class Game {
 	
 	public static CordGrassControl getCordGrassControl(){
 		return CGC;
+	}
+	
+	public static HealthControl getHealthControl(){
+		return HC;
 	}
 	
 	public int calculateHealth(){

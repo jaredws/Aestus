@@ -38,8 +38,10 @@ public class TotalView extends JPanel{
 	static BlueCrabView BCV;
 	static PhragmitesView PV;
 	static CordGrassView CGV;
+	static HealthView HV;
 	public ScreenButton S;
 	Background background;
+	Dimension screenSize;
  	
 	
 	public TotalView(ScreenButton s){
@@ -50,7 +52,8 @@ public class TotalView extends JPanel{
 		BCV = new BlueCrabView();
 		PV = new PhragmitesView();
 		CGV = new CordGrassView();
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		HV = new HealthView();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
 		JFrame frame = new JFrame();
@@ -73,6 +76,8 @@ public class TotalView extends JPanel{
         
         g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
+        
+        g.drawImage(HV.getImage(0), (int)screenSize.getWidth()-125, (int)screenSize.getHeight()-140, null);
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++)
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 

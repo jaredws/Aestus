@@ -46,4 +46,13 @@ public class HealthControl {
 	public Health getStar(int i){
 		return Stars.get(i);
 	}
+	
+	public int check(int health){
+		if(health < 0){
+			return 2;
+		}else if(health < 10){
+			return 1;
+		}else
+			return 0;
+	}
 }

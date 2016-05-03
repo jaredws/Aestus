@@ -23,6 +23,7 @@ public class BlueCrabTest {
 		screenSize.setSize(200, 300);
 		bc = new BlueCrab(8,7,screenSize);
 	}
+	
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
