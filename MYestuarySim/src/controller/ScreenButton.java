@@ -44,7 +44,7 @@ public class ScreenButton extends JButton {
 	Random rand = new Random();
 	Dimension screenSize;
 	public boolean magGlass = false;
-	public boolean menu = false;
+	public boolean menu;
 	ImageIcon icon;
 	
 	public ScreenButton(){
@@ -58,6 +58,7 @@ public class ScreenButton extends JButton {
 	    magLabel.setLocation(0, 0);
 	    magLabel.setIcon(icon);
 	    add(magLabel);
+	    menu = false;
 	    
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
@@ -72,7 +73,6 @@ public class ScreenButton extends JButton {
         		case (4):addCordGrass = true;break;
         		}
         	}
-        	menu = false;
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
@@ -119,11 +119,16 @@ public class ScreenButton extends JButton {
 					clicky > b.getButtons().get(4).getY() && clicky < b.getButtons().get(4).getSizeY()+b.getButtons().get(4).getY()) {
 				if(magGlass == false) magGlass = true;
 				else magGlass = false;
+				clicked = false;
 			}
 			
 			if(clickx > b.getButtons().get(3).getX() && clickx < b.getButtons().get(3).getSizeX()+b.getButtons().get(3).getX() &&
 					clicky > b.getButtons().get(3).getY() && clicky < b.getButtons().get(3).getSizeY()+b.getButtons().get(3).getY()) {
-				menu = true;
+				if(!menu)
+					{menu = true;}
+				else 
+					{menu = false;}
+				clicked = false;
 			}
 			
 			

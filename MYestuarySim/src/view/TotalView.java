@@ -66,6 +66,9 @@ public class TotalView extends JPanel{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setLocation(0,0);
+        frame.setTitle("AESTUS");
 	}
 	
 	public void update(Game g){
@@ -85,7 +88,7 @@ public class TotalView extends JPanel{
         }
         
         for(int i = 0; i < G.getButtonControl().getButtons().size(); i++){
-        	if(i == 1){
+        	if(i == 1|| i == 5){
         		continue;
         	}
         	g.drawImage(BV.getImage(i), G.getButtonControl().getButtons().get(i).getX(), 
@@ -120,6 +123,11 @@ public class TotalView extends JPanel{
 	
         if(S.getMagGlass()) 
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
+        if(S.menu){
+        	g.drawImage(BV.getImage(5),(int)screenSize.getWidth()/2 - 100, 
+        			(int)screenSize.getHeight()/2-100, null);
+        }
+	
 	}
 	
 

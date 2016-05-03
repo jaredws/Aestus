@@ -97,6 +97,8 @@ public class Game {
 			PC.clickAddPhragmites(S);
 			CGC.clickAddCordGrass(S);
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
+			TV.update(G);
+			TV.repaint();
 			if(S.getMenu()) continue;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
@@ -104,8 +106,7 @@ public class Game {
 			CGC.deleteCordGrass(BC);
 			PC.deletePhragmites(BC);
 			//PopC.update(G);
-			TV.update(G);
-			TV.repaint();
+			
 			try {
     			Thread.sleep(10);
     		} catch (InterruptedException e) {
