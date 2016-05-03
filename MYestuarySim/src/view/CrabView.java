@@ -29,11 +29,12 @@ public class CrabView extends ViewTemplate{
 		images = new ArrayList<Image>();
 		Image image;
 		String[] names = {"Crab Front"};
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
-		try {                
-	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1))	;
+		try { image = ImageIO.read(new File("./img/"+fileName+".png"));
+			image = ImageIO.read(new File("./img/"+fileName+".png"));
+			images.add(image);
+			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
