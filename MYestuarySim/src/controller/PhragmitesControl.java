@@ -33,8 +33,8 @@ public class PhragmitesControl {
 		for(int i = 0; i < Phragmites.size(); i++){
 			if(Phragmites.get(i).getX() > bc.getButtons().get(0).getX() - bc.getButtons().get(0).getSizeX()/2 && Phragmites.get(i).getX() < bc.getButtons().get(0).getX() + bc.getButtons().get(0).getSizeX()/4){
 				if((Phragmites.get(i).getY() > bc.getButtons().get(0).getY()-bc.getButtons().get(0).getSizeY()) && (Phragmites.get(i).getY() < bc.getButtons().get(0).getY() + bc.getButtons().get(0).getSizeY()/2)){
-					Phragmites.remove(i);
-					i--;
+//					Phragmites.remove(i);
+//					i--;
 				}
 			}
 		}

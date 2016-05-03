@@ -35,8 +35,8 @@ public class CordGrassControl {
 		for(int i = 0; i < CordGrass.size(); i++){
 			if(CordGrass.get(i).getX() > bc.getButtons().get(0).getX() - bc.getButtons().get(0).getSizeX()/2 && CordGrass.get(i).getX() < bc.getButtons().get(0).getX() + bc.getButtons().get(0).getSizeX()/4){
 				if((CordGrass.get(i).getY() > bc.getButtons().get(0).getY()-bc.getButtons().get(0).getSizeY()) && (CordGrass.get(i).getY() < bc.getButtons().get(0).getY() + bc.getButtons().get(0).getSizeY()/2)){
-					CordGrass.remove(i);
-					i--;
+//					CordGrass.remove(i);
+//					i--;
 				}
 			}
 		}
