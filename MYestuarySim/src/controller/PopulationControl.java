@@ -78,7 +78,7 @@ public class PopulationControl {
 	private void spawn(){//call calculate and spawn at appropriate intervals
 		rand = new Random();
 		if(TotalPlant>TP){
-			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
+			if(rand.nextInt(8)%3==0){//8%3 will be replaced with a probability factor that will be chagned when research happens.
 				game.getCordGrassControl().addCordGrass(makeX(),makeY());
 			}
 			else{

@@ -86,7 +86,7 @@ public class Game {
 			}
 			}
 		}
-		timer.scheduleAtFixedRate(new updatePopulation(), 0,3500);//every 3 seconds
+		timer.scheduleAtFixedRate(new updatePopulation(), 0,4500);//every 3 seconds
 		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds
 		
 		TV.repaint();
