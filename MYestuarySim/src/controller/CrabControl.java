@@ -45,13 +45,13 @@ public class CrabControl {
 		}
 	}
 	
-	public void clickAddCrab(ScreenButton s){
+	/*public void clickAddCrab(ScreenButton s){
 
 		if(s.clickx > 0 && s.addCrab){
 			addCrab(rand.nextInt(1350),rand.nextInt(100)+500);
 			s.addCrab = false;
 		}
-	}
+	}*/
 	
 	protected void removeCrab(int i){
 		crabs.remove(i);
