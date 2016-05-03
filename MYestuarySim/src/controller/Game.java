@@ -81,6 +81,8 @@ public class Game {
 				CC.moveCrabs();
 				TC.moveTurtles();
 				BCC.moveBlueCrabs();
+				PC.age();
+				CGC.age();
 			}
 			}
 		}

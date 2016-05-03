@@ -18,9 +18,10 @@ public class Phragmites extends Grabbable {
 	//temporary public variables
 	public static int sizeX;
 	public static int sizeY;
+	public int life;
 	
 	public Phragmites(int x, int y, Dimension screenSize){
-
+		life = 0;
 		this.x = x;
 		this.y = y;
 		this.sizeX = (int)screenSize.getWidth()/12;
@@ -58,5 +59,8 @@ public class Phragmites extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	public void live(){
+		life++;
 	}
 }

@@ -58,4 +58,11 @@ public class CordGrassControl {
 	public CordGrass getCordGrass(int i){
 		return CordGrass.get(i);
 	}
+
+	public void age(){
+		for(int i = 0; i < CordGrass.size(); i++){
+			CordGrass.get(i).live();
+		}
+	}
+
 }

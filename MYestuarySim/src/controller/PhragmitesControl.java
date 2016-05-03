@@ -56,4 +56,10 @@ public class PhragmitesControl {
 	public Phragmites getPhragmites(int i){
 		return Phragmites.get(i);
 	}
+	
+	public void age(){
+		for(int i = 0; i < Phragmites.size(); i++){
+			Phragmites.get(i).live();
+		}
+	}
 }

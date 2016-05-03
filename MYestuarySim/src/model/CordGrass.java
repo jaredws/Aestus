@@ -18,8 +18,9 @@ public class CordGrass extends Grabbable {
 	//temporary public variables
 	public static int sizeX;
 	public static int sizeY;
-	
+	public int life;
 	public CordGrass(int x, int y, Dimension screenSize){
+		life = 0;
 		this.x = x;
 		this.y = y;
 		this.sizeX = (int)screenSize.getWidth()/12;
@@ -56,5 +57,8 @@ public class CordGrass extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	public void live(){
+		life++;
 	}
 }

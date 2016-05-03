@@ -24,7 +24,7 @@ import controller.ScreenButton;
 public class PhragmitesView extends ViewTemplate{
 	
 	private List<Image> images;
-	
+	Dimension screenSize;
 	/**
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
@@ -33,10 +33,11 @@ public class PhragmitesView extends ViewTemplate{
 		images = new ArrayList<Image>();
 		Image image;
 		String[] names = {"Phragmites"};
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
+	         images.add(image);
 	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
@@ -55,8 +56,10 @@ public class PhragmitesView extends ViewTemplate{
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */
 	public Image getImage(int i){
-		//Must remove %4 will be changed when calling it from above with motion idicator.
-		return(images.get(0));
+		if(i < 38)
+			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+		else
+			return images.get(1);
 	}
 
 }
