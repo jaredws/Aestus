@@ -70,14 +70,18 @@ public class Game {
 		Timer timer = new Timer();
 		class updatePopulation extends TimerTask {
 			public void run() {
+				if(!S.menu){
 				PopC.update(G);
+				}
 			}
 		}
 		class moveObjects extends TimerTask{
 			public void run(){
+				if(!S.menu){
 				CC.moveCrabs();
 				TC.moveTurtles();
 				BCC.moveBlueCrabs();
+			}
 			}
 		}
 		timer.scheduleAtFixedRate(new updatePopulation(), 0,2000);//every 2 seconds

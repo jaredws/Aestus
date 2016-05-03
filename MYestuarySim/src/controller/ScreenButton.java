@@ -72,6 +72,7 @@ public class ScreenButton extends JButton {
         		case (4):addCordGrass = true;break;
         		}
         	}
+        	menu = false;
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
