@@ -1,7 +1,6 @@
 package model;
 
 import java.awt.Dimension;
-import java.util.Random;
 
 public class Crab extends Grabbable {
 	//With this outline, there's no difference between a crab and anyhting else. 
@@ -22,8 +21,8 @@ public class Crab extends Grabbable {
 		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX;
+		Crab.sizeX = (int)screenSize.getWidth()/12;
+		Crab.sizeY = sizeX;
 		XDir = 0;
 		YDir = 0;
     }
@@ -45,19 +44,19 @@ public class Crab extends Grabbable {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return Crab.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return Crab.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		Crab.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		Crab.sizeX = x;
 	}
 	
 	public void moveCrab(int J,Dimension screenSize){

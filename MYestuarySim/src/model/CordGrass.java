@@ -23,8 +23,8 @@ public class CordGrass extends Grabbable {
 		life = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX*436/300;
+		CordGrass.sizeX = (int)screenSize.getWidth()/12;
+		CordGrass.sizeY = sizeX*436/300;
     }
 	
 	public int getX() {
@@ -44,19 +44,19 @@ public class CordGrass extends Grabbable {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return CordGrass.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return CordGrass.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		CordGrass.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		CordGrass.sizeX = x;
 	}
 	public void live(){
 		life++;

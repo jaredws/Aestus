@@ -5,15 +5,13 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-
 import javax.swing.JButton;
-
-
 
 public class ScreenButtonStart extends JButton {
 
 	//Implament listener on the frame??? -JS
 
+	private static final long serialVersionUID = 9042772411806531339L;
 	public int clickx;
 	public int clicky;
 

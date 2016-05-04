@@ -24,8 +24,8 @@ public class Phragmites extends Grabbable {
 		life = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX*370/236;
+		Phragmites.sizeX = (int)screenSize.getWidth()/12;
+		Phragmites.sizeY = sizeX*370/236;
 		
     }
 	
@@ -46,19 +46,19 @@ public class Phragmites extends Grabbable {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return Phragmites.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return Phragmites.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		Phragmites.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		Phragmites.sizeX = x;
 	}
 	public void live(){
 		life++;

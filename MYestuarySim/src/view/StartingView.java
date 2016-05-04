@@ -2,26 +2,18 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import controller.Game;
 import controller.ScreenButtonStart;
 
-
 public class StartingView extends JPanel {
 	
-	/**
-	 * Auto-generated serialVersionUID
-	 */
 	private static final long serialVersionUID = -3728339469941254427L;
 	
 	private Game G;
@@ -90,7 +82,9 @@ public class StartingView extends JPanel {
 		frame.dispose();
 	}
 	
-	 
+	public Game getGame() {
+		return this.G;
+	}
 
 
 }

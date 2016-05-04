@@ -11,15 +11,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
 import javax.swing.JLabel;
-//import java.util.Timer;
-//import java.util.TimerTask;
 import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
-import model.Background;
 import view.StartingView;
 import view.TotalView;
 
@@ -97,31 +92,10 @@ public class Game {
 		CC.addCrab(200,300);
 		BCC.addBlueCrab(200, 100);
 		/**
-		 * Create a timerTask for updating the population.
+		 * Create a timer for updating the population.
 		 * Since the population will naturally correct itself, we want to delay that to allow the player
 		 * to mess with the estuary and see the effects.
 		 */
-		/*Timer timer = new Timer();
-		class updatePopulation extends TimerTask {
-			public void run() {
-				if(!S.pause){
-				PopC.update(G);
-				}
-			}
-		}
-		class moveObjects extends TimerTask{
-			public void run(){
-				if(!S.pause){
-				CC.moveCrabs();
-				TC.moveTurtles();
-				BCC.moveBlueCrabs();
-				PC.age();
-				CGC.age();
-			}
-			}
-		}
-		timer.scheduleAtFixedRate(new updatePopulation(), 0,4500);//every 3 seconds
-		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds*/
 		int t = 50;
 		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {

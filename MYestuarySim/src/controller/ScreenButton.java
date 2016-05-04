@@ -1,31 +1,24 @@
 package controller;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import model.BlueCrab;
 import model.CordGrass;
 import model.Crab;
 import model.Grabbable;
 import model.Phragmites;
 import model.Turtle;
-import controller.Game;
 
 public class ScreenButton extends JButton {
 	
-	//Implament listener on the frame??? -JS
+	private static final long serialVersionUID = 481321254387509732L;
+	
+	//Implement listener on the frame??? -JS
 	int x;
 	int y;
 	int magX;

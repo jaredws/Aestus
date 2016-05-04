@@ -1,7 +1,8 @@
 package model;
 
-
 public class Button extends java.awt.Button {
+
+	private static final long serialVersionUID = -1666903446243743257L;
 	int x;
 	int y;
 	int type;

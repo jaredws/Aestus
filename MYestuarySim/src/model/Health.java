@@ -26,8 +26,8 @@ public class Health {
 		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX*3/4;
+		Health.sizeX = (int)screenSize.getWidth()/12;
+		Health.sizeY = sizeX*3/4;
 		XDir = 0;
 		YDir = 0;
     }
@@ -49,18 +49,18 @@ public class Health {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return Health.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return Health.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		Health.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		Health.sizeX = x;
 	}
 }

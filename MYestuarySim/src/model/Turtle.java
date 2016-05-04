@@ -24,8 +24,8 @@ public class Turtle extends Grabbable {
 		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX*392/648;
+		Turtle.sizeX = (int)screenSize.getWidth()/12;
+		Turtle.sizeY = sizeX*392/648;
 		XDir = 0;
 		YDir = 0;
     }
@@ -47,19 +47,19 @@ public class Turtle extends Grabbable {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return Turtle.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return Turtle.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		Turtle.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		Turtle.sizeX = x;
 	}
 	public void moveTurtle(int J,Dimension screenSize){
 		if((move%20)==0){

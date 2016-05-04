@@ -26,8 +26,8 @@ public class BlueCrab extends Grabbable {
 		move = 0;
 		this.x = x;
 		this.y = y;
-		this.sizeX = (int)screenSize.getWidth()/12;
-		this.sizeY = sizeX*3/4;
+		BlueCrab.sizeX = (int)screenSize.getWidth()/12;
+		BlueCrab.sizeY = sizeX*3/4;
 		XDir = 0;
 		YDir = 0;
     }
@@ -49,19 +49,19 @@ public class BlueCrab extends Grabbable {
 	}
 	
 	public int getSizeX() {
-		return this.sizeX;
+		return BlueCrab.sizeX;
 	}
 	
 	public int getSizeY() {
-		return this.sizeY;
+		return BlueCrab.sizeY;
 	}
 	
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		BlueCrab.sizeY = y;
 	}
 	
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		BlueCrab.sizeX = x;
 	}
 	
 	public int getYDir() {

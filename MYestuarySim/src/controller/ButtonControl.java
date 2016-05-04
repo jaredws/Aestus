@@ -2,13 +2,12 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JButton;
-
 import model.Button;
 
 public class ButtonControl extends JButton {
 	
+	private static final long serialVersionUID = -3104074185667012291L;
 	private List<Button> buttons;
 
 	public ButtonControl(int h,int w){
