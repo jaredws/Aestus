@@ -1,7 +1,8 @@
 package model;
+import java.awt.Dimension;
 /**
  * 
- * @author Jared
+ * @author Jared+karpzey4ever
  *
  */
 public class Pollution extends Grabbable {
@@ -21,6 +22,14 @@ public class Pollution extends Grabbable {
 		this.y = y;
 		this.sizeX = 165;
 		this.sizeY = 165;
+    }
+	
+	public Pollution(int x, int y, Dimension screenSize){
+		this.x = x;
+		this.y = y;
+		Phragmites.sizeX = (int)screenSize.getWidth()/12;
+		Phragmites.sizeY = sizeX*370/236;
+		
     }
 	
 	public int getX() {
