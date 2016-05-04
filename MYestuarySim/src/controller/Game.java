@@ -110,6 +110,7 @@ public class Game {
 		    	}
 		    	if(threeSec/t == 90 && !S.pause) {
 		    		  PopC.update(G);
+		    		  threeSec=0;
 		    	}
 		    	if(!S.pause){
 					CC.moveCrabs();
