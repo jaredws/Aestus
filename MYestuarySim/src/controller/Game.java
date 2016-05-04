@@ -1,12 +1,16 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
+import javax.swing.JLabel;
+//import java.util.Timer;
+//import java.util.TimerTask;
+import javax.swing.Timer;
 import model.Background;
 import view.StartingView;
 import view.TotalView;
@@ -24,9 +28,16 @@ public class Game {
 	static CordGrassControl CGC;
 	static PhragmitesControl PC;
 	static HealthControl HC;
-
+	static int countDown = 60;
+	static int threeSec = 0;
+	static int sec = 0;
+	public static JLabel Time = new JLabel();
 	
 	public static void main(String[] args){
+		Time.setText("test");
+		Time.setForeground(Color.blue);
+		Time.setVisible(true);
+		Time.setLocation(500, 500);
 		Game G = new Game();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		//ugh
@@ -67,7 +78,7 @@ public class Game {
 		 * Since the population will naturally correct itself, we want to delay that to allow the player
 		 * to mess with the estuary and see the effects.
 		 */
-		Timer timer = new Timer();
+		/*Timer timer = new Timer();
 		class updatePopulation extends TimerTask {
 			public void run() {
 				if(!S.pause){
@@ -87,17 +98,33 @@ public class Game {
 			}
 		}
 		timer.scheduleAtFixedRate(new updatePopulation(), 0,4500);//every 3 seconds
-		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds
-		
-		TV.repaint();
+		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds*/
+		int t = 50;
+	    ActionListener taskPerformer = new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		    	if(sec/t == 20) {
+		    		countDown--;
+		    		System.out.println(countDown);
+		    		sec = 0;
+		    		//Time.setText(Integer.toString(countDown));
+		    	}
+		    	if(threeSec/t == 90 && !S.pause) {
+		    		  PopC.update(G);
+		    	}
+		    	if(!S.pause){
+					CC.moveCrabs();
+					TC.moveTurtles();
+					BCC.moveBlueCrabs();
+					PC.age();
+					CGC.age();
+				}
+		    	sec+=t;
+		    	threeSec+=t;
+		    }
+        };
+	    new Timer(t, taskPerformer).start();;
+	    TV.repaint();
 		while(true){
-			//We can later compile all the CC. and s. stuff into a CC.tick() function
-			//Population control needs to know a tick rate for spawning
-			//CC.clickAddCrab(S);
-			//TC.clickAddTurtle(S);
-			//BCC.clickAddBlueCrab(S);
-			//PC.clickAddPhragmites(S);
-			//CGC.clickAddCordGrass(S);
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
@@ -105,10 +132,6 @@ public class Game {
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
-//			CGC.deleteCordGrass(BC);
-//			PC.deletePhragmites(BC);
-			//PopC.update(G);
-			
 			try {
     			Thread.sleep(10);
     		} catch (InterruptedException e) {

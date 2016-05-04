@@ -35,11 +35,6 @@ public class ScreenButton extends JButton {
 	int j = 0;
 	public int clickx;
 	int clicky;
-	/*public boolean addCrab;//Do we really need this?
-	public boolean addTurtle;
-	public boolean addBlueCrab;
-	public boolean addCordGrass;
-	public boolean addPhragmites;*/
 	Grabbable grabbed;
 	boolean grabbing;
 	boolean clicked;
@@ -50,8 +45,6 @@ public class ScreenButton extends JButton {
 	public int research;
 	public boolean pause;
 	public boolean shears = false;
-	
-	ImageIcon icon;
 	
 	public ScreenButton(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -297,17 +290,6 @@ public class ScreenButton extends JButton {
 		
 		
 	}
-	
-	/** Returns an ImageIcon, or null if the path was invalid. */
-    protected static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = ScreenButton.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
     
     public int getMagX() {
     	return this.magX;

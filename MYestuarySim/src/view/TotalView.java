@@ -65,6 +65,7 @@ public class TotalView extends JPanel{
 		JFrame frame = new JFrame();
 		frame.setLayout(null);
 		frame.add(S);
+		frame.getContentPane().add(Game.Time);
 		frame.add(this);
 		frame.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
