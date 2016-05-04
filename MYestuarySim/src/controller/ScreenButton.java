@@ -68,16 +68,6 @@ public class ScreenButton extends JButton {
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
-        	/*if((e.getX() > 0 && e.getX() < (100)) && (e.getY() > (screenSize.getHeight()-150) && e.getY() < screenSize.getHeight())){
-        		int k = rand.nextInt(5);
-        		switch(k){
-        		case (0):addCrab = true;break;
-        		case (1):addTurtle = true;break;
-        		case (2):addBlueCrab = true;break;
-        		case (3):addPhragmites = true;break;
-        		case (4):addCordGrass = true;break;
-        		}
-        	}*/
         	grabbing = false;
             clickx = e.getX();
             clicky = e.getY();
@@ -95,7 +85,6 @@ public class ScreenButton extends JButton {
         	j = -1;
         	clicked = false;
         }
-        
 	});
 	
 	addMouseMotionListener(new MouseMotionAdapter(){
@@ -259,9 +248,10 @@ public class ScreenButton extends JButton {
 								research = 1;
 								magGlass = false;
 								pause = true;
-							} else {
+							} else if(shears){
 								pc.removePhragmites(i);
 							}
+							clicked = false;
 							}
 						}
 				}
@@ -273,9 +263,10 @@ public class ScreenButton extends JButton {
 								research = 4;
 								magGlass = false;
 								pause = true;
-							} else {
+							} else if(shears){
 								cgc.removeCordGrass(i);
 							}
+							clicked = false;
 							}
 						}
 				}
