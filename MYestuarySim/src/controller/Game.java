@@ -106,7 +106,7 @@ public class Game {
 		    		countDown--;
 		    		System.out.println(countDown);
 		    		sec = 0;
-		    		//Time.setText(Integer.toString(countDown));
+		    		Time.setText(Integer.toString(countDown));
 		    	}
 		    	if(threeSec/t == 90 && !S.pause) {
 		    		  PopC.update(G);
@@ -130,6 +130,8 @@ public class Game {
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
+			//Down here steven.
+			TV.add(Time);
 			if(S.pause) continue;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);

@@ -13,6 +13,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
@@ -45,6 +46,7 @@ public class TotalView extends JPanel{
 	public ScreenButton S;
 	Background background;
 	Dimension screenSize;
+	JFrame frame;
  	
 	
 	public TotalView(ScreenButton s){
@@ -62,10 +64,9 @@ public class TotalView extends JPanel{
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setLayout(null);
 		frame.add(S);
-		frame.getContentPane().add(Game.Time);
 		frame.add(this);
 		frame.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

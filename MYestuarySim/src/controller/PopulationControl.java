@@ -59,14 +59,14 @@ public class PopulationControl {
 		//make plants a set max always approaching it
 		TotalPlant = 50; //-P; // - 2*TrashCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) ((-15/289)*TP*TP + (600/289)*TP - 1665/289);//0 animals at 3 plants, 15 at a net 20
-		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal)/1.4);//some of these lines may not be necessary
+		TotalAnimal = (int) ((-15/289)*Math.pow(TP,2) + (600/289)*TP - (1665/289));//0 animals at 3 plants, 15 at a net 20
+		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
-		spawn();
+		System.out.println("Max Total Animals: "+TotalAnimal);
 		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
 		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
 		System.out.println("Turtles: "+game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+game.getBlueCrabControl().getBlueCrabs().size());
-		
+		spawn();
 		
 	}
 	
