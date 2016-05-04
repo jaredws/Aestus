@@ -2,15 +2,23 @@ package controller;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.swing.JLabel;
 //import java.util.Timer;
 //import java.util.TimerTask;
 import javax.swing.Timer;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 import model.Background;
 import view.StartingView;
 import view.TotalView;
@@ -28,19 +36,34 @@ public class Game {
 	static CordGrassControl CGC;
 	static PhragmitesControl PC;
 	static HealthControl HC;
-	static int countDown = 10;
+	static int countDown = 60;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time = new JLabel();
+	static Font font = null;
 	
 	public static void main(String[] args){
-		Time.setText("test");
-		Time.setForeground(Color.blue);
-		Time.setVisible(true);
-		Time.setLocation(500, 500);
 		Game G = new Game();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		//ugh
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("./img/splurge.ttf"));
+		} catch (FontFormatException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}   
+		GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		genv.registerFont(font);
+		font = font.deriveFont(40f);
+		Border border = LineBorder.createBlackLineBorder();
+		Time.setBorder(border);
+		Time.setForeground(new Color(163,120,64));
+		Time.setBackground(Color.white);
+		Time.setOpaque(true);
+		Time.setText(Integer.toString(countDown));
+		Time.setVisible(true);
+		Time.setFont(font);
 		ScreenButtonStart s = new ScreenButtonStart();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
@@ -106,7 +129,7 @@ public class Game {
 		    		countDown--;
 		    		System.out.println(countDown);
 		    		sec = 0;
-		    		Time.setText(Integer.toString(countDown));
+		    		Time.setText("Time Left: " + Integer.toString(countDown));
 		    	}
 		    	if(threeSec/t == 90 && !S.pause) {
 		    		  PopC.update(G);
@@ -124,13 +147,12 @@ public class Game {
 		    }
         };
 	    new Timer(t, taskPerformer).start();;
-
+	    
 	    TV.repaint();
 		while(true){
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
-			//Down here steven.
 			TV.add(Time);
 			if(S.pause) continue;
 			CC.deleteCrabs(BC);
