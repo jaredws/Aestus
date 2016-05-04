@@ -28,7 +28,7 @@ public class Game {
 	static CordGrassControl CGC;
 	static PhragmitesControl PC;
 	static HealthControl HC;
-	static int countDown = 60;
+	static int countDown = 10;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time = new JLabel();
@@ -100,7 +100,7 @@ public class Game {
 		timer.scheduleAtFixedRate(new updatePopulation(), 0,4500);//every 3 seconds
 		timer.scheduleAtFixedRate(new moveObjects(), 0, 50);//every 50 milliseconds*/
 		int t = 50;
-	    ActionListener taskPerformer = new ActionListener() {
+		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
 		    	if(sec/t == 20) {
 		    		countDown--;
@@ -124,6 +124,7 @@ public class Game {
 		    }
         };
 	    new Timer(t, taskPerformer).start();;
+
 	    TV.repaint();
 		while(true){
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
