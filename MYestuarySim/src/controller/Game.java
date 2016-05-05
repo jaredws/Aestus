@@ -31,6 +31,7 @@ public class Game {
 	static CordGrassControl CGC;
 	static PhragmitesControl PC;
 	static HealthControl HC;
+	static PollutionControl PolC;
 	static int countDown = 60;
 	static int threeSec = 0;
 	static int sec = 0;
@@ -84,6 +85,7 @@ public class Game {
 		PC = new PhragmitesControl();
 		CGC = new CordGrassControl();
 		HC = new HealthControl();
+		PolC = new PollutionControl();
 		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
@@ -184,6 +186,10 @@ public class Game {
 	
 	public static HealthControl getHealthControl(){
 		return HC;
+	}
+	
+	public static PollutionControl getPollutionControl(){
+		return PolC;
 	}
 	
 	public int calculateHealth(){

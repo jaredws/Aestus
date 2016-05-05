@@ -47,6 +47,10 @@ public class PollutionControl {
 	public Pollution getPollution(int i){
 		return Pollution.get(i);
 	}
+	
+	public int getPollutionSize(){
+		return Pollution.size();
+	}
 	/*
 	public void age(){
 		for(int i = 0; i < Pollution.size(); i++){
