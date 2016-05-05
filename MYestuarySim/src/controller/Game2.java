@@ -7,13 +7,13 @@ public class Game2 {
 
 	//implementing the combined ViewAll and ControlObjects classes
 	
-	ScreenButton sB;
+	ScreenControl sB;
 	PopulationControl PopC;
 	TotalView TV;
 	StartingView SV;
 	
 	private Game2(){
-		sB = new ScreenButton();
+		sB = new ScreenControl();
 		PopC = new PopulationControl();
 		TV = new TotalView(sB);
 		//SV = new StartingView();

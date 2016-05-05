@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controller.Game;
-import controller.ScreenButton;
+import controller.ScreenControl;
 import model.Background;
 
 public class TotalView extends JPanel{
@@ -28,13 +28,13 @@ public class TotalView extends JPanel{
 	static MagView MV;
 	static ResearchView RV;
 	static ToolView TLV;
-	public ScreenButton S;
+	public ScreenControl S;
 	Background background;
 	Dimension screenSize;
 	JFrame frame;
  	
 	
-	public TotalView(ScreenButton s){
+	public TotalView(ScreenControl s){
 		BGV = new BackgroundView();
 		CV = new CrabView();
 		BV = new ButtonView();

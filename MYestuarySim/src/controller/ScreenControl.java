@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Random;
 import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import model.BlueCrab;
 import model.CordGrass;
 import model.Crab;
@@ -14,7 +16,7 @@ import model.Grabbable;
 import model.Phragmites;
 import model.Turtle;
 
-public class ScreenButton extends JButton {
+public class ScreenControl extends JPanel {
 	
 	private static final long serialVersionUID = 481321254387509732L;
 	
@@ -39,12 +41,12 @@ public class ScreenButton extends JButton {
 	public boolean pause;
 	public boolean shears = false;
 	
-	public ScreenButton(){
+	public ScreenControl(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
-	    setBorderPainted(false);
-	    setFocusPainted(false);
-	    setContentAreaFilled(false);
+	    //setBorderPainted(false);
+	    //setFocusPainted(false);
+	    //setContentAreaFilled(false);
 
 	    menu = false;
 	    research = -1;

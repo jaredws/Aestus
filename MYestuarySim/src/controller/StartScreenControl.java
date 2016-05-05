@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JButton;
 
-public class ScreenButtonStart extends JButton {
+public class StartScreenControl extends JButton {
 
 	//Implament listener on the frame??? -JS
 
@@ -16,7 +16,7 @@ public class ScreenButtonStart extends JButton {
 	public int clicky;
 
 
-	public ScreenButtonStart(){
+	public StartScreenControl(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);

@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controller.Game;
-import controller.ScreenButtonStart;
+import controller.StartScreenControl;
 
 public class StartingView extends JPanel {
 	
@@ -18,7 +18,7 @@ public class StartingView extends JPanel {
 	
 	private Game G;
 	static ButtonView BV;
-	public ScreenButtonStart S;
+	public StartScreenControl S;
 	public Image BG;
  	public boolean Showing;
  	public JFrame frame;
@@ -28,7 +28,7 @@ public class StartingView extends JPanel {
  	public Image settings;
  	public Image exit;
 	
-	public StartingView(ScreenButtonStart s){
+	public StartingView(StartScreenControl s){
 		Showing = true;
 		BV = new ButtonView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

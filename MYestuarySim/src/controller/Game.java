@@ -36,6 +36,7 @@ public class Game {
 	static int sec = 0;
 	public static JLabel Time = new JLabel();
 	static Font font = null;
+	static Timer timer;
 	
 	public static void main(String[] args){
 		Game G = new Game();
@@ -59,7 +60,7 @@ public class Game {
 		Time.setText(Integer.toString(countDown));
 		Time.setVisible(true);
 		Time.setFont(font);
-		ScreenButtonStart s = new ScreenButtonStart();
+		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		while(SV.Showing){
@@ -71,7 +72,7 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
-		ScreenButton S = new ScreenButton();
+		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
 		CC = new CrabControl();
 		BC = new ButtonControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
@@ -105,7 +106,7 @@ public class Game {
 		    		sec = 0;
 		    		Time.setText("Time Left: " + Integer.toString(countDown));
 		    	}
-		    	if(threeSec/t == 90 && !S.pause) {
+		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopC.update(G);
 		    		  threeSec=0;
 		    	}
@@ -118,9 +119,12 @@ public class Game {
 				}
 		    	sec+=t;
 		    	threeSec+=t;
+		    	
+		    	if(countDown <= 0) timer.stop();
 		    }
         };
-	    new Timer(t, taskPerformer).start();;
+	    timer = new Timer(t, taskPerformer);
+	    timer.start();
 	    
 	    TV.repaint();
 		while(true){
@@ -129,6 +133,7 @@ public class Game {
 			TV.repaint();
 			TV.add(Time);
 			if(S.pause) continue;
+			if(countDown == 0) break;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
@@ -138,6 +143,9 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
+		
+		
+		
 	}
 
 	public Random getRand() {
