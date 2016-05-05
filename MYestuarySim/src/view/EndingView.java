@@ -25,7 +25,7 @@ public class EndingView extends JPanel {
  	public boolean Showing;
  	public JFrame frame;
  	Dimension screenSize;
- 	public Image title;
+ 	public Image researcher;
  	public Image play;
  	public Image settings;
  	public Image exit;
@@ -37,9 +37,9 @@ public class EndingView extends JPanel {
 		S=s2;
 		
 		try {                
-			BG = ImageIO.read(new File("./img/bg.jpg"));
+			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
-			title = ImageIO.read(new File("./img/title.png"));
+			researcher = ImageIO.read(new File("./img/researcher.png"));
 			play = ImageIO.read(new File("./img/playButton.png"));
 			settings = ImageIO.read(new File("./img/settingsButton.png"));
 			exit = ImageIO.read(new File("./img/exitButton.png"));
@@ -65,7 +65,7 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
-        g.drawImage(title, (int)screenSize.getWidth()/2-title.getWidth(null)/2, 125, null);
+        g.drawImage(researcher, 200, (int)screenSize.getHeight()/2-researcher.getHeight(null)/2, null);
         g.drawImage(play, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 300, null);
         g.drawImage(settings, (int)screenSize.getWidth()/2-settings.getWidth(null)/2, 400, null);
         g.drawImage(exit, (int)screenSize.getWidth()/2-exit.getWidth(null)/2, 500, null);

@@ -134,5 +134,7 @@ public class TotalView extends JPanel{
 	
 	}
 	
-
+	public void dispose(){
+		frame.dispose();
+	}
 }
