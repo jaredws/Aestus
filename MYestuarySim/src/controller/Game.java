@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+
+import view.EndingView;
 import view.StartingView;
 import view.TotalView;
 
@@ -32,7 +34,9 @@ public class Game {
 	static PhragmitesControl PC;
 	static HealthControl HC;
 	static PollutionControl PolC;
-	static int countDown = 60;
+	static EndingView EV;
+	static EndScreenControl ESC;
+	static int countDown = 10;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
@@ -148,6 +152,18 @@ public class Game {
     		}
 		}
 		
+		EndScreenControl esc = new EndScreenControl();
+		EV = new EndingView(esc);
+		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
+		while(EV.Showing){
+			EV.checkStart();
+			EV.repaint();
+			try {
+    			Thread.sleep(50);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
+		}
 		
 		
 	}
