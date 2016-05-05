@@ -37,7 +37,7 @@ public class EndingView extends JPanel {
 		S=s2;
 		
 		try {                
-			BG = ImageIO.read(new File("./img/bg.jpg"));
+			BG = ImageIO.read(new File("./img/bgEnd.jpg"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 			title = ImageIO.read(new File("./img/title.png"));
 			play = ImageIO.read(new File("./img/playButton.png"));
