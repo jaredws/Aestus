@@ -36,7 +36,7 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
-	static int countDown = 10;
+	static int countDown = 600;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
@@ -164,7 +164,7 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
-		TV.dispose();
+		//TV.dispose();
 		
 		
 	}
