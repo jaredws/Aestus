@@ -164,6 +164,7 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
+		TV.dispose();
 		
 		
 	}
