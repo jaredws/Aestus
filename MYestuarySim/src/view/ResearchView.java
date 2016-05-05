@@ -35,7 +35,7 @@ public class ResearchView extends ViewTemplate{
 		try {           
 			image = ImageIO.read(new File("./img/"+fileName+".png"));
 			//images.add(image);
-			images.add(image.getScaledInstance(-1,(int)screenSize.getHeight() - 150,1));
+			images.add(image.getScaledInstance(-1,(int)screenSize.getHeight() - 150, Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("BlueCrab Image read error");
 	       }
