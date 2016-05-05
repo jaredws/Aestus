@@ -133,15 +133,14 @@ public class Game {
         };
 	    timer = new Timer(t, taskPerformer);
 	    timer.start();
-	    
+	    TV.add(Time);
 	    TV.repaint();
 		while(true){
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
-			TV.add(Time);
-			if(S.pause) continue;
 			if(countDown == 0) break;
+			if(S.pause) continue;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
 			BCC.deleteBlueCrabs(BC);
