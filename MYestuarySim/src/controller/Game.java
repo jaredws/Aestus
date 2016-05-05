@@ -36,7 +36,7 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
-	static int countDown = 5;
+	static int countDown = 10;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
@@ -157,8 +157,8 @@ public class Game {
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		TV.dispose();
 		while(EV.Showing){
-			EV.checkStart();
 			EV.repaint();
+			EV.add(EV.getScoreLabel());
 			try {
     			Thread.sleep(50);
     		} catch (InterruptedException e) {

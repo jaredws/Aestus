@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.EndScreenControl;
@@ -26,9 +27,7 @@ public class EndingView extends JPanel {
  	public JFrame frame;
  	Dimension screenSize;
  	public Image researcher;
- 	public Image play;
- 	public Image settings;
- 	public Image exit;
+ 	public Image clipboard;
 	
 	public EndingView(EndScreenControl s2){
 		Showing = true;
@@ -40,10 +39,7 @@ public class EndingView extends JPanel {
 			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
-			play = ImageIO.read(new File("./img/playButton.png"));
-			settings = ImageIO.read(new File("./img/settingsButton.png"));
-			exit = ImageIO.read(new File("./img/exitButton.png"));
-			
+			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
 	       }
@@ -55,6 +51,7 @@ public class EndingView extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.add(new JLabel("Score"));
 	}
 	
 	public void update(Game g){
@@ -66,18 +63,7 @@ public class EndingView extends JPanel {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         g.drawImage(researcher, 200, (int)screenSize.getHeight()/2-researcher.getHeight(null)/2, null);
-        g.drawImage(play, (int)screenSize.getWidth()/2-play.getWidth(null)/2, 300, null);
-        g.drawImage(settings, (int)screenSize.getWidth()/2-settings.getWidth(null)/2, 400, null);
-        g.drawImage(exit, (int)screenSize.getWidth()/2-exit.getWidth(null)/2, 500, null);
-        
-	}
-
-	public void checkStart() {
-		if((S.clickx > (int)screenSize.getWidth()/2-play.getWidth(null)/2) && (S.clickx < ((int)screenSize.getWidth()/2-play.getWidth(null)/2 + 600))){
-			if(S.clicky > 300 && S.clicky < 400)
-			Showing = false;
-		}
-		
+        g.drawImage(clipboard, (int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2, null);        
 	}
 	
 	public void dispose(){
@@ -86,6 +72,12 @@ public class EndingView extends JPanel {
 	
 	public Game getGame() {
 		return this.G;
+	}
+	
+	public JLabel getScoreLabel() {
+		JLabel score = new JLabel("Score");
+		
+		return score;
 	}
 
 
