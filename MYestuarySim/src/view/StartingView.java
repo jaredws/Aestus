@@ -35,7 +35,7 @@ public class StartingView extends JPanel {
 		S=s;
 		
 		try {                
-			BG = ImageIO.read(new File("./img/bg.jpg"));
+			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
 			title = ImageIO.read(new File("./img/title.png"));
 			play = ImageIO.read(new File("./img/playButton.png"));

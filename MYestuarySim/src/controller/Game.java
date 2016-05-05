@@ -36,7 +36,7 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
-	static int countDown = 5;
+	static int countDown = 60;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
