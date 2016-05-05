@@ -36,7 +36,7 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
-	static int countDown = 10;
+	static int countDown = 60;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
@@ -61,8 +61,9 @@ public class Game {
 		Border border = LineBorder.createBlackLineBorder();
 		Time = new JLabel();
 		Time.setBorder(border);
-		Time.setForeground(new Color(163,120,64));
-		Time.setBackground(Color.white);
+		//Time.setForeground(new Color(163,120,64));
+		Time.setForeground(new Color(186,25,25));
+		Time.setBackground(Color.gray);
 		Time.setOpaque(true);
 		Time.setText(Integer.toString(countDown));
 		Time.setVisible(true);
