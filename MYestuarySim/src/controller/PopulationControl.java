@@ -45,10 +45,10 @@ public class PopulationControl {
 	}
 	
 	public void calculate(){
-		NIP = game.getCordGrassControl().getCordGrass().size(); //calculate current noninvasive plant
-		IP = game.getPhragmitesControl().getPhragmites().size(); //calculate current invasive plant
-		NIA = game.getTurtleControl().getTurtles().size() + game.getBlueCrabControl().getBlueCrabs().size();//calculate current noninvasive animal
-		IA = game.getCrabControl().getCrabs().size(); //calculate current invasive animal
+		NIP = Game.getCordGrassControl().getCordGrass().size(); //calculate current noninvasive plant
+		IP = Game.getPhragmitesControl().getPhragmites().size(); //calculate current invasive plant
+		NIA = Game.getTurtleControl().getTurtles().size() + Game.getBlueCrabControl().getBlueCrabs().size();//calculate current noninvasive animal
+		IA = Game.getCrabControl().getCrabs().size(); //calculate current invasive animal
 		//P=game.getPollutionControl().getPollution().size();
 		TP = NIP + IP;
 		TA = NIA + IA;
@@ -65,7 +65,7 @@ public class PopulationControl {
 		System.out.println("Max Total Animals: "+TotalAnimal);
 		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
 		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
-		System.out.println("Turtles: "+game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+game.getBlueCrabControl().getBlueCrabs().size());
+		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());
 		spawn();
 		
 	}
@@ -79,43 +79,43 @@ public class PopulationControl {
 		rand = new Random();
 		if(TotalPlant>TP){
 			if(rand.nextInt(8)%3==0){//8%3 will be replaced with a probability factor that will be chagned when research happens.
-				game.getCordGrassControl().addCordGrass(makeX(),makeY());
+				Game.getCordGrassControl().addCordGrass(makeX(),makeY());
 			}
 			else{
-				game.getPhragmitesControl().addPhragmites(makeX(),makeY());
+				Game.getPhragmitesControl().addPhragmites(makeX(),makeY());
 				}
 		}
 		if(TotalPlant<TP){
 				if(rand.nextInt(2)%2==0){
-					try{game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
 				}
 				else{
-					try{game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
 				}
 		}
 		if(TotalAnimal>TA){
 			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
 				if(rand.nextInt(8)%2==0){//3/8ths probability of adding a turtle
-					game.getTurtleControl().addTurtle(makeX(),makeY());
+					Game.getTurtleControl().addTurtle(makeX(),makeY());
 				}
 				else{//add a non-invasive
-					game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
+					Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
 				}
 			}
 			else{
-				game.getCrabControl().addCrab(makeX(),makeY());				}
+				Game.getCrabControl().addCrab(makeX(),makeY());				}
 		}
 		if(TotalAnimal<TA){
 			if(rand.nextInt(2)%2==0){
 				if(rand.nextInt(8)%2==0){//3/8ths probability of removing a turtle
-					try{game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
 				}
 				else{//remove a non-invasive
-					try{game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
 				}
 			}
 			else{//remove an invasive
-				try{game.getCrabControl().removeCrab(0);}catch(IndexOutOfBoundsException ex){}
+				try{Game.getCrabControl().removeCrab(0);}catch(IndexOutOfBoundsException ex){}
 			}
 		}
 	}

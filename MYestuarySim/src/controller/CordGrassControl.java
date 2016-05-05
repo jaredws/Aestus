@@ -42,15 +42,6 @@ public class CordGrassControl {
 		}
 	}
 	
-	/*public void clickAddCordGrass(ScreenButton s){
-
-		if(s.clickx > 0 && s.addCordGrass){
-			addCordGrass(rand.nextInt(1350),rand.nextInt(100)+500);
-			s.addCordGrass= false;
-		}
-	}*/
-	
-	
 	protected void removeCordGrass(int i){
 		CordGrass.remove(i);
 	}

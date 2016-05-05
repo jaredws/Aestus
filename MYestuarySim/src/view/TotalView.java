@@ -116,12 +116,12 @@ public class TotalView extends JPanel{
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
         if(S.getShears()) 
         	g.drawImage(TLV.getImage(0), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
-        if(S.menu){
+        if(S.getMenu()){
         	g.drawImage(BV.getImage(5),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
         }
-        if(S.pause){
-        	g.drawImage(RV.getImage(S.research),(int)screenSize.getWidth()/2 - 100, 
+        if(S.getPause()){
+        	g.drawImage(RV.getImage(S.getResearch()),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
         }
 	

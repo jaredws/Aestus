@@ -34,7 +34,7 @@ public class Game {
 	static int countDown = 60;
 	static int threeSec = 0;
 	static int sec = 0;
-	public static JLabel Time = new JLabel();
+	public static JLabel Time;
 	static Font font = null;
 	static Timer timer;
 	
@@ -49,10 +49,12 @@ public class Game {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}   
+		//CountDown Display
 		GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		genv.registerFont(font);
 		font = font.deriveFont(40f);
 		Border border = LineBorder.createBlackLineBorder();
+		Time = new JLabel();
 		Time.setBorder(border);
 		Time.setForeground(new Color(163,120,64));
 		Time.setBackground(Color.white);
@@ -151,7 +153,6 @@ public class Game {
 	public Random getRand() {
 		return rand;
 	}
-
 
 	public static CrabControl getCrabControl() {
 		return CC;
