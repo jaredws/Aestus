@@ -121,8 +121,8 @@ public class TotalView extends JPanel{
         			(int)screenSize.getHeight()/2-100, null);
         }
         if(S.getPause()){
-        	g.drawImage(RV.getImage(S.getResearch()),(int)screenSize.getWidth()/2 - 100, 
-        			(int)screenSize.getHeight()/2-100, null);
+        	g.drawImage(RV.getImage(S.getResearch()),0, 
+        			-75, null);
         }
 	
 	}
