@@ -1,5 +1,6 @@
 package model;
 import java.awt.Dimension;
+import java.util.Random;
 /**
  * 
  * @author Jared+karpzey4ever
@@ -16,12 +17,14 @@ public class Pollution extends Grabbable {
 	//temporary public variables
 	public int sizeX;
 	public int sizeY;
+	public ePollute PollutionType;
 	
 	public Pollution(int x, int y){
 		this.x = x;
 		this.y = y;
 		this.sizeX = 165;
 		this.sizeY = 165;
+		this.PollutionType = ePollute.getPollute(new Random().nextInt(3));
     }
 	
 	public Pollution(int x, int y, Dimension screenSize){
@@ -62,5 +65,9 @@ public class Pollution extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	
+	public ePollute getPolluteType(){
+		return this.PollutionType;
 	}
 }

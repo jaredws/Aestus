@@ -29,6 +29,7 @@ public class TotalView extends JPanel{
 	static ResearchView RV;
 	static ToolView TLV;
 	public ScreenControl S;
+	public PollutionView POLV;
 	Background background;
 	Dimension screenSize;
 	JFrame frame;
@@ -46,6 +47,7 @@ public class TotalView extends JPanel{
 		MV = new MagView();
 		RV = new ResearchView();
 		TLV = new ToolView();
+		POLV = new PollutionView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -111,7 +113,12 @@ public class TotalView extends JPanel{
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(BCV.getImage(Game.getBlueCrabControl().getBlueCrab(i).move), Game.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
         			Game.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
-	
+       
+        for(int i = 0; i < Game.getPollutionControl().getPollutionSize(); i++)
+        	//Made the default get Image 0 here, a movement may need to be called instead
+        	g.drawImage(POLV.getImage(Game.getPollutionControl().getPollution(i).getPolluteType()), Game.getPollutionControl().getPollution(i).getX(), 
+        			Game.getPollutionControl().getPollution(i).getY(), null); // see javadoc for more info on the parameters 
+       
         if(S.getMagGlass()) 
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
         if(S.getShears()) 
