@@ -36,38 +36,15 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
+	static CountdownControl CDC;
 	static int countDown = 500;
 	static int threeSec = 0;
 	static int sec = 0;
-	public static JLabel Time;
-	static Font font = null;
 	static Timer timer;
 	
 	public static void main(String[] args){
 		Game G = new Game();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		//ugh
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("./img/splurge.ttf"));
-		} catch (FontFormatException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}   
-		//CountDown Display
-		GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		genv.registerFont(font);
-		font = font.deriveFont(40f);
-		Border border = LineBorder.createBlackLineBorder();
-		Time = new JLabel();
-		Time.setBorder(border);
-		//Time.setForeground(new Color(163,120,64));
-		Time.setForeground(new Color(186,25,25));
-		Time.setBackground(Color.gray);
-		Time.setOpaque(true);
-		Time.setText(Integer.toString(countDown));
-		Time.setVisible(true);
-		Time.setFont(font);
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
@@ -91,6 +68,7 @@ public class Game {
 		CGC = new CordGrassControl();
 		HC = new HealthControl();
 		PolC = new PollutionControl();
+		CDC = new CountdownControl();
 		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
@@ -111,10 +89,8 @@ public class Game {
 		    public void actionPerformed(ActionEvent evt) {
 		    	System.out.println("THREE " + threeSec);
 		    	if(sec/t == 20) {
-		    		countDown--;
-		    		System.out.println(countDown);
+		    		CDC.updateCountdown();
 		    		sec = 0;
-		    		Time.setText("Time Left: " + Integer.toString(countDown));
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopC.update(G);
@@ -137,13 +113,12 @@ public class Game {
         };
 	    timer = new Timer(t, taskPerformer);
 	    timer.start();
-	    TV.add(Time);
 	    TV.repaint();
 		while(true){
 			S.checkPos(CC,TC,BCC,CGC,PC,BC);
 			TV.update(G);
 			TV.repaint();
-			if(countDown == 0) break;
+			if(CDC.getTime() == 0) break;
 			if(S.pause) continue;
 			CC.deleteCrabs(BC);
 			TC.deleteTurtles(BC);
@@ -211,6 +186,10 @@ public class Game {
 	
 	public static PollutionControl getPollutionControl(){
 		return PolC;
+	}
+	
+	public static CountdownControl getCountdownControl(){
+		return CDC;
 	}
 	
 	public int calculateHealth(){
