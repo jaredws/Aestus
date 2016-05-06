@@ -26,7 +26,7 @@ public class PopulationControl {
 	int P; //current total pollution
 	
 	private int TotalPlant;
-	private int TotalAnimal;
+	private double TotalAnimal;
 	private int NonInvasivePlant;
 	private int InvasivePlant;
 	private int NonInvasiveAnimal;
@@ -57,9 +57,9 @@ public class PopulationControl {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		//make plants a set max always approaching it
-		TotalPlant = 50 - 2*P; // - 2*TrashCount;
+		TotalPlant = 35 - 2*P; // - 2*TrashCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) ((-15/289)*Math.pow(TP,2) + (600/289)*TP - (1665/289) - 2*P);//0 animals at 3 plants, 15 at a net 20
+		TotalAnimal = (int) totAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 3 plants, 15 at a net 20
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 		System.out.println("Max Total Animals: "+TotalAnimal);
@@ -68,6 +68,13 @@ public class PopulationControl {
 		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());
 		spawn();
 		
+	}
+//function for testing, adjustments required	
+	public double totAnimal(){
+		double a = (-9/115)*Math.pow(TP,2);
+		double b = (357/115)*TP;
+		double c = - (294/115) - P;
+		return ((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);
 	}
 	
 	public void update(Game g){
@@ -176,7 +183,7 @@ public class PopulationControl {
 	public int getTotalPlant() {
 		return TotalPlant;
 	}
-	public int getTotalAnimal() {
+	public double getTotalAnimal() {
 		return TotalAnimal;
 	}
 	public int getNonInvasivePlant() {
