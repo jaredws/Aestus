@@ -29,13 +29,13 @@ public class BlueCrabView extends ViewTemplate{
 	public BlueCrabView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"Blue Crab"};
+		String[] names = {"BlueCrab"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
 			image = ImageIO.read(new File("./img/"+fileName+".png"));
 			images.add(image);
-			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
+			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("BlueCrab Image read error");
 	       }
