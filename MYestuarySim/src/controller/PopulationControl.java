@@ -119,5 +119,26 @@ public class PopulationControl {
 			}
 		}
 	}
+	public int getTotalPlant() {
+		return TotalPlant;
+	}
+	public int getTotalAnimal() {
+		return TotalAnimal;
+	}
+	public int getNonInvasivePlant() {
+		return NonInvasivePlant;
+	}
+	public int getInvasivePlant() {
+		return InvasivePlant;
+	}
+	public int getNonInvasiveAnimal() {
+		return NonInvasiveAnimal;
+	}
+	public int getInvasiveAnimal() {
+		return InvasiveAnimal;
+	}
+	public int getPollution() {
+		return Pollution;
+	}
 
 }

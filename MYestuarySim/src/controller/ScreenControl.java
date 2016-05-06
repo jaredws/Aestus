@@ -109,8 +109,10 @@ public class ScreenControl extends JPanel {
 					&& clicky < tc.getPauseB().getSizeY() + tc.getPauseB().getY()) {
 				if (!pauseB) {
 					pauseB = true;
+					pause = true;
 				} else {
 					pauseB = false;
+					pause = false;
 				}
 				clicked = false;
 			}
@@ -235,10 +237,6 @@ public class ScreenControl extends JPanel {
 			c.getCrab(j).setX(x - Crab.sizeX / 2);
 			c.getCrab(j).setY(y - Crab.sizeY / 2);
 		}
-//		if ((j > -1 && j < pc.Phragmites.size()) && pc.getPhragmites(j).equals(grabbed)) {
-//			pc.getPhragmites(j).setX(x - Phragmites.sizeX / 2);
-//			pc.getPhragmites(j).setY(y - Phragmites.sizeY / 2);
-//		}
 		if ((j > -1 && j < bc.BlueCrabs.size()) && bc.getBlueCrab(j).equals(grabbed)) {
 			bc.getBlueCrab(j).setX(x - BlueCrab.sizeX / 2);
 			bc.getBlueCrab(j).setY(y - BlueCrab.sizeY / 2);
@@ -247,10 +245,6 @@ public class ScreenControl extends JPanel {
 			t.getTurtle(j).setX(x - Turtle.sizeX / 2);
 			t.getTurtle(j).setY(y - Turtle.sizeY / 2);
 		}
-//		if ((j > -1 && j < cgc.CordGrass.size()) && cgc.CordGrass.get(j).equals(grabbed)) {
-//			cgc.getCordGrass(j).setX(x - CordGrass.sizeX / 2);
-//			cgc.getCordGrass(j).setY(y - CordGrass.sizeY / 2);
-//		}
 
 	}
 

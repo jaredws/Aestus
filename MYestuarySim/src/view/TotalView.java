@@ -1,8 +1,12 @@
 package view;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controller.Game;
@@ -117,10 +121,18 @@ public class TotalView extends JPanel{
         	g.drawImage(CDV.getPellet(), i-CDV.getPellet().getWidth(null), Game.getCountdownControl().getImageY()+CDV.getImage().getHeight(null)-CDV.getPellet().getHeight(null), null);
         }
         
-        if(S.getMagGlass()) 
+        if(S.getMagGlass()) {
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
-        if(S.getShears()) 
+        	frame.setCursor(frame.getToolkit().createCustomCursor(
+                new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
+                "null"));
+        }
+        if(S.getShears()) {
         	g.drawImage(TLV.getShears(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
+        	frame.setCursor(frame.getToolkit().createCustomCursor(
+                    new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
+                    "null"));
+        }
         if(S.getPauseB()){
         	g.drawImage(TLV.getPauseB(),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
@@ -129,6 +141,7 @@ public class TotalView extends JPanel{
         	g.drawImage(RV.getImage(S.getResearch()),300, 
         			75, null);
         }
+        if(!S.getMagGlass() && !S.getShears()) frame.setCursor(Cursor.getDefaultCursor());
 	
 	}
 	

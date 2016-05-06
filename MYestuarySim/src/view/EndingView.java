@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 
 import controller.EndScreenControl;
 import controller.Game;
+import controller.PopulationControl;
 import controller.StartScreenControl;
 
 public class EndingView extends JPanel {
@@ -28,12 +30,18 @@ public class EndingView extends JPanel {
  	Dimension screenSize;
  	public Image researcher;
  	public Image clipboard;
+ 	private int health;
+ 	private PopulationControl PC;
+ 	private HealthView HV;
 	
-	public EndingView(EndScreenControl s2){
+	public EndingView(EndScreenControl s2, PopulationControl PC, int health){
 		Showing = true;
 		BV = new ButtonView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s2;
+		this.PC = PC;
+		this.health = health;
+		HV = new HealthView();
 		
 		try {                
 			BG = ImageIO.read(new File("./img/bg.png"));
@@ -51,7 +59,7 @@ public class EndingView extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.add(new JLabel("Score"));
+        frame.add(getScoreLabel());
 	}
 	
 	public void update(Game g){
@@ -61,9 +69,12 @@ public class EndingView extends JPanel {
 	@Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
-        g.drawImage(researcher, 200, (int)screenSize.getHeight()/2-researcher.getHeight(null)/2, null);
-        g.drawImage(clipboard, (int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2, null);        
+        g.drawImage(BG,0,0, null);
+        g.drawImage(researcher, 300, (int)screenSize.getHeight()/2-researcher.getHeight(null)/2, null);
+        g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
+        for(int i = 0; i < Game.getHealthControl().check(health); i++){
+        	g.drawImage(HV.getImage(0), (getClipBoardX()+HV.getImage(0).getWidth(null)*(i)), (int)(getScoreLabel().getBounds().getY()+getScoreLabel().getBounds().getHeight()), null);
+        }
 	}
 	
 	public void dispose(){
@@ -76,8 +87,19 @@ public class EndingView extends JPanel {
 	
 	public JLabel getScoreLabel() {
 		JLabel score = new JLabel("Score");
-		
+		score.setOpaque(true);
+		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-50, getClipBoardY()+50,200,100);
+		score.setAlignmentX(CENTER_ALIGNMENT);
+		score.setFont(new Font("Serif", Font.PLAIN, 50));
 		return score;
+	}
+	
+	public int getClipBoardX() {
+		return (int)screenSize.getWidth()/2;
+	}
+	
+	public int getClipBoardY() {
+		return (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2;
 	}
 
 

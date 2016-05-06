@@ -37,7 +37,6 @@ public class Game {
 	static EndingView EV;
 	static EndScreenControl ESC;
 	static CountdownControl CDC;
-	static int countDown = 500;
 	static int threeSec = 0;
 	static int sec = 0;
 	static Timer timer;
@@ -106,9 +105,7 @@ public class Game {
 					sec+=t;
 				    threeSec+=t;
 				}
-		    	
-		    	
-		    	if(countDown <= 0) timer.stop();
+		    	if(CDC.getTime() <= 0) timer.stop();
 		    }
         };
 	    timer = new Timer(t, taskPerformer);
@@ -119,7 +116,10 @@ public class Game {
 			TV.update(G);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;
-			if(S.pause) continue;
+			if(S.pause) {
+				TV.repaint();
+				continue;
+			}
 			CC.deleteCrabs(TLC);
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);
@@ -129,23 +129,21 @@ public class Game {
     			e.printStackTrace();
     		}
 		}
-		
+		int health = G.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
-		EV = new EndingView(esc);
+		EV = new EndingView(esc, PopC, health);
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		TV.dispose();
+		EV.add(EV.getScoreLabel());
 		while(EV.Showing){
+			esc.checkPos();
 			EV.repaint();
-			EV.add(EV.getScoreLabel());
 			try {
     			Thread.sleep(50);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
 		}
-		
-		
-		
 	}
 
 	public Random getRand() {
