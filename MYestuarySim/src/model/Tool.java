@@ -1,6 +1,6 @@
 package model;
 
-public class Button extends java.awt.Button {
+public class Tool extends java.awt.Button {
 
 	private static final long serialVersionUID = -1666903446243743257L;
 	int x;
@@ -9,7 +9,7 @@ public class Button extends java.awt.Button {
 	int sizeX;
 	int sizeY;
 
-	public Button(int x, int y, int type){
+	public Tool(int x, int y, int type){
 		this.x = x;
 		this.y = y;
 		this.sizeX = 100;

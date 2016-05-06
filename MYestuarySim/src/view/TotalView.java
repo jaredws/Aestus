@@ -19,7 +19,6 @@ public class TotalView extends JPanel{
 	private Game G;
 	static BackgroundView BGV;
 	static CrabView CV;
-	static ButtonView BV;
 	static TurtleView TV;
 	static BlueCrabView BCV;
 	static PhragmitesView PV;
@@ -38,7 +37,6 @@ public class TotalView extends JPanel{
 	public TotalView(ScreenControl s){
 		BGV = new BackgroundView();
 		CV = new CrabView();
-		BV = new ButtonView();
 		TV = new TurtleView();
 		BCV = new BlueCrabView();
 		PV = new PhragmitesView();
@@ -80,12 +78,9 @@ public class TotalView extends JPanel{
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
-        for(int i = 0; i < Game.getButtonControl().getButtons().size(); i++){
-        	if(i == 5){
-        		continue;
-        	}
-        	g.drawImage(BV.getImage(i), Game.getButtonControl().getButtons().get(i).getX(), 
-        			Game.getButtonControl().getButtons().get(i).getY(), null);
+        for(int i = 0; i < Game.getToolControl().getTools().size(); i++){
+        	g.drawImage(TLV.getImage(i), Game.getToolControl().getTools().get(i).getX(), 
+        			Game.getToolControl().getTools().get(i).getY(), null);
         }
        
         for(int i = 0; i < Game.getCordGrassControl().getCordGrass().size(); i++)
@@ -125,9 +120,9 @@ public class TotalView extends JPanel{
         if(S.getMagGlass()) 
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
         if(S.getShears()) 
-        	g.drawImage(TLV.getImage(0), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
-        if(S.getMenu()){
-        	g.drawImage(BV.getImage(5),(int)screenSize.getWidth()/2 - 100, 
+        	g.drawImage(TLV.getShears(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
+        if(S.getPauseB()){
+        	g.drawImage(TLV.getPauseB(),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
         }
         if(S.getPause()){

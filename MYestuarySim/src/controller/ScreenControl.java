@@ -19,8 +19,8 @@ public class ScreenControl extends JPanel {
 	private static final long serialVersionUID = 481321254387509732L;
 
 	// Implement listener on the frame??? -JS
-	private int x, y, magX, magY, shearX, shearY, research, j, clickx, clicky;
-	boolean grabbing, clicked, magGlass, menu, pause, shears;
+	private int x, y, magX, magY, shearX, shearY, research, j, clickx, clicky, cTrapX, cTrapY;
+	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap;
 	Grabbable grabbed;
 	Random rand;
 	Dimension screenSize;
@@ -28,15 +28,14 @@ public class ScreenControl extends JPanel {
 	public ScreenControl() {
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
-		// setBorderPainted(false);
-		// setFocusPainted(false);
-		// setContentAreaFilled(false);
+
 		rand = new Random();
-		menu = false;
+		pauseB = false;
 		research = -1;
 		pause = false;
 		shears = false;
 		magGlass = false;
+		crabTrap = false;
 
 		addMouseListener(new MouseAdapter() {
 			// If mouse button is pressed
@@ -82,18 +81,21 @@ public class ScreenControl extends JPanel {
 				} else if (shears == true) {
 					shearX = e.getX();
 					shearY = e.getY();
+				} else if (crabTrap == true) {
+					cTrapX = e.getX();
+					cTrapY = e.getY();
 				}
 			}
 		});
 	}
 
 	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc,
-			ButtonControl b) {
+			ToolControl tc) {
 		if (clicked) {
-			if (clickx > b.getButtons().get(4).getX()
-					&& clickx < b.getButtons().get(4).getSizeX() + b.getButtons().get(4).getX()
-					&& clicky > b.getButtons().get(4).getY()
-					&& clicky < b.getButtons().get(4).getSizeY() + b.getButtons().get(4).getY()) {
+			if (clickx > tc.getMag().getX()
+					&& clickx < tc.getMag().getSizeX() + tc.getMag().getX()
+					&& clicky > tc.getMag().getY()
+					&& clicky < tc.getMag().getSizeY() + tc.getMag().getY()) {
 				if (!magGlass)
 					magGlass = true;
 				else
@@ -101,26 +103,38 @@ public class ScreenControl extends JPanel {
 				clicked = false;
 			}
 
-			if (clickx > b.getButtons().get(3).getX()
-					&& clickx < b.getButtons().get(3).getSizeX() + b.getButtons().get(3).getX()
-					&& clicky > b.getButtons().get(3).getY()
-					&& clicky < b.getButtons().get(3).getSizeY() + b.getButtons().get(3).getY()) {
-				if (!menu) {
-					menu = true;
+			if (clickx > tc.getPauseB().getX()
+					&& clickx < tc.getPauseB().getSizeX() + tc.getPauseB().getX()
+					&& clicky > tc.getPauseB().getY()
+					&& clicky < tc.getPauseB().getSizeY() + tc.getPauseB().getY()) {
+				if (!pauseB) {
+					pauseB = true;
 				} else {
-					menu = false;
+					pauseB = false;
 				}
 				clicked = false;
 			}
 
-			if (clickx > b.getButtons().get(1).getX()
-					&& clickx < b.getButtons().get(1).getSizeX() + b.getButtons().get(1).getX()
-					&& clicky > b.getButtons().get(1).getY()
-					&& clicky < b.getButtons().get(1).getSizeY() + b.getButtons().get(1).getY()) {
+			if (clickx > tc.getShears().getX()
+					&& clickx < tc.getShears().getSizeX() + tc.getShears().getX()
+					&& clicky > tc.getShears().getY()
+					&& clicky < tc.getShears().getSizeY() + tc.getShears().getY()) {
 				if (!shears) {
 					shears = true;
 				} else {
 					shears = false;
+				}
+				clicked = false;
+			}
+			
+			if (clickx > tc.getCrabTrap().getX()
+					&& clickx < tc.getCrabTrap().getSizeX() + tc.getCrabTrap().getX()
+					&& clicky > tc.getCrabTrap().getY()
+					&& clicky < tc.getCrabTrap().getSizeY() + tc.getCrabTrap().getY()) {
+				if (!crabTrap) {
+					crabTrap = true;
+				} else {
+					crabTrap = false;
 				}
 				clicked = false;
 			}
@@ -264,8 +278,8 @@ public class ScreenControl extends JPanel {
 		return this.shears;
 	}
 
-	public boolean getMenu() {
-		return this.menu;
+	public boolean getPauseB() {
+		return this.pauseB;
 	}
 
 	public int getResearch() {

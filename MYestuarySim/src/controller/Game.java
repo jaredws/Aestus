@@ -27,7 +27,7 @@ public class Game {
 	static CrabControl CC;
 	static TurtleControl TC;
 	static BlueCrabControl BCC;
-	static ButtonControl BC;
+	static ToolControl TLC;
 	static TotalView TV;
 	static PopulationControl PopC;
 	static CordGrassControl CGC;
@@ -60,7 +60,7 @@ public class Game {
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
 		CC = new CrabControl();
-		BC = new ButtonControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
+		TLC = new ToolControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
 		PopC = new PopulationControl();
@@ -115,14 +115,14 @@ public class Game {
 	    timer.start();
 	    TV.repaint();
 		while(true){
-			S.checkPos(CC,TC,BCC,CGC,PC,BC);
+			S.checkPos(CC,TC,BCC,CGC,PC,TLC);
 			TV.update(G);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;
 			if(S.pause) continue;
-			CC.deleteCrabs(BC);
-			TC.deleteTurtles(BC);
-			BCC.deleteBlueCrabs(BC);
+			CC.deleteCrabs(TLC);
+			TC.deleteTurtles(TLC);
+			BCC.deleteBlueCrabs(TLC);
 			try {
     			Thread.sleep(10);
     		} catch (InterruptedException e) {
@@ -156,8 +156,8 @@ public class Game {
 		return CC;
 	}
 
-	public static ButtonControl getButtonControl() {
-		return BC;
+	public static ToolControl getToolControl() {
+		return TLC;
 	}
 
 	public static TotalView getTotalView() {

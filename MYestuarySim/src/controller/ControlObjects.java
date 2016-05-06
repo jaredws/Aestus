@@ -1,6 +1,6 @@
 package controller;
 
-import model.Button;
+import model.Tool;
 import model.Pollution;
 import model.BlueCrab;
 import model.Crab;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ControlObjects {
 
-	private List<Button> ButtonList;
+	private List<Tool> ButtonList;
 	private List<BlueCrab> BlueCrabs;
 	private List<Crab> Crabs;
 	private List<Turtle> Turtles;
@@ -32,7 +32,7 @@ public class ControlObjects {
 	Dimension screenSize;
 	
 	protected ControlObjects() {
-		ButtonList = new ArrayList<Button>();
+		ButtonList = new ArrayList<Tool>();
 		BlueCrabs = new ArrayList<BlueCrab>();
 		Crabs = new ArrayList<Crab>();
 		Turtles = new ArrayList<Turtle>();

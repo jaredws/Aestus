@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class ButtonControlTest {
 
-	static ButtonControl b;
+	static ToolControl b;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,8 +27,8 @@ public class ButtonControlTest {
 
 	@Test
 	public void getButtonsTest() {
-		assertEquals("Y of first button should be 500", b.getButtons().get(0).getY(),500);
-		assertEquals("Y of second button should be 625", b.getButtons().get(1).getY(),625);
+		assertEquals("Y of first button should be 500", b.getTools().get(0).getY(),500);
+		assertEquals("Y of second button should be 625", b.getTools().get(1).getY(),625);
 		
 	}
 

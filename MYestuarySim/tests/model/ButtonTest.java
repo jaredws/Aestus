@@ -13,11 +13,11 @@ import org.junit.Test;
 
 public class ButtonTest {
 
-	static Button b;
+	static Tool b;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		b = new Button(5,3,1);
+		b = new Tool(5,3,1);
 	}
 
 	@AfterClass

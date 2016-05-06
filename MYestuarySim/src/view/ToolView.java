@@ -12,47 +12,52 @@ import javax.imageio.ImageIO;
 
 /**
  * 
- * @author Jared Sharpe
+ * @author Steven
  *
  */
-
 
 public class ToolView extends ViewTemplate{
 	
 	private List<Image> images;
 	Dimension screenSize;
-	
-	/**
-	 * Buffer the images we will need to move BlueCrabs around the screen.
-	 */
-	//may consider making this private and using a method to only allow one instnace
+
 	public ToolView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"mag","shears"};
+		String[] names = {"recycle","shears","mag","crabtrap","pauseB"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
 			image = ImageIO.read(new File("./img/"+fileName+".png"));
-			//images.add(image);
 			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
 	       } catch (IOException ex) {
-	    	   System.out.println("Mag Image read error");
+	    	   System.out.println("Image read error");
 	       }
 		}
 		
 	}
-	/**
-	 * 
-	 * @param i
-	 * @return The buffered image of the BlueCrab
-	 * 0-Front, 1-back, 2-left, 3-right
-	 */
-	public Image getImage(int i){
-		//Must remove %4 will be changed when calling it from above with motion idicator.
-//		if(i < 38)
-//			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
-//		else
-			return images.get(1);
+
+	public Image getImage(int i) {
+		return images.get(i);
+	}
+	
+	public Image getMag() {
+		return images.get(2);
+	}
+	
+	public Image getShears(){
+		return images.get(1);
+	}
+	
+	public Image getCrabTrap() {
+		return images.get(3);
+	}
+	
+	public Image getRecycle() {
+		return images.get(0);
+	}
+	
+	public Image getPauseB() {
+		return images.get(4);
 	}
 }
