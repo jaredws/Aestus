@@ -33,7 +33,7 @@ public class PollutionView extends ViewTemplate{
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
 	         images.add(image);
-	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
+	         images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("Pollution Image read error");
 	       }

@@ -26,7 +26,7 @@ public class TurtleView extends ViewTemplate{
 	public TurtleView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"Turkey"};
+		String[] names = {"Turtle"};
 		for(String fileName: names){
 			screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try {                

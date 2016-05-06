@@ -32,7 +32,7 @@ public class BackgroundView {
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image.getScaledInstance((int)screenSize.getWidth(), -1,1));
+	         images.add(image.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	            // handle exception...
 	       }

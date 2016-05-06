@@ -45,7 +45,7 @@ public class EndingView extends JPanel {
 		
 		try {                
 			BG = ImageIO.read(new File("./img/bg.png"));
-			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,1);
+			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 	       } catch (IOException ex) {
