@@ -36,7 +36,7 @@ public class Game {
 	static PollutionControl PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
-	static int countDown = 60;
+	static int countDown = 500;
 	static int threeSec = 0;
 	static int sec = 0;
 	public static JLabel Time;
@@ -109,6 +109,7 @@ public class Game {
 		int t = 50;
 		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
+		    	System.out.println("THREE " + threeSec);
 		    	if(sec/t == 20) {
 		    		countDown--;
 		    		System.out.println(countDown);
@@ -118,6 +119,7 @@ public class Game {
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopC.update(G);
 		    		  threeSec=0;
+		    		  
 		    	}
 		    	if(!S.pause){
 					CC.moveCrabs();
@@ -125,9 +127,10 @@ public class Game {
 					BCC.moveBlueCrabs();
 					PC.age();
 					CGC.age();
+					sec+=t;
+				    threeSec+=t;
 				}
-		    	sec+=t;
-		    	threeSec+=t;
+		    	
 		    	
 		    	if(countDown <= 0) timer.stop();
 		    }

@@ -25,8 +25,8 @@ public class Phragmites extends Grabbable {
 		this.x = x;
 		this.y = y;
 		
-		Phragmites.sizeY = (int)screenSize.getWidth()/12-50;
-		Phragmites.sizeX = ((int)screenSize.getWidth()/12*257/140);
+		Phragmites.sizeX = (int)screenSize.getWidth()/12-50;
+		Phragmites.sizeY = ((int)screenSize.getWidth()/12*257/140);
 		
     }
 	
