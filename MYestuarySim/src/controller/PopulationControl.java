@@ -69,12 +69,18 @@ public class PopulationControl {
 		spawn();
 		
 	}
-//function for testing, adjustments required	
+/**
+ * a, b, and c are the coefficients for the quadratic relationship between plants and animals
+ * ax^2 + bx + c
+ * a must be negative to have a downward parabolic shape
+ * This means that as plants over populate, animals will run out of room
+ * @return
+ */
 	public double totAnimal(){
-		double a = (-9/115)*Math.pow(TP,2);
-		double b = (357/115)*TP;
-		double c = - (294/115) - P;
-		return ((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);
+		double a = -0.08;
+		double b = 3.2;
+		double c = -14;
+		return (a*TP*TP+b*TP+c);
 	}
 	
 	public void update(Game g){
@@ -87,17 +93,17 @@ public class PopulationControl {
 		if(TotalPlant>TP){
 			//If neither has been Researched
 			if(!(game.getPhragmitesControl().Researched) && !(game.getCordGrassControl().Researched)){
-				if(rand.nextInt(8)%3==0){//3/8ths probability of adding Non-Invasive
+				if(rand.nextInt(4)%4==0){//1/4 probability of adding Non-Invasive
 					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
 				}
-				else{//5/8ths probability of add Invasive
+				else{//3/4ths probability of add Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
 
 			}
 			//If both have been researched
 			else if(game.getPhragmitesControl().Researched &&  (game.getCordGrassControl().Researched)){
-				if(rand.nextInt(8)%3==0){//  3/8th probability of adding Invasive
+				if(rand.nextInt(8)%3==0){//3/8 probability of adding Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
 				else{// 5/8th probability of adding Non invasive
@@ -114,11 +120,11 @@ public class PopulationControl {
 			}
 		}
 		if(TotalPlant<TP){
-				if(rand.nextInt(2)%2==0){
-					try{Game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
+				if(rand.nextInt(8)%3==0){//3/8 probability of removing invasive 
+					try{Game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
 				}
 				else{
-					try{Game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
 				}
 		}
 		//When there is room for more animals
@@ -128,21 +134,21 @@ public class PopulationControl {
 		if(TotalAnimal>TA){
 			//Turtles spawn independently of the crabs
 			if(Game.getTurtleControl().Researched){//If turtles have been researched
-				if((rand.nextInt(4)+1)%4==0){//1/4th probability of spawning a turtle
+				if((rand.nextInt(4))%4==0){//1/4th probability of spawning a turtle
 						Game.getTurtleControl().addTurtle(makeX(),makeY());
 				}
 			}
 			else{
-				if((rand.nextInt(10)+1)%6==0){// 1/6 probability of spawning a turtle
+				if((rand.nextInt(6))%6==0){// 1/6 probability of spawning a turtle
 					Game.getTurtleControl().addTurtle(makeX(), makeY());
 				}
 			}
 			//Neither Crab species is researched
 			if(!(Game.getBlueCrabControl().Researched) && !(Game.getCrabControl().Researched)){
-				if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive crab
+				if(rand.nextInt(4)%4==0){//1/4 probability of spawning non invasive crab
 						Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
 				}
-				else{// 5/8th probability of adding an invasive crab
+				else{// 3/4 th probability of adding an invasive crab
 					Game.getCrabControl().addCrab(makeX(),makeY());
 				}
 			}
