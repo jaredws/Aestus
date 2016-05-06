@@ -19,7 +19,19 @@ public class ScreenControl extends JPanel {
 	private static final long serialVersionUID = 481321254387509732L;
 
 	// Implement listener on the frame??? -JS
-	private int x, y, magX, magY, shearX, shearY, research, j, clickx, clicky, cTrapX, cTrapY;
+	private int x, y, magX, magY, shearX, shearY;
+
+	public int research;
+
+	private int j;
+
+	private int clickx;
+
+	private int clicky;
+
+	private int cTrapX;
+
+	private int cTrapY;
 	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap;
 	Grabbable grabbed;
 	Random rand;

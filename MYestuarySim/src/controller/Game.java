@@ -104,6 +104,7 @@ public class Game {
 					CGC.age();
 					sec+=t;
 				    threeSec+=t;
+				    S.research = -1;
 				}
 		    	if(CDC.getTime() <= 0) timer.stop();
 		    }
