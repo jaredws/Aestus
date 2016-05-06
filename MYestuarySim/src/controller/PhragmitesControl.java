@@ -13,6 +13,7 @@ public class PhragmitesControl {
 	Random rand;
 	List<Phragmites> Phragmites;
 	Dimension screenSize;
+	boolean Researched;
 
 	public void addPhragmites(int x, int y){
 		Phragmites.add(new Phragmites(x,y,screenSize));
@@ -26,7 +27,9 @@ public class PhragmitesControl {
 		rand  = new Random();
 		Phragmites = new ArrayList<Phragmites>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Researched = false;
 	}
+
 	
 	
 	/*public void deletePhragmites(ToolControl tc){

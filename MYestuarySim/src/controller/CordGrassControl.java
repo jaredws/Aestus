@@ -15,6 +15,7 @@ public class CordGrassControl {
 	Random rand;
 	List<CordGrass> CordGrass;
 	Dimension screenSize;
+	boolean Researched;
 
 	public void addCordGrass(int x, int y){
 		CordGrass.add(new CordGrass(x,y,screenSize));
@@ -28,7 +29,9 @@ public class CordGrassControl {
 		rand  = new Random();
 		CordGrass = new ArrayList<CordGrass>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Researched = false;
 	}
+	
 	
 	
 	/*public void deleteCordGrass(ToolControl tc){

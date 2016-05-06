@@ -78,12 +78,34 @@ public class PopulationControl {
 	private void spawn(){//call calculate and spawn at appropriate intervals
 		rand = new Random();
 		if(TotalPlant>TP){
-			if(rand.nextInt(8)%3==0){//8%3 will be replaced with a probability factor that will be chagned when research happens.
-				Game.getCordGrassControl().addCordGrass(makeX(),makeY());
-			}
-			else{
-				Game.getPhragmitesControl().addPhragmites(makeX(),makeY());
+			//If neither has been Researched
+			if(!(game.getPhragmitesControl().Researched) && !(game.getCordGrassControl().Researched)){
+				if(rand.nextInt(8)%3==0){//3/8ths probability of adding Non-Invasive
+					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
 				}
+				else{//5/8ths probability of add Invasive
+					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
+				}
+
+			}
+			//If both have been researched
+			else if(game.getPhragmitesControl().Researched &&  (game.getCordGrassControl().Researched)){
+				if(rand.nextInt(8)%3==0){//  probability of adding Non-Invasive 
+					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
+				}
+				else{// 1/2 probability of adding Invasive
+					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
+				}
+			}
+			else{//If either has been researched
+				if(rand.nextInt(2)%2==0){// 1/2 probability of adding Non-Invasive 
+					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
+				}
+				else{// 1/2 probability of adding Invasive
+					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
+				}
+				
+			}
 		}
 		if(TotalPlant<TP){
 				if(rand.nextInt(2)%2==0){
