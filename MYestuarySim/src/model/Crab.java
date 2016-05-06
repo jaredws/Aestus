@@ -22,7 +22,7 @@ public class Crab extends Grabbable {
 		this.x = x;
 		this.y = y;
 		Crab.sizeX = (int)screenSize.getWidth()/12;
-		Crab.sizeY = sizeX;
+		Crab.sizeY = sizeX*124/254;
 		XDir = 0;
 		YDir = 0;
     }

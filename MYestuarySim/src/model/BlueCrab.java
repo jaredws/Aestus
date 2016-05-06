@@ -27,7 +27,7 @@ public class BlueCrab extends Grabbable {
 		this.x = x;
 		this.y = y;
 		BlueCrab.sizeX = (int)screenSize.getWidth()/12;
-		BlueCrab.sizeY = sizeX*3/4;
+		BlueCrab.sizeY = sizeX*119/243;
 		XDir = 0;
 		YDir = 0;
     }

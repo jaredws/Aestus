@@ -24,7 +24,7 @@ public class CordGrass extends Grabbable {
 		this.x = x;
 		this.y = y;
 		CordGrass.sizeX = (int)screenSize.getWidth()/12;
-		CordGrass.sizeY = sizeX*436/300;
+		CordGrass.sizeY = sizeX*257/228;
     }
 	
 	public int getX() {

@@ -27,13 +27,13 @@ public class CrabView extends ViewTemplate{
 	public CrabView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"Crab Front"};
+		String[] names = {"Crab"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try { image = ImageIO.read(new File("./img/"+fileName+".png"));
 			image = ImageIO.read(new File("./img/"+fileName+".png"));
 			images.add(image);
-			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,1));
+			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
@@ -49,7 +49,7 @@ public class CrabView extends ViewTemplate{
 	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
-			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
 		else
 			return images.get(1);
 	}
