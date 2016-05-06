@@ -87,10 +87,10 @@ public class EndingView extends JPanel {
 	
 	public JLabel getScoreLabel() {
 		JLabel score = new JLabel("Score");
-		score.setOpaque(true);
-		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-50, getClipBoardY()+50,200,100);
+		score.setOpaque(false);
+		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-75, getClipBoardY()+100,200,100);
 		score.setAlignmentX(CENTER_ALIGNMENT);
-		score.setFont(new Font("Serif", Font.PLAIN, 50));
+		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
 		return score;
 	}
 	
