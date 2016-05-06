@@ -115,6 +115,7 @@ public class TotalView extends JPanel{
         			Game.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
 	
         //Draw Countdown
+        g.drawImage(CDV.getFinish(), Game.getCountdownControl().getWidth(), Game.getCountdownControl().getImageY()+CDV.getImage().getHeight(null)-CDV.getFinish().getHeight(null), null);
         g.drawImage(CDV.getImage(), Game.getCountdownControl().getImageX(), Game.getCountdownControl().getImageY(), null);
         
         for(int i = 0; i < Game.getCountdownControl().getImageX(); i+= 50) {
