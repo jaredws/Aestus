@@ -14,6 +14,7 @@ public class BlueCrabControl {
 	Random rand;
 	Dimension screenSize;
 	public List<BlueCrab> BlueCrabs;
+	boolean Researched;
 
 	public void addBlueCrab(int x, int y){
 		BlueCrabs.add(new BlueCrab(x,y,screenSize));
@@ -27,6 +28,7 @@ public class BlueCrabControl {
 		rand  = new Random();
 		BlueCrabs = new ArrayList<BlueCrab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Researched = false;
 	}
 	
 	public void moveBlueCrabs(){

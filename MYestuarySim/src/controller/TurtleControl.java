@@ -14,6 +14,7 @@ public class TurtleControl {
 	Random rand;
 	List<Turtle> turtles;
 	Dimension screenSize;
+	boolean Researched;
 
 	public void addTurtle(int x, int y){
 		turtles.add(new Turtle(x,y,screenSize));
@@ -27,6 +28,7 @@ public class TurtleControl {
 		rand  = new Random();
 		turtles = new ArrayList<Turtle>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Researched = false;
 	}
 	
 	public void moveTurtles(){

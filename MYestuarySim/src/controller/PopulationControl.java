@@ -90,10 +90,10 @@ public class PopulationControl {
 			}
 			//If both have been researched
 			else if(game.getPhragmitesControl().Researched &&  (game.getCordGrassControl().Researched)){
-				if(rand.nextInt(8)%3==0){//  probability of adding Non-Invasive 
+				if(rand.nextInt(8)%3==0){//  3/8th probability of adding Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
-				else{// 1/2 probability of adding Invasive
+				else{// 5/8th probability of adding Non invasive
 					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
 				}
 			}
@@ -104,7 +104,6 @@ public class PopulationControl {
 				else{// 1/2 probability of adding Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
-				
 			}
 		}
 		if(TotalPlant<TP){
@@ -115,29 +114,62 @@ public class PopulationControl {
 					try{Game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
 				}
 		}
+		//When there is room for more animals
+		//By the implementation of the Turtle and Crab Species spawning
+		// there is a slight chance of increasing the population too much
+		// but the handler will remove the extra animal(s) below
 		if(TotalAnimal>TA){
-			if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive
-				if(rand.nextInt(8)%2==0){//3/8ths probability of adding a turtle
-					Game.getTurtleControl().addTurtle(makeX(),makeY());
-				}
-				else{//add a non-invasive
-					Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
+			//Turtles spawn independently of the crabs
+			if(Game.getTurtleControl().Researched){//If turtles have been researched
+				if((rand.nextInt(4)+1)%4==0){//1/4th probability of spawning a turtle
+						Game.getTurtleControl().addTurtle(makeX(),makeY());
 				}
 			}
 			else{
-				Game.getCrabControl().addCrab(makeX(),makeY());				}
-		}
-		if(TotalAnimal<TA){
-			if(rand.nextInt(2)%2==0){
-				if(rand.nextInt(8)%2==0){//3/8ths probability of removing a turtle
-					try{Game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
-				}
-				else{//remove a non-invasive
-					try{Game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
+				if((rand.nextInt(10)+1)%6==0){// 1/6 probability of spawning a turtle
+					Game.getTurtleControl().addTurtle(makeX(), makeY());
 				}
 			}
-			else{//remove an invasive
+			//Neither Crab species is researched
+			if(!(Game.getBlueCrabControl().Researched) && !(Game.getCrabControl().Researched)){
+				if(rand.nextInt(8)%3==0){//3/8 probability of spawning non invasive crab
+						Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
+				}
+				else{// 5/8th probability of adding an invasive crab
+					Game.getCrabControl().addCrab(makeX(),makeY());
+				}
+			}
+			//Both Crab species are researched
+			else if(Game.getBlueCrabControl().Researched && Game.getCrabControl().Researched){
+				if(rand.nextInt(8)%3==0){//  3/8th probability of adding Invasive
+					Game.getCrabControl().addCrab(makeX(),makeY());
+				}
+				else{// 5/8th probability of adding Non invasive
+					Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
+				}
+			}
+			//Either has crab been researched
+			else{//If either has been researched
+				if(rand.nextInt(2)%2==0){// 1/2 probability of adding Non-Invasive 
+					Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
+				}
+				else{// 1/2 probability of adding Invasive
+					Game.getCrabControl().addCrab(makeX(),makeY());	
+				}
+			}
+		}
+		if(TotalAnimal<TA){
+			if(rand.nextInt(8)%3==0){// 3/8th probability to remove an invasive
 				try{Game.getCrabControl().removeCrab(0);}catch(IndexOutOfBoundsException ex){}
+			}
+			else{// 5/8th probability of removing an non invasive
+				if(rand.nextInt(8)%2==0){//3/8th probability of removing a crab
+					try{Game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
+				}
+				else{// 5/8th probability to remove a turtle
+					try{Game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
+				}
+				
 			}
 		}
 	}

@@ -13,6 +13,7 @@ public class CrabControl {
 	Random rand;
 	List<Crab> crabs;
 	Dimension screenSize;
+	boolean Researched;
 
 	public void addCrab(int x, int y){
 		crabs.add(new Crab(x,y,screenSize));
@@ -26,6 +27,7 @@ public class CrabControl {
 		rand  = new Random();
 		crabs = new ArrayList<Crab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Researched = false;
 	}
 	
 	public void moveCrabs(){
