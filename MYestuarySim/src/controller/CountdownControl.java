@@ -21,7 +21,7 @@ public class CountdownControl {
 	//width is the width of the bar
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
-	private int time = 10;
+	private int time = 100;
 	public CountdownControl(){
 		CDV = new CountdownView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
