@@ -146,6 +146,7 @@ public class ScreenControl extends JPanel {
 						&& ((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY() + Crab.sizeY))) {
 					if (magGlass) {
 						research = 0;
+						c.Researched=true;
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -162,6 +163,7 @@ public class ScreenControl extends JPanel {
 						&& ((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY() + BlueCrab.sizeY))) {
 					if (magGlass) {
 						research = 2;
+						bc.Researched = true;
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -179,6 +181,7 @@ public class ScreenControl extends JPanel {
 						&& ((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY() + Turtle.sizeY))) {
 					if (magGlass) {
 						research = 3;
+						t.Researched = true;
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -195,6 +198,7 @@ public class ScreenControl extends JPanel {
 						&& ((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY() + Phragmites.sizeY))) {
 					if (magGlass) {
 						research = 1;
+						pc.Researched = true;
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -221,6 +225,7 @@ public class ScreenControl extends JPanel {
 						break;
 					} else if (magGlass) {
 						research = 4;
+						cgc.Researched = true;
 						magGlass = false;
 						pause = true;
 						clicked = false;
