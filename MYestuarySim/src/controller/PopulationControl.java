@@ -88,6 +88,18 @@ public class PopulationControl {
 		calculate();
 	}
 	
+	/**
+	 * Depending on how much Research has been done, the probability of spawing creatures changes
+	 * Before any research: Invasives spawn 3/4 of the time
+	 * After the first research in competing species: invasives spawn 1/2 of the time
+	 * Once both species have been researched: invasives spawn 3/8 of the time
+	 * 
+	 * Turtles are a 'prize' of the game
+	 * Initial spawn: 1/6
+	 * Researched: 1/4
+	 * 
+	 */
+	
 	private void spawn(){//call calculate and spawn at appropriate intervals
 		rand = new Random();
 		if(TotalPlant>TP){
