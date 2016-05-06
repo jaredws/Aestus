@@ -72,12 +72,11 @@ public class Game {
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		for(int i = 0; i<3; i++){
-			PC.addPhragmites(300+100*i,200);
-			CGC.addCordGrass(200,300-100*i);
+			PC.addPhragmites(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			CGC.addCordGrass(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			CC.addCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			BCC.addBlueCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 		}
-		CC.addCrab(200,200);
-		CC.addCrab(200,300);
-		BCC.addBlueCrab(200, 100);
 		/**
 		 * Create a timer for updating the population.
 		 * Since the population will naturally correct itself, we want to delay that to allow the player
