@@ -22,7 +22,7 @@ public class HealthView extends ViewTemplate{
 	private List<Image> images;
 	
 	/**
-	 * Buffer the images we will need to move BlueCrabs around the screen.
+	 * Buffer the Star images
 	 */
 	//may consider making this private and using a method to only allow one instnace
 	public HealthView(){
@@ -43,8 +43,8 @@ public class HealthView extends ViewTemplate{
 	/**
 	 * 
 	 * @param i
-	 * @return The buffered image of the BlueCrab
-	 * 0-Front, 1-back, 2-left, 3-right
+	 * @return The buffered image of the Star
+	 * 
 	 */
 	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.

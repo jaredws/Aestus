@@ -62,10 +62,10 @@ public class PopulationControl {
 		TotalAnimal = (int) totAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 3 plants, 15 at a net 20
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
-		System.out.println("Max Total Animals: "+TotalAnimal);
-		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
-		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
-		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());
+//		System.out.println("Max Total Animals: "+TotalAnimal);
+//		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
+//		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
+//		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());
 		spawn();
 		
 	}

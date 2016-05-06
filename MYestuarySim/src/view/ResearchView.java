@@ -37,7 +37,7 @@ public class ResearchView extends ViewTemplate{
 			//images.add(image);
 			images.add(image.getScaledInstance(-1,(int)screenSize.getHeight() - 150, Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
-	    	   System.out.println("BlueCrab Image read error");
+	    	   System.out.println("Research Image read error");
 	       }
 		}
 		
@@ -45,8 +45,8 @@ public class ResearchView extends ViewTemplate{
 	/**
 	 * 
 	 * @param i
-	 * @return The buffered image of the BlueCrab
-	 * 0-Front, 1-back, 2-left, 3-right
+	 * @return The buffered image of the Research Window
+	 * 0-MittenCrab, 1-Phragmites, 2-BlueCrab, 3-Turtle, 4 CordGrass
 	 */
 	public Image getImage(int i){
 		

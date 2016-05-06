@@ -45,7 +45,7 @@ public class BackgroundView {
 	 * @return Buffered Image of the corresponding background
 	 * 
 	 * i should be the index of the buffered Image
-	 * 0 - Good, 1 - poor, 2 - bad
+	 * 0 - good, 1 - poor, 2 - bad
 	 */
 	public Image switchImage(int i){
 		return images.get(i);
