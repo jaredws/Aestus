@@ -29,19 +29,19 @@ public class BlueCrabView extends ViewTemplate{
 	public BlueCrabView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"BlueCrab"};
+		String names = "BlueCrab";
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		for(String fileName: names){
-		try {                
-			image = ImageIO.read(new File("./img/"+fileName+".png"));
-			images.add(image);
-			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
-	       } catch (IOException ex) {
+		try{
+		image = ImageIO.read(new File("./img/"+names+".png"));
+			for(int i = 0; i < 38; i++){               
+				images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
+			}
+		} catch (IOException ex) {
 	    	   System.out.println("BlueCrab Image read error");
 	       }
-		}
-		
 	}
+		
+	
 	/**
 	 * 
 	 * @param i
@@ -51,8 +51,8 @@ public class BlueCrabView extends ViewTemplate{
 	public Image getImage(int i){
 		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
-			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+			return images.get(i);
 		else
-			return images.get(1);
+			return images.get(37);
 	}
 }
