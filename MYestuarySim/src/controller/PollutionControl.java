@@ -13,6 +13,7 @@ public class PollutionControl {
 	Random rand;
 	List<Pollution> Pollution;
 	Dimension screenSize;
+	
 
 	public void addPollution(int x, int y){
 		Pollution.add(new Pollution(x,y,screenSize));

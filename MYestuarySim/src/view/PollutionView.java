@@ -27,7 +27,7 @@ public class PollutionView extends ViewTemplate{
 	public PollutionView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"Pollution"};
+		String[] names = {"Pollution1","Pollution2","Pollution3"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
