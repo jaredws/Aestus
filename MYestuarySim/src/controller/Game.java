@@ -80,7 +80,9 @@ public class Game {
 			BCC.addBlueCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 			CGC.addCordGrass(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 			TC.addTurtle(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			PolC.addPollution(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 		}
+		
 		/**
 		 * Create a timer for updating the population.
 		 * Since the population will naturally correct itself, we want to delay that to allow the player
@@ -104,6 +106,7 @@ public class Game {
 					BCC.moveBlueCrabs();
 					PC.age();
 					CGC.age();
+					PolC.age();
 					sec+=t;
 				    threeSec+=t;
 				    S.research = -1;
@@ -115,7 +118,7 @@ public class Game {
 	    timer.start();
 	    TV.repaint();
 		while(true){
-			S.checkPos(CC,TC,BCC,CGC,PC,TLC);
+			S.checkPos(CC,TC,BCC,CGC,PC,TLC,PolC);
 			TV.update(G);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;

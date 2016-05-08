@@ -26,6 +26,7 @@ public class TotalView extends JPanel{
 	static TurtleView TV;
 	static BlueCrabView BCV;
 	static PhragmitesView PV;
+	static PollutionView PUV;
 	static CordGrassView CGV;
 	static HealthView HV;
 	static MagView MV;
@@ -50,6 +51,7 @@ public class TotalView extends JPanel{
 		RV = new ResearchView();
 		TLV = new ToolView();
 		CDV = new CountdownView();
+		PUV = new PollutionView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
@@ -111,7 +113,12 @@ public class TotalView extends JPanel{
         for(int i = 0; i < Game.getBlueCrabControl().getBlueCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(BCV.getImage(Game.getBlueCrabControl().getBlueCrab(i).move), Game.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
-        			Game.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters  
+        			Game.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
+        
+        for(int i = 0; i < Game.getPollutionControl().getPollution().size(); i++)
+        	//Made the default get Image 0 here, a movement may need to be called instead
+        	g.drawImage(PUV.getImage(Game.getPollutionControl().getPollution(i).life), Game.getPollutionControl().getPollution().get(i).getX(), 
+        			Game.getPollutionControl().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
 	
         //Draw Countdown
         g.drawImage(CDV.getFinish(), Game.getCountdownControl().getWidth(), Game.getCountdownControl().getImageY()+CDV.getImage().getHeight(null)-CDV.getFinish().getHeight(null), null);

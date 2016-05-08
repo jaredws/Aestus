@@ -14,8 +14,9 @@ public class Pollution extends Grabbable {
 	private int y;
 	//The sizes may need to be a ratio to the screen size. -JS
 	//temporary public variables
-	public int sizeX;
-	public int sizeY;
+	public static int sizeX;
+	public static int sizeY;
+	public int life;
 	
 	public Pollution(int x, int y){
 		this.x = x;
@@ -27,8 +28,8 @@ public class Pollution extends Grabbable {
 	public Pollution(int x, int y, Dimension screenSize){
 		this.x = x;
 		this.y = y;
-		Phragmites.sizeX = (int)screenSize.getWidth()/12;
-		Phragmites.sizeY = sizeX*370/236;
+		Pollution.sizeX = (int)screenSize.getWidth()/12;
+		Pollution.sizeY = sizeX*370/236;
 		
     }
 	
@@ -62,5 +63,8 @@ public class Pollution extends Grabbable {
 	
 	public void setSizeX(int x) {
 		this.sizeX = x;
+	}
+	public void live(){
+		life++;
 	}
 }

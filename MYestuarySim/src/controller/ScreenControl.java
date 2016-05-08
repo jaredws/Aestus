@@ -12,6 +12,7 @@ import model.CordGrass;
 import model.Crab;
 import model.Grabbable;
 import model.Phragmites;
+import model.Pollution;
 import model.Turtle;
 
 public class ScreenControl extends JPanel {
@@ -102,7 +103,7 @@ public class ScreenControl extends JPanel {
 	}
 
 	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc,
-			ToolControl tc) {
+			ToolControl tc,PollutionControl puc) {
 		if (clicked) {
 			if (clickx > tc.getMag().getX()
 					&& clickx < tc.getMag().getSizeX() + tc.getMag().getX()
@@ -248,6 +249,22 @@ public class ScreenControl extends JPanel {
 
 				}
 			}
+			for (int i = 0; i < puc.Pollution.size(); i++) {
+				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
+						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
+					if (magGlass) {
+						research = 0;
+						magGlass = false;
+						pause = true;
+						clicked = false;
+					} else if (!magGlass && !shears && !grabbing) {
+						grabbed = puc.getPollution(i);
+						grabbing = true;
+						j = i;
+						break;
+					}
+				}
+			}
 		}
 
 		if ((j > -1 && j < c.crabs.size()) && c.getCrab(j).equals(grabbed)) {
@@ -261,6 +278,10 @@ public class ScreenControl extends JPanel {
 		if ((j > -1 && j < t.turtles.size()) && t.getTurtle(j).equals(grabbed)) {
 			t.getTurtle(j).setX(x - Turtle.sizeX / 2);
 			t.getTurtle(j).setY(y - Turtle.sizeY / 2);
+		}
+		if ((j > -1 && j < puc.Pollution.size()) && puc.getPollution(j).equals(grabbed)) {
+			puc.getPollution(j).setX(x - Pollution.sizeX / 2);
+			puc.getPollution(j).setY(y - Pollution.sizeY / 2);
 		}
 
 	}

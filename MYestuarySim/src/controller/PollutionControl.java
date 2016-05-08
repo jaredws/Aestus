@@ -44,6 +44,9 @@ public class PollutionControl {
 	protected void removePollution(int i){
 		Pollution.remove(i);
 	}
+	public List<Pollution> getPollution(){
+		return this.Pollution;
+	}
 	
 	public Pollution getPollution(int i){
 		return Pollution.get(i);
@@ -52,10 +55,10 @@ public class PollutionControl {
 	public int getPollutionSize(){
 		return Pollution.size();
 	}
-	/*
+	
 	public void age(){
 		for(int i = 0; i < Pollution.size(); i++){
 			Pollution.get(i).live();
 		}
-	}*/
+	}
 }
