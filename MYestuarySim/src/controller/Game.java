@@ -129,6 +129,7 @@ public class Game {
 			CC.deleteCrabs(TLC);
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);
+			PolC.deletePollution(TLC);
 			try {
     			Thread.sleep(10);
     		} catch (InterruptedException e) {

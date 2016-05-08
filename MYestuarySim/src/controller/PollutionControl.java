@@ -34,8 +34,8 @@ public class PollutionControl {
 		for(int i = 0; i < Pollution.size(); i++){
 			if(Pollution.get(i).getX() > tc.getRecycle().getX() - tc.getRecycle().getSizeX()/2 && Pollution.get(i).getX() < tc.getRecycle().getX() + tc.getRecycle().getSizeX()/4){
 				if((Pollution.get(i).getY() > tc.getRecycle().getY()-tc.getRecycle().getSizeY()) && (Pollution.get(i).getY() < tc.getRecycle().getY() + tc.getRecycle().getSizeY()/2)){
-//					Phragmites.remove(i);
-//					i--;
+					Pollution.remove(i);
+					i--;
 				}
 			}
 		}
