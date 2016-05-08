@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -47,8 +48,8 @@ public class Game {
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
-		while(SV.Showing){
-			SV.checkStart();
+		while(s.getShowing()){
+			s.check();
 			SV.repaint();
 			try {
     			Thread.sleep(50);
@@ -136,7 +137,11 @@ public class Game {
 		EV = new EndingView(esc, PopC, health);
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		TV.dispose();
-		EV.add(EV.getScoreLabel());
+		for(JLabel l: EV.getLabels()) {
+			if(!l.getText().equals("Score")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+			EV.add(l);
+		}
+        	
 		while(EV.Showing){
 			esc.checkPos();
 			EV.repaint();

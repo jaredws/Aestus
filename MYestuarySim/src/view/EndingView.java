@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,13 +30,12 @@ public class EndingView extends JPanel {
  	public JFrame frame;
  	static Dimension screenSize;
  	public static Image researcher;
-
 	public Image clipboard;
-
 	public Image BG;
  	private int health;
  	private PopulationControl PC;
  	private HealthView HV;
+ 	private ArrayList<JLabel> labels;
 	
 	public EndingView(EndScreenControl s2, PopulationControl PC, int health){
 		Showing = true;
@@ -44,6 +45,7 @@ public class EndingView extends JPanel {
 		this.PC = PC;
 		this.health = health;
 		HV = new HealthView();
+		labels = new ArrayList<JLabel>();
 		
 		try {                
 			BG = ImageIO.read(new File("./img/bg.png"));
@@ -61,7 +63,6 @@ public class EndingView extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.add(getScoreLabel());
 	}
 	
 	public void update(Game g){
@@ -86,14 +87,32 @@ public class EndingView extends JPanel {
 	public Game getGame() {
 		return this.G;
 	}
+
+	public ArrayList<JLabel> getLabels() {
+		JLabel score = new JLabel("Score");
+		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-75, getClipBoardY()+100,200,100);
+		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
+		labels.add(score);
+		
+		JLabel species = new JLabel("Species");
+		JLabel mittenCrabs = new JLabel("Mitten Crabs: "/* + PC.getMittenCrabs()*/);
+		JLabel blueCrabs = new JLabel("Blue Crabs: "/* + PC.getBlueCrabs()*/);
+		JLabel turtle = new JLabel("Turtle: "/* + PC.getTurtles()*/);
+		JLabel phrag = new JLabel("Phragmites: "/* + PC.getPhragmites()*/);
+		JLabel cordGrass = new JLabel("Cord Grass: "/* + PC.getTurtles()*/);
+		
+		species.setBounds(getClipBoardX()+40, score.getY()+100, 100, 20);
+		mittenCrabs.setBounds(species.getX(),species.getY()+species.getHeight(),species.getWidth(),species.getHeight());
+		blueCrabs.setBounds(species.getX(),mittenCrabs.getY()+mittenCrabs.getHeight(),species.getWidth(),species.getHeight());
+		labels.add(species);
+		labels.add(mittenCrabs);
+		labels.add(blueCrabs);
+		
+		return labels;
+	}
 	
 	public JLabel getScoreLabel() {
-		JLabel score = new JLabel("Score");
-		score.setOpaque(false);
-		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-75, getClipBoardY()+100,200,100);
-		score.setAlignmentX(CENTER_ALIGNMENT);
-		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
-		return score;
+		return labels.get(0);
 	}
 	
 	public int getClipBoardX() {

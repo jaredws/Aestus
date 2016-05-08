@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import javax.swing.JButton;
 
+import view.StartingView;
+
 public class StartScreenControl extends JButton {
 
 	//Implament listener on the frame??? -JS
@@ -14,14 +16,18 @@ public class StartScreenControl extends JButton {
 	private static final long serialVersionUID = 9042772411806531339L;
 	public int clickx;
 	public int clicky;
-
+	public boolean Settings;
+	public boolean Showing;
+	Dimension screenSize;
 
 	public StartScreenControl(){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	    setBorderPainted(false);
 	    setFocusPainted(false);
 	    setContentAreaFilled(false);
+	    Showing = true;
+	    Settings = false;
 	
 	
 	addMouseListener(new MouseAdapter(){
@@ -42,30 +48,27 @@ public class StartScreenControl extends JButton {
         }
     });
 	}
-	public void checkPos(CrabControl c){
-		//The trash can deletes if the crab is 'grabbed' and you drag it over the can
-		//do we want this? or should we wait for release
-		
-//		if(!grabbing){
-//			for(int i = 0; i < c.crabs.size(); i++){
-//				if(((x-c.crabs.get(i).sizeX/2) < c.crabs.get(i).getX()) && (c.crabs.get(i).getX() < (x+c.crabs.get(i).sizeX/2))){
-//					if(((y-c.crabs.get(i).sizeY/2) < c.crabs.get(i).getY()) && (c.crabs.get(i).getY() < (y+c.crabs.get(i).sizeY/2))){
-//						grabbed = c.crabs.get(i);
-//						grabbing = true;
-//						j = i;
-//						break;
-//						}
-//					}
-//			}
-//		}
-//		if((j > -1 && j < c.crabs.size()) && c.crabs.get(j).equals(grabbed)){
-//			c.crabs.get(j).setX(x);
-//			c.crabs.get(j).setY(y);	
-//		}
-//	}
-}
+	public void check(){
+		if((clickx > StartingView.getPlayX()) 
+				&& (clickx < StartingView.getPlayX()+StartingView.getPlay().getWidth(null))
+				&& (clicky > StartingView.getPlayY())
+				&& (clicky < StartingView.getPlayY()+StartingView.getPlay().getHeight(null))){
+			Showing = false;
+		} else if((clickx > StartingView.getSettingsX()) 
+				&& (clickx < StartingView.getSettingsX()+StartingView.getSettings().getWidth(null))
+				&& (clicky > StartingView.getSettingsY())
+				&& (clicky < StartingView.getSettingsY()+StartingView.getSettings().getHeight(null))){
+			Settings = true;
+		}
+	}
 	
-
+	public boolean getShowing() {
+		return this.Showing;
+	}
+	
+	public boolean getSettings() {
+		return this.Settings;
+	}
 
 
 }
