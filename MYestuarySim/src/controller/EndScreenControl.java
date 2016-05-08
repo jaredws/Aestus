@@ -1,11 +1,16 @@
 package controller;
 
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import javax.swing.JPanel;
+import view.EndingView;
 
 public class EndScreenControl extends JPanel {
 
@@ -17,6 +22,7 @@ public class EndScreenControl extends JPanel {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		clicked = false;
+		
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
@@ -32,16 +38,36 @@ public class EndScreenControl extends JPanel {
 	
 	public void checkPos() {
 		if (clicked) {
-			/*if (clickx > tc.getMag().getX()
-					&& clickx < tc.getMag().getSizeX() + tc.getMag().getX()
-					&& clicky > tc.getMag().getY()
-					&& clicky < tc.getMag().getSizeY() + tc.getMag().getY()) {
-				if (!magGlass)
-					magGlass = true;
-				else
-					magGlass = false;
+			if (clickx > EndingView.getResearcherX()
+					&& clickx < EndingView.getResearcherX() + EndingView.getResearcher().getWidth(null)
+					&& clicky > EndingView.getResearcherY()
+					&& clicky < EndingView.getResearcherY() + EndingView.getResearcher().getHeight(null)) {
+				try {
+					openWebpage(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
 				clicked = false;
-			}*/
+			}
 		}
+	}
+	
+	public static void openWebpage(URI uri) {
+	    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+	    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+	        try {
+	            desktop.browse(uri);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}
+
+	public static void openWebpage(URL url) {
+	    try {
+	        openWebpage(url.toURI());
+	    } catch (URISyntaxException e) {
+	        e.printStackTrace();
+	    }
 	}
 }

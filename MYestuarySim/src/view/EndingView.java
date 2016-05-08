@@ -24,12 +24,14 @@ public class EndingView extends JPanel {
 	private Game G;
 	static ButtonView BV;
 	public EndScreenControl S;
-	public Image BG;
  	public boolean Showing;
  	public JFrame frame;
- 	Dimension screenSize;
- 	public Image researcher;
- 	public Image clipboard;
+ 	static Dimension screenSize;
+ 	public static Image researcher;
+
+	public Image clipboard;
+
+	public Image BG;
  	private int health;
  	private PopulationControl PC;
  	private HealthView HV;
@@ -70,7 +72,7 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
-        g.drawImage(researcher, 300, (int)screenSize.getHeight()/2-researcher.getHeight(null)/2, null);
+        g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
         for(int i = 0; i < Game.getHealthControl().check(health); i++){
         	g.drawImage(HV.getImage(0), (getClipBoardX()+HV.getImage(0).getWidth(null)*(i)), (int)(getScoreLabel().getBounds().getY()+getScoreLabel().getBounds().getHeight()), null);
@@ -101,6 +103,16 @@ public class EndingView extends JPanel {
 	public int getClipBoardY() {
 		return (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2;
 	}
-
-
+	
+	public static int getResearcherX() {
+		return 300;
+	}
+	
+	public static int getResearcherY() {
+		return (int)screenSize.getHeight()/2-researcher.getHeight(null)/2;
+	}
+	
+	public static Image getResearcher() {
+		return researcher;
+	}
 }
