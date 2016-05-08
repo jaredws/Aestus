@@ -16,7 +16,7 @@ public class PollutionControl {
 	
 
 	public void addPollution(int x, int y){
-		Pollution.add(new Pollution(x,y,screenSize));
+		Pollution.add(new Pollution(x,y,screenSize,rand.nextInt(3)));
 	}
 	
 	public List<Pollution> getPhragmites() {

@@ -51,10 +51,10 @@ public class PollutionView extends ViewTemplate{
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */
 	public Image getImage(int i){
-		if(i < 38)
-			return(images.get(0).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
+		if(false)
+			return(images.get(i).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
 		else
-			return images.get(1);
+			return images.get(i);
 	}
 
 }

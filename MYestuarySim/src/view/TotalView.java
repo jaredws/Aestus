@@ -117,7 +117,7 @@ public class TotalView extends JPanel{
         
         for(int i = 0; i < Game.getPollutionControl().getPollution().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PUV.getImage(Game.getPollutionControl().getPollution(i).life), Game.getPollutionControl().getPollution().get(i).getX(), 
+        	g.drawImage(PUV.getImage(Game.getPollutionControl().getPollution(i).type), Game.getPollutionControl().getPollution().get(i).getX(), 
         			Game.getPollutionControl().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
 	
         //Draw Countdown
