@@ -35,7 +35,7 @@ public class CrabView extends ViewTemplate{
 				images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
 			}
 		} catch (IOException ex) {
-	    	   System.out.println("BlueCrab Image read error");
+	    	   System.out.println("Crab Image read error");
 	       }
 	}
 		
