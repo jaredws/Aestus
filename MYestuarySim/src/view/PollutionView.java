@@ -52,9 +52,10 @@ public class PollutionView extends ViewTemplate{
 	 * @return The buffered image of the pollution
 	 */
 	public Image getImage(int i){
+		//what?
 		if(false)
 			return(images.get(i));
-		else
+		else // why 37?? - JS
 			return images.get(37);
 	}
 

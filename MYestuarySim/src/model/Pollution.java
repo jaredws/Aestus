@@ -24,7 +24,7 @@ public class Pollution extends Grabbable {
 		this.y = y;
 		this.sizeX = 165;
 		this.sizeY = 165;
-		type=0; 
+		type=0;
     }
 	
 	public Pollution(int x, int y, Dimension screenSize,int type){
