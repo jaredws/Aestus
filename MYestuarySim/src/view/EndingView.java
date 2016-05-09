@@ -28,7 +28,7 @@ public class EndingView extends JPanel {
  	public boolean Showing;
  	public JFrame frame;
  	static Dimension screenSize;
- 	public static Image researcher;
+ 	public static Image researcher,researcherMad;
 	public Image clipboard,BG,star,check,x;
  	private int health;
  	private PopulationControl PC;
@@ -47,6 +47,7 @@ public class EndingView extends JPanel {
 			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
+			researcherMad = ImageIO.read(new File("./img/researcherMad.png"));
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
@@ -76,9 +77,12 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
-        g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
+        if(Game.getHealthControl().check(health) < 3)
+        	g.drawImage(researcherMad, getResearcherX(), getResearcherY(), null);
+        else 
+        	g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
-        for(int i = 0; i < Game.getHealthControl().check(health)+5; i++){
+        for(int i = 0; i < Game.getHealthControl().check(health); i++){
         	g.drawImage(star, getStarX(i), getStarY(), null);
         }
         for(int i=1; i < getSpeciesLabels().size(); i++) {
