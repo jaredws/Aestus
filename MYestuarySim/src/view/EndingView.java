@@ -143,11 +143,11 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getDiedLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		died = new JLabel("Died");
-		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabControl().getCrabs().size()));
-		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabControl().getBlueCrabs().size()));
-		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleControl().getTurtles().size()));
-		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
-		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
+		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
+		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
+		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
+		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
 		
 		died.setBounds(remove.getX()+remove.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(died.getX(),died.getY()+died.getHeight(),died.getWidth(),died.getHeight());
@@ -191,11 +191,11 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getEndLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		end = new JLabel("End");
-		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
-		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
-		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
-		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
-		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabControl().getCrabs().size()));
+		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabControl().getBlueCrabs().size()));
+		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleControl().getTurtles().size()));
+		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
+		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
 		
 		end.setBounds(died.getX()+died.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(end.getX(),end.getY()+end.getHeight(),end.getWidth(),end.getHeight());
