@@ -155,10 +155,10 @@ public class PopulationControl {
 		}
 		if(TotalPlant<TP){
 				if(rand.nextInt(8)%3==0){//3/8 probability of removing invasive 
-					try{Game.getPhragmitesControl().removePhragmites(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getPhragmitesControl().removePhragmites(0);PhragmitesDied++;}catch(IndexOutOfBoundsException ex){}
 				}
 				else{
-					try{Game.getCordGrassControl().removeCordGrass(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getCordGrassControl().removeCordGrass(0);CordGrassDied++;}catch(IndexOutOfBoundsException ex){}
 				}
 		}
 		//When there is room for more animals
@@ -207,14 +207,14 @@ public class PopulationControl {
 		}
 		if(TotalAnimal<TA){
 			if(rand.nextInt(8)%3==0){// 3/8th probability to remove an invasive
-				try{Game.getCrabControl().removeCrab(0);}catch(IndexOutOfBoundsException ex){}
+				try{Game.getCrabControl().removeCrab(0);MittenCrabDied++;}catch(IndexOutOfBoundsException ex){}
 			}
 			else{// 5/8th probability of removing an non invasive
 				if(rand.nextInt(8)%2==0){//3/8th probability of removing a crab
-					try{Game.getBlueCrabControl().removeBlueCrab(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getBlueCrabControl().removeBlueCrab(0);BlueCrabDied++;}catch(IndexOutOfBoundsException ex){}
 				}
 				else{// 5/8th probability to remove a turtle
-					try{Game.getTurtleControl().removeTurtle(0);}catch(IndexOutOfBoundsException ex){}
+					try{Game.getTurtleControl().removeTurtle(0);TurtleDied++;}catch(IndexOutOfBoundsException ex){}
 				}
 				
 			}
