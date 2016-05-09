@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 /**
  * 
- * @author Jared Sharpe
+ * @author Adam K.
  *
  */
 
@@ -32,7 +32,9 @@ public class PollutionView extends ViewTemplate{
 		for(String fileName: names){
 		try {                
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
-	         images.add(image);
+				for(int i = 0; i < 38; i++){               
+					images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
+				}
 	         //images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("Pollution Image read error");
@@ -47,14 +49,14 @@ public class PollutionView extends ViewTemplate{
 	/**
 	 * 
 	 * @param i
-	 * @return The buffered image of the crab
-	 * 0-Front, 1-back, 2-left, 3-right
+	 * @return The buffered image of the pollution
 	 */
 	public Image getImage(int i){
+		//what?
 		if(false)
-			return(images.get(i).getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,1));
-		else
-			return images.get(i);
+			return(images.get(i));
+		else // why 37?? - JS
+			return images.get(37);
 	}
 
 }
