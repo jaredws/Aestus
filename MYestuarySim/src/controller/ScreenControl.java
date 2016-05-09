@@ -21,17 +21,10 @@ public class ScreenControl extends JPanel {
 
 	// Implement listener on the frame??? -JS
 	private int x, y, magX, magY, shearX, shearY;
-
 	public int research;
-
 	private int j;
-
-	private int clickx;
-
-	private int clicky;
-
+	private int clickx,clicky;
 	private int cTrapX;
-
 	private int cTrapY;
 	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap;
 	Grabbable grabbed;
@@ -320,5 +313,28 @@ public class ScreenControl extends JPanel {
 
 	public boolean getPause() {
 		return this.pause;
+	}
+	
+	public int getClickx() {
+		return clickx;
+	}
+
+	public void setClickx(int clickx) {
+		this.clickx = clickx;
+	}
+
+	public int getClicky() {
+		return clicky;
+	}
+
+	public void setClicky(int clicky) {
+		this.clicky = clicky;
+	}
+	public boolean getClicked() {
+		return clicked;
+	}
+
+	public void setClicked(boolean clicked) {
+		this.clicked = clicked;
 	}
 }
