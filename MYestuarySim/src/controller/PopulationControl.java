@@ -25,6 +25,12 @@ public class PopulationControl {
 	int TA; //current total animals
 	int P; //current total pollution
 	
+	int CordGrassDied;
+	int PhragmitesDied;
+	int TurtleDied;
+	int BlueCrabDied;
+	int MittenCrabDied;
+	
 	private int TotalPlant;
 	private double TotalAnimal;
 	private int NonInvasivePlant;
@@ -35,6 +41,15 @@ public class PopulationControl {
 	private Game game;
 	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	PopulationControl(Game g){
+		this.game = g;
+		this.BlueCrabDied = 0;
+		this.CordGrassDied = 0;
+		this.PhragmitesDied = 0;
+		this.TurtleDied = 0;
+		this.MittenCrabDied = 0;
+	}
 	
 	
 	public int makeX(){
@@ -65,9 +80,7 @@ public class PopulationControl {
 //		System.out.println("Max Total Animals: "+TotalAnimal);
 //		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
 //		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
-//		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());
-		spawn();
-		
+//		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());	
 	}
 /**
  * a, b, and c are the coefficients for the quadratic relationship between plants and animals
@@ -82,10 +95,19 @@ public class PopulationControl {
 		double c = -14;
 		return (a*TP*TP+b*TP+c);
 	}
-	
+	/**
+	 * Update the population limits
+	 * Spawn species within the limits
+	 *
+	 * @param g- the updated Game
+	 * gives access to all the controllers
+	 */ 
 	public void update(Game g){
 		game = g;
+		//Call calculate to adjust the maximum allowed species
 		calculate();
+		//Spawn within the calculations
+		spawn();
 	}
 	
 	/**
@@ -220,19 +242,19 @@ public class PopulationControl {
 		return Pollution;
 	}
 	public int getMittenDie() {
-		return 1;
+		return this.MittenCrabDied;
 	}
 	public int getBlueCrabDie() {
-		return 1;
+		return this.BlueCrabDied;
 	}
 	public int getTurtleDie() {
-		return 1;
+		return this.TurtleDied;
 	}
 	public int getPhragDie() {
-		return 1;
+		return this.PhragmitesDied;
 	}
 	public int getCordDie() {
-		return 1;
+		return this.CordGrassDied;
 	}
 
 }
