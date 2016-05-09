@@ -139,6 +139,11 @@ public class Game {
 			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 			EV.add(l);
 		}
+		for(JLabel l: EV.getRemoveLabels()) {
+			if(!l.getText().equals("Removed")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+			EV.add(l);
+		}
 		for(JLabel l: EV.getDiedLabels()) {
 			if(!l.getText().equals("Died")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));

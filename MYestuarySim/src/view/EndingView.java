@@ -33,7 +33,7 @@ public class EndingView extends JPanel {
  	private int health;
  	private PopulationControl PC;
  	private HealthView HV;
- 	JLabel species,died,rsch,end;
+ 	JLabel species,died,rsch,end,remove;
 	
 	public EndingView(EndScreenControl s2, PopulationControl PC, int health){
 		Showing = true;
@@ -145,7 +145,7 @@ public class EndingView extends JPanel {
 		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
 		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
 		
-		died.setBounds(rsch.getX()+rsch.getWidth(), getStarY()+star.getHeight(null), 100, 20);
+		died.setBounds(remove.getX()+remove.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(died.getX(),died.getY()+died.getHeight(),died.getWidth(),died.getHeight());
 		blueCrabs.setBounds(died.getX(),mittenCrabs.getY()+mittenCrabs.getHeight(),died.getWidth(),died.getHeight());
 		turtle.setBounds(died.getX(),blueCrabs.getY()+blueCrabs.getHeight(),died.getWidth(),died.getHeight());
@@ -160,14 +160,38 @@ public class EndingView extends JPanel {
 		return labels;
 	}
 	
+	public ArrayList<JLabel> getRemoveLabels() {
+		ArrayList<JLabel> labels = new ArrayList<JLabel>();
+		remove = new JLabel("Removed");
+		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
+		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
+		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
+		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
+		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
+		
+		remove.setBounds(rsch.getX()+rsch.getWidth(), getStarY()+star.getHeight(null), 100, 20);
+		mittenCrabs.setBounds(remove.getX(),remove.getY()+remove.getHeight(),remove.getWidth(),remove.getHeight());
+		blueCrabs.setBounds(remove.getX(),mittenCrabs.getY()+mittenCrabs.getHeight(),remove.getWidth(),remove.getHeight());
+		turtle.setBounds(remove.getX(),blueCrabs.getY()+blueCrabs.getHeight(),remove.getWidth(),remove.getHeight());
+		phrag.setBounds(remove.getX(),turtle.getY()+turtle.getHeight(),remove.getWidth(),remove.getHeight());
+		cordGrass.setBounds(remove.getX(),phrag.getY()+phrag.getHeight(),remove.getWidth(),remove.getHeight());
+		labels.add(remove);
+		labels.add(mittenCrabs);
+		labels.add(blueCrabs);
+		labels.add(turtle);
+		labels.add(phrag);
+		labels.add(cordGrass);
+		return labels;
+	}
+	
 	public ArrayList<JLabel> getEndLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		end = new JLabel("End");
-		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabControl().getCrabs().size()));
-		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabControl().getBlueCrabs().size()));
-		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleControl().getTurtles().size()));
-		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
-		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
+		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
+		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
+		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
+		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
 		
 		end.setBounds(died.getX()+died.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(end.getX(),end.getY()+end.getHeight(),end.getWidth(),end.getHeight());
