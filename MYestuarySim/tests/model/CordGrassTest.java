@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 
 public class CordGrassTest {
-	static Dimension screenSize;
+	static Dimension screenSize = new Dimension();
 	static CordGrass cg;
 	
 	@BeforeClass
@@ -50,6 +50,12 @@ public class CordGrassTest {
 	public void setSizeYTest() {
 		cg.setSizeY(185);
 		assertEquals("sizeY should be 185",cg.getSizeY(),185);
+	}
+	
+	@Test
+	public void liveTest() {
+		cg.live();
+		assertEquals("Life should be 1",cg.getLife(),1);
 	}
 
 }

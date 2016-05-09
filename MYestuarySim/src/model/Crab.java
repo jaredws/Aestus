@@ -43,6 +43,14 @@ public class Crab extends Grabbable {
 		this.y = y;
 	}
 	
+	public int getXDir() {
+		return this.XDir;
+	}
+	
+	public int getYDir() {
+		return this.YDir;
+	}
+	
 	public int getSizeX() {
 		return Crab.sizeX;
 	}
@@ -57,6 +65,10 @@ public class Crab extends Grabbable {
 	
 	public void setSizeX(int x) {
 		Crab.sizeX = x;
+	}
+	
+	public void setMove(int x) {
+		this.move = x;
 	}
 	
 	public void moveCrab(int J,Dimension screenSize){

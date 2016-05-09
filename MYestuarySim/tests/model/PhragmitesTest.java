@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 
 public class PhragmitesTest {
-	static Dimension screenSize;
+	static Dimension screenSize = new Dimension();
 	static Phragmites p;
 	
 	@BeforeClass
@@ -50,6 +50,12 @@ public class PhragmitesTest {
 	public void setSizeYTest() {
 		p.setSizeY(185);
 		assertEquals("sizeY should be 185",p.getSizeY(),185);
+	}
+	
+	@Test
+	public void liveTest() {
+		p.live();
+		assertEquals("Life should be 1",p.getLife(),1);
 	}
 
 }

@@ -24,7 +24,6 @@ public class EndingView extends JPanel {
 	private static final long serialVersionUID = -3728339469941254427L;
 	
 	private Game G;
-	static ButtonView BV;
 	public EndScreenControl S;
  	public boolean Showing;
  	public JFrame frame;
@@ -38,7 +37,6 @@ public class EndingView extends JPanel {
 	
 	public EndingView(EndScreenControl s2, PopulationControl PC, int health){
 		Showing = true;
-		BV = new ButtonView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s2;
 		this.PC = PC;

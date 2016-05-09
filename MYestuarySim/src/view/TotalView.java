@@ -95,18 +95,18 @@ public class TotalView extends JPanel{
        
         for(int i = 0; i < Game.getCordGrassControl().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(CGV.getImage(Game.getCordGrassControl().getCordGrass(i).life), Game.getCordGrassControl().getCordGrass(i).getX(), 
+        	g.drawImage(CGV.getImage(Game.getCordGrassControl().getCordGrass(i).getLife()), Game.getCordGrassControl().getCordGrass(i).getX(), 
         			Game.getCordGrassControl().getCordGrass(i).getY(), null); // see javadoc for more info on the parameters  
        
         for(int i = 0; i < Game.getPhragmitesControl().getPhragmites().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PV.getImage(Game.getPhragmitesControl().getPhragmites(i).life), Game.getPhragmitesControl().getPhragmites(i).getX(), 
+        	g.drawImage(PV.getImage(Game.getPhragmitesControl().getPhragmites(i).getLife()), Game.getPhragmitesControl().getPhragmites(i).getX(), 
         			Game.getPhragmitesControl().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
         
         
         for(int i = 0; i < Game.getTurtleControl().getTurtles().size(); i++)
     	//Made the default get Image 0 here, a movement may need to be called instead
-    	g.drawImage(TV.getImage(Game.getTurtleControl().getTurtle(i).move), Game.getTurtleControl().getTurtle(i).getX(), 
+    	g.drawImage(TV.getImage(Game.getTurtleControl().getTurtle(i).getMove()), Game.getTurtleControl().getTurtle(i).getX(), 
     			Game.getTurtleControl().getTurtle(i).getY(), null); // see javadoc for more info on the parameters
         
         for(int i = 0; i < Game.getCrabControl().getCrabs().size(); i++)

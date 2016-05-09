@@ -11,7 +11,7 @@ import org.junit.Test;
  * @Test Tests all functions of Button
  */
 
-public class ButtonTest {
+public class ToolTest {
 
 	static Tool b;
 	

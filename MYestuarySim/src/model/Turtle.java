@@ -16,9 +16,9 @@ public class Turtle extends Grabbable {
 	//temporary public variables
 	public static int sizeX;
 	public static int sizeY;
-	public int move;
-	public int XDir;
-	public int YDir;
+	private int move;
+	private int XDir;
+	private int YDir;
 	
 	public Turtle(int x, int y, Dimension screenSize){
 		move = 0;
@@ -52,6 +52,22 @@ public class Turtle extends Grabbable {
 	
 	public int getSizeY() {
 		return Turtle.sizeY;
+	}
+	
+	public int getXDir() {
+		return this.XDir;
+	}
+	
+	public int getYDir() {
+		return this.YDir;
+	}
+	
+	public int getMove() {
+		return this.move;
+	}
+	
+	public void setMove(int x) {
+		this.move = x;
 	}
 	
 	public void setSizeY(int y) {

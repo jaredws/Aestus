@@ -18,7 +18,7 @@ public class Phragmites extends Grabbable {
 	//temporary public variables
 	public static int sizeX;
 	public static int sizeY;
-	public int life;
+	private int life;
 	
 	public Phragmites(int x, int y, Dimension screenSize){
 		life = 0;
@@ -63,5 +63,8 @@ public class Phragmites extends Grabbable {
 	}
 	public void live(){
 		life++;
+	}
+	public int getLife() {
+		return this.life;
 	}
 }

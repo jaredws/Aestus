@@ -86,6 +86,11 @@ public class BlueCrabTest {
 		bc.setY(20);
 		bc.moveBlueCrab(10, screenSize);
 		assertEquals("YDir should be 3",bc.getYDir(),3);
+		
+		bc.setMove(41);
+		bc.moveBlueCrab(10, screenSize);
+		assertEquals("X should be 23",bc.getX(),23);
+		assertEquals("Y should be 23",bc.getY(),23);
 	}
 
 }

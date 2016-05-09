@@ -51,5 +51,39 @@ public class CrabTest {
 		c.setSizeY(185);
 		assertEquals("sizeY should be 185",c.getSizeY(),185);
 	}
+	
+	@Test
+	public void moveCrabTest() {
+		//If 1
+		c.setMove(8);
+		c.moveCrab(10, screenSize);
+		assertEquals("XDir should be 4",c.getXDir(),4);
+		assertEquals("YDir should be 1",c.getYDir(),1);
+		
+		//If 2
+		c.setX(1000);
+		c.moveCrab(10, screenSize);
+		assertEquals("XDir should be -4",c.getXDir(),-4);
+		
+		//If 3
+		c.setX(20);
+		c.moveCrab(10, screenSize);
+		assertEquals("XDir should be 4",c.getXDir(),4);
+		
+		//If 4
+		c.setY(1000);
+		c.moveCrab(10, screenSize);
+		assertEquals("YDir should be -1",c.getYDir(),-1);
+		
+		//If 5
+		c.setY(20);
+		c.moveCrab(10, screenSize);
+		assertEquals("YDir should be 1",c.getYDir(),1);
+		
+		c.setMove(41);
+		c.moveCrab(10, screenSize);
+		assertEquals("X should be 24",c.getX(),24);
+		assertEquals("Y should be 21",c.getY(),21);
+	}
 
 }

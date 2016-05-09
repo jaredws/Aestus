@@ -15,22 +15,22 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class CrabViewTest {
+public class BlueCrabViewTest {
 	
-	static CrabView cv;
+	static BlueCrabView bcv;
 	static Random rand;
-	static BufferedImage cvi;
+	static BufferedImage bcvi;
 	static BufferedImage img;
 	static Dimension screenSize;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		cv = new CrabView();
-		cvi = Helper.toBufferedImage(cv.getImage(0));
+		bcv = new BlueCrabView();
+		bcvi = Helper.toBufferedImage(bcv.getImage(0));
 		rand = new Random();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try { 
-			img = ImageIO.read(new File("./img/Crab.png"));
+			img = ImageIO.read(new File("./img/BlueCrab.png"));
         } catch (IOException ex) {
     	   System.out.println("Image read error");
         }
@@ -39,25 +39,25 @@ public class CrabViewTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		cv = null;
-		cvi = null;
+		bcv = null;
+		bcvi = null;
 		img = null;
 	}
 
 	@Test
 	public void imageDimensionTest() {
-		assertEquals("The height of each image should be equal",cvi.getHeight(null),img.getHeight(null));
-		assertEquals("The width of each image should be equal",cvi.getWidth(null),img.getWidth(null));
+		assertEquals("The height of each image should be equal",bcvi.getHeight(null),img.getHeight(null));
+		assertEquals("The width of each image should be equal",bcvi.getWidth(null),img.getWidth(null));
 	}
 	
 	@Test
 	public void imagePixelComparisonTest() {
-		int w = cvi.getHeight(null);
-		int h = cvi.getWidth(null);
+		int w = bcvi.getHeight(null);
+		int h = bcvi.getWidth(null);
 		for(int i=0;i<100;i++) {
 			int rx = rand.nextInt(w);
 			int ry = rand.nextInt(h);
-			assertEquals("The integer pixels should be equal",img.getRGB(ry, rx),cvi.getRGB(ry, rx));
+			assertEquals("The integer pixels should be equal",img.getRGB(ry, rx),bcvi.getRGB(ry, rx));
 		}
 	}
 }

@@ -15,9 +15,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class CrabViewTest {
+public class CordGrassViewTest {
 	
-	static CrabView cv;
+	static CordGrassView cv;
 	static Random rand;
 	static BufferedImage cvi;
 	static BufferedImage img;
@@ -25,12 +25,12 @@ public class CrabViewTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		cv = new CrabView();
+		cv = new CordGrassView();
 		cvi = Helper.toBufferedImage(cv.getImage(0));
 		rand = new Random();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try { 
-			img = ImageIO.read(new File("./img/Crab.png"));
+			img = ImageIO.read(new File("./img/Grass.png"));
         } catch (IOException ex) {
     	   System.out.println("Image read error");
         }

@@ -19,7 +19,6 @@ public class StartingView extends JPanel {
 	private static final long serialVersionUID = -3728339469941254427L;
 	
 	private Game G;
-	static ButtonView BV;
 	public StartScreenControl S;
 	public Image BG;
  	//public boolean Showing;
@@ -33,7 +32,6 @@ public class StartingView extends JPanel {
 	
 	public StartingView(StartScreenControl s){
 		//Showing = true;
-		BV = new ButtonView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s;
 		
