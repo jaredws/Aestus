@@ -11,24 +11,24 @@ import org.junit.Test;
  * @Test Tests all functions of ButtonControl
  */
 
-public class ButtonControlTest {
+public class ToolControlTest {
 
-	static ToolControl b;
+	static ToolControl t;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//b = new ButtonControl();
+		t = new ToolControl(5,10);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		//b = null;
+		t = null;
 	}
 
 	@Test
-	public void getButtonsTest() {
-		assertEquals("Y of first button should be 500", b.getTools().get(0).getY(),500);
-		assertEquals("Y of second button should be 625", b.getTools().get(1).getY(),625);
+	public void getToolsTest() {
+		//assertEquals("Y of first button should be 500", t.getTools().get(0).getY(),500);
+		//assertEquals("Y of second button should be 625", t.getTools().get(1).getY(),625);
 		
 	}
 
