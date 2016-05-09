@@ -15,6 +15,7 @@ public class BlueCrabControl {
 	Dimension screenSize;
 	public List<BlueCrab> BlueCrabs;
 	boolean Researched;
+	int Removed;
 
 	public void addBlueCrab(int x, int y){
 		BlueCrabs.add(new BlueCrab(x,y,screenSize));
@@ -29,6 +30,7 @@ public class BlueCrabControl {
 		BlueCrabs = new ArrayList<BlueCrab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
+		Removed = 0;
 	}
 	
 	public void moveBlueCrabs(){
@@ -43,6 +45,7 @@ public class BlueCrabControl {
 			if(BlueCrabs.get(i).getX() > tc.getCrabTrap().getX() - tc.getCrabTrap().getSizeX()/2 && BlueCrabs.get(i).getX() < tc.getCrabTrap().getX() + tc.getCrabTrap().getSizeX()/4){
 				if((BlueCrabs.get(i).getY() > tc.getCrabTrap().getY()-tc.getCrabTrap().getSizeY()) && (BlueCrabs.get(i).getY() < tc.getCrabTrap().getY() + tc.getCrabTrap().getSizeY()/2)){
 					BlueCrabs.remove(i);
+					Removed++;
 					i--;
 				}
 			}
@@ -59,5 +62,9 @@ public class BlueCrabControl {
 	
 	public boolean getResearched() {
 		return this.Researched;
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 }

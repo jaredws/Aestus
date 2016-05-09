@@ -13,6 +13,7 @@ public class PollutionControl {
 	Random rand;
 	List<Pollution> Pollution;
 	Dimension screenSize;
+	int Removed;
 	
 
 	public void addPollution(int x, int y){
@@ -27,6 +28,7 @@ public class PollutionControl {
 		rand  = new Random();
 		Pollution = new ArrayList<Pollution>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		Removed = 0;
 	}
 	
 	
@@ -35,6 +37,7 @@ public class PollutionControl {
 			if(Pollution.get(i).getX() > tc.getRecycle().getX() - tc.getRecycle().getSizeX()/2 && Pollution.get(i).getX() < tc.getRecycle().getX() + tc.getRecycle().getSizeX()/4){
 				if((Pollution.get(i).getY() > tc.getRecycle().getY()-tc.getRecycle().getSizeY()) && (Pollution.get(i).getY() < tc.getRecycle().getY() + tc.getRecycle().getSizeY()/2)){
 					Pollution.remove(i);
+					Removed++;
 					i--;
 				}
 			}
@@ -60,5 +63,9 @@ public class PollutionControl {
 		for(int i = 0; i < Pollution.size(); i++){
 			Pollution.get(i).live();
 		}
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 }

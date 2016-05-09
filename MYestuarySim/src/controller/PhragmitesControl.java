@@ -14,6 +14,7 @@ public class PhragmitesControl {
 	List<Phragmites> Phragmites;
 	Dimension screenSize;
 	boolean Researched;
+	int Removed;
 
 	public void addPhragmites(int x, int y){
 		Phragmites.add(new Phragmites(x,y,screenSize));
@@ -28,6 +29,7 @@ public class PhragmitesControl {
 		Phragmites = new ArrayList<Phragmites>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
+		Removed = 0;
 	}
 	
 	public boolean getResearched() {
@@ -49,6 +51,7 @@ public class PhragmitesControl {
 	
 	protected void removePhragmites(int i){
 		Phragmites.remove(i);
+		Removed++;
 	}
 	
 	public Phragmites getPhragmites(int i){
@@ -59,5 +62,9 @@ public class PhragmitesControl {
 		for(int i = 0; i < Phragmites.size(); i++){
 			Phragmites.get(i).live();
 		}
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 }

@@ -16,6 +16,7 @@ public class CordGrassControl {
 	List<CordGrass> CordGrass;
 	Dimension screenSize;
 	boolean Researched;
+	int Removed;
 
 	public void addCordGrass(int x, int y){
 		CordGrass.add(new CordGrass(x,y,screenSize));
@@ -30,6 +31,7 @@ public class CordGrassControl {
 		CordGrass = new ArrayList<CordGrass>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
+		Removed = 0;
 	}
 	
 	public boolean getResearched() {
@@ -51,6 +53,7 @@ public class CordGrassControl {
 	
 	protected void removeCordGrass(int i){
 		CordGrass.remove(i);
+		Removed++;
 	}
 	
 	public CordGrass getCordGrass(int i){
@@ -61,6 +64,10 @@ public class CordGrassControl {
 		for(int i = 0; i < CordGrass.size(); i++){
 			CordGrass.get(i).live();
 		}
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 
 }
