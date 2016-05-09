@@ -21,7 +21,7 @@ public class CountdownControl {
 	//width is the width of the bar
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
-	private int time = 300;//time the game is allowed to last in seconds
+	private int time = 1;//time the game is allowed to last in seconds
 	public CountdownControl(){
 		CDV = new CountdownView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -29,7 +29,6 @@ public class CountdownControl {
 		this.progress = 0;
 		this.incX = width/time;
 		this.imageY = (int)screenSize.getHeight()-CDV.getImage().getHeight(null)-30;
-		
 	}
 	
 	//Should only be called once every second

@@ -219,5 +219,20 @@ public class PopulationControl {
 	public int getPollution() {
 		return Pollution;
 	}
+	public int getMittenDie() {
+		return 1;
+	}
+	public int getBlueCrabDie() {
+		return 1;
+	}
+	public int getTurtleDie() {
+		return 1;
+	}
+	public int getPhragDie() {
+		return 1;
+	}
+	public int getCordDie() {
+		return 1;
+	}
 
 }
