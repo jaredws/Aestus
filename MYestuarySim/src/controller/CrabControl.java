@@ -54,4 +54,8 @@ public class CrabControl {
 	public Crab getCrab(int i){
 		return crabs.get(i);
 	}
+	
+	public boolean getResearched() {
+		return this.Researched;
+	}
 }

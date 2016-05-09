@@ -56,4 +56,8 @@ public class BlueCrabControl {
 	public BlueCrab getBlueCrab(int i){
 		return BlueCrabs.get(i);
 	}
+	
+	public boolean getResearched() {
+		return this.Researched;
+	}
 }

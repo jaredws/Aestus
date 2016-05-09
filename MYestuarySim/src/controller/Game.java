@@ -141,8 +141,22 @@ public class Game {
 		EV = new EndingView(esc, PopC, health);
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		TV.dispose();
-		for(JLabel l: EV.getLabels()) {
-			if(!l.getText().equals("Score")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+		EV.add(EV.getScoreLabel());
+		EV.add(EV.getResearchedLabel());
+		for(JLabel l: EV.getSpeciesLabels()) {
+			if(!l.getText().equals("Species")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+			EV.add(l);
+		}
+		for(JLabel l: EV.getDiedLabels()) {
+			if(!l.getText().equals("Died")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+			EV.add(l);
+		}
+		
+		for(JLabel l: EV.getEndLabels()) {
+			if(!l.getText().equals("End")) l.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 			EV.add(l);
 		}
         	

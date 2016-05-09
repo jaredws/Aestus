@@ -56,4 +56,8 @@ public class TurtleControl {
 	public Turtle getTurtle(int i){
 		return turtles.get(i);
 	}
+	
+	public boolean getResearched() {
+		return this.Researched;
+	}
 }

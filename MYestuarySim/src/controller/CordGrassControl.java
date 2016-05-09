@@ -32,6 +32,10 @@ public class CordGrassControl {
 		Researched = false;
 	}
 	
+	public boolean getResearched() {
+		return this.Researched;
+	}
+	
 	
 	
 	/*public void deleteCordGrass(ToolControl tc){

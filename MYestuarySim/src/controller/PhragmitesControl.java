@@ -29,6 +29,10 @@ public class PhragmitesControl {
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
 	}
+	
+	public boolean getResearched() {
+		return this.Researched;
+	}
 
 	
 	
