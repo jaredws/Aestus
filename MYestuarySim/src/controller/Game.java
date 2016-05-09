@@ -54,7 +54,7 @@ public class Game {
 		TLC = new ToolControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
 		TC = new TurtleControl();
 		BCC = new BlueCrabControl();
-		PopC = new PopulationControl();
+		PopC = new PopulationControl(G);
 		PC = new PhragmitesControl();
 		CGC = new CordGrassControl();
 		HC = new HealthControl();
