@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controller.CountdownControl;
 import controller.Game;
 import controller.StartScreenControl;
 
@@ -20,15 +22,18 @@ public class StartingView extends JPanel {
 	
 	private Game G;
 	public StartScreenControl S;
-	public Image BG;
  	//public boolean Showing;
  	public JFrame frame;
  	static Dimension screenSize;
- 	public Image title;
- 	public static Image play;
- 	public static Image settings;
- 	public Image exit;
- 	public Image clipboard;
+ 	public Image BG,title,exit,intro;
+
+	public static Image timeUp;
+
+	public static Image timeDown;
+	public static JLabel settingsL,timeL;
+	public static Image clipboard;
+ 	public static Image play,settings;
+ 	private static int time = CountdownControl.getDefaultTime();
 	
 	public StartingView(StartScreenControl s){
 		//Showing = true;
@@ -42,8 +47,10 @@ public class StartingView extends JPanel {
 			play = ImageIO.read(new File("./img/playButton.png"));
 			settings = ImageIO.read(new File("./img/settingsButton.png"));
 			exit = ImageIO.read(new File("./img/exitButton.png"));
-			clipboard = ImageIO.read(new File("./img/Settings.png"));
-			
+			intro = ImageIO.read(new File("./img/Intro.png"));
+			clipboard = ImageIO.read(new File("./img/clipboard.png"));
+			timeUp = ImageIO.read(new File("./img/pellet.png"));
+			timeDown = ImageIO.read(new File("./img/pellet.png"));
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
 	       }
@@ -55,7 +62,12 @@ public class StartingView extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        if(s.getSettings()) frame.add(getSettingsLabel());
+
+		settingsL = new JLabel("Settings");
+		settingsL.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
+
+		timeL = new JLabel(Integer.toString(StartingView.getTime()));
+		timeL.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
 	}
 	
 	public void update(Game g){
@@ -67,15 +79,18 @@ public class StartingView extends JPanel {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
-        if(S.getSettings()) {
-        	g.drawImage(clipboard, (int)screenSize.getWidth()/2-clipboard.getWidth(null)/2, (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2, null);
+        if(S.getIntro()) {
+        	g.drawImage(intro, (int)screenSize.getWidth()/2-intro.getWidth(null)/2, (int)screenSize.getHeight()/2-intro.getHeight(null)/2, null);
+        } else if(S.getSettings()) {
+        	g.drawImage(clipboard, getClipboardX(), getClipboardY(), null);
+        	g.drawImage(timeUp, getTimeUpX(), getTimeUpY(), null);
+        	g.drawImage(timeDown, getTimeDownX(), getTimeDownY(), null);
         } else {
         	g.drawImage(title, (int)screenSize.getWidth()/2-title.getWidth(null)/2, 125, null);
 	        g.drawImage(play, getPlayX(), getPlayY(), null);
 	        g.drawImage(settings, getSettingsX(), getSettingsY(), null);
 	        g.drawImage(exit, (int)screenSize.getWidth()/2-exit.getWidth(null)/2, 500, null);
         }
-        
 	}
 	
 	public void dispose(){
@@ -110,13 +125,50 @@ public class StartingView extends JPanel {
 		return 400;
 	}
 	
-	public JLabel getSettingsLabel() {
-		JLabel settingsL = new JLabel("Settings");
-		settingsL.setOpaque(false);
-		settingsL.setBounds((int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2+clipboard.getHeight(null)/2, 200, 100);
-		settingsL.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
-		return settingsL;
+	public static Image getClipboard() {
+		return clipboard;
 	}
-
-
+	
+	public static int getClipboardX() {
+		return (int)screenSize.getWidth()/2-clipboard.getWidth(null)/2;
+	}
+	
+	public static int getClipboardY() {
+		return (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2;
+	}
+	
+	public static Image getTimeUp() {
+		return timeUp;
+	}
+	
+	public static Image getTimeDown() {
+		return timeDown;
+	}
+	
+	public static int getTimeUpX() {
+		return (int)screenSize.getWidth()/2-timeUp.getWidth(null)/2+100;
+	}
+	
+	public static int getTimeUpY() {
+		return (int)screenSize.getHeight()/2-timeUp.getHeight(null)/2;
+	}
+	
+	public static int getTimeDownX() {
+		return (int)screenSize.getWidth()/2-timeDown.getWidth(null)/2-100;
+	}
+	
+	public static int getTimeDownY() {
+		return (int)screenSize.getHeight()/2-timeDown.getHeight(null)/2;
+	}
+	
+	public static int getTime() {
+		return time;
+	}
+	
+	public static void incTime() {
+		time++;
+	}
+	public static void decTime() {
+		time--;
+	}
 }

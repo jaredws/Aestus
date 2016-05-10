@@ -40,11 +40,16 @@ public class Game {
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
+		SV.add(StartingView.timeL);
+		SV.add(StartingView.settingsL);
 		while(s.getShowing()){
 			s.check();
+			
+			StartingView.timeL.setText(Integer.toString(StartingView.getTime()));
+			SV.update(G);
 			SV.repaint();
 			try {
-    			Thread.sleep(50);
+    			Thread.sleep(1);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}

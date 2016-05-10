@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import view.CountdownView;
+import view.StartingView;
 
 /**
  * 
@@ -22,11 +23,14 @@ public class CountdownControl {
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
 	private int time;//time the game is allowed to last in seconds
-	final int totalTime = 60;
+	final static int defaultTime = 120;
+	final int timeChange = StartingView.getTime();
 	public boolean flash = false;
+	private int totalTime;
 	public CountdownControl(){
 		CDV = new CountdownView();
-		time = totalTime;
+		time = timeChange;
+		totalTime = time;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.imageX = 0;
 		this.progress = 0;
@@ -62,6 +66,10 @@ public class CountdownControl {
 	
 	public int getImageY() {
 		return this.imageY;
+	}
+	
+	public static int getDefaultTime() {
+		return defaultTime;
 	}
 	
 	
