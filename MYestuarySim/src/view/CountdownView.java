@@ -22,7 +22,7 @@ public class CountdownView {
 	
 	public CountdownView(){
 		String name = "bogturtle";
-		String c = "Crab Front";
+		String c = "pellet";
 		String fin = "flag";
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try { 
@@ -30,7 +30,7 @@ public class CountdownView {
 			image = image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH);
 			pellet = ImageIO.read(new File("./img/"+c+".png"));
 			finish = ImageIO.read(new File("./img/"+fin+".png"));
-			pellet = pellet.getScaledInstance((int)screenSize.getWidth()/35, -1,Image.SCALE_SMOOTH);
+			pellet = pellet.getScaledInstance((int)screenSize.getWidth()/55, -1,Image.SCALE_SMOOTH);
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
 	       }
