@@ -24,8 +24,6 @@ public class ScreenControl extends JPanel {
 	public int research;
 	private int j;
 	private int clickx,clicky;
-	private int cTrapX;
-	private int cTrapY;
 	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap, shearsOpen;
 	Grabbable grabbed;
 	Random rand;
@@ -94,9 +92,6 @@ public class ScreenControl extends JPanel {
 				} else if (shears) {
 					shearX = e.getX();
 					shearY = e.getY();
-				} else if (crabTrap) {
-					cTrapX = e.getX();
-					cTrapY = e.getY();
 				}
 			}
 		});
