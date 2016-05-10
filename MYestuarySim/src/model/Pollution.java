@@ -2,7 +2,7 @@ package model;
 import java.awt.Dimension;
 /**
  * 
- * @author Jared+karpzey4ever
+ * @author Jared+karpzey4ever <33333
  *
  */
 public class Pollution extends Grabbable {
@@ -33,7 +33,6 @@ public class Pollution extends Grabbable {
 		Pollution.sizeX = (int)screenSize.getWidth()/12;
 		Pollution.sizeY = sizeX*138/182;
 		this.type=type;
-		
     }
 	
 	public int getX() {
