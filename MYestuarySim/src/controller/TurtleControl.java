@@ -15,6 +15,7 @@ public class TurtleControl {
 	List<Turtle> turtles;
 	Dimension screenSize;
 	boolean Researched;
+	int Removed;
 
 	public void addTurtle(int x, int y){
 		turtles.add(new Turtle(x,y,screenSize));
@@ -29,6 +30,7 @@ public class TurtleControl {
 		turtles = new ArrayList<Turtle>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
+		Removed = 0;
 	}
 	
 	public void moveTurtles(){
@@ -43,6 +45,7 @@ public class TurtleControl {
 			if(turtles.get(i).getX() > tc.getCrabTrap().getX() - tc.getCrabTrap().getSizeX()/2 && turtles.get(i).getX() < tc.getCrabTrap().getX() + tc.getCrabTrap().getSizeX()/4){
 				if((turtles.get(i).getY() > tc.getCrabTrap().getY()-tc.getCrabTrap().getSizeY()) && (turtles.get(i).getY() < tc.getCrabTrap().getY() + tc.getCrabTrap().getSizeY()/2)){
 					turtles.remove(i);
+					Removed++;
 					i--;
 				}
 			}
@@ -59,5 +62,9 @@ public class TurtleControl {
 	
 	public boolean getResearched() {
 		return this.Researched;
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 }

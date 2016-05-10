@@ -14,6 +14,7 @@ public class CrabControl {
 	List<Crab> crabs;
 	Dimension screenSize;
 	boolean Researched;
+	int Removed;
 
 	public void addCrab(int x, int y){
 		crabs.add(new Crab(x,y,screenSize));
@@ -28,6 +29,7 @@ public class CrabControl {
 		crabs = new ArrayList<Crab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Researched = false;
+		Removed = 0;
 	}
 	
 	public void moveCrabs(){
@@ -57,5 +59,9 @@ public class CrabControl {
 	
 	public boolean getResearched() {
 		return this.Researched;
+	}
+	
+	public int getRemoved(){
+		return Removed;
 	}
 }

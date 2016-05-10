@@ -3,14 +3,9 @@ package model;
 import java.awt.Dimension;
 
 public class Crab extends Grabbable {
-	//With this outline, there's no difference between a crab and anyhting else. 
-	//We'll have to change the name of this class to Interactable Object or something
-	//Add a name and just name the different items
 	
 	private int x;
 	private int y;
-	//The sizes may need to be a ratio to the screen size. -JS
-	//temporary public variables
 	public static int sizeX;
 	public static int sizeY;
 	public int move;
