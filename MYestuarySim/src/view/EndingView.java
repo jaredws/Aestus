@@ -47,7 +47,9 @@ public class EndingView extends JPanel {
 			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
+			researcher = researcher.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
 			researcherMad = ImageIO.read(new File("./img/researcherMad.png"));
+			researcherMad = researcherMad.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
@@ -236,11 +238,11 @@ public class EndingView extends JPanel {
 	}
 	
 	public static int getResearcherX() {
-		return 300;
+		return 100;
 	}
 	
 	public static int getResearcherY() {
-		return (int)screenSize.getHeight()/2-researcher.getHeight(null)/2;
+		return (int)screenSize.getHeight()/4;
 	}
 	
 	public static Image getResearcher() {

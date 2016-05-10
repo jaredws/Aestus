@@ -21,7 +21,7 @@ public class CountdownControl {
 	//width is the width of the bar
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
-	private int time = 300;//time the game is allowed to last in seconds
+	private int time = 2;//time the game is allowed to last in seconds
 	public CountdownControl(){
 		CDV = new CountdownView();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
