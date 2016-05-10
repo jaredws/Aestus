@@ -137,7 +137,10 @@ public class TotalView extends JPanel{
                 "null"));
         }
         if(S.getShears()) {
-        	g.drawImage(TLV.getShears(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
+        	if(S.getShearsOpen()) 
+        		g.drawImage(TLV.getShearsOpen(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
+        	else 
+        		g.drawImage(TLV.getShearsClose(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
         	frame.setCursor(frame.getToolkit().createCustomCursor(
                     new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
                     "null"));

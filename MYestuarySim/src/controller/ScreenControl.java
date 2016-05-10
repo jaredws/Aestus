@@ -26,7 +26,7 @@ public class ScreenControl extends JPanel {
 	private int clickx,clicky;
 	private int cTrapX;
 	private int cTrapY;
-	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap;
+	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap, shearsOpen;
 	Grabbable grabbed;
 	Random rand;
 	Dimension screenSize;
@@ -43,6 +43,7 @@ public class ScreenControl extends JPanel {
 		shears = false;
 		magGlass = false;
 		crabTrap = false;
+		shearsOpen = true;
 
 		addMouseListener(new MouseAdapter() {
 			// If mouse button is pressed
@@ -54,9 +55,10 @@ public class ScreenControl extends JPanel {
 				x = e.getX();
 				y = e.getY();
 				clicked = true;
-				if(researchPause){
+				if(researchPause)
 					pause = false;
-				}
+				if(shears)
+					shearsOpen = false;
 			}
 
 			@Override
@@ -67,6 +69,8 @@ public class ScreenControl extends JPanel {
 				y = -1;
 				j = -1;
 				clicked = false;
+				if(shears)
+					shearsOpen = true;
 			}
 		});
 
@@ -84,13 +88,13 @@ public class ScreenControl extends JPanel {
 
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				if (magGlass == true) {
+				if (magGlass) {
 					magX = e.getX();
 					magY = e.getY();
-				} else if (shears == true) {
+				} else if (shears) {
 					shearX = e.getX();
 					shearY = e.getY();
-				} else if (crabTrap == true) {
+				} else if (crabTrap) {
 					cTrapX = e.getX();
 					cTrapY = e.getY();
 				}
@@ -339,5 +343,9 @@ public class ScreenControl extends JPanel {
 
 	public void setClicked(boolean clicked) {
 		this.clicked = clicked;
+	}
+	
+	public boolean getShearsOpen() {
+		return this.shearsOpen;
 	}
 }

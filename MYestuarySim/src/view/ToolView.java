@@ -24,7 +24,7 @@ public class ToolView extends ViewTemplate{
 	public ToolView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"recycle","shears","mag","crabtrap","pauseB"};
+		String[] names = {"recycle","shears","mag","crabtrap","pauseB","shearsOpen","shearsClose"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
@@ -59,5 +59,13 @@ public class ToolView extends ViewTemplate{
 	
 	public Image getPauseB() {
 		return images.get(4);
+	}
+	
+	public Image getShearsOpen() {
+		return images.get(5);
+	}
+	
+	public Image getShearsClose() {
+		return images.get(6);
 	}
 }
