@@ -56,7 +56,7 @@ public class StartScreenControl extends JButton {
 			Settings = true;
 			clickx =0;
 		}
-		if(clickx > 0)
+		else if(clickx > 0 && Settings == true)
 			Showing = false;
 	}
 	
