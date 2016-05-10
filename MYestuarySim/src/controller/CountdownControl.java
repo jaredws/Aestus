@@ -21,9 +21,12 @@ public class CountdownControl {
 	//width is the width of the bar
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
-	private int time = 60;//time the game is allowed to last in seconds
+	private int time;//time the game is allowed to last in seconds
+	final int totalTime = 60;
+	public boolean flash = false;
 	public CountdownControl(){
 		CDV = new CountdownView();
+		time = totalTime;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.imageX = 0;
 		this.progress = 0;
@@ -36,6 +39,9 @@ public class CountdownControl {
 		progress = (imageX/width)*100;
 		this.imageX += incX;
 		time--;
+		if((totalTime - time) > 15 && time%2 > 0){
+			flash = true;
+		}else flash = false;
 	}
 	
 	public int getImageX() {

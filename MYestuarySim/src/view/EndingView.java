@@ -48,8 +48,8 @@ public class EndingView extends JPanel {
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
 			researcher = researcher.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
-			researcherMad = ImageIO.read(new File("./img/researcherMad.png"));
-			researcherMad = researcherMad.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
+//			researcherMad = ImageIO.read(new File("./img/researcherMad.png"));
+//			researcherMad = researcherMad.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
@@ -79,10 +79,8 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
-        if(Game.getHealthControl().check(health) < 3)
-        	g.drawImage(researcherMad, getResearcherX(), getResearcherY(), null);
-        else 
-        	g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
+        
+        g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
         for(int i = 0; i < Game.getHealthControl().check(health); i++){
         	g.drawImage(star, getStarX(i), getStarY(), null);
