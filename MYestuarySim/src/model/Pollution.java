@@ -31,7 +31,7 @@ public class Pollution extends Grabbable {
 		this.x = x;
 		this.y = y;
 		Pollution.sizeX = (int)screenSize.getWidth()/12;
-		Pollution.sizeY = sizeX*370/236;
+		Pollution.sizeY = sizeX*138/182;
 		this.type=type;
 		
     }
