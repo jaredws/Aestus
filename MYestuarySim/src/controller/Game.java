@@ -32,6 +32,7 @@ public class Game {
 	static int threeSec = 0;
 	static int sec = 0;
 	static Timer timer;
+	static boolean researchPause = false;
 	
 	public static void main(String[] args){
 		Game G = new Game();
@@ -60,6 +61,7 @@ public class Game {
 		HC = new HealthControl();
 		PolC = new PollutionControl();
 		CDC = new CountdownControl();
+	
 		TV.update(G);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
@@ -91,7 +93,7 @@ public class Game {
 		    		  threeSec=0;
 		    		  
 		    	}
-		    	if(!S.pause){
+		    	if(!S.pause  && !researchPause){
 					CC.moveCrabs();
 					TC.moveTurtles();
 					BCC.moveBlueCrabs();
@@ -108,6 +110,7 @@ public class Game {
 	    timer = new Timer(t, taskPerformer);
 	    timer.start();
 	    TV.repaint();
+	    S.researchPause = false;
 		while(true){
 			S.checkPos(CC,TC,BCC,CGC,PC,TLC,PolC);
 			TV.update(G);
@@ -115,8 +118,17 @@ public class Game {
 			if(CDC.getTime() == 0) break;
 			if(S.pause) {
 				TV.repaint();
+				if(S.getResearch() > -1 && !S.researchPause){
+	        		try {
+	        			Thread.sleep(10000);
+	        		} catch (InterruptedException e) {
+	        			e.printStackTrace();
+	        			}
+	        		S.researchPause = true;
+	        	}
 				continue;
 			}
+			S.researchPause = false;
 			CC.deleteCrabs(TLC);
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);

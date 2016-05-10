@@ -146,9 +146,11 @@ public class TotalView extends JPanel{
         			(int)screenSize.getHeight()/2-100, null);
         }
         if(S.getPause()){
-        	if(S.getResearch() > -1)
-        	g.drawImage(RV.getImage(S.getResearch()),300, 
-        			75, null);
+        	if(S.getResearch() > -1){
+        		g.drawImage(RV.getImage(S.getResearch()),300, 
+        				75, null);
+        		
+    			}
         }
         if(!S.getMagGlass() && !S.getShears()) frame.setCursor(Cursor.getDefaultCursor());
 	

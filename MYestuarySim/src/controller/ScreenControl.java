@@ -37,6 +37,7 @@ public class ScreenControl extends JPanel {
 	Grabbable grabbed;
 	Random rand;
 	Dimension screenSize;
+	public boolean researchPause;
 
 	public ScreenControl() {
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -60,7 +61,9 @@ public class ScreenControl extends JPanel {
 				x = e.getX();
 				y = e.getY();
 				clicked = true;
-				pause = false;
+				if(researchPause){
+					pause = false;
+				}
 			}
 
 			@Override
