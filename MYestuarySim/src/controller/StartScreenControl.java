@@ -49,16 +49,18 @@ public class StartScreenControl extends JButton {
     });
 	}
 	public void check(){
-		if((clickx > StartingView.getPlayX()) 
-				&& (clickx < StartingView.getPlayX()+StartingView.getPlay().getWidth(null))
-				&& (clicky > StartingView.getPlayY())
-				&& (clicky < StartingView.getPlayY()+StartingView.getPlay().getHeight(null))){
-			Showing = false;
-		} else if((clickx > StartingView.getSettingsX()) 
+		if((clickx > StartingView.getSettingsX()) 
 				&& (clickx < StartingView.getSettingsX()+StartingView.getSettings().getWidth(null))
 				&& (clicky > StartingView.getSettingsY())
 				&& (clicky < StartingView.getSettingsY()+StartingView.getSettings().getHeight(null))){
 			Settings = true;
+		}
+		//else if((clickx > StartingView.getPlayX()) 
+//				&& (clickx < StartingView.getPlayX()+StartingView.getPlay().getWidth(null))
+//				&& (clicky > StartingView.getPlayY())
+//				&& (clicky < StartingView.getPlayY()+StartingView.getPlay().getHeight(null))){
+		else if(clickx > 0)	{
+			Showing = false;
 		}
 	}
 	

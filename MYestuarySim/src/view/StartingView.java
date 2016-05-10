@@ -42,7 +42,7 @@ public class StartingView extends JPanel {
 			play = ImageIO.read(new File("./img/playButton.png"));
 			settings = ImageIO.read(new File("./img/settingsButton.png"));
 			exit = ImageIO.read(new File("./img/exitButton.png"));
-			clipboard = ImageIO.read(new File("./img/clipboard.png"));
+			clipboard = ImageIO.read(new File("./img/Settings.png"));
 			
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
