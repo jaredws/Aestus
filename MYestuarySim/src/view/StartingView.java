@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import controller.CountdownControl;
 import controller.Game;
@@ -49,8 +50,8 @@ public class StartingView extends JPanel {
 			exit = ImageIO.read(new File("./img/exitButton.png"));
 			intro = ImageIO.read(new File("./img/Intro.png"));
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
-			timeUp = ImageIO.read(new File("./img/pellet.png"));
-			timeDown = ImageIO.read(new File("./img/pellet.png"));
+			timeUp = ImageIO.read(new File("./img/plus.png"));
+			timeDown = ImageIO.read(new File("./img/minus.png"));
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
 	       }
@@ -65,9 +66,11 @@ public class StartingView extends JPanel {
 
 		settingsL = new JLabel("Settings");
 		settingsL.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
+		settingsL.setHorizontalAlignment(SwingConstants.CENTER);
 
 		timeL = new JLabel(Integer.toString(StartingView.getTime()));
 		timeL.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
+		timeL.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 	
 	public void update(Game g){
@@ -166,9 +169,9 @@ public class StartingView extends JPanel {
 	}
 	
 	public static void incTime() {
-		time++;
+		time+=5;
 	}
 	public static void decTime() {
-		time--;
+		time-=5;
 	}
 }
