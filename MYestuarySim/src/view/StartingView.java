@@ -169,9 +169,9 @@ public class StartingView extends JPanel {
 	}
 	
 	public static void incTime() {
-		time+=5;
+		time+=12;
 	}
 	public static void decTime() {
-		time-=5;
+		time-=12;
 	}
 }

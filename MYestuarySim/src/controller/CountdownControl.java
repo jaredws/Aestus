@@ -28,11 +28,12 @@ public class CountdownControl {
 	private int totalTime;
 	private int image;
 	private int twelfth;
+	private int counter = 0;
 	public CountdownControl(){
 		CDV = new CountdownView();
 		time = timeChange;
 		totalTime = time;
-		twelfth = time/12;
+		twelfth = totalTime/12;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.imageX = 0;
 		this.progress = 0;
@@ -42,9 +43,22 @@ public class CountdownControl {
 	
 	//Should only be called once every second
 	public void updateCountdown() {
-		time--;
-		image = (totalTime-time)/twelfth;
-		System.out.println(time);
+		counter++;
+		if(counter%2 == 0){
+			time--;
+			image = (totalTime-time)/twelfth;
+			System.out.println(time);
+			System.out.println(totalTime);
+		}
+		else if(image == 9){
+			image = 13;
+		}
+		else if(image == 10){
+			image = 14;
+		}
+		else if(image == 11){
+			image = 15;
+		}
 	}
 	
 	public int getImageX() {
