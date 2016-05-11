@@ -43,7 +43,8 @@ public class EndScreenControl extends JPanel {
 					&& clicky > EndingView.getResearcherY()
 					&& clicky < EndingView.getResearcherY() + EndingView.getResearcher().getHeight(null)) {
 				try {
-					openWebpage(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+					//openWebpage(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+				openWebpage(new URL("https://www.facebook.com/photo.php?fbid=10201243457583317&set=a.1469968144012.2067814.1077863802&type=3&theater"));
 				} catch (MalformedURLException e) {
 					e.printStackTrace();
 				}
