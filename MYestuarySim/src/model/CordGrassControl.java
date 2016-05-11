@@ -1,4 +1,4 @@
-package controller;
+package model;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.CordGrass;
-
 
 public class CordGrassControl {
 	Random rand;
 	List<CordGrass> CordGrass;
 	Dimension screenSize;
-	boolean Researched;
+	private boolean Researched;
 	int Removed;
 
 	public void addCordGrass(int x, int y){
@@ -30,12 +28,12 @@ public class CordGrassControl {
 		rand  = new Random();
 		CordGrass = new ArrayList<CordGrass>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Researched = false;
+		setResearched(false);
 		Removed = 0;
 	}
 	
 	public boolean getResearched() {
-		return this.Researched;
+		return this.isResearched();
 	}
 	
 	
@@ -51,7 +49,7 @@ public class CordGrassControl {
 		}
 	}*/
 	
-	protected void removeCordGrass(int i){
+	public void removeCordGrass(int i){
 		CordGrass.remove(i);
 		Removed++;
 	}
@@ -68,6 +66,14 @@ public class CordGrassControl {
 	
 	public int getRemoved(){
 		return Removed;
+	}
+
+	public boolean isResearched() {
+		return Researched;
+	}
+
+	public void setResearched(boolean researched) {
+		Researched = researched;
 	}
 
 }

@@ -1,4 +1,4 @@
-package controller;
+package model;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.Turtle;
+import controller.ToolControl;
 
 public class TurtleControl {
 	Random rand;
 	List<Turtle> turtles;
 	Dimension screenSize;
-	boolean Researched;
+	private boolean Researched;
 	int Removed;
 
 	public void addTurtle(int x, int y){
@@ -29,7 +29,7 @@ public class TurtleControl {
 		rand  = new Random();
 		turtles = new ArrayList<Turtle>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Researched = false;
+		setResearched(false);
 		Removed = 0;
 	}
 	
@@ -61,10 +61,18 @@ public class TurtleControl {
 	}
 	
 	public boolean getResearched() {
-		return this.Researched;
+		return this.isResearched();
 	}
 	
 	public int getRemoved(){
 		return Removed;
+	}
+
+	public boolean isResearched() {
+		return Researched;
+	}
+
+	public void setResearched(boolean researched) {
+		Researched = researched;
 	}
 }

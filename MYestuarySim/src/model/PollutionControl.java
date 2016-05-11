@@ -1,4 +1,4 @@
-package controller;
+package model;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
@@ -7,7 +7,8 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import model.Pollution;
+
+import controller.ToolControl;
 
 public class PollutionControl {
 	Random rand;

@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-import model.Crab;
+import controller.ToolControl;
 
 public class CrabControl {
 	Random rand;
 	List<Crab> crabs;
 	Dimension screenSize;
-	boolean Researched;
+	private boolean Researched;
 	int Removed;
 
 	public void addCrab(int x, int y){
@@ -28,7 +27,7 @@ public class CrabControl {
 		rand  = new Random();
 		crabs = new ArrayList<Crab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Researched = false;
+		setResearched(false);
 		Removed = 0;
 	}
 	
@@ -58,10 +57,18 @@ public class CrabControl {
 	}
 	
 	public boolean getResearched() {
-		return this.Researched;
+		return this.isResearched();
 	}
 	
 	public int getRemoved(){
 		return Removed;
+	}
+
+	public boolean isResearched() {
+		return Researched;
+	}
+
+	public void setResearched(boolean researched) {
+		Researched = researched;
 	}
 }

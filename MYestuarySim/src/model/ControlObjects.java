@@ -1,15 +1,4 @@
-package controller;
-
-import model.Tool;
-import model.Pollution;
-import model.BlueCrab;
-import model.Crab;
-import model.Grabbable;
-import model.MovingObject;
-import model.CordGrass;
-import model.Phragmites;
-import model.Turtle;
-import model.eImages;
+package model;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

@@ -1,8 +1,10 @@
-package controller;
+package model;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Random;
+
+import controller.Game;
 
 public class PopulationControl {
 	
@@ -42,7 +44,7 @@ public class PopulationControl {
 	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	PopulationControl(Game g){
+	public PopulationControl(Game g){
 		this.game = g;
 		this.BlueCrabDied = 0;
 		this.CordGrassDied = 0;
@@ -126,7 +128,7 @@ public class PopulationControl {
 		rand = new Random();
 		if(TotalPlant>TP){
 			//If neither has been Researched
-			if(!(game.getPhragmitesControl().Researched) && !(game.getCordGrassControl().Researched)){
+			if(!(game.getPhragmitesControl().isResearched()) && !(game.getCordGrassControl().isResearched())){
 				if(rand.nextInt(4)%4==0){//1/4 probability of adding Non-Invasive
 					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
 				}
@@ -136,7 +138,7 @@ public class PopulationControl {
 
 			}
 			//If both have been researched
-			else if(game.getPhragmitesControl().Researched &&  (game.getCordGrassControl().Researched)){
+			else if(game.getPhragmitesControl().isResearched() &&  (game.getCordGrassControl().isResearched())){
 				if(rand.nextInt(8)%3==0){//3/8 probability of adding Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
@@ -167,7 +169,7 @@ public class PopulationControl {
 		// but the handler will remove the extra animal(s) below
 		if(TotalAnimal>TA){
 			//Turtles spawn independently of the crabs
-			if(Game.getTurtleControl().Researched){//If turtles have been researched
+			if(Game.getTurtleControl().isResearched()){//If turtles have been researched
 				if((rand.nextInt(4))%4==0){//1/4th probability of spawning a turtle
 						Game.getTurtleControl().addTurtle(makeX(),makeY());
 				}
@@ -178,7 +180,7 @@ public class PopulationControl {
 				}
 			}
 			//Neither Crab species is researched
-			if(!(Game.getBlueCrabControl().Researched) && !(Game.getCrabControl().Researched)){
+			if(!(Game.getBlueCrabControl().isResearched()) && !(Game.getCrabControl().isResearched())){
 				if(rand.nextInt(4)%4==0){//1/4 probability of spawning non invasive crab
 						Game.getBlueCrabControl().addBlueCrab(makeX(),makeY());
 				}
@@ -187,7 +189,7 @@ public class PopulationControl {
 				}
 			}
 			//Both Crab species are researched
-			else if(Game.getBlueCrabControl().Researched && Game.getCrabControl().Researched){
+			else if(Game.getBlueCrabControl().isResearched() && Game.getCrabControl().isResearched()){
 				if(rand.nextInt(8)%3==0){//  3/8th probability of adding Invasive
 					Game.getCrabControl().addCrab(makeX(),makeY());
 				}

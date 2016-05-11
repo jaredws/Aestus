@@ -8,6 +8,15 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.Timer;
+
+import model.BlueCrabControl;
+import model.CordGrassControl;
+import model.CrabControl;
+import model.HealthControl;
+import model.PhragmitesControl;
+import model.PollutionControl;
+import model.PopulationControl;
+import model.TurtleControl;
 import view.EndingView;
 import view.StartingView;
 import view.TotalView;

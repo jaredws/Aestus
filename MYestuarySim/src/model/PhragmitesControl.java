@@ -1,4 +1,4 @@
-package controller;
+package model;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
@@ -7,13 +7,12 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import model.Phragmites;
 
 public class PhragmitesControl {
 	Random rand;
 	List<Phragmites> Phragmites;
 	Dimension screenSize;
-	boolean Researched;
+	private boolean Researched;
 	int Removed;
 
 	public void addPhragmites(int x, int y){
@@ -28,12 +27,12 @@ public class PhragmitesControl {
 		rand  = new Random();
 		Phragmites = new ArrayList<Phragmites>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Researched = false;
+		setResearched(false);
 		Removed = 0;
 	}
 	
 	public boolean getResearched() {
-		return this.Researched;
+		return this.isResearched();
 	}
 
 	
@@ -49,7 +48,7 @@ public class PhragmitesControl {
 		}
 	}*/
 	
-	protected void removePhragmites(int i){
+	public void removePhragmites(int i){
 		Phragmites.remove(i);
 		Removed++;
 	}
@@ -66,5 +65,13 @@ public class PhragmitesControl {
 	
 	public int getRemoved(){
 		return Removed;
+	}
+
+	public boolean isResearched() {
+		return Researched;
+	}
+
+	public void setResearched(boolean researched) {
+		Researched = researched;
 	}
 }

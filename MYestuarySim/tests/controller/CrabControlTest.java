@@ -6,6 +6,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.CrabControl;
+
 /**
  * @author Steven Sell
  * @Test Tests all functions of CrabControl

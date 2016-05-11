@@ -6,6 +6,13 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.BlueCrabControl;
+import model.CordGrassControl;
+import model.CrabControl;
+import model.PhragmitesControl;
+import model.PollutionControl;
+import model.TurtleControl;
+
 public class ScreenControlTest {
 
 	static CrabControl CC;

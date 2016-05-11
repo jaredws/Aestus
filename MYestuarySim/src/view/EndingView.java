@@ -16,8 +16,8 @@ import javax.swing.JPanel;
 
 import controller.EndScreenControl;
 import controller.Game;
-import controller.PopulationControl;
 import controller.StartScreenControl;
+import model.PopulationControl;
 
 public class EndingView extends JPanel {
 	

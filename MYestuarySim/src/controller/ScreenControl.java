@@ -8,12 +8,18 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.Random;
 import javax.swing.JPanel;
 import model.BlueCrab;
+import model.BlueCrabControl;
 import model.CordGrass;
+import model.CordGrassControl;
 import model.Crab;
+import model.CrabControl;
 import model.Grabbable;
 import model.Phragmites;
+import model.PhragmitesControl;
 import model.Pollution;
+import model.PollutionControl;
 import model.Turtle;
+import model.TurtleControl;
 
 public class ScreenControl extends JPanel {
 
@@ -149,12 +155,12 @@ public class ScreenControl extends JPanel {
 				clicked = false;
 			}
 
-			for (int i = 0; i < c.crabs.size(); i++) {
+			for (int i = 0; i < c.getCrabs().size(); i++) {
 				if ((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))
 						&& ((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY() + Crab.sizeY))) {
 					if (magGlass) {
 						research = 0;
-						c.Researched=true;
+						c.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -171,7 +177,7 @@ public class ScreenControl extends JPanel {
 						&& ((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY() + BlueCrab.sizeY))) {
 					if (magGlass) {
 						research = 2;
-						bc.Researched = true;
+						bc.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -184,12 +190,12 @@ public class ScreenControl extends JPanel {
 				}
 			}
 
-			for (int i = 0; i < t.turtles.size(); i++) {
+			for (int i = 0; i < t.getTurtles().size(); i++) {
 				if ((clickx > t.getTurtle(i).getX()) && (clickx < (t.getTurtle(i).getX() + Turtle.sizeX))
 						&& ((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY() + Turtle.sizeY))) {
 					if (magGlass) {
 						research = 3;
-						t.Researched = true;
+						t.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -201,12 +207,12 @@ public class ScreenControl extends JPanel {
 					}
 				}
 			}
-			for (int i = 0; i < pc.Phragmites.size(); i++) {
+			for (int i = 0; i < pc.getPhragmites().size(); i++) {
 				if ((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))
 						&& ((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY() + Phragmites.sizeY))) {
 					if (magGlass) {
 						research = 1;
-						pc.Researched = true;
+						pc.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -223,7 +229,7 @@ public class ScreenControl extends JPanel {
 				}
 			}
 
-			for (int i = 0; i < cgc.CordGrass.size(); i++) {
+			for (int i = 0; i < cgc.getCordGrass().size(); i++) {
 				if ((clickx > cgc.getCordGrass(i).getX()) && (clickx < (cgc.getCordGrass(i).getX() + CordGrass.sizeX)) 
 						&& ((clicky > cgc.getCordGrass(i).getY()) && (clicky < cgc.getCordGrass(i).getY() + CordGrass.sizeY))) {
 					if (!magGlass && !shears && !grabbing) {
@@ -233,7 +239,7 @@ public class ScreenControl extends JPanel {
 						break;
 					} else if (magGlass) {
 						research = 4;
-						cgc.Researched = true;
+						cgc.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
@@ -244,7 +250,7 @@ public class ScreenControl extends JPanel {
 
 				}
 			}
-			for (int i = 0; i < puc.Pollution.size(); i++) {
+			for (int i = 0; i < puc.getPollution().size(); i++) {
 				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
 						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
 					if (magGlass) {
@@ -262,7 +268,7 @@ public class ScreenControl extends JPanel {
 			}
 		}
 
-		if ((j > -1 && j < c.crabs.size()) && c.getCrab(j).equals(grabbed)) {
+		if ((j > -1 && j < c.getCrabs().size()) && c.getCrab(j).equals(grabbed)) {
 			c.getCrab(j).setX(x - Crab.sizeX / 2);
 			c.getCrab(j).setY(y - Crab.sizeY / 2);
 		}
@@ -270,11 +276,11 @@ public class ScreenControl extends JPanel {
 			bc.getBlueCrab(j).setX(x - BlueCrab.sizeX / 2);
 			bc.getBlueCrab(j).setY(y - BlueCrab.sizeY / 2);
 		}
-		if ((j > -1 && j < t.turtles.size()) && t.getTurtle(j).equals(grabbed)) {
+		if ((j > -1 && j < t.getTurtles().size()) && t.getTurtle(j).equals(grabbed)) {
 			t.getTurtle(j).setX(x - Turtle.sizeX / 2);
 			t.getTurtle(j).setY(y - Turtle.sizeY / 2);
 		}
-		if ((j > -1 && j < puc.Pollution.size()) && puc.getPollution(j).equals(grabbed)) {
+		if ((j > -1 && j < puc.getPollution().size()) && puc.getPollution(j).equals(grabbed)) {
 			puc.getPollution(j).setX(x - Pollution.sizeX / 2);
 			puc.getPollution(j).setY(y - Pollution.sizeY / 2);
 		}

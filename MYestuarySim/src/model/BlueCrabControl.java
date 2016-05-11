@@ -1,4 +1,4 @@
-package controller;
+package model;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.BlueCrab;
+import controller.ToolControl;
 
 public class BlueCrabControl {
 	Random rand;
 	Dimension screenSize;
 	public List<BlueCrab> BlueCrabs;
-	boolean Researched;
+	private boolean Researched;
 	int Removed;
 
 	public void addBlueCrab(int x, int y){
@@ -29,7 +29,7 @@ public class BlueCrabControl {
 		rand  = new Random();
 		BlueCrabs = new ArrayList<BlueCrab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Researched = false;
+		setResearched(false);
 		Removed = 0;
 	}
 	
@@ -61,10 +61,18 @@ public class BlueCrabControl {
 	}
 	
 	public boolean getResearched() {
-		return this.Researched;
+		return this.isResearched();
 	}
 	
 	public int getRemoved(){
 		return Removed;
+	}
+
+	public boolean isResearched() {
+		return Researched;
+	}
+
+	public void setResearched(boolean researched) {
+		Researched = researched;
 	}
 }
