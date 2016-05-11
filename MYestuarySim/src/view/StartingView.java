@@ -56,6 +56,7 @@ public class StartingView extends JPanel {
 	    	   System.out.println("Image read error");
 	       }
 		frame = new JFrame();
+		frame.setUndecorated(true);
 		frame.setLayout(null);
 		frame.add(S);
 		frame.add(this);

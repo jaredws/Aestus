@@ -75,7 +75,8 @@ public class StartScreenControl extends JButton {
 					&& (clickx < StartingView.getPlayX()+StartingView.getPlay().getWidth(null))
 					&& (clicky > StartingView.getPlayY())
 					&& (clicky < StartingView.getPlayY()+StartingView.getPlay().getHeight(null))){
-				intro = true;
+				Showing = false;
+				//intro = true;
 				clickx =0;
 			}
 			else if(clickx > 0 && intro == true)

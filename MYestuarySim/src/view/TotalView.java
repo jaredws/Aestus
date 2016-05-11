@@ -56,6 +56,7 @@ public class TotalView extends JPanel{
 		background = new Background((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		S=s;
 		frame = new JFrame();
+		frame.setUndecorated(true);
 		frame.setLayout(null);
 		frame.add(S);
 		frame.add(this);
