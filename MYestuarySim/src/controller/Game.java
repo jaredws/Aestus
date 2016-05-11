@@ -237,6 +237,8 @@ public class Game {
 		return CDC;
 	}
 	
+	//Is this still necessary? 
+	//does the HealthHandler deal with this?- JS
 	public int calculateHealth(){
 		int c,bc,t,p,cg;
 		//Crabs are worth double plants right now
