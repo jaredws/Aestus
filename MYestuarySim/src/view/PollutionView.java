@@ -53,10 +53,12 @@ public class PollutionView extends ViewTemplate{
 	 */
 	public Image getImage(int i){
 		//what?
-		if(false)
-			return(images.get(i));
-		else // why 37?? - JS
-			return images.get(37);
+		if(i==0)
+			return(images.get(33)); //bag of chips
+		else if(i==1)
+			return images.get(71); //can
+		else
+			return images.get(102); //paper
 	}
 
 }
