@@ -23,29 +23,28 @@ public class CountdownControl {
 	private int imageX, imageY, progress, incX;
 	private int width = 400;
 	private int time;//time the game is allowed to last in seconds
-	final static int defaultTime = 120;
+	final static int defaultTime = 60;
 	final int timeChange = StartingView.getTime();
-	public boolean flash = false;
 	private int totalTime;
+	private int image;
+	private int twelfth;
 	public CountdownControl(){
 		CDV = new CountdownView();
 		time = timeChange;
 		totalTime = time;
+		twelfth = time/12;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.imageX = 0;
 		this.progress = 0;
 		this.incX = width/time;
-		this.imageY = (int)screenSize.getHeight()-CDV.getImage().getHeight(null)-30;
+		this.imageY = (int)screenSize.getHeight()-CDV.getImage(0).getHeight(null)-30;
 	}
 	
 	//Should only be called once every second
 	public void updateCountdown() {
-		progress = (imageX/width)*100;
-		this.imageX += incX;
 		time--;
-		if((totalTime - time) > 15 && time%2 > 0){
-			flash = true;
-		}else flash = false;
+		image = (totalTime-time)/twelfth;
+		System.out.println(time);
 	}
 	
 	public int getImageX() {
@@ -71,6 +70,10 @@ public class CountdownControl {
 	public static int getDefaultTime() {
 		return defaultTime;
 	}
+	public int getImage(){
+		return image;
+	}
+	
 	
 	
 }

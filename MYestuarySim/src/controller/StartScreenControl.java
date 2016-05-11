@@ -41,6 +41,10 @@ public class StartScreenControl extends JButton {
         	clickx = e.getX();
         	clicky = e.getY();
         	
+        	
+        }
+        
+        public void mouseReleased(MouseEvent e){
         	if(timeInc) {
         		StartingView.incTime();
         		timeInc = false;
@@ -48,9 +52,6 @@ public class StartScreenControl extends JButton {
         		StartingView.decTime();
         		timeDec = false;
         	}
-        }
-        
-        public void mouseReleased(MouseEvent e){
         }
 	});
 	
@@ -109,6 +110,9 @@ public class StartScreenControl extends JButton {
 			StartingView.settingsL.setVisible(false);
 			StartingView.timeL.setVisible(false);
 		}
+		
+		clickx = -1;
+		clicky = -1;
 	}
 	
 	public boolean getShowing() {
