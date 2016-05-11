@@ -154,7 +154,22 @@ public class ScreenControl extends JPanel {
 				}
 				clicked = false;
 			}
-
+			for (int i = 0; i < puc.getPollution().size(); i++) {
+				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
+						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
+					if (magGlass) {
+						research = 0;
+						magGlass = false;
+						pause = true;
+						clicked = false;
+					} else if (!magGlass && !shears && !grabbing) {
+						grabbed = puc.getPollution(i);
+						grabbing = true;
+						j = i;
+						break;
+					}
+				}
+			}
 			for (int i = 0; i < c.getCrabs().size(); i++) {
 				if ((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))
 						&& ((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY() + Crab.sizeY))) {
@@ -219,12 +234,7 @@ public class ScreenControl extends JPanel {
 					} else if (shears) {
 						pc.removePhragmites(i);
 						clicked = false;
-					} else if (!magGlass && !shears && !grabbing) {
-						grabbed = pc.getPhragmites(i);
-						grabbing = true;
-						j = i;
-						break;
-					}
+					} 
 
 				}
 			}
@@ -250,22 +260,7 @@ public class ScreenControl extends JPanel {
 
 				}
 			}
-			for (int i = 0; i < puc.getPollution().size(); i++) {
-				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
-						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
-					if (magGlass) {
-						research = 0;
-						magGlass = false;
-						pause = true;
-						clicked = false;
-					} else if (!magGlass && !shears && !grabbing) {
-						grabbed = puc.getPollution(i);
-						grabbing = true;
-						j = i;
-						break;
-					}
-				}
-			}
+			
 		}
 
 		if ((j > -1 && j < c.getCrabs().size()) && c.getCrab(j).equals(grabbed)) {

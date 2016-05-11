@@ -88,10 +88,7 @@ public class TotalView extends JPanel{
         	g.drawImage(TLV.getImage(i), Game.getToolControl().getTools().get(i).getX(), 
         			Game.getToolControl().getTools().get(i).getY(), null);
         }
-        for(int i = 0; i < Game.getPollutionControl().getPollution().size(); i++)
-        	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PUV.getImage(Game.getPollutionControl().getPollution(i).type), Game.getPollutionControl().getPollution().get(i).getX(), 
-        			Game.getPollutionControl().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
+    
        
         for(int i = 0; i < Game.getCordGrassControl().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
@@ -102,6 +99,13 @@ public class TotalView extends JPanel{
         	//Made the default get Image 0 here, a movement may need to be called instead
         	g.drawImage(PV.getImage(Game.getPhragmitesControl().getPhragmites(i).getLife()), Game.getPhragmitesControl().getPhragmites(i).getX(), 
         			Game.getPhragmitesControl().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
+      
+        for(int i = 0; i < Game.getPollutionControl().getPollution().size(); i++)
+        	//Made the default get Image 0 here, a movement may need to be called instead
+        	g.drawImage(PUV.getImage(Game.getPollutionControl().getPollution(i).type), Game.getPollutionControl().getPollution().get(i).getX(), 
+        			Game.getPollutionControl().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
+      
+        
         
         
         for(int i = 0; i < Game.getTurtleControl().getTurtles().size(); i++)
@@ -119,7 +123,7 @@ public class TotalView extends JPanel{
         	g.drawImage(BCV.getImage(Game.getBlueCrabControl().getBlueCrab(i).move), Game.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
         			Game.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
         
-      
+       
 	
         //Draw Countdown
         g.drawImage(CDV.getImage(Game.getCountdownControl().getImage()), 0, (int)(screenSize.getHeight() - screenSize.getWidth()/10), null);

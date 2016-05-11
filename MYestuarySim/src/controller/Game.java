@@ -98,7 +98,7 @@ public class Game {
 		int t = 50;
 		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
-		    	if(sec/t == 10) {
+		    	if(sec/t == 5) {
 		    		CDC.updateCountdown();
 		    		sec = 0;
 		    	}
