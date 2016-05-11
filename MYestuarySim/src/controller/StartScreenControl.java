@@ -40,6 +40,13 @@ public class StartScreenControl extends JButton {
         public void mousePressed(MouseEvent e){
         	clickx = e.getX();
         	clicky = e.getY();
+        	if(timeInc) {
+        		StartingView.incTime();
+        		timeInc = false;
+        	} else if(timeDec) {
+        		StartingView.decTime();
+        		timeDec = false;
+        	}
         	
         	
         }
