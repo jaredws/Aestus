@@ -1,66 +1,63 @@
 package model;
 
 import static org.junit.Assert.*;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import controller.ToolControl;
-import model.CrabHandler;
 
 /**
  * @author Steven Sell
- * @Test Tests all functions of CrabHandler
+ * @Test Tests all functions of BlueCrabHandler
  */
 
-public class CrabHandlerTest {
+public class BlueCrabHandlerTest {
 
-	static CrabHandler c;
+	static BlueCrabHandler bc;
 	static ToolControl tc;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		c = new CrabHandler();
+		bc = new BlueCrabHandler();
 		tc = new ToolControl(10, 10);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		c = null;
+		bc = null;
 	}
 	
 	/**
 	 * @author Steven
-	 * @Tests Adds a crab and tests the x/y coordinates of the crab.
+	 * @Tests Adds a blue crab and tests the x/y coordinates of the crab.
 	 */
 	@Test
 	public void addCrabTest() {
-		c.addCrab(3, 2);
-		assertEquals("Crab at first position should have an X of 3",c.getCrab(0).getX(),3);
-		assertEquals("Crab at first position should have a Y of 2",c.getCrabs().get(0).getY(),2);
+		bc.addBlueCrab(3, 2);
+		assertEquals("Crab at first position should have an X of 3",bc.getBlueCrab(0).getX(),3);
+		assertEquals("Crab at first position should have a Y of 2",bc.getBlueCrabs().get(0).getY(),2);
 	}
 	
 	/**
 	 * @author Steven
-	 * @Tests Moves a crab's position at random to test the move method
+	 * @Tests Moves a blue crab's position at random to test the move method
 	 */
 	@Test
-	public void moveCrabsTest() {
-		c.addCrab(3, 2);
-		c.moveCrabs();
+	public void moveBlueCrabsTest() {
+		bc.addBlueCrab(3, 2);
+		bc.moveBlueCrabs();
 	}
 	
 	/**
 	 * @author Steven
-	 * @Tests Adds a crab, deletes that crab, then verifies that it was actually deleted
+	 * @Tests Adds a blue crab, deletes that blue crab, then verifies that it was actually deleted
 	 */
 	@Test
 	public void deleteCrabTest() {
-		c = new CrabHandler();
-		c.addCrab(400, 10);
-		c.deleteCrabs(tc);
-		assertEquals("The size of the array should be 0",c.getCrabs().size(),0);
+		bc = new BlueCrabHandler();
+		bc.addBlueCrab(400, 10);
+		bc.deleteBlueCrabs(tc);
+		assertEquals("The size of the array should be 0",bc.getBlueCrabs().size(),0);
 
 		//System.out.println(tc.getCrabTrap().getX()- tc.getCrabTrap().getSizeX()/2);
 		//System.out.println(tc.getCrabTrap().getX() + tc.getCrabTrap().getSizeX()/4);
@@ -75,8 +72,8 @@ public class CrabHandlerTest {
 	 */
 	@Test
 	public void setResearchedTest() {
-		c.setResearched(true);
-		assertTrue("Researched should be true",c.getResearched());
+		bc.setResearched(true);
+		assertTrue("Researched should be true",bc.getResearched());
 	}
 	
 	/**
@@ -85,7 +82,7 @@ public class CrabHandlerTest {
 	 */
 	@Test
 	public void getRemoved() {
-		assertEquals("Removed should be 1", c.getRemoved(),1);
+		assertEquals("Removed should be 1", bc.getRemoved(),1);
 	}
 
 }
