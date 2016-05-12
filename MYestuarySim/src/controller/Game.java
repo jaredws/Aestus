@@ -59,6 +59,27 @@ public class Game {
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		SV.add(StartingView.timeL);
 		SV.add(StartingView.settingsL);
+		
+		
+		String soundName = "./sounds/Intro.wav";     
+		AudioInputStream audioInputStream;
+		try {
+			audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+			Clip clip;
+			clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+		} catch (UnsupportedAudioFileException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}catch (LineUnavailableException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+	
 		while(s.getShowing()){
 			s.check();
 			
@@ -135,6 +156,11 @@ public class Game {
 	    S.researchPause = false;
 	    int counter = 0;
 		while(true){
+			try {
+    			Thread.sleep(10);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
 			if(counter%(100*11) == 0){
 				playBackground();
 			}
@@ -160,11 +186,7 @@ public class Game {
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);
 			PolC.deletePollution(TLC);
-			try {
-    			Thread.sleep(10);
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
+			
 		}
 		int health = G.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();

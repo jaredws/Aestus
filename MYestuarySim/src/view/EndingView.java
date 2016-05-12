@@ -105,24 +105,24 @@ public class EndingView extends JPanel {
         	
         	
         	if(!playing){
-        		String soundName = "./sounds/leedle.wav";    
-        		AudioInputStream audioInputStream;
-				try {
-					audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-					Clip clip;
-					clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					clip.start();
-				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//        		String soundName = "./sounds/leedle.wav";    
+//        		AudioInputStream audioInputStream;
+//				try {
+//					audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+//					Clip clip;
+//					clip = AudioSystem.getClip();
+//					clip.open(audioInputStream);
+//					clip.start();
+//				} catch (UnsupportedAudioFileException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}catch (LineUnavailableException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				playing = true;
         		
         	}
