@@ -48,7 +48,7 @@ public class PollutionView extends ViewTemplate{
 	
 	/**
 	 * 
-	 * @param i
+	 * @param i - the type of the trash (held in the trash model)
 	 * @return The buffered image of the pollution
 	 */
 	public Image getImage(int i){
