@@ -87,14 +87,25 @@ public class CountdownControl {
 		}
 	}
 	
+	/**
+	 * Gets the current game time left
+	 * @return time left in game
+	 */
 	public int getTime() {
 		return this.time;
 	}
 
-	
+	/**
+	 * Gets the default time hardcoded into the game.
+	 * @return the default time from game.
+	 */
 	public static int getDefaultTime() {
 		return defaultTime;
 	}
+	/**
+	 * Returns the current image number based on time from 0 to 14
+	 * @return image number
+	 */
 	public int getImage(){
 		return image;
 	}
