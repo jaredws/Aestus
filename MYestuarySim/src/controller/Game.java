@@ -133,11 +133,11 @@ public class Game {
 			if(S.pause) {
 				TV.repaint();
 				if(S.getResearch() > -1 && !S.researchPause){
-	        		try {
-	        			Thread.sleep(10000);
-	        		} catch (InterruptedException e) {
-	        			e.printStackTrace();
-	        			}
+//	        		try {
+//	        			Thread.sleep(10000);
+//	        		} catch (InterruptedException e) {
+//	        			e.printStackTrace();
+//	        			}
 	        		S.researchPause = true;
 	        	}
 				continue;
