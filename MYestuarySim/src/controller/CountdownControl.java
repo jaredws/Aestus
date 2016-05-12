@@ -8,38 +8,68 @@ import view.StartingView;
 
 /**
  * 
- * @author Steven
+ * @author Team 0
+ * A Controller that times the game. It contains the time left for the game to run
+ * and stores which image state the clock must show.
  *
  */
-
 public class CountdownControl {
+	/**
+	 * A dimension that takes in the screen size the game is running on.
+	 */
 	Dimension screenSize;
+	/**
+	 * A connecting view that connects to see which image must be called.
+	 */
 	CountdownView CDV;
-	//imageX is the x position of the image
-	//progress is the percentage of the time completed
-	//time is the amount of time for the game
-	//incX is the amount x is increased by
-	//width is the width of the bar
-	private int imageX, imageY, progress, incX;
-	private int width = 400;
-	private int time;//time the game is allowed to last in seconds
+	/**
+	 * The current time the decrements as time progress, in seconds.
+	 */
+	private int time;
+	/**
+	 * Default time is set to 1 minute (60 seconds).
+	 */
 	final static int defaultTime = 60;
+	/**
+	 * Time can be changed from the settings menu in the main screen and this reflects that.
+	 */
 	final int timeChange = StartingView.getTime();
+	/**
+	 * Represents the time that was chosen either from default or from starting view.
+	 */
 	private int totalTime;
+	/**
+	 * Contains an integer that represents which image on the clock should be shown.
+	 */
 	private int image;
+	/**
+	 * Takes totalTime and divides it by twelve to know when to switch images (there are 12 clock positions).
+	 */
 	private int twelfth;
-	private int counter = 0;
+	/**
+	 * The counter shows how many times updateCountdown() has been called. 
+	 */
+	private int counter;
+	
+	/**
+	 * Creates a new CountdownControl, creating a new CountdownView and takes in the screen size 
+	 * while setting the time to the setting-changed time and stores the twelfth. 
+	 */
 	public CountdownControl(){
 		CDV = new CountdownView();
+		counter = 0;
 		time = timeChange;
 		totalTime = time;
 		twelfth = totalTime/12;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		this.incX = width/time;
-		this.imageY = (int)screenSize.getHeight()-CDV.getImage(0).getHeight(null)-30;
 	}
 	
-	//Should only be called twice every second
+	/**
+	 * Updates the time and is called from game 4 times a second. 
+	 * Every four calls it decrements the time.
+	 * Every other call it tells the view to switch the image from white clock 
+	 * to orange clock to simulate flashing. 
+	 */
 	public void updateCountdown() {
 		counter++;
 		if(counter%4 == 0){
@@ -57,25 +87,10 @@ public class CountdownControl {
 		}
 	}
 	
-	public int getImageX() {
-		return this.imageX;
-	}
-	
-	public int getProgress() {
-		return progress;
-	}
-	
 	public int getTime() {
 		return this.time;
 	}
-	
-	public int getWidth() {
-		return this.width;
-	}
-	
-	public int getImageY() {
-		return this.imageY;
-	}
+
 	
 	public static int getDefaultTime() {
 		return defaultTime;
