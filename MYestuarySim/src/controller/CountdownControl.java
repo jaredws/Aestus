@@ -2,6 +2,14 @@ package controller;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import view.CountdownView;
 import view.StartingView;
@@ -71,7 +79,7 @@ public class CountdownControl {
 	 * to orange clock to simulate flashing. 
 	 */
 	public void updateCountdown() {
-		counter++;
+		
 		if(counter%4 == 0){
 			time--;
 		}
@@ -85,6 +93,7 @@ public class CountdownControl {
 		else if(image == 11 && counter%2 == 1){
 			image = 15;
 		}
+		counter++;
 	}
 	
 	/**
