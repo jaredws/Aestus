@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -30,9 +31,11 @@ public class EndingView extends JPanel {
  	static Dimension screenSize;
  	public static Image researcher,researcherMad;
 	public Image clipboard,BG,star,check,x;
+	public List<Image> EasterEgg;
  	private int health;
  	private PopulationHandler PC;
  	private HealthView HV;
+ 	int H;
  	JLabel species,died,rsch,end,remove;
 	
 	public EndingView(EndScreenControl s2, PopulationHandler PC, int health){
@@ -42,14 +45,19 @@ public class EndingView extends JPanel {
 		this.PC = PC;
 		this.health = health;
 		HV = new HealthView();
+		H = 1000000;
 		
 		try {                
 			BG = ImageIO.read(new File("./img/bg.png"));
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
 			researcher = researcher.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
-//			researcherMad = ImageIO.read(new File("./img/researcherMad.png"));
-//			researcherMad = researcherMad.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
+			EasterEgg = new ArrayList<Image>();
+			Image image;
+			for(int i = 1; i < 12; i++){
+				image = ImageIO.read(new File("./img/H" + i + ".png"));
+				EasterEgg.add(image);
+			}
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
@@ -62,7 +70,7 @@ public class EndingView extends JPanel {
 	    	   System.out.println("Image read error");
 	       }
 		frame = new JFrame();
-		frame.setUndecorated(true);
+		//frame.setUndecorated(true);
 		frame.setLayout(null);
 		frame.add(S);
 		frame.add(this);
@@ -80,7 +88,13 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
-        
+        if(H < screenSize.getWidth()/12 || S.ee){
+        		g.drawImage(EasterEgg.get(H%11), H*20,(int)(screenSize.getHeight()/2),null);
+        	if(H > screenSize.getWidth()/12){
+        		H = 0;
+        	}
+        	H++;
+        }
         g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
         for(int i = 0; i < Game.getHealthControl().check(health); i++){
@@ -100,6 +114,7 @@ public class EndingView extends JPanel {
         	else 
         		g.drawImage(x, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-x.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         }
+        
 	}
 	
 	public void dispose(){
