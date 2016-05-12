@@ -23,6 +23,7 @@ public class EndScreenControl extends JPanel {
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		clicked = false;
 		ee = false;
+		clickx = 0; clicky = 0;
 		
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
@@ -30,10 +31,11 @@ public class EndScreenControl extends JPanel {
         	clickx = e.getX();
         	clicky = e.getY();
         	clicked = true;	
+        	ee = false;
         }
         
         public void mouseReleased(MouseEvent e){
-        	ee = false;
+        	
         }
 	});
 	}
