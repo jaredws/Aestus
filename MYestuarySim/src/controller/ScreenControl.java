@@ -5,7 +5,15 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import model.BlueCrab;
 import model.BlueCrabHandler;
@@ -48,6 +56,10 @@ public class ScreenControl extends JPanel {
 		magGlass = false;
 		crabTrap = false;
 		shearsOpen = true;
+		
+		
+		
+		
 
 		addMouseListener(new MouseAdapter() {
 			// If mouse button is pressed
@@ -61,8 +73,10 @@ public class ScreenControl extends JPanel {
 				clicked = true;
 				if(researchPause)
 					pause = false;
-				if(shears)
+				if(shears){
 					shearsOpen = false;
+					playShear();
+				}
 			}
 
 			@Override
@@ -343,5 +357,25 @@ public class ScreenControl extends JPanel {
 	
 	public boolean getShearsOpen() {
 		return this.shearsOpen;
+	}
+	public void playShear(){
+		String soundName = "./sounds/shears.wav";    
+		AudioInputStream audioInputStream;
+		try {
+			audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+			Clip clip;
+			clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+		} catch (UnsupportedAudioFileException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}catch (LineUnavailableException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 	}
 }

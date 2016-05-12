@@ -34,19 +34,6 @@ public class PhragmitesHandler {
 	public boolean getResearched() {
 		return this.isResearched();
 	}
-
-	
-	
-	/*public void deletePhragmites(ToolControl tc){
-		for(int i = 0; i < Phragmites.size(); i++){
-			if(Phragmites.get(i).getX() > tc.getTools().get(0).getX() - tc.getTools().get(0).getSizeX()/2 && Phragmites.get(i).getX() < tc.getTools().get(0).getX() + tc.getTools().get(0).getSizeX()/4){
-				if((Phragmites.get(i).getY() > tc.getTools().get(0).getY()-tc.getTools().get(0).getSizeY()) && (Phragmites.get(i).getY() < tc.getTools().get(0).getY() + tc.getTools().get(0).getSizeY()/2)){
-//					Phragmites.remove(i);
-//					i--;
-				}
-			}
-		}
-	}*/
 	
 	public void removePhragmites(int i){
 		Phragmites.remove(i);

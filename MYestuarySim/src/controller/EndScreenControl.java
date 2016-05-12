@@ -17,21 +17,25 @@ public class EndScreenControl extends JPanel {
 	private static final long serialVersionUID = 9042772411806531339L;
 	private int clickx, clicky;
 	private boolean clicked;
-
+	public boolean ee;
 	public EndScreenControl(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		clicked = false;
+		ee = false;
+		clickx = 0; clicky = 0;
 		
 	addMouseListener(new MouseAdapter(){
     	//If mouse button is pressed
         public void mousePressed(MouseEvent e){
         	clickx = e.getX();
         	clicky = e.getY();
-        	clicked = true;
+        	clicked = true;	
+        	ee = false;
         }
         
         public void mouseReleased(MouseEvent e){
+        	
         }
 	});
 	}
@@ -42,12 +46,13 @@ public class EndScreenControl extends JPanel {
 					&& clickx < EndingView.getResearcherX() + EndingView.getResearcher().getWidth(null)
 					&& clicky > EndingView.getResearcherY()
 					&& clicky < EndingView.getResearcherY() + EndingView.getResearcher().getHeight(null)) {
-				try {
-					//openWebpage(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
-				openWebpage(new URL("https://www.facebook.com/photo.php?fbid=10201243457583317&set=a.1469968144012.2067814.1077863802&type=3&theater"));
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-				}
+//				try {
+//					//openWebpage(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+//				//openWebpage(new URL("https://www.facebook.com/photo.php?fbid=10201243457583317&set=a.1469968144012.2067814.1077863802&type=3&theater"));
+//				} catch (MalformedURLException e) {
+//					e.printStackTrace();
+//				}
+				ee = true;
 				clicked = false;
 			}
 		}

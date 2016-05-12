@@ -5,7 +5,15 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
@@ -51,6 +59,27 @@ public class Game {
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		SV.add(StartingView.timeL);
 		SV.add(StartingView.settingsL);
+		
+		
+		String soundName = "./sounds/Intro.wav";     
+		AudioInputStream audioInputStream;
+		try {
+			audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+			Clip clip;
+			clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+		} catch (UnsupportedAudioFileException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}catch (LineUnavailableException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+	
 		while(s.getShowing()){
 			s.check();
 			
@@ -125,19 +154,29 @@ public class Game {
 	    timer.start();
 	    TV.repaint();
 	    S.researchPause = false;
+	    int counter = 0;
 		while(true){
+			try {
+    			Thread.sleep(10);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
+			if(counter%(100*11) == 0){
+				playBackground();
+			}
 			S.checkPos(CC,TC,BCC,CGC,PC,TLC,PolC);
 			TV.update(G);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;
+			counter++;
 			if(S.pause) {
 				TV.repaint();
 				if(S.getResearch() > -1 && !S.researchPause){
-	        		try {
-	        			Thread.sleep(10000);
-	        		} catch (InterruptedException e) {
-	        			e.printStackTrace();
-	        			}
+//	        		try {
+//	        			Thread.sleep(10000);
+//	        		} catch (InterruptedException e) {
+//	        			e.printStackTrace();
+//	        			}
 	        		S.researchPause = true;
 	        	}
 				continue;
@@ -147,11 +186,7 @@ public class Game {
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);
 			PolC.deletePollution(TLC);
-			try {
-    			Thread.sleep(10);
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
+			
 		}
 		int health = G.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
@@ -248,6 +283,27 @@ public class Game {
 		p = PC.getPhragmites().size();
 		cg = CGC.getCordGrass().size();
 		return (bc+t+cg-p-c);
+	}
+	
+	public static void playBackground(){
+		String soundName = "./sounds/background.wav";    
+		AudioInputStream audioInputStream;
+		try {
+			audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+			Clip clip;
+			clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+		} catch (UnsupportedAudioFileException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}catch (LineUnavailableException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 	}
 }
 
