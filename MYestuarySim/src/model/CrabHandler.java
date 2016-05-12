@@ -8,7 +8,7 @@ import java.util.Random;
 
 import controller.ToolControl;
 
-public class CrabControl {
+public class CrabHandler {
 	Random rand;
 	List<Crab> crabs;
 	Dimension screenSize;
@@ -23,7 +23,7 @@ public class CrabControl {
 		return this.crabs;
 	}
 	
-	public CrabControl(){
+	public CrabHandler(){
 		rand  = new Random();
 		crabs = new ArrayList<Crab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

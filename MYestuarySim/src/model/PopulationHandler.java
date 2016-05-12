@@ -6,7 +6,7 @@ import java.util.Random;
 
 import controller.Game;
 
-public class PopulationControl {
+public class PopulationHandler {
 	
 	/*
 	 * The total population of plants to be dependent on the number of animals
@@ -44,7 +44,7 @@ public class PopulationControl {
 	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	public PopulationControl(Game g){
+	public PopulationHandler(Game g){
 		this.game = g;
 		this.BlueCrabDied = 0;
 		this.CordGrassDied = 0;

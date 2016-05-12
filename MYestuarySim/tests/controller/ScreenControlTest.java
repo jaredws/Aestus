@@ -6,34 +6,34 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import model.BlueCrabControl;
-import model.CordGrassControl;
-import model.CrabControl;
-import model.PhragmitesControl;
-import model.PollutionControl;
-import model.TurtleControl;
+import model.BlueCrabHandler;
+import model.CordGrassHandler;
+import model.CrabHandler;
+import model.PhragmitesHandler;
+import model.PollutionHandler;
+import model.TurtleHandler;
 
 public class ScreenControlTest {
 
-	static CrabControl CC;
-	static TurtleControl TTC;
-	static BlueCrabControl BC;
-	static CordGrassControl CGC;
-	static PhragmitesControl PC;
+	static CrabHandler CC;
+	static TurtleHandler TTC;
+	static BlueCrabHandler BC;
+	static CordGrassHandler CGC;
+	static PhragmitesHandler PC;
 	static ToolControl TC;
-	static PollutionControl POC;
+	static PollutionHandler POC;
 	static ScreenControl SC;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		SC = new ScreenControl();
-		CC = new CrabControl();
-		TTC = new TurtleControl();
-		BC = new BlueCrabControl();
-		CGC = new CordGrassControl();
-		PC = new PhragmitesControl();
+		CC = new CrabHandler();
+		TTC = new TurtleHandler();
+		BC = new BlueCrabHandler();
+		CGC = new CordGrassHandler();
+		PC = new PhragmitesHandler();
 		TC = new ToolControl(5, 10);
-		POC = new PollutionControl();
+		POC = new PollutionHandler();
 	}
 
 	@AfterClass

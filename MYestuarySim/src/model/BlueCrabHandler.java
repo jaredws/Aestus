@@ -10,7 +10,7 @@ import java.util.Random;
 
 import controller.ToolControl;
 
-public class BlueCrabControl {
+public class BlueCrabHandler {
 	Random rand;
 	Dimension screenSize;
 	public List<BlueCrab> BlueCrabs;
@@ -25,7 +25,7 @@ public class BlueCrabControl {
 		return this.BlueCrabs;
 	}
 	
-	public BlueCrabControl(){
+	public BlueCrabHandler(){
 		rand  = new Random();
 		BlueCrabs = new ArrayList<BlueCrab>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

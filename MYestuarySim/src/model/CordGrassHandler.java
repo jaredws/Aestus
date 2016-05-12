@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class CordGrassControl {
+public class CordGrassHandler {
 	Random rand;
 	List<CordGrass> CordGrass;
 	Dimension screenSize;
@@ -24,7 +24,7 @@ public class CordGrassControl {
 		return this.CordGrass;
 	}
 	
-	public CordGrassControl(){
+	public CordGrassHandler(){
 		rand  = new Random();
 		CordGrass = new ArrayList<CordGrass>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

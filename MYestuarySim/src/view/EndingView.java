@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import controller.EndScreenControl;
 import controller.Game;
 import controller.StartScreenControl;
-import model.PopulationControl;
+import model.PopulationHandler;
 
 public class EndingView extends JPanel {
 	
@@ -31,11 +31,11 @@ public class EndingView extends JPanel {
  	public static Image researcher,researcherMad;
 	public Image clipboard,BG,star,check,x;
  	private int health;
- 	private PopulationControl PC;
+ 	private PopulationHandler PC;
  	private HealthView HV;
  	JLabel species,died,rsch,end,remove;
 	
-	public EndingView(EndScreenControl s2, PopulationControl PC, int health){
+	public EndingView(EndScreenControl s2, PopulationHandler PC, int health){
 		Showing = true;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		S=s2;

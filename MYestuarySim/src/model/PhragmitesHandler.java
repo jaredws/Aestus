@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PhragmitesControl {
+public class PhragmitesHandler {
 	Random rand;
 	List<Phragmites> Phragmites;
 	Dimension screenSize;
@@ -23,7 +23,7 @@ public class PhragmitesControl {
 		return this.Phragmites;
 	}
 	
-	public PhragmitesControl(){
+	public PhragmitesHandler(){
 		rand  = new Random();
 		Phragmites = new ArrayList<Phragmites>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

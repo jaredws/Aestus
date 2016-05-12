@@ -6,7 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import model.CrabControl;
+import model.CrabHandler;
 
 /**
  * @author Steven Sell
@@ -15,11 +15,11 @@ import model.CrabControl;
 
 public class CrabControlTest {
 
-	static CrabControl c;
+	static CrabHandler c;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		c = new CrabControl();
+		c = new CrabHandler();
 	}
 
 	@AfterClass

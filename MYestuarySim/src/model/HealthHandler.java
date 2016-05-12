@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Steven
  */
-public class HealthControl {
+public class HealthHandler {
 
 	Dimension screenSize;
 	public List<Health> Stars;
@@ -20,7 +20,7 @@ public class HealthControl {
 		return this.Stars;
 	}
 	
-	public HealthControl(){
+	public HealthHandler(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	

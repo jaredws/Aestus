@@ -10,7 +10,7 @@ import java.util.Random;
 
 import controller.ToolControl;
 
-public class TurtleControl {
+public class TurtleHandler {
 	Random rand;
 	List<Turtle> turtles;
 	Dimension screenSize;
@@ -25,7 +25,7 @@ public class TurtleControl {
 		return this.turtles;
 	}
 	
-	public TurtleControl(){
+	public TurtleHandler(){
 		rand  = new Random();
 		turtles = new ArrayList<Turtle>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

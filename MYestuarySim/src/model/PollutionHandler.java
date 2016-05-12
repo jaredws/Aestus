@@ -10,7 +10,7 @@ import java.util.Random;
 
 import controller.ToolControl;
 
-public class PollutionControl {
+public class PollutionHandler {
 	Random rand;
 	List<Pollution> Pollution;
 	Dimension screenSize;
@@ -25,7 +25,7 @@ public class PollutionControl {
 		return this.Pollution;
 	}
 	
-	public PollutionControl(){
+	public PollutionHandler(){
 		rand  = new Random();
 		Pollution = new ArrayList<Pollution>();
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();

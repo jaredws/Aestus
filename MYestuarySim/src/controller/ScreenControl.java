@@ -8,18 +8,18 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.Random;
 import javax.swing.JPanel;
 import model.BlueCrab;
-import model.BlueCrabControl;
+import model.BlueCrabHandler;
 import model.CordGrass;
-import model.CordGrassControl;
+import model.CordGrassHandler;
 import model.Crab;
-import model.CrabControl;
+import model.CrabHandler;
 import model.Grabbable;
 import model.Phragmites;
-import model.PhragmitesControl;
+import model.PhragmitesHandler;
 import model.Pollution;
-import model.PollutionControl;
+import model.PollutionHandler;
 import model.Turtle;
-import model.TurtleControl;
+import model.TurtleHandler;
 
 public class ScreenControl extends JPanel {
 
@@ -103,8 +103,8 @@ public class ScreenControl extends JPanel {
 		});
 	}
 
-	public void checkPos(CrabControl c, TurtleControl t, BlueCrabControl bc, CordGrassControl cgc, PhragmitesControl pc,
-			ToolControl tc,PollutionControl puc) {
+	public void checkPos(CrabHandler c, TurtleHandler t, BlueCrabHandler bc, CordGrassHandler cgc, PhragmitesHandler pc,
+			ToolControl tc,PollutionHandler puc) {
 		if (clicked) {
 			if (clickx > tc.getMag().getX()
 					&& clickx < tc.getMag().getSizeX() + tc.getMag().getX()

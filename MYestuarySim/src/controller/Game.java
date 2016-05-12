@@ -9,14 +9,14 @@ import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import model.BlueCrabControl;
-import model.CordGrassControl;
-import model.CrabControl;
-import model.HealthControl;
-import model.PhragmitesControl;
-import model.PollutionControl;
-import model.PopulationControl;
-import model.TurtleControl;
+import model.BlueCrabHandler;
+import model.CordGrassHandler;
+import model.CrabHandler;
+import model.HealthHandler;
+import model.PhragmitesHandler;
+import model.PollutionHandler;
+import model.PopulationHandler;
+import model.TurtleHandler;
 import view.EndingView;
 import view.StartingView;
 import view.TotalView;
@@ -25,16 +25,16 @@ public class Game {
 	Random rand = new Random();
 	static Random r = new Random();
 	static StartingView SV;
-	static CrabControl CC;
-	static TurtleControl TC;
-	static BlueCrabControl BCC;
+	static CrabHandler CC;
+	static TurtleHandler TC;
+	static BlueCrabHandler BCC;
 	static ToolControl TLC;
 	static TotalView TV;
-	static PopulationControl PopC;
-	static CordGrassControl CGC;
-	static PhragmitesControl PC;
-	static HealthControl HC;
-	static PollutionControl PolC;
+	static PopulationHandler PopC;
+	static CordGrassHandler CGC;
+	static PhragmitesHandler PC;
+	static HealthHandler HC;
+	static PollutionHandler PolC;
 	static EndingView EV;
 	static EndScreenControl ESC;
 	static CountdownControl CDC;
@@ -65,15 +65,15 @@ public class Game {
 		}
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
-		CC = new CrabControl();
+		CC = new CrabHandler();
 		TLC = new ToolControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
-		TC = new TurtleControl();
-		BCC = new BlueCrabControl();
-		PopC = new PopulationControl(G);
-		PC = new PhragmitesControl();
-		CGC = new CordGrassControl();
-		HC = new HealthControl();
-		PolC = new PollutionControl();
+		TC = new TurtleHandler();
+		BCC = new BlueCrabHandler();
+		PopC = new PopulationHandler(G);
+		PC = new PhragmitesHandler();
+		CGC = new CordGrassHandler();
+		HC = new HealthHandler();
+		PolC = new PollutionHandler();
 		CDC = new CountdownControl();
 	
 		TV.update(G);
@@ -197,7 +197,7 @@ public class Game {
 		return rand;
 	}
 
-	public static CrabControl getCrabControl() {
+	public static CrabHandler getCrabControl() {
 		return CC;
 	}
 
@@ -209,27 +209,27 @@ public class Game {
 		return TV;
 	}
 	
-	public static TurtleControl getTurtleControl() {
+	public static TurtleHandler getTurtleControl() {
 		return TC;
 	}
 	
-	public static BlueCrabControl getBlueCrabControl() {
+	public static BlueCrabHandler getBlueCrabControl() {
 		return BCC;
 	}
 	
-	public static PhragmitesControl getPhragmitesControl(){
+	public static PhragmitesHandler getPhragmitesControl(){
 		return PC;
 	}
 	
-	public static CordGrassControl getCordGrassControl(){
+	public static CordGrassHandler getCordGrassControl(){
 		return CGC;
 	}
 	
-	public static HealthControl getHealthControl(){
+	public static HealthHandler getHealthControl(){
 		return HC;
 	}
 	
-	public static PollutionControl getPollutionControl(){
+	public static PollutionHandler getPollutionControl(){
 		return PolC;
 	}
 	
