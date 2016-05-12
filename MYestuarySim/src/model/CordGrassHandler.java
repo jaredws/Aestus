@@ -36,19 +36,6 @@ public class CordGrassHandler {
 		return this.isResearched();
 	}
 	
-	
-	
-	/*public void deleteCordGrass(ToolControl tc){
-		for(int i = 0; i < CordGrass.size(); i++){
-			if(CordGrass.get(i).getX() > tc.getTools().get(0).getX() - tc.getTools().get(0).getSizeX()/2 && CordGrass.get(i).getX() < tc.getTools().get(0).getX() + tc.getTools().get(0).getSizeX()/4){
-				if((CordGrass.get(i).getY() > tc.getTools().get(0).getY()-tc.getTools().get(0).getSizeY()) && (CordGrass.get(i).getY() < tc.getTools().get(0).getY() + tc.getTools().get(0).getSizeY()/2)){
-//					CordGrass.remove(i);
-//					i--;
-				}
-			}
-		}
-	}*/
-	
 	public void removeCordGrass(int i){
 		CordGrass.remove(i);
 		Removed++;
