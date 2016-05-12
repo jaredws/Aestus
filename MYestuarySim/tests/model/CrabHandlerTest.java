@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import static org.junit.Assert.*;
 
@@ -13,7 +13,7 @@ import model.CrabHandler;
  * @Test Tests all functions of CrabControl
  */
 
-public class CrabControlTest {
+public class CrabHandlerTest {
 
 	static CrabHandler c;
 	
