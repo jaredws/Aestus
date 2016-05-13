@@ -221,6 +221,9 @@ public class PopulationHandler {
 				
 			}
 		}
+		if(rand.nextInt(50)==1){
+			Game.getPollutionControl().addPollution(makeX(), makeY());
+		}
 	}
 	public int getTotalPlant() {
 		return TotalPlant;
