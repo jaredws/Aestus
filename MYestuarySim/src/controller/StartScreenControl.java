@@ -103,7 +103,14 @@ public class StartScreenControl extends JButton {
 					&& (clicky > StartingView.getTimeDownY())
 					&& (clicky < StartingView.getTimeDownY()+StartingView.getTimeDown().getHeight(null))){
 					timeDec = true;
-			} else if(clickx > StartingView.getClipboardX()+StartingView.getClipboard().getWidth(null)) {
+			} else if((clickx > StartingView.getSoundX())
+					&& (clickx < StartingView.getSoundX()+StartingView.getSoundOn().getWidth(null))
+					&& (clicky > StartingView.getSoundY())
+					&& (clicky < StartingView.getSoundY()+StartingView.getSoundOn().getHeight(null))){
+					SoundController.toggleSound();
+			} 
+			
+			else if(clickx > StartingView.getClipboardX()+StartingView.getClipboard().getWidth(null)) {
 				main = true;
 				settings = false;
 			}

@@ -136,13 +136,13 @@ public class EndingView extends JPanel {
         }
         for(int i=1; i < getSpeciesLabels().size(); i++) {
         	if(Game.getCrabControl().getResearched() && i==1)
-        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth(), getSpeciesLabels().get(i).getY(),null);
+        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else if(Game.getBlueCrabControl().getResearched() && i == 2)
-        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth(), getSpeciesLabels().get(i).getY(),null);
+        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else if(Game.getTurtleControl().getResearched() && i==3)
-        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth(), getSpeciesLabels().get(i).getY(),null);
+        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else if(Game.getPhragmitesControl().getResearched() && i==4)
-        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth(), getSpeciesLabels().get(i).getY(),null);
+        		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else if(Game.getCordGrassControl().getResearched() && i==5)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else 
@@ -217,11 +217,11 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getRemoveLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		remove = new JLabel("Removed");
-		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
-		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
-		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
-		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
-		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(G.getCrabControl().getRemoved()));
+		JLabel blueCrabs = new JLabel(Integer.toString(G.getBlueCrabControl().getRemoved()));
+		JLabel turtle = new JLabel(Integer.toString(G.getTurtleControl().getRemoved()));
+		JLabel phrag = new JLabel(Integer.toString(G.getPhragmitesControl().getRemoved()));
+		JLabel cordGrass = new JLabel(Integer.toString(G.getCordGrassControl().getRemoved()));
 		
 		remove.setBounds(rsch.getX()+rsch.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(remove.getX(),remove.getY()+remove.getHeight(),remove.getWidth(),remove.getHeight());

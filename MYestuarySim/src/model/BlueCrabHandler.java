@@ -16,6 +16,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import controller.SoundController;
 import controller.ToolControl;
 
 public class BlueCrabHandler {
@@ -55,7 +56,7 @@ public class BlueCrabHandler {
 					BlueCrabs.remove(i);
 					Removed++;
 					i--;
-					playSound();
+					SoundController.playTrap();
 				}
 			}
 		}
@@ -84,25 +85,5 @@ public class BlueCrabHandler {
 	public void setResearched(boolean researched) {
 		Researched = researched;
 	}
-public void playSound(){
-		
-		String soundName = "./sounds/crabtrap.wav";     
-		AudioInputStream audioInputStream;
-		try {
-			audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-			Clip clip;
-			clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-		} catch (UnsupportedAudioFileException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}catch (LineUnavailableException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-	}
+
 }

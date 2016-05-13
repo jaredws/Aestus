@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import controller.CountdownControl;
 import controller.Game;
+import controller.SoundController;
 import controller.StartScreenControl;
 
 public class StartingView extends JPanel {
@@ -30,7 +31,7 @@ public class StartingView extends JPanel {
 
 	public static Image timeUp;
 
-	public static Image timeDown;
+	public static Image timeDown, soundOn, soundOff;
 	public static JLabel settingsL,timeL;
 	public static Image clipboard;
  	public static Image play,settings;
@@ -52,6 +53,8 @@ public class StartingView extends JPanel {
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			timeUp = ImageIO.read(new File("./img/plus.png"));
 			timeDown = ImageIO.read(new File("./img/minus.png"));
+			soundOn = ImageIO.read(new File("./img/soundOn.png"));
+			soundOff = ImageIO.read(new File("./img/soundOff.png"));
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
 	       }
@@ -89,6 +92,10 @@ public class StartingView extends JPanel {
         	g.drawImage(clipboard, getClipboardX(), getClipboardY(), null);
         	g.drawImage(timeUp, getTimeUpX(), getTimeUpY(), null);
         	g.drawImage(timeDown, getTimeDownX(), getTimeDownY(), null);
+        	if(SoundController.sound)
+        		g.drawImage(soundOn, getSoundX(), getSoundY(), null);
+        	else
+        		g.drawImage(soundOff, getSoundX(), getSoundY(), null);
         } else {
         	g.drawImage(title, (int)screenSize.getWidth()/2-title.getWidth(null)/2, 125, null);
 	        g.drawImage(play, getPlayX(), getPlayY(), null);
@@ -175,4 +182,20 @@ public class StartingView extends JPanel {
 	public static void decTime() {
 		time-=12;
 	}
+	public static int getSoundX() {
+		return 100;
+	}
+	
+	public static int getSoundY() {
+		return 100;
+	}
+	
+	public static Image getSoundOn() {
+		return soundOn;
+	}
+	
+	public static Image getSoundOff() {
+		return soundOff;
+	}
+	
 }
