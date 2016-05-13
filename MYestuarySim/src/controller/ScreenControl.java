@@ -38,6 +38,7 @@ public class ScreenControl extends JPanel {
 	public int research;
 	private int j;
 	private int clickx,clicky;
+	private int turtleResearch,phragResearch,bluecrabResearch,mittenCrabResearch,cordResearch;
 	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap, shearsOpen;
 	Grabbable grabbed;
 	Random rand;
@@ -56,6 +57,11 @@ public class ScreenControl extends JPanel {
 		magGlass = false;
 		crabTrap = false;
 		shearsOpen = true;
+		turtleResearch= 0;
+		phragResearch=0;
+		bluecrabResearch=0;
+		mittenCrabResearch=0;
+		cordResearch=0;
 		
 		
 		
@@ -172,10 +178,10 @@ public class ScreenControl extends JPanel {
 				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
 						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
 					if (magGlass) {
-						research = 0;
-						magGlass = false;
-						pause = true;
-						clicked = false;
+//						research = 0;
+//						magGlass = false;
+//						pause = true;
+//						clicked = false;
 					} else if (!magGlass && !shears && !grabbing) {
 						grabbed = puc.getPollution(i);
 						grabbing = true;
@@ -188,11 +194,12 @@ public class ScreenControl extends JPanel {
 				if ((clickx > c.getCrab(i).getX()) && (clickx < (c.getCrab(i).getX() + Crab.sizeX))
 						&& ((clicky > c.getCrab(i).getY()) && (clicky < c.getCrab(i).getY() + Crab.sizeY))) {
 					if (magGlass) {
-						research = 0;
+						research = 0 + mittenCrabResearch%3;
 						c.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
+						mittenCrabResearch++;
 					} else if (!magGlass && !shears && !grabbing) {
 						grabbed = c.getCrab(i);
 						grabbing = true;
@@ -205,11 +212,12 @@ public class ScreenControl extends JPanel {
 				if ((clickx > bc.getBlueCrab(i).getX()) && (clickx < (bc.getBlueCrab(i).getX() + BlueCrab.sizeX))
 						&& ((clicky > bc.getBlueCrab(i).getY()) && (clicky < bc.getBlueCrab(i).getY() + BlueCrab.sizeY))) {
 					if (magGlass) {
-						research = 2;
+						research = 6 + bluecrabResearch%3;
 						bc.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
+						bluecrabResearch++;
 					} else if (!magGlass && !shears && !grabbing) {
 						grabbed = bc.getBlueCrab(i);
 						grabbing = true;
@@ -223,11 +231,12 @@ public class ScreenControl extends JPanel {
 				if ((clickx > t.getTurtle(i).getX()) && (clickx < (t.getTurtle(i).getX() + Turtle.sizeX))
 						&& ((clicky > t.getTurtle(i).getY()) && (clicky < t.getTurtle(i).getY() + Turtle.sizeY))) {
 					if (magGlass) {
-						research = 3;
+						research = 9 + turtleResearch%3;
 						t.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
+						turtleResearch++;
 					} else if (!magGlass && !shears && !grabbing) {
 						grabbed = t.getTurtle(i);
 						grabbing = true;
@@ -240,11 +249,12 @@ public class ScreenControl extends JPanel {
 				if ((clickx > pc.getPhragmites(i).getX()) && (clickx < (pc.getPhragmites(i).getX() + Phragmites.sizeX))
 						&& ((clicky > pc.getPhragmites(i).getY()) && (clicky < pc.getPhragmites(i).getY() + Phragmites.sizeY))) {
 					if (magGlass) {
-						research = 1;
+						research = 3 + phragResearch%3;
 						pc.setResearched(true);
 						magGlass = false;
 						pause = true;
 						clicked = false;
+						phragResearch++;
 					} else if (shears) {
 						pc.removePhragmites(i);
 						clicked = false;
@@ -262,11 +272,12 @@ public class ScreenControl extends JPanel {
 						j = i;
 						break;
 					} else if (magGlass) {
-						research = 4;
+						research = 12 + cordResearch;
 						cgc.setResearched(true);
 						magGlass = false;
 						pause = true;
-						clicked = false;
+						clicked = false; 
+						cordResearch++;
 					} else if (shears) {
 						cgc.removeCordGrass(i);
 						clicked = false;

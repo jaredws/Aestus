@@ -29,16 +29,18 @@ public class ResearchView extends ViewTemplate{
 	public ResearchView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"CrabResearch", "PhragmitesResearch", "BlueCrabResearch", "TurtleResearch", "CordGrassResearch"};
+		String[] names = {"MittenResearch", "PhragmitesResearch", "CrabResearch", "TurtleResearch", "CordGrassResearch"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
-		try {           
-			image = ImageIO.read(new File("./img/"+fileName+".png"));
-			//images.add(image);
-			images.add(image.getScaledInstance(-1,(int)screenSize.getHeight() - 150, Image.SCALE_SMOOTH));
-	       } catch (IOException ex) {
-	    	   System.out.println("Research Image read error");
-	       }
+			for(int i = 1; i< 4; i++){
+				try {           
+					image = ImageIO.read(new File("./img/"+fileName+i+".png"));
+					//images.add(image);
+					images.add(image.getScaledInstance(-1,(int)screenSize.getHeight() - 150, Image.SCALE_SMOOTH));
+			       } catch (IOException ex) {
+			    	   System.out.println("Research Image read error");
+			       }
+			}
 		}
 		
 	}
@@ -46,7 +48,7 @@ public class ResearchView extends ViewTemplate{
 	 * 
 	 * @param i
 	 * @return The buffered image of the Research Window
-	 * 0-MittenCrab, 1-Phragmites, 2-BlueCrab, 3-Turtle, 4 CordGrass
+	 * 0-MittenCrab, 3-Phragmites, 6-BlueCrab, 9-Turtle, 12 CordGrass
 	 */
 	public Image getImage(int i){
 		
