@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -19,6 +20,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import controller.EndScreenControl;
 import controller.Game;
@@ -163,10 +165,15 @@ public class EndingView extends JPanel {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		species = new JLabel("Species");
 		JLabel mittenCrabs = new JLabel("Mitten Crabs");
+		mittenCrabs.setForeground(new Color(250,0,0));
 		JLabel blueCrabs = new JLabel("Blue Crabs");
+		blueCrabs.setForeground(new Color(25,105,15));
 		JLabel turtle = new JLabel("Turtle");
+		turtle.setForeground(new Color(25,105,15));
 		JLabel phrag = new JLabel("Phragmites");
+		phrag.setForeground(new Color(250,0,0));
 		JLabel cordGrass = new JLabel("Cord Grass");
+		cordGrass.setForeground(new Color(25,105,15));
 		
 		species.setBounds(getStarX(0)+10, getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(species.getX(),species.getY()+species.getHeight(),species.getWidth(),species.getHeight());
@@ -193,11 +200,24 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getDiedLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		died = new JLabel("Died");
+		died.setHorizontalAlignment(SwingConstants.CENTER);
+		died.setVerticalAlignment(SwingConstants.CENTER);
 		JLabel mittenCrabs = new JLabel(Integer.toString(PC.getMittenDie()));
 		JLabel blueCrabs = new JLabel(Integer.toString(PC.getBlueCrabDie()));
 		JLabel turtle = new JLabel(Integer.toString(PC.getTurtleDie()));
 		JLabel phrag = new JLabel(Integer.toString(PC.getPhragDie()));
 		JLabel cordGrass = new JLabel(Integer.toString(PC.getCordDie()));
+		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);
+		blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
+		turtle.setHorizontalAlignment(SwingConstants.CENTER);
+		turtle.setVerticalAlignment(SwingConstants.CENTER);
+		phrag.setHorizontalAlignment(SwingConstants.CENTER);
+		phrag.setVerticalAlignment(SwingConstants.CENTER);
+		cordGrass.setHorizontalAlignment(SwingConstants.CENTER);
+		cordGrass.setVerticalAlignment(SwingConstants.CENTER);
+		
 		
 		died.setBounds(remove.getX()+remove.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(died.getX(),died.getY()+died.getHeight(),died.getWidth(),died.getHeight());
@@ -217,11 +237,23 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getRemoveLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		remove = new JLabel("Removed");
+		remove.setHorizontalAlignment(SwingConstants.CENTER);
+		remove.setVerticalAlignment(SwingConstants.CENTER);
 		JLabel mittenCrabs = new JLabel(Integer.toString(G.getCrabControl().getRemoved()));
 		JLabel blueCrabs = new JLabel(Integer.toString(G.getBlueCrabControl().getRemoved()));
 		JLabel turtle = new JLabel(Integer.toString(G.getTurtleControl().getRemoved()));
 		JLabel phrag = new JLabel(Integer.toString(G.getPhragmitesControl().getRemoved()));
 		JLabel cordGrass = new JLabel(Integer.toString(G.getCordGrassControl().getRemoved()));
+		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
+		turtle.setHorizontalAlignment(SwingConstants.CENTER);
+		turtle.setVerticalAlignment(SwingConstants.CENTER);
+		phrag.setHorizontalAlignment(SwingConstants.CENTER);
+		phrag.setVerticalAlignment(SwingConstants.CENTER);
+		cordGrass.setHorizontalAlignment(SwingConstants.CENTER);
+		cordGrass.setVerticalAlignment(SwingConstants.CENTER);
+		
 		
 		remove.setBounds(rsch.getX()+rsch.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(remove.getX(),remove.getY()+remove.getHeight(),remove.getWidth(),remove.getHeight());
@@ -241,11 +273,23 @@ public class EndingView extends JPanel {
 	public ArrayList<JLabel> getEndLabels() {
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		end = new JLabel("End");
+		end.setHorizontalAlignment(SwingConstants.CENTER);
+		end.setVerticalAlignment(SwingConstants.CENTER);
 		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabControl().getCrabs().size()));
 		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabControl().getBlueCrabs().size()));
 		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleControl().getTurtles().size()));
 		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
 		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
+		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
+		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
+		turtle.setHorizontalAlignment(SwingConstants.CENTER);
+		turtle.setVerticalAlignment(SwingConstants.CENTER);
+		phrag.setHorizontalAlignment(SwingConstants.CENTER);
+		phrag.setVerticalAlignment(SwingConstants.CENTER);
+		cordGrass.setHorizontalAlignment(SwingConstants.CENTER);
+		cordGrass.setVerticalAlignment(SwingConstants.CENTER);
+		
 		
 		end.setBounds(died.getX()+died.getWidth(), getStarY()+star.getHeight(null), 100, 20);
 		mittenCrabs.setBounds(end.getX(),end.getY()+end.getHeight(),end.getWidth(),end.getHeight());
@@ -263,8 +307,8 @@ public class EndingView extends JPanel {
 	}
 	
 	public JLabel getScoreLabel() {
-		JLabel score = new JLabel("Score");
-		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-75, getClipBoardY()+100,200,100);
+		JLabel score = new JLabel("Score: " + getScore() );
+		score.setBounds(getClipBoardX()+clipboard.getWidth(null)/2-100, getClipBoardY()+100,clipboard.getWidth(null),100);
 		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 50));
 		return score;
 	}
@@ -295,5 +339,25 @@ public class EndingView extends JPanel {
 	
 	public static Image getResearcher() {
 		return researcher;
+	}
+	public static int getScore(){
+		int score = 0;
+		score -= 10*Game.getCrabControl().getCrabs().size();
+		score += 10*Game.getBlueCrabControl().getBlueCrabs().size();
+		score += 7*Game.getTurtleControl().getTurtles().size();
+		score -= 5*Game.getPhragmitesControl().getPhragmites().size();
+		score += 5*Game.getCordGrassControl().getCordGrass().size();
+		score -= 20*Game.getPollutionControl().getPollution().size();
+		if(Game.getCrabControl().getResearched())
+			score += 10;
+		if(Game.getBlueCrabControl().getResearched())
+			score += 10;
+		if(Game.getTurtleControl().getResearched())
+			score += 10;
+		if(Game.getPhragmitesControl().getResearched())
+			score += 10;
+		if(Game.getCordGrassControl().getResearched())
+			score += 10;
+		return score;
 	}
 }
