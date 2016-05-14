@@ -12,13 +12,13 @@ public class HealthHandler {
 	Dimension screenSize;
 	public List<Health> Stars;
 
-	/*public void addStar(int x, int y){
+	public void addStar(int x, int y){
 		Stars.add(new Health(x,y,screenSize));
-	}*/
+	}
 	
-	/*public List<Health> getStars() {
+	public List<Health> getStars() {
 		return this.Stars;
-	}*/
+	}
 	
 	public HealthHandler(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
