@@ -66,6 +66,10 @@ public class Pollution extends Grabbable {
 	public void setSizeX(int x) {
 		this.sizeX = x;
 	}
+	
+	public int getLife() {
+		return this.life;
+	}
 	public void live(){
 		life++;
 	}

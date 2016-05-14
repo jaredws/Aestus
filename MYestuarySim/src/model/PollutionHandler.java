@@ -30,10 +30,7 @@ public class PollutionHandler {
 	public void addPollution(int x, int y){
 		Pollution.add(new Pollution(x,y,screenSize,rand.nextInt(3)));
 	}
-	
-	public List<Pollution> getPhragmites() {
-		return this.Pollution;
-	}
+
 	
 	public PollutionHandler(){
 		rand  = new Random();
