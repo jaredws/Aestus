@@ -20,6 +20,8 @@ public class CrabView extends ViewTemplate{
 	
 	private List<Image> images;
 	Dimension screenSize;
+	Image image2, image3;
+	int test;
 	/**
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
@@ -28,12 +30,18 @@ public class CrabView extends ViewTemplate{
 		images = new ArrayList<Image>();
 		Image image;
 		String names = "Crab";
+		String bcrab1 = "Crab1";
+		String bcrab2 = "Crab2";
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try{
 		image = ImageIO.read(new File("./img/"+names+".png"));
 			for(int i = 0; i < 38; i++){               
 				images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
 			}
+		image2 = ImageIO.read(new File("./img/"+bcrab1+".png"));
+		image3 = ImageIO.read(new File("./img/"+bcrab2+".png"));
+		image2 = image2.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH);
+		image3 = image3.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH);
 		} catch (IOException ex) {
 	    	   System.out.println("Crab Image read error");
 	       }
@@ -50,7 +58,17 @@ public class CrabView extends ViewTemplate{
 		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
 			return images.get(i);
-		else
-			return images.get(37);
+		else {
+			if(test < 200) {
+				test++;
+				return image2;
+			} else if(test < 300) {
+				test++;
+				return image3;
+			} else if(test == 300){ 
+				test = 0;
+			}
+		}
+		return image3;
 	}
 }

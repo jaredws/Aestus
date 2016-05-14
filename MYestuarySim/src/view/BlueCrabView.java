@@ -21,6 +21,8 @@ public class BlueCrabView extends ViewTemplate{
 	
 	private List<Image> images;
 	Dimension screenSize;
+	Image image2, image3;
+	int test;
 	
 	/**
 	 * Buffer the images we will need to move BlueCrabs around the screen.
@@ -28,19 +30,20 @@ public class BlueCrabView extends ViewTemplate{
 	//may consider making this private and using a method to only allow one instnace
 	public BlueCrabView(){
 		images = new ArrayList<Image>();
-		Image image1, image2;
+		Image image;
+		String names = "BlueCrab";
 		String bcrab1 = "BlueCrab1";
 		String bcrab2 = "BlueCrab2";
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try{
-		image1 = ImageIO.read(new File("./img/"+bcrab1+".png"));
-		image2 = ImageIO.read(new File("./img/"+bcrab2+".png"));
-			for(int i = 0; i < 38; i++){
-				if(i % 2 == 0)
-					images.add(image1.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
-				else
-					images.add(image2.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
+		image = ImageIO.read(new File("./img/"+names+".png"));
+			for(int i = 0; i < 38; i++){               
+				images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
 			}
+		image2 = ImageIO.read(new File("./img/"+bcrab1+".png"));
+		image3 = ImageIO.read(new File("./img/"+bcrab2+".png"));
+		image2 = image2.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH);
+		image3 = image3.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH);
 		} catch (IOException ex) {
 	    	   System.out.println("BlueCrab Image read error");
 	       }
@@ -57,7 +60,17 @@ public class BlueCrabView extends ViewTemplate{
 		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
 			return images.get(i);
-		else
-			return images.get(37);
+		else {
+			if(test < 200) {
+				test++;
+				return image2;
+			} else if(test < 300) {
+				test++;
+				return image3;
+			} else if(test == 300){ 
+				test = 0;
+			}
+		}
+		return image3;
 	}
 }
