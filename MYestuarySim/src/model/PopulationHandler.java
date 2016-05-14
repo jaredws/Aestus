@@ -74,9 +74,9 @@ public class PopulationHandler {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		//make plants a set max always approaching it
-		TotalPlant = 35 - 2*P; // - 2*TrashCount;
+		TotalPlant = 35 - 2*P; // - 2*PollutionCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) totAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 3 plants, 15 at a net 20
+		TotalAnimal = (int) maxAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 5 plants
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary
 		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
 //		System.out.println("Max Total Animals: "+TotalAnimal);
@@ -88,10 +88,10 @@ public class PopulationHandler {
  * a, b, and c are the coefficients for the quadratic relationship between plants and animals
  * ax^2 + bx + c
  * a must be negative to have a downward parabolic shape
- * This means that as plants over populate, animals will run out of room
+ * This will cause animals to die off as plants over crowd their space
  * @return
  */
-	public double totAnimal(){
+	public double maxAnimal(){
 		double a = -0.08;
 		double b = 3.2;
 		double c = -14;
@@ -113,7 +113,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Depending on how much Research has been done, the probability of spawing creatures changes
+	 * Depending on how much Research has been done, the probability of spawning creatures changes
 	 * Before any research: Invasives spawn 3/4 of the time
 	 * After the first research in competing species: invasives spawn 1/2 of the time
 	 * Once both species have been researched: invasives spawn 3/8 of the time
@@ -225,6 +225,7 @@ public class PopulationHandler {
 			Game.getPollutionControl().addPollution(makeX(), makeY());
 		}
 	}
+	
 	public int getTotalPlant() {
 		return TotalPlant;
 	}
