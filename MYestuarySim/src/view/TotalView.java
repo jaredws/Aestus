@@ -126,13 +126,10 @@ public class TotalView extends JPanel{
         
        
 	
-        //Draw Countdown
+ 
         g.drawImage(CDV.getImage(Game.getCountdownControl().getImage()), 0, (int)(screenSize.getHeight() - screenSize.getWidth()/10), null);
         
-        
-//        for(int i = 0; i < Game.getCountdownControl().getImageX(); i+= 50) {
-//        	g.drawImage(CDV.getPellet(), i-CDV.getPellet().getWidth(null), Game.getCountdownControl().getImageY()+CDV.getImage().getHeight(null)-CDV.getPellet().getHeight(null), null);
-//        }
+ 
         
         if(S.getMagGlass()) {
         	g.drawImage(MV.getImage(0), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
