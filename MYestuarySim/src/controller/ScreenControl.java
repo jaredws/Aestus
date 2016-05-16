@@ -33,6 +33,7 @@ import model.TurtleHandler;
 /**
  * The Class ScreenControl. Manages the interface of the client mouse with positions on the screen, 
  * and distributes appropriate actions to objects accordingly 
+ * @author Team 0
  */
 public class ScreenControl extends JPanel {
 

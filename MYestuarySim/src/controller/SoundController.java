@@ -13,6 +13,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  * The Class SoundController.
  * Contains functions that play various sounds/music to be used in game.
+ * @author Team 0
  */
 public class SoundController {
 	

@@ -9,18 +9,43 @@ import javax.swing.JButton;
 
 import view.StartingView;
 
+
+/**
+ * The Class StartScreenControl.
+ * Handles the functionality of the screen that appears just before the game begins.
+ * @author Team 0 
+ */
 public class StartScreenControl extends JButton {
 
 	//Implament listener on the frame??? -JS
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 9042772411806531339L;
+	
+	/** The coordinate of a clickx. */
 	public int clickx;
+	
+	/** The coordinate of a clicky. */
 	public int clicky;
+	
+	/** The states of a click on the play or settings menu button */
 	public boolean intro,settings;
+	
+	/** Showing keeps track of whether the start screen is still showing or the game has started
+	 *  main keeps track of what screen (main or settings) the user is currently at */
 	public boolean Showing,main;
+	
+	/** The time increment and decrement states, used for setting the length of the game */
 	public boolean timeInc,timeDec;
+	
+	/** The screen size. */
 	Dimension screenSize;
 
+	/**
+	 * Constructor
+	 * Instantiates a new start screen control with default values for attributes.
+	 * Adds a mouse listener for the class to accept client clicks on the screen.
+	 */
 	public StartScreenControl(){
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
@@ -69,6 +94,12 @@ public class StartScreenControl extends JButton {
         }
     });
 	}
+	
+	/**
+	 * Handles all functionality of a the start screen, from handling what button was clicked
+	 * based on the location of the mouse pointer, setting menu states based on where the user is, and controlling
+	 * states of the settings screen that are handed off to the game once it starts
+	 */
 	public void check(){
 		if(!settings) {
 			if((clickx > StartingView.getPlayX()) 
@@ -130,18 +161,38 @@ public class StartScreenControl extends JButton {
 		clicky = -1;
 	}
 	
+	/**
+	 * Gets the showing.
+	 *
+	 * @return the showing
+	 */
 	public boolean getShowing() {
 		return this.Showing;
 	}
 	
+	/**
+	 * Gets the intro.
+	 *
+	 * @return the intro
+	 */
 	public boolean getIntro() {
 		return this.intro;
 	}
 	
+	/**
+	 * Gets the settings.
+	 *
+	 * @return the settings
+	 */
 	public boolean getSettings() {
 		return this.settings;
 	}
 	
+	/**
+	 * Gets the main.
+	 *
+	 * @return the main
+	 */
 	public boolean getMain() {
 		return this.main;
 	}
