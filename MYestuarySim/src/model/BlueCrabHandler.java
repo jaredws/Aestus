@@ -21,7 +21,7 @@ import controller.ToolControl;
 
 
 /**
- * The Class BlueCrabHandler.
+ * The Class BlueCrabHandler. Contains a list of BlueCrabs, functionality to move the crabs
  * 
  * @author Team 0
  */
