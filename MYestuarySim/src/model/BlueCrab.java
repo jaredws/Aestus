@@ -3,25 +3,41 @@ package model;
 import java.awt.Dimension;
 
 /**
- * 
- * @author Steven
- *
+ * The Class BlueCrab.
+ * Stores the location, size, and movement variables of a blue crab
+ * @author Team 0
  */
 public class BlueCrab extends Grabbable {
-	//With this outline, there's no difference between a crab and anyhting else. 
-	//We'll have to change the name of this class to Interactable Object or something
-	//Add a name and just name the different items
 	
+	/** The x location. */
 	private int x;
+	
+	/** The y location. */
 	private int y;
-	//The sizes may need to be a ratio to the screen size. -JS
-	//temporary public variables
+	
+	/** The static size x. */
 	public static int sizeX;
+	
+	/** The static size y. */
 	public static int sizeY;
+	
+	/** The movement counter of the crab */
 	public int move;
+	
+	/** The X dir. */
 	public int XDir;
+	
+	/** The Y dir. */
 	public int YDir;
 	
+	/**
+	 * Constructor
+	 * Instantiates a new blue crab.
+	 *
+	 * @param x the x position for placement
+	 * @param y the y position for placement
+	 * @param screenSize the screen size
+	 */
 	public BlueCrab(int x, int y,Dimension screenSize){
 		move = 0;
 		this.x = x;
@@ -32,54 +48,120 @@ public class BlueCrab extends Grabbable {
 		YDir = 0;
     }
 	
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public int getX() {
 		return x;
 	}
 	
+	/**
+	 * Sets the x.
+	 *
+	 * @param x the new x
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 	
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public int getY() {
 		return y;
 	}
 	
+	/**
+	 * Sets the y.
+	 *
+	 * @param y the new y
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 	
+	/**
+	 * Gets the size x.
+	 *
+	 * @return the size x
+	 */
 	public int getSizeX() {
 		return BlueCrab.sizeX;
 	}
 	
+	/**
+	 * Gets the size y.
+	 *
+	 * @return the size y
+	 */
 	public int getSizeY() {
 		return BlueCrab.sizeY;
 	}
 	
+	/**
+	 * Sets the size y.
+	 *
+	 * @param y the new size y
+	 */
 	public void setSizeY(int y) {
 		BlueCrab.sizeY = y;
 	}
 	
+	/**
+	 * Sets the size x.
+	 *
+	 * @param x the new size x
+	 */
 	public void setSizeX(int x) {
 		BlueCrab.sizeX = x;
 	}
 	
+	/**
+	 * Gets the y dir.
+	 *
+	 * @return the y dir
+	 */
 	public int getYDir() {
 		return this.YDir;
 	}
 	
+	/**
+	 * Gets the x dir.
+	 *
+	 * @return the x dir
+	 */
 	public int getXDir() {
 		return this.XDir;
 	}
 	
+	/**
+	 * Sets the move.
+	 *
+	 * @param m the new move
+	 */
 	public void setMove(int m) {
 		this.move = m;
 	}
 	
+	/**
+	 * Gets the move.
+	 *
+	 * @return the move
+	 */
 	public int getMove() {
 		return this.move;
 	}
 	
+	/**
+	 * Moves blue crab fluidly.
+	 *
+	 * @param J the random number
+	 * @param screenSize the screen size
+	 */
 	public void moveBlueCrab(int J,Dimension screenSize){
 		if((move%7)==0){
 			
