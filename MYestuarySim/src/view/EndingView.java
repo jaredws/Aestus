@@ -360,4 +360,8 @@ public class EndingView extends JPanel {
 			score += 10;
 		return score;
 	}
+	
+	public void close(){
+		frame.dispose();
+	}
 }

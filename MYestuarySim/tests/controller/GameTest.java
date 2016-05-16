@@ -16,12 +16,17 @@ public class GameTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//g = new Game();
+		g = new Game(true);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		//g = null;
+	}
+	
+	@Test
+	public void runGameTest() {
+		g.run(g);
 	}
 
 }

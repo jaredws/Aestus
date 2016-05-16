@@ -30,6 +30,7 @@ import view.StartingView;
 import view.TotalView;
 
 public class Game {
+	public boolean testing;
 	Random rand = new Random();
 	static Random r = new Random();
 	static StartingView SV;
@@ -51,8 +52,72 @@ public class Game {
 	static Timer timer;
 	static boolean researchPause = false;
 	
+	public Game(boolean test){
+		testing = test;
+	}
+	
 	public static void main(String[] args){
-		Game G = new Game();
+		Game G = new Game(false);
+		G.run(G);
+	}
+
+	public Random getRand() {
+		return rand;
+	}
+
+	public static CrabHandler getCrabControl() {
+		return CC;
+	}
+
+	public static ToolControl getToolControl() {
+		return TLC;
+	}
+
+	public static TotalView getTotalView() {
+		return TV;
+	}
+	
+	public static TurtleHandler getTurtleControl() {
+		return TC;
+	}
+	
+	public static BlueCrabHandler getBlueCrabControl() {
+		return BCC;
+	}
+	
+	public static PhragmitesHandler getPhragmitesControl(){
+		return PC;
+	}
+	
+	public static CordGrassHandler getCordGrassControl(){
+		return CGC;
+	}
+	
+	public static HealthHandler getHealthControl(){
+		return HC;
+	}
+	
+	public static PollutionHandler getPollutionControl(){
+		return PolC;
+	}
+	
+	public static CountdownControl getCountdownControl(){
+		return CDC;
+	}
+	
+	//Is this still necessary? 
+	//does the HealthHandler deal with this?- JS
+	public int calculateHealth(){
+		int c,bc,t,p,cg;
+		//Crabs are worth double plants right now
+		c = 2*CC.getCrabs().size();
+		bc = 2*BCC.getBlueCrabs().size();
+		t = TC.getTurtles().size();
+		p = PC.getPhragmites().size();
+		cg = CGC.getCordGrass().size();
+		return (bc+t+cg-p-c);
+	}
+	public void run(Game G){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
@@ -66,13 +131,14 @@ public class Game {
 			s.check();
 			
 			StartingView.timeL.setText(Integer.toString(StartingView.getTime()));
-			SV.update(G);
+			SV.update(this);
 			SV.repaint();
 			try {
     			Thread.sleep(1);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
+			if(testing)break;
 		}
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
@@ -80,14 +146,14 @@ public class Game {
 		TLC = new ToolControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
 		TC = new TurtleHandler();
 		BCC = new BlueCrabHandler();
-		PopC = new PopulationHandler(G);
+		PopC = new PopulationHandler(this);
 		PC = new PhragmitesHandler();
 		CGC = new CordGrassHandler();
 		HC = new HealthHandler();
 		PolC = new PollutionHandler();
 		CDC = new CountdownControl();
 	
-		TV.update(G);
+		TV.update(this);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		for(int i = 0; i<5; i++){
@@ -147,7 +213,7 @@ public class Game {
 				SoundController.playBackground();
 			}
 			S.checkPos(CC,TC,BCC,CGC,PC,TLC,PolC);
-			TV.update(G);
+			TV.update(this);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;
 			counter++;
@@ -168,9 +234,9 @@ public class Game {
 			TC.deleteTurtles(TLC);
 			BCC.deleteBlueCrabs(TLC);
 			PolC.deletePollution(TLC);
-			
+			if(testing)break;
 		}
-		int health = G.calculateHealth();
+		int health = this.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
 		EV = new EndingView(esc, PopC, health);
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
@@ -207,66 +273,10 @@ public class Game {
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
+			if(testing)break;
 		}
+		EV.close();
 	}
-
-	public Random getRand() {
-		return rand;
-	}
-
-	public static CrabHandler getCrabControl() {
-		return CC;
-	}
-
-	public static ToolControl getToolControl() {
-		return TLC;
-	}
-
-	public static TotalView getTotalView() {
-		return TV;
-	}
-	
-	public static TurtleHandler getTurtleControl() {
-		return TC;
-	}
-	
-	public static BlueCrabHandler getBlueCrabControl() {
-		return BCC;
-	}
-	
-	public static PhragmitesHandler getPhragmitesControl(){
-		return PC;
-	}
-	
-	public static CordGrassHandler getCordGrassControl(){
-		return CGC;
-	}
-	
-	public static HealthHandler getHealthControl(){
-		return HC;
-	}
-	
-	public static PollutionHandler getPollutionControl(){
-		return PolC;
-	}
-	
-	public static CountdownControl getCountdownControl(){
-		return CDC;
-	}
-	
-	//Is this still necessary? 
-	//does the HealthHandler deal with this?- JS
-	public int calculateHealth(){
-		int c,bc,t,p,cg;
-		//Crabs are worth double plants right now
-		c = 2*CC.getCrabs().size();
-		bc = 2*BCC.getBlueCrabs().size();
-		t = TC.getTurtles().size();
-		p = PC.getPhragmites().size();
-		cg = CGC.getCordGrass().size();
-		return (bc+t+cg-p-c);
-	}
-	
 	
 }
 
