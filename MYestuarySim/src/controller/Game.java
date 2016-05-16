@@ -29,7 +29,7 @@ import view.StartingView;
 import view.TotalView;
 
 public class Game {
-	public boolean testing;
+	public static boolean testing;
 	Random rand = new Random();
 	static Random r = new Random();
 	static StartingView SV;
@@ -280,6 +280,14 @@ public class Game {
 	
 	public static CountdownControl getCountdownControl(){
 		return CDC;
+	}
+	
+	public static PopulationHandler getPopulationHandler() {
+		return PopC;
+	}
+	
+	public static boolean getTesting() {
+		return testing;
 	}
 	
 }

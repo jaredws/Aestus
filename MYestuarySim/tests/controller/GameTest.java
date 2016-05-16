@@ -21,7 +21,7 @@ public class GameTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		//g = null;
+		g = null;
 	}
 	
 	@Test
