@@ -29,7 +29,7 @@ import model.PollutionHandler;
 import model.Turtle;
 import model.TurtleHandler;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ScreenControl. Manages the interface of the client mouse with positions on the screen, 
  * and distributes appropriate actions to objects accordingly 
@@ -46,7 +46,7 @@ public class ScreenControl extends JPanel {
 	/** The int Research, a metric for scoring the game */
 	public int research;
 	
-	/** The j. */
+	/** The index of a grabbed object */
 	private int j;
 	
 	/** The coordinates of a click */
