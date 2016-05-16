@@ -114,6 +114,10 @@ public class PopulationHandler {
 		spawn();
 	}
 	
+	public void spawnTest() {
+		if(Game.getTesting()) spawn();
+	}
+	
 	/**
 	 * Depending on how much Research has been done, the probability of spawning creatures changes
 	 * Before any research: Invasives spawn 3/4 of the time
