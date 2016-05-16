@@ -12,12 +12,31 @@ import java.net.URL;
 import javax.swing.JPanel;
 import view.EndingView;
 
+
+/**
+ * The Class EndScreenControl.
+ *
+ * @author Team 0
+ * A controller that manages the functionality of the ending screen.
+ */
 public class EndScreenControl extends JPanel {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 9042772411806531339L;
+	
+	/** Integers that store the location of a click. */
 	private int clickx, clicky;
+	
+	/** True if the client mouse is clicked, false otherwise. */
 	private boolean clicked;
+	
+	/** Easter egg boolean.  */
 	public boolean ee;
+	
+	/**
+	 * Constructor
+	 * Sets default values for the screen size, clicked boolean and positions, and easter egg boolean.
+	 */
 	public EndScreenControl(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
@@ -40,6 +59,9 @@ public class EndScreenControl extends JPanel {
 	});
 	}
 	
+	/**
+	 * Check pos. If the position is in a set range, open easter egg
+	 */
 	public void checkPos() {
 		if (clicked) {
 			if (clickx > EndingView.getResearcherX()
@@ -58,6 +80,11 @@ public class EndScreenControl extends JPanel {
 		}
 	}
 	
+	/**
+	 * Open webpage. Uses clients default web browser to open given URI
+	 *
+	 * @param uri the uri of the page to open
+	 */
 	public static void openWebpage(URI uri) {
 	    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 	    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -69,6 +96,11 @@ public class EndScreenControl extends JPanel {
 	    }
 	}
 
+	/**
+	 * Open webpage. Wrapper for the function that takes a URI instead.
+	 *
+	 * @param url the url of the page to open
+	 */
 	public static void openWebpage(URL url) {
 	    try {
 	        openWebpage(url.toURI());
