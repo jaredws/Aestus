@@ -50,15 +50,15 @@ public class Game {
 	static int sec = 0;
 	static Timer timer;
 	static boolean researchPause = false;
-	private static Dimension screenSize;
+	private Dimension screenSize;
 	
 	public Game(boolean test){
 		testing = test;
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
 	
 	public static void main(String[] args){
 		Game G = new Game(false);
-		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		G.start(G);
 		G.run(G);
 		G.end(G);
