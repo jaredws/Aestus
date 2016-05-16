@@ -101,33 +101,33 @@ public class PopulationHandlerTest {
 		ph.setTotalPlant(25);
 		ph.setTP(10);
 		for(int i=0;i<100;i++) {
-			Game.getPhragmitesControl().setResearched(false);
-			Game.getCordGrassControl().setResearched(false);
-			Pc = Game.getPhragmitesControl().getPhragmites().size();
-			CGc = Game.getCordGrassControl().getCordGrass().size();
+			Game.getPhragmitesHandler().setResearched(false);
+			Game.getCordGrassHandler().setResearched(false);
+			Pc = Game.getPhragmitesHandler().getPhragmites().size();
+			CGc = Game.getCordGrassHandler().getCordGrass().size();
 			ph.spawnTest();
 			
 			assertTrue("There should be 1 more element in CordGrass or Phragmites", 
-					Game.getPhragmitesControl().getPhragmites().size() > Pc || 
-					Game.getCordGrassControl().getCordGrass().size() > CGc);
+					Game.getPhragmitesHandler().getPhragmites().size() > Pc || 
+					Game.getCordGrassHandler().getCordGrass().size() > CGc);
 			
-			Game.getPhragmitesControl().setResearched(true);
-			Game.getCordGrassControl().setResearched(true);
-			Pc = Game.getPhragmitesControl().getPhragmites().size();
-			CGc = Game.getCordGrassControl().getCordGrass().size();
+			Game.getPhragmitesHandler().setResearched(true);
+			Game.getCordGrassHandler().setResearched(true);
+			Pc = Game.getPhragmitesHandler().getPhragmites().size();
+			CGc = Game.getCordGrassHandler().getCordGrass().size();
 			ph.spawnTest();
 			assertTrue("There should be 1 more element in CordGrass or Phragmites", 
-					Game.getPhragmitesControl().getPhragmites().size() > Pc || 
-					Game.getCordGrassControl().getCordGrass().size() > CGc);
+					Game.getPhragmitesHandler().getPhragmites().size() > Pc || 
+					Game.getCordGrassHandler().getCordGrass().size() > CGc);
 			
-			Game.getPhragmitesControl().setResearched(false);
-			Game.getCordGrassControl().setResearched(true);
-			Pc = Game.getPhragmitesControl().getPhragmites().size();
-			CGc = Game.getCordGrassControl().getCordGrass().size();
+			Game.getPhragmitesHandler().setResearched(false);
+			Game.getCordGrassHandler().setResearched(true);
+			Pc = Game.getPhragmitesHandler().getPhragmites().size();
+			CGc = Game.getCordGrassHandler().getCordGrass().size();
 			ph.spawnTest();
 			assertTrue("There should be 1 more element in CordGrass or Phragmites", 
-					Game.getPhragmitesControl().getPhragmites().size() > Pc || 
-					Game.getCordGrassControl().getCordGrass().size() > CGc);
+					Game.getPhragmitesHandler().getPhragmites().size() > Pc || 
+					Game.getCordGrassHandler().getCordGrass().size() > CGc);
 		}
 	}
 	
@@ -141,15 +141,15 @@ public class PopulationHandlerTest {
 		ph.setTotalPlant(10);
 		ph.setTP(25);
 		for(int i=0;i<100;i++) {
-			Game.getPhragmitesControl().setResearched(false);
-			Game.getCordGrassControl().setResearched(false);
-			Pc = Game.getPhragmitesControl().getPhragmites().size();
-			CGc = Game.getCordGrassControl().getCordGrass().size();
+			Game.getPhragmitesHandler().setResearched(false);
+			Game.getCordGrassHandler().setResearched(false);
+			Pc = Game.getPhragmitesHandler().getPhragmites().size();
+			CGc = Game.getCordGrassHandler().getCordGrass().size();
 			ph.spawnTest();
 			
 			assertTrue("There should be 1 less element in CordGrass or Phragmites", 
-					Game.getPhragmitesControl().getPhragmites().size() < Pc || 
-					Game.getCordGrassControl().getCordGrass().size() < CGc);
+					Game.getPhragmitesHandler().getPhragmites().size() < Pc || 
+					Game.getCordGrassHandler().getCordGrass().size() < CGc);
 		}
 	}
 	
@@ -164,50 +164,50 @@ public class PopulationHandlerTest {
 		ph.setTotalAnimal(25);
 		ph.setTA(10);
 		for(int i=0;i<100;i++) {
-			Game.getTurtleControl().setResearched(true);
-			Tc = Game.getTurtleControl().getTurtle().size();
+			Game.getTurtleHandler().setResearched(true);
+			Tc = Game.getTurtleHandler().getTurtle().size();
 			ph.spawnTest();
 			
-			assertTrue("There could be 1 more added to Turtle", Game.getTurtleControl().getTurtle().size() >= Tc);
+			assertTrue("There could be 1 more added to Turtle", Game.getTurtleHandler().getTurtle().size() >= Tc);
 			
-			Game.getTurtleControl().setResearched(false);
-			Tc = Game.getTurtleControl().getTurtle().size();
+			Game.getTurtleHandler().setResearched(false);
+			Tc = Game.getTurtleHandler().getTurtle().size();
 			ph.spawnTest();
 			
-			assertTrue("There could be 1 more added to Turtle", Game.getTurtleControl().getTurtle().size() >= Tc);
+			assertTrue("There could be 1 more added to Turtle", Game.getTurtleHandler().getTurtle().size() >= Tc);
 		}
 		//Crabs
 		int Cc, BCc;
 		for(int i=0;i<100;i++) {
-			Game.getCrabControl().setResearched(false);
-			Game.getBlueCrabControl().setResearched(false);
-			Cc = Game.getCrabControl().getCrabs().size();
-			BCc = Game.getBlueCrabControl().getBlueCrabs().size();
+			Game.getCrabHandler().setResearched(false);
+			Game.getBlueCrabHandler().setResearched(false);
+			Cc = Game.getCrabHandler().getCrabs().size();
+			BCc = Game.getBlueCrabHandler().getBlueCrabs().size();
 			ph.spawnTest();
 			
 			assertTrue("There should be 1 more element in Crab or BlueCrab", 
-					Game.getCrabControl().getCrabs().size() >= Cc && 
-					Game.getBlueCrabControl().getBlueCrabs().size() >= BCc);
+					Game.getCrabHandler().getCrabs().size() >= Cc && 
+					Game.getBlueCrabHandler().getBlueCrabs().size() >= BCc);
 			
-			Game.getCrabControl().setResearched(true);
-			Game.getBlueCrabControl().setResearched(true);
-			Cc = Game.getCrabControl().getCrabs().size();
-			BCc = Game.getBlueCrabControl().getBlueCrabs().size();
+			Game.getCrabHandler().setResearched(true);
+			Game.getBlueCrabHandler().setResearched(true);
+			Cc = Game.getCrabHandler().getCrabs().size();
+			BCc = Game.getBlueCrabHandler().getBlueCrabs().size();
 			ph.spawnTest();
 			
 			assertTrue("There should be 1 more element in Crab or BlueCrab", 
-					Game.getCrabControl().getCrabs().size() >= Cc && 
-					Game.getBlueCrabControl().getBlueCrabs().size() >= BCc);
+					Game.getCrabHandler().getCrabs().size() >= Cc && 
+					Game.getBlueCrabHandler().getBlueCrabs().size() >= BCc);
 		
-			Game.getCrabControl().setResearched(true);
-			Game.getBlueCrabControl().setResearched(false);
-			Cc = Game.getCrabControl().getCrabs().size();
-			BCc = Game.getBlueCrabControl().getBlueCrabs().size();
+			Game.getCrabHandler().setResearched(true);
+			Game.getBlueCrabHandler().setResearched(false);
+			Cc = Game.getCrabHandler().getCrabs().size();
+			BCc = Game.getBlueCrabHandler().getBlueCrabs().size();
 			ph.spawnTest();
 			
 			assertTrue("There should be 1 more element in Crab or BlueCrab", 
-					Game.getCrabControl().getCrabs().size() >= Cc && 
-					Game.getBlueCrabControl().getBlueCrabs().size() >= BCc);
+					Game.getCrabHandler().getCrabs().size() >= Cc && 
+					Game.getBlueCrabHandler().getBlueCrabs().size() >= BCc);
 		}
 	}
 	
@@ -222,15 +222,15 @@ public class PopulationHandlerTest {
 		ph.setTotalAnimal(10);
 		ph.setTA(25);
 		for(int i=0;i<100;i++) {
-			Cc = Game.getCrabControl().getCrabs().size();
-			BCc = Game.getBlueCrabControl().getBlueCrabs().size();
-			Tc = Game.getTurtleControl().getTurtle().size();
+			Cc = Game.getCrabHandler().getCrabs().size();
+			BCc = Game.getBlueCrabHandler().getBlueCrabs().size();
+			Tc = Game.getTurtleHandler().getTurtle().size();
 			ph.spawnTest();
 			
 			
-			assertTrue("There could be 1 removed from Crab", Game.getCrabControl().getCrabs().size() <= Cc);
-			assertTrue("There could be 1 removed from BlueCrab", Game.getBlueCrabControl().getBlueCrabs().size() <= BCc);
-			assertTrue("There could be 1 removed from Turtle", Game.getTurtleControl().getTurtles().size() <= Tc);
+			assertTrue("There could be 1 removed from Crab", Game.getCrabHandler().getCrabs().size() <= Cc);
+			assertTrue("There could be 1 removed from BlueCrab", Game.getBlueCrabHandler().getBlueCrabs().size() <= BCc);
+			assertTrue("There could be 1 removed from Turtle", Game.getTurtleHandler().getTurtles().size() <= Tc);
 		}
 		
 	}
@@ -240,7 +240,7 @@ public class PopulationHandlerTest {
 	 * @Tests Tests Setters and Getters of PopulationHandler
 	 */
 	@Test
-	public void setTotalPlantTest() {
+	public void getterSetterTest() {
 		ph.setTotalPlant(25);
 		assertEquals("TotalPlant should be 25",ph.getTotalPlant(),25);
 		ph.setTotalAnimal(10);

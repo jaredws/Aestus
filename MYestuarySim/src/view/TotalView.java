@@ -81,7 +81,7 @@ public class TotalView extends JPanel{
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
       
         
-        for(int i = 0; i < G.getHealthControl().check(G.calculateHealth()); i++){
+        for(int i = 0; i < G.getHealthHandler().check(G.calculateHealth()); i++){
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
@@ -91,38 +91,38 @@ public class TotalView extends JPanel{
         }
     
        
-        for(int i = 0; i < G.getCordGrassControl().getCordGrass().size(); i++)
+        for(int i = 0; i < G.getCordGrassHandler().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(CGV.getImage(G.getCordGrassControl().getCordGrass(i).getLife()), G.getCordGrassControl().getCordGrass(i).getX(), 
-        			G.getCordGrassControl().getCordGrass(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(CGV.getImage(G.getCordGrassHandler().getCordGrass(i).getLife()), G.getCordGrassHandler().getCordGrass(i).getX(), 
+        			G.getCordGrassHandler().getCordGrass(i).getY(), null); // see javadoc for more info on the parameters  
        
-        for(int i = 0; i < G.getPhragmitesControl().getPhragmites().size(); i++)
+        for(int i = 0; i < G.getPhragmitesHandler().getPhragmites().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PV.getImage(G.getPhragmitesControl().getPhragmites(i).getLife()), G.getPhragmitesControl().getPhragmites(i).getX(), 
-        			G.getPhragmitesControl().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(PV.getImage(G.getPhragmitesHandler().getPhragmites(i).getLife()), G.getPhragmitesHandler().getPhragmites(i).getX(), 
+        			G.getPhragmitesHandler().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
       
-        for(int i = 0; i < G.getPollutionControl().getPollution().size(); i++)
+        for(int i = 0; i < G.getPollutionHandler().getPollution().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PUV.getImage(G.getPollutionControl().getPollution(i).type), G.getPollutionControl().getPollution().get(i).getX(), 
-        			G.getPollutionControl().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(PUV.getImage(G.getPollutionHandler().getPollution(i).type), G.getPollutionHandler().getPollution().get(i).getX(), 
+        			G.getPollutionHandler().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
       
         
         
         
-        for(int i = 0; i < G.getTurtleControl().getTurtles().size(); i++)
+        for(int i = 0; i < G.getTurtleHandler().getTurtles().size(); i++)
     	//Made the default get Image 0 here, a movement may need to be called instead
-    	g.drawImage(TV.getImage(G.getTurtleControl().getTurtle(i).getMove()), G.getTurtleControl().getTurtle(i).getX(), 
-    			G.getTurtleControl().getTurtle(i).getY(), null); // see javadoc for more info on the parameters
+    	g.drawImage(TV.getImage(G.getTurtleHandler().getTurtle(i).getMove()), G.getTurtleHandler().getTurtle(i).getX(), 
+    			G.getTurtleHandler().getTurtle(i).getY(), null); // see javadoc for more info on the parameters
         
-        for(int i = 0; i < G.getCrabControl().getCrabs().size(); i++)
+        for(int i = 0; i < G.getCrabHandler().getCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(CV.getImage(G.getCrabControl().getCrab(i).move), G.getCrabControl().getCrab(i).getX(), 
-        			G.getCrabControl().getCrab(i).getY(), null); // see javadoc for more info on the parameters            
+        	g.drawImage(CV.getImage(G.getCrabHandler().getCrab(i).move), G.getCrabHandler().getCrab(i).getX(), 
+        			G.getCrabHandler().getCrab(i).getY(), null); // see javadoc for more info on the parameters            
        
-        for(int i = 0; i < G.getBlueCrabControl().getBlueCrabs().size(); i++)
+        for(int i = 0; i < G.getBlueCrabHandler().getBlueCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(BCV.getImage(G.getBlueCrabControl().getBlueCrab(i).move), G.getBlueCrabControl().getBlueCrabs().get(i).getX(), 
-        			G.getBlueCrabControl().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
+        	g.drawImage(BCV.getImage(G.getBlueCrabHandler().getBlueCrab(i).move), G.getBlueCrabHandler().getBlueCrabs().get(i).getX(), 
+        			G.getBlueCrabHandler().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
         
        
 	

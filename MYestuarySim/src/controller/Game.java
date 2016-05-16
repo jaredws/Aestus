@@ -242,7 +242,7 @@ public class Game {
 		return rand;
 	}
 
-	public static CrabHandler getCrabControl() {
+	public static CrabHandler getCrabHandler() {
 		return CC;
 	}
 
@@ -254,27 +254,27 @@ public class Game {
 		return TV;
 	}
 	
-	public static TurtleHandler getTurtleControl() {
+	public static TurtleHandler getTurtleHandler() {
 		return TC;
 	}
 	
-	public static BlueCrabHandler getBlueCrabControl() {
+	public static BlueCrabHandler getBlueCrabHandler() {
 		return BCC;
 	}
 	
-	public static PhragmitesHandler getPhragmitesControl(){
+	public static PhragmitesHandler getPhragmitesHandler(){
 		return PC;
 	}
 	
-	public static CordGrassHandler getCordGrassControl(){
+	public static CordGrassHandler getCordGrassHandler(){
 		return CGC;
 	}
 	
-	public static HealthHandler getHealthControl(){
+	public static HealthHandler getHealthHandler(){
 		return HC;
 	}
 	
-	public static PollutionHandler getPollutionControl(){
+	public static PollutionHandler getPollutionHandler(){
 		return PolC;
 	}
 	

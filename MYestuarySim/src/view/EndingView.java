@@ -133,19 +133,19 @@ public class EndingView extends JPanel {
         
         g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
-        for(int i = 0; i < Game.getHealthControl().check(health); i++){
+        for(int i = 0; i < Game.getHealthHandler().check(health); i++){
         	g.drawImage(star, getStarX(i), getStarY(), null);
         }
         for(int i=1; i < getSpeciesLabels().size(); i++) {
-        	if(Game.getCrabControl().getResearched() && i==1)
+        	if(Game.getCrabHandler().getResearched() && i==1)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
-        	else if(Game.getBlueCrabControl().getResearched() && i == 2)
+        	else if(Game.getBlueCrabHandler().getResearched() && i == 2)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
-        	else if(Game.getTurtleControl().getResearched() && i==3)
+        	else if(Game.getTurtleHandler().getResearched() && i==3)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
-        	else if(Game.getPhragmitesControl().getResearched() && i==4)
+        	else if(Game.getPhragmitesHandler().getResearched() && i==4)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
-        	else if(Game.getCordGrassControl().getResearched() && i==5)
+        	else if(Game.getCordGrassHandler().getResearched() && i==5)
         		g.drawImage(check, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-check.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
         	else 
         		g.drawImage(x, getSpeciesLabels().get(1).getX()+getSpeciesLabels().get(1).getWidth()+getResearchedLabel().getWidth()/2-x.getWidth(null)/2, getSpeciesLabels().get(i).getY(),null);
@@ -239,11 +239,11 @@ public class EndingView extends JPanel {
 		remove = new JLabel("Removed");
 		remove.setHorizontalAlignment(SwingConstants.CENTER);
 		remove.setVerticalAlignment(SwingConstants.CENTER);
-		JLabel mittenCrabs = new JLabel(Integer.toString(G.getCrabControl().getRemoved()));
-		JLabel blueCrabs = new JLabel(Integer.toString(G.getBlueCrabControl().getRemoved()));
-		JLabel turtle = new JLabel(Integer.toString(G.getTurtleControl().getRemoved()));
-		JLabel phrag = new JLabel(Integer.toString(G.getPhragmitesControl().getRemoved()));
-		JLabel cordGrass = new JLabel(Integer.toString(G.getCordGrassControl().getRemoved()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(G.getCrabHandler().getRemoved()));
+		JLabel blueCrabs = new JLabel(Integer.toString(G.getBlueCrabHandler().getRemoved()));
+		JLabel turtle = new JLabel(Integer.toString(G.getTurtleHandler().getRemoved()));
+		JLabel phrag = new JLabel(Integer.toString(G.getPhragmitesHandler().getRemoved()));
+		JLabel cordGrass = new JLabel(Integer.toString(G.getCordGrassHandler().getRemoved()));
 		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
@@ -275,11 +275,11 @@ public class EndingView extends JPanel {
 		end = new JLabel("End");
 		end.setHorizontalAlignment(SwingConstants.CENTER);
 		end.setVerticalAlignment(SwingConstants.CENTER);
-		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabControl().getCrabs().size()));
-		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabControl().getBlueCrabs().size()));
-		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleControl().getTurtles().size()));
-		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesControl().getPhragmites().size()));
-		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassControl().getCordGrass().size()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabHandler().getCrabs().size()));
+		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabHandler().getBlueCrabs().size()));
+		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleHandler().getTurtles().size()));
+		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesHandler().getPhragmites().size()));
+		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassHandler().getCordGrass().size()));
 		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
@@ -342,21 +342,21 @@ public class EndingView extends JPanel {
 	}
 	public static int getScore(){
 		int score = 0;
-		score -= 10*Game.getCrabControl().getCrabs().size();
-		score += 10*Game.getBlueCrabControl().getBlueCrabs().size();
-		score += 7*Game.getTurtleControl().getTurtles().size();
-		score -= 5*Game.getPhragmitesControl().getPhragmites().size();
-		score += 5*Game.getCordGrassControl().getCordGrass().size();
-		score -= 20*Game.getPollutionControl().getPollution().size();
-		if(Game.getCrabControl().getResearched())
+		score -= 10*Game.getCrabHandler().getCrabs().size();
+		score += 10*Game.getBlueCrabHandler().getBlueCrabs().size();
+		score += 7*Game.getTurtleHandler().getTurtles().size();
+		score -= 5*Game.getPhragmitesHandler().getPhragmites().size();
+		score += 5*Game.getCordGrassHandler().getCordGrass().size();
+		score -= 20*Game.getPollutionHandler().getPollution().size();
+		if(Game.getCrabHandler().getResearched())
 			score += 10;
-		if(Game.getBlueCrabControl().getResearched())
+		if(Game.getBlueCrabHandler().getResearched())
 			score += 10;
-		if(Game.getTurtleControl().getResearched())
+		if(Game.getTurtleHandler().getResearched())
 			score += 10;
-		if(Game.getPhragmitesControl().getResearched())
+		if(Game.getPhragmitesHandler().getResearched())
 			score += 10;
-		if(Game.getCordGrassControl().getResearched())
+		if(Game.getCordGrassHandler().getResearched())
 			score += 10;
 		return score;
 	}
