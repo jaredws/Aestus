@@ -14,7 +14,7 @@ import view.EndingView;
 
 
 /**
- * The Class EndScreenControl.
+ * The class EndScreenControl
  *
  * @author Team 0
  * A controller that manages the functionality of the ending screen.
