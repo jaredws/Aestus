@@ -70,6 +70,10 @@ public class TurtleHandler {
 		return turtles.get(i);
 	}
 	
+	public List<Turtle> getTurtle(){
+		return turtles;
+	}
+	
 	public boolean getResearched() {
 		return this.isResearched();
 	}
