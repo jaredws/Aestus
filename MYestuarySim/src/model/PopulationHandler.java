@@ -62,7 +62,7 @@ public class PopulationHandler {
 	}
 	
 	public void calculate(){
-		if(!Game.getTesting()){
+		if(!game.getTesting()){
 			NIP = Game.getCordGrassHandler().getCordGrass().size(); //calculate current noninvasive plant
 			IP = Game.getPhragmitesHandler().getPhragmites().size(); //calculate current invasive plant
 			NIA = Game.getTurtleHandler().getTurtles().size() + Game.getBlueCrabHandler().getBlueCrabs().size();//calculate current noninvasive animal
@@ -115,7 +115,7 @@ public class PopulationHandler {
 	}
 	
 	public void spawnTest() {
-		if(Game.getTesting()) spawn();
+		if(game.getTesting()) spawn();
 	}
 	
 	/**
@@ -291,79 +291,79 @@ public class PopulationHandler {
 	}
 	
 	public void setTotalPlant(int TP) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			TotalPlant = TP;
 	}
 	public void setTotalAnimal(double TA) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			TotalAnimal = TA;
 	}
 	public void setNonInvasivePlant(int NIP) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			NonInvasivePlant = NIP;
 	}
 	public void setInvasivePlant(int IP) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			InvasivePlant = IP;
 	}
 	public void setNonInvasiveAnimal(int NIA) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			NonInvasiveAnimal = NIA;
 	}
 	public void setInvasiveAnimal(int IA) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			InvasiveAnimal = IA;
 	}
 	public void setPollution(int P) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			Pollution = P;
 	}
 	public void setMittenDie(int MCD) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			MittenCrabDied = MCD;
 	}
 	public void setBlueCrabDie(int BCD) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			BlueCrabDied = BCD;
 	}
 	public void setTurtleDie(int TD) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			TurtleDied = TD;
 	}
 	public void setPhragDie(int PD) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			PhragmitesDied = PD;
 	}
 	public void setCordDie(int CGD) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			CordGrassDied = CGD;
 	}
 	public void setNIP(int N) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			NIP = N;
 	}
 	public void setIP(int I) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			IP = I;
 	}
 	public void setNIA(int N) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			NIA = N;
 	}
 	public void setIA(int I) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			IA = I;
 	}
 	public void setTP(int T) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			TP = T;
 	}
 	public void setTA(int T) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			TA = T;
 	}
 	public void setP(int p) {
-		if(Game.getTesting())
+		if(game.getTesting())
 			P = p;
 	}
 

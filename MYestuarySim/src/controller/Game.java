@@ -29,20 +29,20 @@ import view.StartingView;
 import view.TotalView;
 
 public class Game {
-	public static boolean testing;
+	public boolean testing;
 	Random rand = new Random();
 	static Random r = new Random();
 	static StartingView SV;
-	static CrabHandler CC;
-	static TurtleHandler TC;
-	static BlueCrabHandler BCC;
+	static CrabHandler CH;
+	static TurtleHandler TH;
+	static BlueCrabHandler BCH;
 	static ToolControl TLC;
 	static TotalView TV;
-	static PopulationHandler PopC;
-	static CordGrassHandler CGC;
-	static PhragmitesHandler PC;
-	static HealthHandler HC;
-	static PollutionHandler PolC;
+	static PopulationHandler PopH;
+	static CordGrassHandler CGH;
+	static PhragmitesHandler PH;
+	static HealthHandler HH;
+	static PollutionHandler PolH;
 	static EndingView EV;
 	static EndScreenControl ESC;
 	static CountdownControl CDC;
@@ -69,11 +69,11 @@ public class Game {
 	public int calculateHealth(){
 		int c,bc,t,p,cg;
 		//Crabs are worth double plants right now
-		c = 2*CC.getCrabs().size();
-		bc = 2*BCC.getBlueCrabs().size();
-		t = TC.getTurtles().size();
-		p = PC.getPhragmites().size();
-		cg = CGC.getCordGrass().size();
+		c = 2*CH.getCrabs().size();
+		bc = 2*BCH.getBlueCrabs().size();
+		t = TH.getTurtles().size();
+		p = PH.getPhragmites().size();
+		cg = CGH.getCordGrass().size();
 		return (bc+t+cg-p-c);
 	}
 	
@@ -103,29 +103,29 @@ public class Game {
 	public void run(Game G){
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
-		CC = new CrabHandler();
+		CH = new CrabHandler();
 		TLC = new ToolControl((int)screenSize.getHeight(),(int)screenSize.getWidth());
-		TC = new TurtleHandler();
-		BCC = new BlueCrabHandler();
-		PopC = new PopulationHandler(this);
-		PC = new PhragmitesHandler();
-		CGC = new CordGrassHandler();
-		HC = new HealthHandler();
-		PolC = new PollutionHandler();
+		TH = new TurtleHandler();
+		BCH = new BlueCrabHandler();
+		PopH = new PopulationHandler(this);
+		PH = new PhragmitesHandler();
+		CGH = new CordGrassHandler();
+		HH = new HealthHandler();
+		PolH = new PollutionHandler();
 		CDC = new CountdownControl();
 	
 		TV.update(this);
 		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 		SV.dispose(); 
 		for(int i = 0; i<5; i++){
-			PC.addPhragmites(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
-			CC.addCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			PH.addPhragmites(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			CH.addCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 		}
 		for(int j = 0; j < 5; j++){
-			BCC.addBlueCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
-			CGC.addCordGrass(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
-			TC.addTurtle(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
-			PolC.addPollution(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			BCH.addBlueCrab(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			CGH.addCordGrass(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			TH.addTurtle(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
+			PolH.addPollution(r.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12,r.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12);
 		}
 		
 		/**
@@ -141,17 +141,17 @@ public class Game {
 		    		sec = 0;
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
-		    		  PopC.update(G);
+		    		  PopH.update(G);
 		    		  threeSec=0;
 		    		  
 		    	}
 		    	if(!S.pause && !researchPause){
-					CC.moveCrabs();
-					TC.moveTurtles();
-					BCC.moveBlueCrabs();
-					PC.age();
-					CGC.age();
-					PolC.age();
+					CH.moveCrabs();
+					TH.moveTurtles();
+					BCH.moveBlueCrabs();
+					PH.age();
+					CGH.age();
+					PolH.age();
 					sec+=t;
 				    threeSec+=t;
 				    S.research = -1;
@@ -173,7 +173,7 @@ public class Game {
 			if(counter%(100*11) == 0){
 				SoundController.playBackground();
 			}
-			S.checkPos(CC,TC,BCC,CGC,PC,TLC,PolC);
+			S.checkPos(CH,TH,BCH,CGH,PH,TLC,PolH);
 			TV.update(this);
 			TV.repaint();
 			if(CDC.getTime() == 0) break;
@@ -186,10 +186,10 @@ public class Game {
 				continue;
 			}
 			S.researchPause = false;
-			CC.deleteCrabs(TLC);
-			TC.deleteTurtles(TLC);
-			BCC.deleteBlueCrabs(TLC);
-			PolC.deletePollution(TLC);
+			CH.deleteCrabs(TLC);
+			TH.deleteTurtles(TLC);
+			BCH.deleteBlueCrabs(TLC);
+			PolH.deletePollution(TLC);
 			if(testing)break;
 		}
 		return;
@@ -198,7 +198,7 @@ public class Game {
 	public void end(Game G) {
 		int health = this.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
-		EV = new EndingView(esc, PopC, health);
+		EV = new EndingView(esc, PopH, health);
 		EV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		TV.dispose();
 		EV.add(EV.getScoreLabel());
@@ -243,7 +243,7 @@ public class Game {
 	}
 
 	public static CrabHandler getCrabHandler() {
-		return CC;
+		return CH;
 	}
 
 	public static ToolControl getToolControl() {
@@ -255,27 +255,27 @@ public class Game {
 	}
 	
 	public static TurtleHandler getTurtleHandler() {
-		return TC;
+		return TH;
 	}
 	
 	public static BlueCrabHandler getBlueCrabHandler() {
-		return BCC;
+		return BCH;
 	}
 	
 	public static PhragmitesHandler getPhragmitesHandler(){
-		return PC;
+		return PH;
 	}
 	
 	public static CordGrassHandler getCordGrassHandler(){
-		return CGC;
+		return CGH;
 	}
 	
 	public static HealthHandler getHealthHandler(){
-		return HC;
+		return HH;
 	}
 	
 	public static PollutionHandler getPollutionHandler(){
-		return PolC;
+		return PolH;
 	}
 	
 	public static CountdownControl getCountdownControl(){
@@ -283,12 +283,15 @@ public class Game {
 	}
 	
 	public static PopulationHandler getPopulationHandler() {
-		return PopC;
+		return PopH;
 	}
 	
-	public static boolean getTesting() {
+	public boolean getTesting() {
 		return testing;
 	}
 	
+	public void setTesting(boolean t) {
+		this.testing = t;
+	}
 }
 
