@@ -19,19 +19,19 @@ public class PopulationHandler {
 	 * I also want it to be more likely to spawn an Invasive species. This can be population dependent if we wish.
 	 */
 	
-	int NIP; //current noninvasive plant
-	int IP; //current invasive plant
-	int NIA;//current noninvasive animal
-	int IA; //current invasive animal
-	int TP; //current total plants
-	int TA; //current total animals
-	int P; //current total pollution
+	private int NIP; //current noninvasive plant
+	private int IP; //current invasive plant
+	private int NIA;//current noninvasive animal
+	private int IA; //current invasive animal
+	private int TP; //current total plants
+	private int TA; //current total animals
+	private int P; //current total pollution
 	
-	int CordGrassDied;
-	int PhragmitesDied;
-	int TurtleDied;
-	int BlueCrabDied;
-	int MittenCrabDied;
+	private int CordGrassDied;
+	private int PhragmitesDied;
+	private int TurtleDied;
+	private int BlueCrabDied;
+	private int MittenCrabDied;
 	
 	private int TotalPlant;
 	private double TotalAnimal;
@@ -51,6 +51,7 @@ public class PopulationHandler {
 		this.PhragmitesDied = 0;
 		this.TurtleDied = 0;
 		this.MittenCrabDied = 0;
+		rand = new Random();
 	}
 	
 	
@@ -128,7 +129,7 @@ public class PopulationHandler {
 		rand = new Random();
 		if(TotalPlant>TP){
 			//If neither has been Researched
-			if(!(game.getPhragmitesControl().isResearched()) && !(game.getCordGrassControl().isResearched())){
+			if(!(Game.getPhragmitesControl().isResearched()) && !(Game.getCordGrassControl().isResearched())){
 				if(rand.nextInt(4)%4==0){//1/4 probability of adding Non-Invasive
 					Game.getCordGrassControl().addCordGrass(makeX(), makeY());
 				}
@@ -138,7 +139,7 @@ public class PopulationHandler {
 
 			}
 			//If both have been researched
-			else if(game.getPhragmitesControl().isResearched() &&  (game.getCordGrassControl().isResearched())){
+			else if(Game.getPhragmitesControl().isResearched() &&  (Game.getCordGrassControl().isResearched())){
 				if(rand.nextInt(8)%3==0){//3/8 probability of adding Invasive
 					Game.getPhragmitesControl().addPhragmites(makeX(), makeY());
 				}
@@ -261,6 +262,27 @@ public class PopulationHandler {
 	}
 	public int getCordDie() {
 		return this.CordGrassDied;
+	}
+	public int getNIP() {
+		return NIP;
+	}
+	public int getIP() {
+		return IP;
+	}
+	public int getNIA() {
+		return NIA;
+	}
+	public int getIA() {
+		return IA;
+	}
+	public int getTP() {
+		return TP;
+	}
+	public int getTA() {
+		return TA;
+	}
+	public int getP() {
+		return P;
 	}
 
 }

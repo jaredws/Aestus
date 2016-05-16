@@ -19,9 +19,11 @@ public class PopulationHandlerTest {
 
 	static PopulationHandler ph;
 	static Game g;
+	static Dimension screenSize;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		g = new Game();
 		ph = new PopulationHandler(g);
 	}
@@ -34,13 +36,25 @@ public class PopulationHandlerTest {
 	
 	/**
 	 * @author Steven
-	 * @Tests Adds a blue crab and tests the x/y coordinates of the crab.
+	 * @Tests Tests the return of makeX
 	 */
 	@Test
-	public void addCrabTest() {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		System.out.println(ph.makeX());
-		System.out.println(ph.makeY());
-		System.out.println((int)screenSize.getWidth()*9/12);
+	public void makeXTest() {
+		assertTrue("Should return a number between 0 and " + (int)screenSize.getWidth()*9/12+(int)screenSize.getWidth()/12,
+				ph.makeX() >=0 && ph.makeX() < (int)screenSize.getWidth()*9/12+(int)screenSize.getWidth()/12);
+		assertFalse("Should not return a number > " + (int)screenSize.getWidth()*9/12+(int)screenSize.getWidth()/12,
+				ph.makeX() > (int)screenSize.getWidth()*9/12+(int)screenSize.getWidth()/12);
+	}
+	
+	/**
+	 * @author Steven
+	 * @Tests Tests the return of makeY
+	 */
+	@Test
+	public void makeYTest() {
+		assertTrue("Should return a number between 0 and " + (int)screenSize.getHeight()*8/12 + (int)screenSize.getHeight()/12,
+				ph.makeY() >=0 && ph.makeY() < (int)screenSize.getHeight()*8/12 + (int)screenSize.getHeight()/12);
+		assertFalse("Should not return a number > " + (int)screenSize.getHeight()*8/12 + (int)screenSize.getHeight()/12,
+				ph.makeY() > (int)screenSize.getHeight()*8/12 + (int)screenSize.getHeight()/12);
 	}
 }
