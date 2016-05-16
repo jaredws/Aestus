@@ -36,7 +36,7 @@ public class PopulationHandler {
 	private int TotalPlant;
 	private double TotalAnimal;
 	private int NonInvasivePlant;
-	private int InvasivePlant;
+	private int InvasivePlant;	
 	private int NonInvasiveAnimal;
 	private int InvasiveAnimal;
 	private int Pollution;

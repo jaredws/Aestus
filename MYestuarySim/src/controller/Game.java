@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -61,50 +60,6 @@ public class Game {
 		G.run(G);
 	}
 
-	public Random getRand() {
-		return rand;
-	}
-
-	public static CrabHandler getCrabControl() {
-		return CC;
-	}
-
-	public static ToolControl getToolControl() {
-		return TLC;
-	}
-
-	public static TotalView getTotalView() {
-		return TV;
-	}
-	
-	public static TurtleHandler getTurtleControl() {
-		return TC;
-	}
-	
-	public static BlueCrabHandler getBlueCrabControl() {
-		return BCC;
-	}
-	
-	public static PhragmitesHandler getPhragmitesControl(){
-		return PC;
-	}
-	
-	public static CordGrassHandler getCordGrassControl(){
-		return CGC;
-	}
-	
-	public static HealthHandler getHealthControl(){
-		return HC;
-	}
-	
-	public static PollutionHandler getPollutionControl(){
-		return PolC;
-	}
-	
-	public static CountdownControl getCountdownControl(){
-		return CDC;
-	}
-	
 	//Is this still necessary? 
 	//does the HealthHandler deal with this?- JS
 	public int calculateHealth(){
@@ -276,6 +231,50 @@ public class Game {
 			if(testing)break;
 		}
 		EV.close();
+	}
+	
+	public Random getRand() {
+		return rand;
+	}
+
+	public static CrabHandler getCrabControl() {
+		return CC;
+	}
+
+	public static ToolControl getToolControl() {
+		return TLC;
+	}
+
+	public static TotalView getTotalView() {
+		return TV;
+	}
+	
+	public static TurtleHandler getTurtleControl() {
+		return TC;
+	}
+	
+	public static BlueCrabHandler getBlueCrabControl() {
+		return BCC;
+	}
+	
+	public static PhragmitesHandler getPhragmitesControl(){
+		return PC;
+	}
+	
+	public static CordGrassHandler getCordGrassControl(){
+		return CGC;
+	}
+	
+	public static HealthHandler getHealthControl(){
+		return HC;
+	}
+	
+	public static PollutionHandler getPollutionControl(){
+		return PolC;
+	}
+	
+	public static CountdownControl getCountdownControl(){
+		return CDC;
 	}
 	
 }
