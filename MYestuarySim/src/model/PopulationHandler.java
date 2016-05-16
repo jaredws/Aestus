@@ -44,15 +44,6 @@ public class PopulationHandler {
 	Random rand;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	public PopulationHandler() {
-		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		this.BlueCrabDied = 0;
-		this.CordGrassDied = 0;
-		this.PhragmitesDied = 0;
-		this.TurtleDied = 0;
-		this.MittenCrabDied = 0;
-	}
-	
 	public PopulationHandler(Game g){
 		this.game = g;
 		this.BlueCrabDied = 0;

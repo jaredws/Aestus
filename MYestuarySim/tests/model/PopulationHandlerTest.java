@@ -23,7 +23,7 @@ public class PopulationHandlerTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		g = new Game();
-		ph = new PopulationHandler();
+		ph = new PopulationHandler(g);
 	}
 
 	@AfterClass
