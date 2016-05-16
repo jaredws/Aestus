@@ -29,22 +29,53 @@ import model.PollutionHandler;
 import model.Turtle;
 import model.TurtleHandler;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ScreenControl. Manages the interface of the client mouse with positions on the screen, 
+ * and distributes appropriate actions to objects accordingly 
+ */
 public class ScreenControl extends JPanel {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 481321254387509732L;
 
+	/** The integers representing coordinates of various objects and mouse clicks */
 	// Implement listener on the frame??? -JS
 	private int x, y, magX, magY, shearX, shearY;
+	
+	/** The int Research, a metric for scoring the game */
 	public int research;
+	
+	/** The j. */
 	private int j;
+	
+	/** The coordinates of a click */
 	private int clickx,clicky;
+	
+	/** The individual metrics for the research score */
 	private int turtleResearch,phragResearch,bluecrabResearch,mittenCrabResearch,cordResearch;
+	
+	/** The state booleans for various tools and functions of the game */
 	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap, shearsOpen;
+	
+	/** The currently grabbed object */
 	Grabbable grabbed;
+	
+	/** The Random object for use in various parts of the game's functionality */
 	Random rand;
+	
+	/** The screen size. */
 	Dimension screenSize;
+	
+	/** The research pause state. */
 	public boolean researchPause;
 
+	/**
+	 * Constructor
+	 * Instantiates a new screen control with default attribute values
+	 * Also defines a mouse listener for the class
+	 * 
+	 */
 	public ScreenControl() {
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
@@ -123,6 +154,21 @@ public class ScreenControl extends JPanel {
 		});
 	}
 
+	/**
+	 * Based on a mouse click, handles the movement of all given objects as parameters
+	 * Also tracks the research metric based on if an object was researched
+	 * When a tool is clicked, manages the functionality and outcome of the use of that tool
+	 * 
+	 *
+	 * *parameter objects are given from their instances in the game class*
+	 * @param Crabhandler c 
+	 * @param TurtleHandler t
+	 * @param BlueCrabHandler bc
+	 * @param CordGrassHandler cgc
+	 * @param PhragmitesHandler pc
+	 * @param ToolControl tc
+	 * @param PollutionHandler puc
+	 */
 	public void checkPos(CrabHandler c, TurtleHandler t, BlueCrabHandler bc, CordGrassHandler cgc, PhragmitesHandler pc,
 			ToolControl tc,PollutionHandler puc) {
 		if (clicked) {
@@ -307,65 +353,146 @@ public class ScreenControl extends JPanel {
 
 	}
 
+	/**
+	 * Gets the mag x.
+	 *
+	 * @return the mag x
+	 */
 	public int getMagX() {
 		return this.magX;
 	}
 
+	/**
+	 * Gets the mag y.
+	 *
+	 * @return the mag y
+	 */
 	public int getMagY() {
 		return this.magY;
 	}
 
+	/**
+	 * Gets the shear x.
+	 *
+	 * @return the shear x
+	 */
 	public int getShearX() {
 		return this.shearX;
 	}
 
+	/**
+	 * Gets the shear y.
+	 *
+	 * @return the shear y
+	 */
 	public int getShearY() {
 		return this.shearY;
 	}
 
+	/**
+	 * Gets the mag glass.
+	 *
+	 * @return the mag glass
+	 */
 	public boolean getMagGlass() {
 		return this.magGlass;
 	}
 
+	/**
+	 * Gets the shears.
+	 *
+	 * @return the shears
+	 */
 	public boolean getShears() {
 		return this.shears;
 	}
 
+	/**
+	 * Gets the pause b.
+	 *
+	 * @return the pause b
+	 */
 	public boolean getPauseB() {
 		return this.pauseB;
 	}
 
+	/**
+	 * Gets the research.
+	 *
+	 * @return the research
+	 */
 	public int getResearch() {
 		return this.research;
 	}
 
+	/**
+	 * Gets the pause.
+	 *
+	 * @return the pause
+	 */
 	public boolean getPause() {
 		return this.pause;
 	}
 	
+	/**
+	 * Gets the clickx.
+	 *
+	 * @return the clickx
+	 */
 	public int getClickx() {
 		return clickx;
 	}
 
+	/**
+	 * Sets the clickx.
+	 *
+	 * @param clickx the new clickx
+	 */
 	public void setClickx(int clickx) {
 		this.clickx = clickx;
 	}
 
+	/**
+	 * Gets the clicky.
+	 *
+	 * @return the clicky
+	 */
 	public int getClicky() {
 		return clicky;
 	}
 
+	/**
+	 * Sets the clicky.
+	 *
+	 * @param clicky the new clicky
+	 */
 	public void setClicky(int clicky) {
 		this.clicky = clicky;
 	}
+	
+	/**
+	 * Gets the clicked.
+	 *
+	 * @return the clicked
+	 */
 	public boolean getClicked() {
 		return clicked;
 	}
 
+	/**
+	 * Sets the clicked.
+	 *
+	 * @param clicked the new clicked
+	 */
 	public void setClicked(boolean clicked) {
 		this.clicked = clicked;
 	}
 	
+	/**
+	 * Gets the shears open.
+	 *
+	 * @return the shears open
+	 */
 	public boolean getShearsOpen() {
 		return this.shearsOpen;
 	}
