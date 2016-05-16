@@ -9,14 +9,30 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+
+/**
+ * The Class SoundController.
+ * Contains functions that play various sounds/music to be used in game.
+ */
 public class SoundController {
+	
+	/** The sound state */
 	public static boolean sound = true;
 	
+	/**
+	 * Toggle sound on or off.
+	 */
 	public static void toggleSound(){
 		if(sound)sound = false;
 		else sound = true;
 	}
 	
+	/**
+	 * Play trap sound effect.
+	 * @exception UnsupportedAudioFileException - if the filetype of the audio file isn't supported
+	 * @exception IOException - if the disk read to the audio file fails
+	 * @exception LineUnavailableException - if the requested line is in use
+	 */
 	public static void playTrap(){
 		if(sound){
 			String soundName = "./sounds/crabtrap.wav";     
@@ -40,6 +56,12 @@ public class SoundController {
 		}
 	}
 	
+	/**
+	 * Play trash sound effect.
+	 * @exception UnsupportedAudioFileException - if the filetype of the audio file isn't supported
+	 * @exception IOException - if the disk read to the audio file fails
+	 * @exception LineUnavailableException - if the requested line is in use
+	 */
 	public static void playTrash(){
 		if(sound){
 			String soundName = "./sounds/trash.wav";     
@@ -63,6 +85,12 @@ public class SoundController {
 		}
 	}
 	
+	/**
+	 * Play background music.
+	 * @exception UnsupportedAudioFileException - if the filetype of the audio file isn't supported
+	 * @exception IOException - if the disk read to the audio file fails
+	 * @exception LineUnavailableException - if the requested line is in use
+	 */
 	public static void playBackground(){
 		if(sound){
 			String soundName = "./sounds/background.wav";     
@@ -86,6 +114,12 @@ public class SoundController {
 		}
 	}
 	
+	/**
+	 * Play shears sound effect.
+	 * @exception UnsupportedAudioFileException - if the filetype of the audio file isn't supported
+	 * @exception IOException - if the disk read to the audio file fails
+	 * @exception LineUnavailableException - if the requested line is in use
+	 */
 	public static void playShears(){
 		if(sound){
 			String soundName = "./sounds/shears.wav";     
@@ -109,6 +143,12 @@ public class SoundController {
 		}
 	}
 	
+	/**
+	 * Play intro music.
+	 * @exception UnsupportedAudioFileException - if the filetype of the audio file isn't supported
+	 * @exception IOException - if the disk read to the audio file fails
+	 * @exception LineUnavailableException - if the requested line is in use
+	 */
 	public static void playIntro(){
 		if(sound){
 			String soundName = "./sounds/Intro.wav";     

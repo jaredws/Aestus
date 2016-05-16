@@ -84,6 +84,7 @@ public class EndScreenControl extends JPanel {
 	 * Open webpage. Uses clients default web browser to open given URI
 	 *
 	 * @param uri the uri of the page to open
+	 * @exception Exception - If for any reason the browse function fails
 	 */
 	public static void openWebpage(URI uri) {
 	    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
@@ -100,6 +101,7 @@ public class EndScreenControl extends JPanel {
 	 * Open webpage. Wrapper for the function that takes a URI instead.
 	 *
 	 * @param url the url of the page to open
+	 * @exception URISyntaxException - if the uri is incorrectly formatted
 	 */
 	public static void openWebpage(URL url) {
 	    try {
