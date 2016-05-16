@@ -24,7 +24,7 @@ public class PopulationHandlerTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		g = new Game();
+		g = new Game(true);
 		ph = new PopulationHandler(g);
 	}
 

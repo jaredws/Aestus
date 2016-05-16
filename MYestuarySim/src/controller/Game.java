@@ -50,6 +50,7 @@ public class Game {
 	static int sec = 0;
 	static Timer timer;
 	static boolean researchPause = false;
+	private static Dimension screenSize;
 	
 	public Game(boolean test){
 		testing = test;
@@ -57,7 +58,10 @@ public class Game {
 	
 	public static void main(String[] args){
 		Game G = new Game(false);
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		G.start(G);
 		G.run(G);
+		G.end(G);
 	}
 
 	//Is this still necessary? 
@@ -72,19 +76,17 @@ public class Game {
 		cg = CGC.getCordGrass().size();
 		return (bc+t+cg-p-c);
 	}
-	public void run(Game G){
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	public void start(Game G) {
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
 		SV.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		SV.add(StartingView.timeL);
 		SV.add(StartingView.settingsL);
-		
 		SoundController.playIntro();
 	
 		while(s.getShowing()){
 			s.check();
-			
 			StartingView.timeL.setText(Integer.toString(StartingView.getTime()));
 			SV.update(this);
 			SV.repaint();
@@ -95,6 +97,10 @@ public class Game {
     		}
 			if(testing)break;
 		}
+		return;
+	}
+	
+	public void run(Game G){
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
 		CC = new CrabHandler();
@@ -139,7 +145,7 @@ public class Game {
 		    		  threeSec=0;
 		    		  
 		    	}
-		    	if(!S.pause  && !researchPause){
+		    	if(!S.pause && !researchPause){
 					CC.moveCrabs();
 					TC.moveTurtles();
 					BCC.moveBlueCrabs();
@@ -175,11 +181,6 @@ public class Game {
 			if(S.pause) {
 				TV.repaint();
 				if(S.getResearch() > -1 && !S.researchPause){
-//	        		try {
-//	        			Thread.sleep(10000);
-//	        		} catch (InterruptedException e) {
-//	        			e.printStackTrace();
-//	        			}
 	        		S.researchPause = true;
 	        	}
 				continue;
@@ -191,6 +192,10 @@ public class Game {
 			PolC.deletePollution(TLC);
 			if(testing)break;
 		}
+		return;
+	}
+	
+	public void end(Game G) {
 		int health = this.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
 		EV = new EndingView(esc, PopC, health);
