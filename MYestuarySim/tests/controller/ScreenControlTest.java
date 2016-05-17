@@ -68,12 +68,23 @@ public class ScreenControlTest {
 	}
 
 	@Test
-	public void test() {
-		//SC.setClicked(true);
-		//SC.setClickx(TC.getMag().getX());
-		r.mousePress(1024);
-		r.mouseRelease(1024);
-		System.out.println(SC.getClickx());
+	public void clickMagTest() {
+		int x = 0;
+		while(x<100){
+			
+			r.mouseMove(TC.getMag().getX()+TC.getMag().getSizeX()/2,
+					TC.getMag().getY()+TC.getMag().getSizeY()/2);
+			r.mousePress(1024);r.mouseRelease(1024);System.out.println(SC.getClickx());
+			SC.checkPos(CC, TTC, BC, CGC, PC, TC, POC);
+			x++;
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 	}
 
 }
