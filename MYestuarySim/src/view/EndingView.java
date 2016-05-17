@@ -53,7 +53,7 @@ public class EndingView extends JPanel {
 		this.PC = PC;
 		this.health = health;
 		HV = new HealthView();
-		//H = 1000000;
+		H = 0;
 		playing = false;
 		
 		try {                
@@ -79,7 +79,7 @@ public class EndingView extends JPanel {
 	    	   System.out.println("Image read error");
 	       }
 		frame = new JFrame();
-		//frame.setUndecorated(true);
+		frame.setUndecorated(true);
 		frame.setLayout(null);
 		frame.add(S);
 		frame.add(this);
@@ -95,6 +95,7 @@ public class EndingView extends JPanel {
 	
 	@Override
     protected void paintComponent(Graphics g) {
+	
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
 //        if(H < screenSize.getWidth()/12 || S.ee){
@@ -103,8 +104,17 @@ public class EndingView extends JPanel {
 //        		H = 0;
 //        		playing = false;
 //        	}
-//        	H++;
+//			H++;
+
+//        if(H < screenSize.getWidth()/12 || S.ee){
+//        		g.drawImage(EasterEgg.get(H%11), H*20,(int)(screenSize.getHeight()/2),null);
+//        	if(H > screenSize.getWidth()/12){
+//        		H = 0;
+//        		playing = false;
+//        	}
+//			H++;
         	
+        
         g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
         for(int i = 0; i < Game.getHealthHandler().check(health); i++){
@@ -332,7 +342,8 @@ public class EndingView extends JPanel {
 			score += 10;
 		if(Game.getCordGrassHandler().getResearched())
 			score += 10;
-		return score;
+		if(score < 0)return 0;
+		else return score;
 	}
 	
 	public void close(){

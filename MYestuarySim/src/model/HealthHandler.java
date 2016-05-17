@@ -61,7 +61,7 @@ public class HealthHandler {
 	public int check(int health){
 		if(health <= 0){
 			return 0;
-		}else if(health <= 1){
+		}else if(health <=1){
 			return 1;
 		}else if(health < 12){
 			return 2;

@@ -146,6 +146,7 @@ public class StartScreenControl extends JButton {
 				settings = false;
 			}
 		}
+		
 		StartingView.settingsL.setBounds((int)screenSize.getWidth()/2-StartingView.settingsL.getWidth()/2, StartingView.getClipboardY()+100, 300, 100);
 		StartingView.timeL.setBounds((StartingView.getTimeDownX()-StartingView.getTimeUpX()+StartingView.getTimeUp().getWidth(null))/2+StartingView.getTimeUpX()-StartingView.timeL.getWidth()/2, StartingView.getTimeDownY(), 200, 50);
 		

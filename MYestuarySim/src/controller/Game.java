@@ -51,6 +51,7 @@ public class Game {
 	static Timer timer;
 	static boolean researchPause = false;
 	private Dimension screenSize;
+
 	
 	public Game(boolean test){
 		testing = test;
@@ -59,13 +60,14 @@ public class Game {
 	
 	public static void main(String[] args){
 		Game G = new Game(false);
-		G.start(G);
-		G.run(G);
-		G.end(G);
+		while(true){
+				G.start(G);
+				G.run(G);
+				G.end(G);
+		}
 	}
 
-	//Is this still necessary? 
-	//does the HealthHandler deal with this?- JS
+
 	public int calculateHealth(){
 		int c,bc,t,p,cg;
 		//Crabs are worth double plants right now
@@ -229,8 +231,10 @@ public class Game {
 			else l.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 			EV.add(l);
 		}
-        	
+        
+		int run = 0;
 		while(EV.Showing){
+			run++;
 			esc.checkPos();
 			EV.repaint();
 			try {
@@ -239,6 +243,7 @@ public class Game {
     			e.printStackTrace();
     		}
 			if(testing)break;
+			if(run > 500)break;
 		}
 		EV.close();
 	}
