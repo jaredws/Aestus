@@ -187,6 +187,10 @@ public class StartingView extends JPanel {
 		return 100;
 	}
 	
+	public static Image getSound() {
+		return soundOn;
+	}
+	
 	public static int getSoundY() {
 		return 100;
 	}
