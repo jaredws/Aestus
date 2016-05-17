@@ -152,7 +152,7 @@ public class SoundController {
 	 */
 	public static void playIntro(){
 		if(sound){
-			String soundName = "./sounds/Intro.wav";     
+			String soundName = "./sounds/AESTUS.wav";     
 			AudioInputStream audioInputStream;
 			try {
 				audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
