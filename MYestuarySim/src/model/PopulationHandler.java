@@ -76,7 +76,7 @@ public class PopulationHandler {
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
 		//make plants a set max always approaching it
-		TotalPlant = 35 - 2*P; // - 2*PollutionCount;
+		TotalPlant = 20 - 2*P; // - 2*PollutionCount;
 		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
 		TotalAnimal = (int) maxAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 5 plants
 		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary

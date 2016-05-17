@@ -138,12 +138,17 @@ public class Game {
 		int t = 50;
 		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
+		    	int trash = 0;
 		    	if(sec/t == 5) {
 		    		CDC.updateCountdown();
 		    		sec = 0;
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopH.update(G);
+		    		  if(trash == 6000){
+		    			  spawnTrash();
+		    			  trash = 0;
+		    		  }
 		    		  threeSec=0;
 		    		  
 		    	}
@@ -156,6 +161,7 @@ public class Game {
 					PolH.age();
 					sec+=t;
 				    threeSec+=t;
+				    trash +=t;
 				    S.research = -1;
 				}
 		    	if(CDC.getTime() <= 0) timer.stop();
@@ -302,6 +308,10 @@ public class Game {
 	
 	public void setTesting(boolean t) {
 		this.testing = t;
+	}
+	
+	public void spawnTrash(){
+		PolH.spawnTrash();
 	}
 }
 
