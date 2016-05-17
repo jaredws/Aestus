@@ -26,6 +26,8 @@ public class Pollution extends Grabbable {
 	/** The type of the pollution, this allows the view to produce different images of trash. */
 	public int type;
 	
+	
+	
 	/**
 	 * Constructor
 	 * Instantiates a new pollution with default attributes.
@@ -53,7 +55,7 @@ public class Pollution extends Grabbable {
 	public Pollution(int x, int y, Dimension screenSize, int type){
 		this.x = x;
 		this.y = y;
-		Pollution.sizeX = (int)screenSize.getWidth()/12;
+		Pollution.sizeX = (int)screenSize.getWidth()/20;
 		Pollution.sizeY = sizeX*138/182;
 		this.type=type;
     }

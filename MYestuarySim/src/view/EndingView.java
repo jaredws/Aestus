@@ -68,12 +68,13 @@ public class EndingView extends JPanel {
 //				EasterEgg.add(image);
 //			}
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
+			clipboard = clipboard.getScaledInstance(-1, (int)screenSize.getHeight(),Image.SCALE_SMOOTH);
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
 			check = ImageIO.read(new File("./img/check.png"));
-			check = check.getScaledInstance((int)screenSize.getWidth()/50, -1,Image.SCALE_SMOOTH);
+			check = check.getScaledInstance(-1, (int)screenSize.getHeight()/40,Image.SCALE_SMOOTH);
 			x = ImageIO.read(new File("./img/x.png"));
-			x = x.getScaledInstance((int)screenSize.getWidth()/50, -1,Image.SCALE_SMOOTH);
+			x = x.getScaledInstance(-1,(int)screenSize.getHeight()/40,Image.SCALE_SMOOTH);
 			
 	       } catch (IOException ex) {
 	    	   System.out.println("Image read error");
@@ -302,7 +303,8 @@ public class EndingView extends JPanel {
 	}
 	
 	public int getClipBoardY() {
-		return (int)screenSize.getHeight()/2-clipboard.getHeight(null)/2;
+		
+		return 0;
 	}
 	
 	public int getStarX(int i) {
@@ -314,7 +316,7 @@ public class EndingView extends JPanel {
 	}
 	
 	public static int getResearcherX() {
-		return 100;
+		return (int)screenSize.getWidth()/13;
 	}
 	
 	public static int getResearcherY() {

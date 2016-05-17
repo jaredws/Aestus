@@ -145,12 +145,11 @@ public class Game {
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopH.update(G);
-		    		  if(trash > 6000){
+		    		  if(trash > 8000){
 		    			  spawnTrash();
 		    			  trash = 0;
 		    		  }
 		    		  threeSec=0;
-		    		  
 		    	}
 		    	if(!S.pause && !researchPause){
 					CH.moveCrabs();

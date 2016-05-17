@@ -31,11 +31,8 @@ public class PollutionView extends ViewTemplate{
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
-			image = ImageIO.read(new File("./img/"+fileName+".png"));
-				for(int i = 0; i < 38; i++){               
-					images.add(image.getScaledInstance((int)screenSize.getWidth()/(38+12-i), -1,Image.SCALE_SMOOTH));
-				}
-	         //images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
+			image = ImageIO.read(new File("./img/"+fileName+".png"));              
+			images.add(image.getScaledInstance((int)screenSize.getWidth()/20, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
 	    	   System.out.println("Pollution Image read error");
 	       }
@@ -51,13 +48,7 @@ public class PollutionView extends ViewTemplate{
 	 * @return The buffered image of the pollution
 	 */
 	public Image getImage(int i){
-		//what?
-		if(i==0)
-			return(images.get(33)); //bag of chips
-		else if(i==1)
-			return images.get(71); //can
-		else
-			return images.get(102); //paper
+		//
+			return(images.get(i)); //bag of chips
+		}
 	}
-
-}
