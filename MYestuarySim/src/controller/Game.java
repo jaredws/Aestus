@@ -184,7 +184,7 @@ public class Game {
 				TV.repaint();
 				if(S.getResearch() > -1 && !S.researchPause){
 					try {
-		    			Thread.sleep(5000);//pause for 5 seconds
+		    			Thread.sleep(5000);
 		    		} catch (InterruptedException e) {
 		    			e.printStackTrace();
 		    		}
