@@ -145,7 +145,7 @@ public class Game {
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopH.update(G);
-		    		  if(trash == 6000){
+		    		  if(trash > 60){
 		    			  spawnTrash();
 		    			  trash = 0;
 		    		  }
