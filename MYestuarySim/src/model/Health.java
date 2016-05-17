@@ -4,7 +4,8 @@ import java.awt.Dimension;
 
 
 /**
- * The Class Health. Keeps track of the health of the estuary in game.
+ * The Class Health. Keeps track of the health of the estuary in game through stars
+ * Each instantiation of this object is a star
  * @author Team 0
  */
 public class Health {
