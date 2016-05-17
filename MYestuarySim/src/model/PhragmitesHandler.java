@@ -11,6 +11,7 @@ import java.util.Random;
 /**
  * The Class PhragmitesHandler. Contains a list of phragmites objects and researched property,
  * functionality to add/remove from list.
+ * @author Team 0
  */
 public class PhragmitesHandler {
 	

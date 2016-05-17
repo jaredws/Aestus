@@ -1,24 +1,38 @@
 package model;
 import java.awt.Dimension;
+
 /**
- * 
- * @author Jared+karpzey4ever <33333
- *
+ * The Class Pollution. Contains the location, size, growth state, type.
+ * Used by the PollutionHandler and ScreenControl where there are many instances of this object
+ * @author Team 0
  */
 public class Pollution extends Grabbable {
-	//With this outline, there's no difference between a crab and anyhting else. 
-	//We'll have to change the name of this class to Interactable Object or something
-	//Add a name and just name the different items
-	
+
+	/** The x location. */
 	private int x;
+	
+	/** The y location. */
 	private int y;
-	//The sizes may need to be a ratio to the screen size. -JS
-	//temporary public variables
+	
+	/** The size x. */
 	public static int sizeX;
+	
+	/** The size y. */
 	public static int sizeY;
+	
+	/** The life(growth) state. */
 	public int life;
+	
+	/** The type of the pollution, this allows the view to produce different images of trash. */
 	public int type;
 	
+	/**
+	 * Constructor
+	 * Instantiates a new pollution with default attributes.
+	 *
+	 * @param x the x location for spawning
+	 * @param y the y location for spawning
+	 */
 	public Pollution(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -27,7 +41,16 @@ public class Pollution extends Grabbable {
 		type=0;
     }
 	
-	public Pollution(int x, int y, Dimension screenSize,int type){
+	/**
+	 * Constructor
+	 * Instantiates a new pollution.
+	 *
+	 * @param x the x location for spawning
+	 * @param y the y location for spawning
+	 * @param screenSize the screen size
+	 * @param type the type of pollution. Can be 0,1,2
+	 */
+	public Pollution(int x, int y, Dimension screenSize, int type){
 		this.x = x;
 		this.y = y;
 		Pollution.sizeX = (int)screenSize.getWidth()/12;
@@ -35,41 +58,90 @@ public class Pollution extends Grabbable {
 		this.type=type;
     }
 	
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public int getX() {
 		return x;
 	}
 	
+	/**
+	 * Sets the x.
+	 *
+	 * @param x the new x
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 	
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public int getY() {
 		return y;
 	}
 	
+	/**
+	 * Sets the y.
+	 *
+	 * @param y the new y
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 	
+	/**
+	 * Gets the size x.
+	 *
+	 * @return the size x
+	 */
 	public int getSizeX() {
 		return this.sizeX;
 	}
 	
+	/**
+	 * Gets the size y.
+	 *
+	 * @return the size y
+	 */
 	public int getSizeY() {
 		return this.sizeY;
 	}
 	
+	/**
+	 * Sets the size y.
+	 *
+	 * @param y the new size y
+	 */
 	public void setSizeY(int y) {
 		this.sizeY = y;
 	}
 	
+	/**
+	 * Sets the size x.
+	 *
+	 * @param x the new size x
+	 */
 	public void setSizeX(int x) {
 		this.sizeX = x;
 	}
 	
+	/**
+	 * Gets the life.
+	 *
+	 * @return the life
+	 */
 	public int getLife() {
 		return this.life;
 	}
+	
+	/**
+	 * Increases the growth state of the pollution
+	 */
 	public void live(){
 		life++;
 	}
