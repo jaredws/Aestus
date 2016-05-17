@@ -180,6 +180,7 @@ public class StartingView extends JPanel {
 		time+=12;
 	}
 	public static void decTime() {
+		if(time != 0)
 		time-=12;
 	}
 	public static int getSoundX() {
