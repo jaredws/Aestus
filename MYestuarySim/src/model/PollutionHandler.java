@@ -137,6 +137,6 @@ public class PollutionHandler {
 	}
 	
 	public void spawnTrash(){
-		addPollution(rand.nextInt((int)screenSize.getHeight()*8/12) + (int)screenSize.getHeight()/12,rand.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12);
+		addPollution(rand.nextInt((int)screenSize.getHeight()*6/12) + (int)screenSize.getHeight()/12,rand.nextInt((int)screenSize.getWidth()*9/12)+(int)screenSize.getWidth()/12);
 	}
 }

@@ -48,6 +48,7 @@ public class Game {
 	static CountdownControl CDC;
 	static int threeSec = 0;
 	static int sec = 0;
+	static int trash = 0;
 	static Timer timer;
 	static boolean researchPause = false;
 	private Dimension screenSize;
@@ -138,14 +139,13 @@ public class Game {
 		int t = 50;
 		ActionListener taskPerformer = new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
-		    	int trash = 0;
 		    	if(sec/t == 5) {
 		    		CDC.updateCountdown();
 		    		sec = 0;
 		    	}
 		    	if(threeSec/t == 60 && !S.pause) {
 		    		  PopH.update(G);
-		    		  if(trash > 60){
+		    		  if(trash > 6000){
 		    			  spawnTrash();
 		    			  trash = 0;
 		    		  }
