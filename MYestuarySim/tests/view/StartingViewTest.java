@@ -16,6 +16,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import controller.Game;
 import controller.StartScreenControl;
 
 public class StartingViewTest {
@@ -232,6 +233,27 @@ public class StartingViewTest {
 		assertEquals("Time should be 72 seconds",StartingView.getTime(),72);
 		StartingView.decTime();
 		assertEquals("Time should be 60 seconds",StartingView.getTime(),60);
+		StartingView.decTime();StartingView.decTime();StartingView.decTime();
+		StartingView.decTime();StartingView.decTime();StartingView.decTime();
+		assertEquals("Time should be 0 seconds",StartingView.getTime(),0);
+	}
+	
+	/**
+	 * @author Steven
+	 * @Tests Checks to make sure repainting functionality is correct
+	 */
+	@Test
+	public void paintTest() {
+		Game g = new Game(true);
+		g.start(g);
+		/*while(ssc.getShowing()) {
+			sv.repaint();
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}*/
 	}
 	
 }

@@ -63,7 +63,9 @@ public class Game {
 		Game G = new Game(false);
 		while(true){
 				G.start(G);
+				if(G.testing)break;
 				G.run(G);
+				if(G.testing)break;
 				G.end(G);
 		}
 	}
@@ -87,7 +89,7 @@ public class Game {
 		SV.add(StartingView.timeL);
 		SV.add(StartingView.settingsL);
 		SoundController.playIntro();
-	
+	int x = 0;
 		while(s.getShowing()){
 			s.check();
 			StartingView.timeL.setText(Integer.toString(StartingView.getTime()));
@@ -98,7 +100,8 @@ public class Game {
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
-			if(testing)break;
+			if(G.getTesting() && x > 1000) break;
+			x++;
 		}
 		return;
 	}

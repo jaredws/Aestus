@@ -76,7 +76,7 @@ public class TotalView extends JPanel{
 	@Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); 
-        
+
         g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
       
