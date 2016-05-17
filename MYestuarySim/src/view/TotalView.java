@@ -80,7 +80,7 @@ public class TotalView extends JPanel{
         g.drawImage(BGV.switchImage(background.check(G.calculateHealth())),
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
       
-        
+        if(S.research < 0){
         for(int i = 0; i < Game.getHealthHandler().check(G.calculateHealth()); i++){
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
@@ -150,7 +150,9 @@ public class TotalView extends JPanel{
         	g.drawImage(TLV.getPauseB(),(int)screenSize.getWidth()/2 - 100, 
         			(int)screenSize.getHeight()/2-100, null);
         }
-        if(S.getPause()){
+        }
+        else{
+        //if(S.getPause()){
         	if(S.getResearch() > -1){
         		g.drawImage(RV.getImage(S.getResearch()),300, 
         				75, null);

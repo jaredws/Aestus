@@ -181,6 +181,11 @@ public class Game {
 			if(S.pause) {
 				TV.repaint();
 				if(S.getResearch() > -1 && !S.researchPause){
+					try {
+		    			Thread.sleep(5000);//pause for 5 seconds
+		    		} catch (InterruptedException e) {
+		    			e.printStackTrace();
+		    		}
 	        		S.researchPause = true;
 	        	}
 				continue;

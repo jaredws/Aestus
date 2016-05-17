@@ -109,8 +109,10 @@ public class ScreenControl extends JPanel {
 				x = e.getX();
 				y = e.getY();
 				clicked = true;
-				if(researchPause)
+				if(researchPause){
 					pause = false;
+					research = -1;
+				}
 				if(shears){
 					shearsOpen = false;
 					SoundController.playShears();

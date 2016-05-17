@@ -53,7 +53,7 @@ public class EndingView extends JPanel {
 		this.PC = PC;
 		this.health = health;
 		HV = new HealthView();
-		H = 1000000;
+		//H = 1000000;
 		playing = false;
 		
 		try {                
@@ -61,12 +61,12 @@ public class EndingView extends JPanel {
 			BG = BG.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH);
 			researcher = ImageIO.read(new File("./img/researcher.png"));
 			researcher = researcher.getScaledInstance((int)screenSize.getWidth()/2, -1,Image.SCALE_SMOOTH);
-			EasterEgg = new ArrayList<Image>();
-			Image image;
-			for(int i = 1; i < 12; i++){
-				image = ImageIO.read(new File("./img/H" + i + ".png"));
-				EasterEgg.add(image);
-			}
+//			EasterEgg = new ArrayList<Image>();
+//			Image image;
+//			for(int i = 1; i < 12; i++){
+//				image = ImageIO.read(new File("./img/H" + i + ".png"));
+//				EasterEgg.add(image);
+//			}
 			clipboard = ImageIO.read(new File("./img/clipboard.png"));
 			star = ImageIO.read(new File("./img/Star.png"));
 			star = star.getScaledInstance((int)screenSize.getWidth()/14, -1,Image.SCALE_SMOOTH);
@@ -97,40 +97,14 @@ public class EndingView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(BG,0,0, null);
-        if(H < screenSize.getWidth()/12 || S.ee){
-        		g.drawImage(EasterEgg.get(H%11), H*20,(int)(screenSize.getHeight()/2),null);
-        	if(H > screenSize.getWidth()/12){
-        		H = 0;
-        		playing = false;
-        	}
-        	H++;
+//        if(H < screenSize.getWidth()/12 || S.ee){
+//        		g.drawImage(EasterEgg.get(H%11), H*20,(int)(screenSize.getHeight()/2),null);
+//        	if(H > screenSize.getWidth()/12){
+//        		H = 0;
+//        		playing = false;
+//        	}
+//        	H++;
         	
-        	
-        	if(!playing){
-//        		String soundName = "./sounds/leedle.wav";    
-//        		AudioInputStream audioInputStream;
-//				try {
-//					audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-//					Clip clip;
-//					clip = AudioSystem.getClip();
-//					clip.open(audioInputStream);
-//					clip.start();
-//				} catch (UnsupportedAudioFileException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}catch (LineUnavailableException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-				playing = true;
-        		
-        	}
-        }
-        
-        
         g.drawImage(researcher, getResearcherX(), getResearcherY(), null);
         g.drawImage(clipboard, getClipBoardX(), getClipBoardY(), null); 
         for(int i = 0; i < Game.getHealthHandler().check(health); i++){
