@@ -172,5 +172,14 @@ public class SoundController {
 			}
 		}
 	}
+	
+	/**
+	 * Gets the sound.
+	 *
+	 * @return the sound
+	 */
+	public static boolean getSound() {
+		return sound;
+	}
 
 }

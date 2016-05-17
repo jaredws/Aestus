@@ -107,7 +107,7 @@ public class StartScreenControl extends JButton {
 					&& (clicky > StartingView.getPlayY())
 					&& (clicky < StartingView.getPlayY()+StartingView.getPlay().getHeight(null))){
 				Showing = false;
-				//intro = true;
+				intro = true;
 				clickx =0;
 			}
 			else if(clickx > 0 && intro == true)
@@ -196,6 +196,24 @@ public class StartScreenControl extends JButton {
 	 */
 	public boolean getMain() {
 		return this.main;
+	}
+	
+	/**
+	 * Gets the timeInc.
+	 *
+	 * @return the timeInc
+	 */
+	public boolean getTimeInc() {
+		return this.timeInc;
+	}
+	
+	/**
+	 * Gets the timeDec.
+	 *
+	 * @return the timeDec
+	 */
+	public boolean getTimeDec() {
+		return this.timeDec;
 	}
 
 
