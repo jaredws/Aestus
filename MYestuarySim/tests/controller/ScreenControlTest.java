@@ -2,16 +2,25 @@ package controller;
 
 import static org.junit.Assert.*;
 
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import model.BlueCrabHandler;
 import model.CordGrassHandler;
 import model.CrabHandler;
+import model.HealthHandler;
 import model.PhragmitesHandler;
 import model.PollutionHandler;
+import model.PopulationHandler;
 import model.TurtleHandler;
+import view.TotalView;
 
 public class ScreenControlTest {
 
@@ -23,17 +32,26 @@ public class ScreenControlTest {
 	static ToolControl TC;
 	static PollutionHandler POC;
 	static ScreenControl SC;
+	static Robot r;
+	static TotalView TV;
+	static Dimension screenSize;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		SC = new ScreenControl();
+		TV = new TotalView(SC);
 		CC = new CrabHandler();
+		PopulationHandler PopH = new PopulationHandler(null);
+		HealthHandler HH = new HealthHandler();
 		TTC = new TurtleHandler();
 		BC = new BlueCrabHandler();
 		CGC = new CordGrassHandler();
 		PC = new PhragmitesHandler();
 		TC = new ToolControl(5, 10);
 		POC = new PollutionHandler();
+		r = new Robot();
+		TV.setSize((int) screenSize.getWidth(), (int)screenSize.getHeight());
 	}
 
 	@AfterClass
@@ -46,12 +64,16 @@ public class ScreenControlTest {
 		PC = null;
 		TC = null;
 		POC = null;
+		r = null;
 	}
 
 	@Test
 	public void test() {
-		SC.setClicked(true);
-		SC.setClickx(TC.getMag().getX());
+		//SC.setClicked(true);
+		//SC.setClickx(TC.getMag().getX());
+		r.mousePress(1024);
+		r.mouseRelease(1024);
+		System.out.println(SC.getClickx());
 	}
 
 }

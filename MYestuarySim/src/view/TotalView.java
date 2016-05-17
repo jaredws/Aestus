@@ -81,53 +81,53 @@ public class TotalView extends JPanel{
         		0,0, null);//Due to background always being stationed at North-West Corner (0,0)
       
         
-        for(int i = 0; i < G.getHealthHandler().check(G.calculateHealth()); i++){
+        for(int i = 0; i < Game.getHealthHandler().check(G.calculateHealth()); i++){
         	g.drawImage(HV.getImage(0), ((int)screenSize.getWidth()-((int)screenSize.getWidth()/11)*(i+1)), (int)screenSize.getHeight()-(int)screenSize.getWidth()/10, null);
         }
         
-        for(int i = 0; i < G.getToolControl().getTools().size(); i++){
-        	g.drawImage(TLV.getImage(i), G.getToolControl().getTools().get(i).getX(), 
-        			G.getToolControl().getTools().get(i).getY(), null);
+        for(int i = 0; i < Game.getToolControl().getTools().size(); i++){
+        	g.drawImage(TLV.getImage(i), Game.getToolControl().getTools().get(i).getX(), 
+        			Game.getToolControl().getTools().get(i).getY(), null);
         }
     
        
-        for(int i = 0; i < G.getCordGrassHandler().getCordGrass().size(); i++)
+        for(int i = 0; i < Game.getCordGrassHandler().getCordGrass().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(CGV.getImage(G.getCordGrassHandler().getCordGrass(i).getLife()), G.getCordGrassHandler().getCordGrass(i).getX(), 
-        			G.getCordGrassHandler().getCordGrass(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(CGV.getImage(Game.getCordGrassHandler().getCordGrass(i).getLife()), Game.getCordGrassHandler().getCordGrass(i).getX(), 
+        			Game.getCordGrassHandler().getCordGrass(i).getY(), null); // see javadoc for more info on the parameters  
        
-        for(int i = 0; i < G.getPhragmitesHandler().getPhragmites().size(); i++)
+        for(int i = 0; i < Game.getPhragmitesHandler().getPhragmites().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PV.getImage(G.getPhragmitesHandler().getPhragmites(i).getLife()), G.getPhragmitesHandler().getPhragmites(i).getX(), 
-        			G.getPhragmitesHandler().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(PV.getImage(Game.getPhragmitesHandler().getPhragmites(i).getLife()), Game.getPhragmitesHandler().getPhragmites(i).getX(), 
+        			Game.getPhragmitesHandler().getPhragmites(i).getY(), null); // see javadoc for more info on the parameters  
       
-        for(int i = 0; i < G.getPollutionHandler().getPollution().size(); i++)
+        for(int i = 0; i < Game.getPollutionHandler().getPollution().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(PUV.getImage(G.getPollutionHandler().getPollution(i).type), G.getPollutionHandler().getPollution().get(i).getX(), 
-        			G.getPollutionHandler().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
+        	g.drawImage(PUV.getImage(Game.getPollutionHandler().getPollution(i).type), Game.getPollutionHandler().getPollution().get(i).getX(), 
+        			Game.getPollutionHandler().getPollution().get(i).getY(), null); // see javadoc for more info on the parameters  
       
         
         
         
-        for(int i = 0; i < G.getTurtleHandler().getTurtles().size(); i++)
+        for(int i = 0; i < Game.getTurtleHandler().getTurtles().size(); i++)
     	//Made the default get Image 0 here, a movement may need to be called instead
-    	g.drawImage(TV.getImage(G.getTurtleHandler().getTurtle(i).getMove()), G.getTurtleHandler().getTurtle(i).getX(), 
-    			G.getTurtleHandler().getTurtle(i).getY(), null); // see javadoc for more info on the parameters
+    	g.drawImage(TV.getImage(Game.getTurtleHandler().getTurtle(i).getMove()), Game.getTurtleHandler().getTurtle(i).getX(), 
+    			Game.getTurtleHandler().getTurtle(i).getY(), null); // see javadoc for more info on the parameters
         
-        for(int i = 0; i < G.getCrabHandler().getCrabs().size(); i++)
+        for(int i = 0; i < Game.getCrabHandler().getCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(CV.getImage(G.getCrabHandler().getCrab(i).move), G.getCrabHandler().getCrab(i).getX(), 
-        			G.getCrabHandler().getCrab(i).getY(), null); // see javadoc for more info on the parameters            
+        	g.drawImage(CV.getImage(Game.getCrabHandler().getCrab(i).move), Game.getCrabHandler().getCrab(i).getX(), 
+        			Game.getCrabHandler().getCrab(i).getY(), null); // see javadoc for more info on the parameters            
        
-        for(int i = 0; i < G.getBlueCrabHandler().getBlueCrabs().size(); i++)
+        for(int i = 0; i < Game.getBlueCrabHandler().getBlueCrabs().size(); i++)
         	//Made the default get Image 0 here, a movement may need to be called instead
-        	g.drawImage(BCV.getImage(G.getBlueCrabHandler().getBlueCrab(i).move), G.getBlueCrabHandler().getBlueCrabs().get(i).getX(), 
-        			G.getBlueCrabHandler().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
+        	g.drawImage(BCV.getImage(Game.getBlueCrabHandler().getBlueCrab(i).move), Game.getBlueCrabHandler().getBlueCrabs().get(i).getX(), 
+        			Game.getBlueCrabHandler().getBlueCrabs().get(i).getY(), null); // see javadoc for more info on the parameters
         
        
 	
  
-        g.drawImage(CDV.getImage(G.getCountdownControl().getImage()), 0, (int)(screenSize.getHeight() - screenSize.getWidth()/10), null);
+        g.drawImage(CDV.getImage(Game.getCountdownControl().getImage()), 0, (int)(screenSize.getHeight() - screenSize.getWidth()/10), null);
         
  
         
