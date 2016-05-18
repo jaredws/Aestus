@@ -118,6 +118,13 @@ public class CountdownControl {
 	public int getImage(){
 		return image;
 	}
+	/**
+	 * Returns the counter
+	 * @return counter
+	 */
+	public int getCounter(){
+		return counter;
+	}
 	
 	
 	

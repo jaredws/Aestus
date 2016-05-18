@@ -57,7 +57,7 @@ public class ScreenControl extends JPanel {
 	private int turtleResearch,phragResearch,bluecrabResearch,mittenCrabResearch,cordResearch;
 	
 	/** The state booleans for various tools and functions of the game */
-	boolean grabbing, clicked, magGlass, pauseB, pause, shears, crabTrap, shearsOpen;
+	boolean grabbing, clicked, magGlass, pauseB, pause, shears, shearsOpen;
 	
 	/** The currently grabbed object */
 	Grabbable grabbed;
@@ -87,7 +87,6 @@ public class ScreenControl extends JPanel {
 		pause = false;
 		shears = false;
 		magGlass = false;
-		crabTrap = false;
 		shearsOpen = true;
 		turtleResearch= 0;
 		phragResearch=0;
@@ -95,10 +94,6 @@ public class ScreenControl extends JPanel {
 		mittenCrabResearch=0;
 		cordResearch=0;
 		
-		
-		
-		
-
 		addMouseListener(new MouseAdapter() {
 			// If mouse button is pressed
 			@Override
@@ -212,26 +207,10 @@ public class ScreenControl extends JPanel {
 				clicked = false;
 			}
 			
-			if (clickx > tc.getCrabTrap().getX()
-					&& clickx < tc.getCrabTrap().getSizeX() + tc.getCrabTrap().getX()
-					&& clicky > tc.getCrabTrap().getY()
-					&& clicky < tc.getCrabTrap().getSizeY() + tc.getCrabTrap().getY()) {
-				if (!crabTrap) {
-					crabTrap = true;
-				} else {
-					crabTrap = false;
-				}
-				clicked = false;
-			}
 			for (int i = 0; i < puc.getPollution().size(); i++) {
 				if ((clickx > puc.getPollution(i).getX()) && (clickx < (puc.getPollution(i).getX() + Pollution.sizeX))
 						&& ((clicky > puc.getPollution(i).getY()) && (clicky < puc.getPollution(i).getY() + Pollution.sizeY))) {
-					if (magGlass) {
-//						research = 0;
-//						magGlass = false;
-//						pause = true;
-//						clicked = false;
-					} else if (!magGlass && !shears && !grabbing) {
+					if (!magGlass && !shears && !grabbing) {
 						grabbed = puc.getPollution(i);
 						grabbing = true;
 						j = i;
