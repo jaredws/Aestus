@@ -11,7 +11,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * The Class MagView. Produces the images needed for the various health states,
+ * The Class MagView. Produces the images needed for the various magnifying glass states,
  * used by the @see view.TotalView.java
  * @author Team 0
  */
