@@ -37,7 +37,7 @@ public class BackgroundView {
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
 	         images.add(image.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
-	            // handle exception...
+	    	   System.out.println("Background Image read error");
 	       }
 		}	
 	}
