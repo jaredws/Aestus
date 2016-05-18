@@ -6,22 +6,17 @@ import java.util.Random;
 
 import controller.Game;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PopulationHandler.
  * @author Team 0
  */
 public class PopulationHandler {
 	
-	/*
+	/*Non-java doc Comment
 	 * The total population of plants to be dependent on the number of animals
 	 * The total population of animals is limited by the number of plants both upper and lower bounds
 	 * TotalPlant = NonInvasive + 0.8*Invasive//Invasive plants take up 'less room' so more can be there
 	 * TotalAnimal = (-1/36)TotalPlant^2 + (35/18)*TotalPlant - 325/36 // used mathematica to solve a system so at 35 plants we peak at 25 animals
-	 * 		the numbers can and probably will be adjusted so the screen isn't over crowded, remmber this compounds as animals decrease effective 'total plant'
-	 * TotalAnimal = NonInvasive + 1.4*Invasive //this is the identity for the division of the Animals
-	 * 
-	 * I also want it to be more likely to spawn an Invasive species. This can be population dependent if we wish.
 	 */
 	
 	/** The nip. */
@@ -124,7 +119,8 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Calculate.
+	 * Calculate the maximum capacity of the ecosystem.
+	 * The number of animals is dependent upon the number of plants less the pollution.
 	 */
 	public void calculate(){
 		if(!game.getTesting()){
@@ -140,16 +136,11 @@ public class PopulationHandler {
 		InvasivePlant = IP;
 		NonInvasiveAnimal = NIA;
 		TotalAnimal = TA;
-		//make plants a set max always approaching it
+		//make plants a set max always approaching it minus the amount of pollution
 		TotalPlant = 20 - 2*P; // - 2*PollutionCount;
-		//TotalPlant = (int) (2*NonInvasivePlant + 1.5*InvasivePlant - TotalAnimal);
-		TotalAnimal = (int) maxAnimal();//((-9/115)*Math.pow(TP,2) + (357/115)*TP - (294/115) - P);//0 animals at 5 plants
-		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));//some of these lines may not be necessary
-		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;//all are included for my train of thought -JS
-//		System.out.println("Max Total Animals: "+TotalAnimal);
-//		System.out.println("Native Plant: "+NIP+"   Invasive Plant: "+IP);
-//		System.out.println("Native Animals: "+NIA+"  Invasive Crabs: "+IA);
-//		System.out.println("Turtles: "+Game.getTurtleControl().getTurtles().size()+"     BlueCrabs: "+Game.getBlueCrabControl().getBlueCrabs().size());	
+		TotalAnimal = (int) maxAnimal();//0 animals at 5 plants max animals at 20 plants
+		InvasiveAnimal = (int) ((TotalAnimal - NonInvasiveAnimal));
+		NonInvasiveAnimal = (int) TotalAnimal - InvasiveAnimal;
 	}
 
 /**
@@ -311,7 +302,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the total animal.
+	 * Gets the total animal maximum after calculate().
 	 *
 	 * @return the total animal
 	 */
@@ -320,7 +311,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the non invasive plant.
+	 * Gets the non invasive plant maximum after calculate().
 	 *
 	 * @return the non invasive plant
 	 */
@@ -329,7 +320,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the invasive plant.
+	 * Gets the invasive plant maximum after calculate().
 	 *
 	 * @return the invasive plant
 	 */
@@ -338,7 +329,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the non invasive animal.
+	 * Gets the non invasive animal maximum after calculate().
 	 *
 	 * @return the non invasive animal
 	 */
@@ -347,7 +338,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the invasive animal.
+	 * Gets the invasive animal maximum after calculate().
 	 *
 	 * @return the invasive animal
 	 */
@@ -356,7 +347,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the pollution.
+	 * Gets the pollution maximum after calculate()
 	 *
 	 * @return the pollution
 	 */
@@ -365,7 +356,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the mitten die.
+	 * Gets the number of mitten crabs died (removed from the game by the population handler).
 	 *
 	 * @return the mitten die
 	 */
@@ -374,7 +365,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the blue crab die.
+	 * Gets the number blue crabs died (removed from the game by the population handler).
 	 *
 	 * @return the blue crab die
 	 */
@@ -383,7 +374,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the turtle die.
+	 * Gets the number of turtles died (removed from the game by the population handler).
 	 *
 	 * @return the turtle die
 	 */
@@ -392,7 +383,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the phrag die.
+	 * Gets the number of phragmites died (removed from the game by the population handler).
 	 *
 	 * @return the phrag die
 	 */
@@ -401,7 +392,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the cord die.
+	 * Gets the number of cord grasses died (removed from the game by the population handler).
 	 *
 	 * @return the cord die
 	 */
@@ -410,7 +401,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the nip.
+	 * Gets the number of non-invasive plants in the game currently, after calculate().
 	 *
 	 * @return the nip
 	 */
@@ -419,7 +410,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the ip.
+	 * Gets the number of invasive plants in the game currently, after calculate().
 	 *
 	 * @return the ip
 	 */
@@ -428,7 +419,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the nia.
+	 * Gets the number of non-invasive animals in the game currently, after calculate().
 	 *
 	 * @return the nia
 	 */
@@ -437,7 +428,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the ia.
+	 * Gets the number of invasive animals in the game currently, after calculate().
 	 *
 	 * @return the ia
 	 */
@@ -446,7 +437,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the tp.
+	 * Gets the number of total plants in the game currently, after calculate().
 	 *
 	 * @return the tp
 	 */
@@ -455,7 +446,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the ta.
+	 * Gets the number of tatal animals in the game currently, after calculate().
 	 *
 	 * @return the ta
 	 */
@@ -464,7 +455,7 @@ public class PopulationHandler {
 	}
 	
 	/**
-	 * Gets the p.
+	 * Gets the number of pollution in the game currently, after calculate().
 	 *
 	 * @return the p
 	 */
