@@ -11,8 +11,8 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * The Class BackgroundView. Produces the images needed for the various background states
- * to the @see view.TotalView.java
+ * The Class BackgroundView. Produces the images needed for the various background states,
+ * used by the @see view.TotalView.java
  *
  * @author Team 0
  */
