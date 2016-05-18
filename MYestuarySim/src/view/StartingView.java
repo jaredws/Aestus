@@ -87,7 +87,7 @@ public class StartingView extends JPanel {
         g.drawImage(BG,0,0, null);//Due to background always being stationed at North-West Corner (0,0)
         
         if(S.getIntro()) {
-        	g.drawImage(intro, (int)screenSize.getWidth()/2-intro.getWidth(null)/2, (int)screenSize.getHeight()/2-intro.getHeight(null)/2, null);
+        	//g.drawImage(intro, (int)screenSize.getWidth()/2-intro.getWidth(null)/2, (int)screenSize.getHeight()/2-intro.getHeight(null)/2, null);
         } else if(S.getSettings()) {
         	g.drawImage(clipboard, getClipboardX(), getClipboardY(), null);
         	g.drawImage(timeUp, getTimeUpX(), getTimeUpY(), null);

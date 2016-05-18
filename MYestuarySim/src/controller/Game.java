@@ -295,7 +295,7 @@ public class Game {
 	public static PollutionHandler getPollutionHandler(){
 		return PolH;
 	}
-	
+		
 	public static CountdownControl getCountdownControl(){
 		return CDC;
 	}
