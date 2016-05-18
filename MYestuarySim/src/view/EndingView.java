@@ -224,11 +224,11 @@ public class EndingView extends JPanel {
 		remove = new JLabel("Removed");
 		remove.setHorizontalAlignment(SwingConstants.CENTER);
 		remove.setVerticalAlignment(SwingConstants.CENTER);
-		JLabel mittenCrabs = new JLabel(Integer.toString(G.getCrabHandler().getRemoved()));
-		JLabel blueCrabs = new JLabel(Integer.toString(G.getBlueCrabHandler().getRemoved()));
-		JLabel turtle = new JLabel(Integer.toString(G.getTurtleHandler().getRemoved()));
-		JLabel phrag = new JLabel(Integer.toString(G.getPhragmitesHandler().getRemoved()));
-		JLabel cordGrass = new JLabel(Integer.toString(G.getCordGrassHandler().getRemoved()));
+		JLabel mittenCrabs = new JLabel(Integer.toString(Game.getCrabHandler().getRemoved()));
+		JLabel blueCrabs = new JLabel(Integer.toString(Game.getBlueCrabHandler().getRemoved()));
+		JLabel turtle = new JLabel(Integer.toString(Game.getTurtleHandler().getRemoved()));
+		JLabel phrag = new JLabel(Integer.toString(Game.getPhragmitesHandler().getRemoved()));
+		JLabel cordGrass = new JLabel(Integer.toString(Game.getCordGrassHandler().getRemoved()));
 		mittenCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		mittenCrabs.setVerticalAlignment(SwingConstants.CENTER);blueCrabs.setHorizontalAlignment(SwingConstants.CENTER);
 		blueCrabs.setVerticalAlignment(SwingConstants.CENTER);
