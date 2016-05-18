@@ -27,14 +27,14 @@ public class StartingView extends JPanel {
  	//public boolean Showing;
  	public JFrame frame;
  	static Dimension screenSize;
- 	public Image BG,title,exit,intro;
+ 	public Image BG,title,intro;
 
 	public static Image timeUp;
 
 	public static Image timeDown, soundOn, soundOff;
 	public static JLabel settingsL,timeL;
 	public static Image clipboard;
- 	public static Image play,settings;
+ 	public static Image play,settings, exit;
  	private static int time = CountdownControl.getDefaultTime();
 	
 	public StartingView(StartScreenControl s){
@@ -201,6 +201,18 @@ public class StartingView extends JPanel {
 	
 	public static Image getSoundOff() {
 		return soundOff;
+	}
+	
+	public static Image getExit(){
+		return exit;
+	}
+	
+	public static int getExitX(){
+		return (int)screenSize.getWidth()/2-exit.getWidth(null)/2;
+	}
+	
+	public static int getExitY(){
+		return 500;
 	}
 	
 }
