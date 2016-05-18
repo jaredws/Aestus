@@ -17,7 +17,6 @@ import view.StartingView;
  */
 public class StartScreenControl extends JButton {
 
-	//Implament listener on the frame??? -JS
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 9042772411806531339L;
