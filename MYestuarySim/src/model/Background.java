@@ -31,12 +31,12 @@ public class Background {
 	 * @return the int representing the health rank of the estuary
 	 */
 	public int check(int health){
-		if(health < 160){
-			return 2;
-		}else if(health < 80){
+		if(health > 140){
+			return 0;
+		}else if(health > 80){
 			return 1;
 		}else
-			return 0;
+			return 2;
 		
 	}
 	
