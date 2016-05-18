@@ -251,7 +251,7 @@ public class Game {
     			e.printStackTrace();
     		}
 			if(testing)break;
-			if(run > 500)break;
+			if(run > 200)break;
 		}
 		EV.close();
 	}
