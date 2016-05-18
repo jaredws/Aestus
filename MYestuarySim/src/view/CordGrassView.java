@@ -29,7 +29,6 @@ public class CordGrassView extends ViewTemplate{
 	 * Creates a new instance of CordGrassView with default imageloads
 	 * Buffer the images we will need to move crabs around the screen.
 	 */
-	//may consider making this private and using a method to only allow one instnace
 	public CordGrassView(){
 		images = new ArrayList<Image>();
 		Image image;
