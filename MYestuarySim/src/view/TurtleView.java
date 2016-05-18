@@ -10,21 +10,30 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
+ * The Class TurtleView. Produces the images needed for the various turtle states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  * 
- * @author Jared Sharpe
- *
  */
-
 public class TurtleView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
+	
+	/** The screen size. */
 	Dimension screenSize;
+	
+	/** The Image objects to be displayed depending on the circumstance. */
 	Image image2, image3;
+	
+	/** A counter used in calculating which image of the crab to load. */
 	int test = 0;
+	
 	/**
-	 * Buffer the images we will need to move crabs around the screen.
+	 * Constructor
+	 * Creates a new instance of TurtleView with default imageloads.
+	 * Buffer the images we will need to move Crabs around the screen.
 	 */
-	//may consider making this private and using a method to only allow one instnace
 	public TurtleView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -46,13 +55,13 @@ public class TurtleView extends ViewTemplate{
 		
 	
 	/**
-	 * 
-	 * @param i
-	 * @return The buffered image of the BlueCrab
+	 * Gets the image.
+	 *
+	 * @param i the index of the image to get
+	 * @return The buffered image of the Turtle
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */
 	public Image getImage(int i){
-		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
 			return images.get(i);
 		else {

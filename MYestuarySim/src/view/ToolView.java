@@ -11,16 +11,23 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Steven
- *
+ * The Class ToolView. Produces the images needed for the various tool states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  */
-
 public class ToolView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
+	
+	/** The screen size. */
 	Dimension screenSize;
 
+	/**
+	 * Constructor
+	 * Creates a new instance of ToolView with default imageloads
+	 * Buffer the images we will need to move the pollution around the screen.
+	 */
 	public ToolView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -37,34 +44,75 @@ public class ToolView extends ViewTemplate{
 		
 	}
 
+	/**
+	 * Gets the image.
+	 *
+	 * @param i the index of the desired image
+	 * @return the image
+	 */
 	public Image getImage(int i) {
 		return images.get(i);
 	}
 	
+	/**
+	 * Gets the mag tool.
+	 *
+	 * @return the mag
+	 */
 	public Image getMag() {
 		return images.get(2);
 	}
 	
+	/**
+	 * Gets the shears.
+	 *
+	 * @return the shears
+	 */
 	public Image getShears(){
 		return images.get(1);
 	}
 	
+	/**
+	 * Gets the crab trap.
+	 *
+	 * @return the crab trap
+	 */
 	public Image getCrabTrap() {
 		return images.get(3);
 	}
 	
+	/**
+	 * Gets the recycling bin.
+	 *
+	 * @return the recycling bin
+	 */
 	public Image getRecycle() {
 		return images.get(0);
 	}
 	
+	/**
+	 * Gets the pause button.
+	 *
+	 * @return the pause button
+	 */
 	public Image getPauseB() {
 		return images.get(4);
 	}
 	
+	/**
+	 * Gets the open shears.
+	 *
+	 * @return the open shears
+	 */
 	public Image getShearsOpen() {
 		return images.get(5);
 	}
 	
+	/**
+	 * Gets the closed shears.
+	 *
+	 * @return the closed shears 
+	 */
 	public Image getShearsClose() {
 		return images.get(6);
 	}
