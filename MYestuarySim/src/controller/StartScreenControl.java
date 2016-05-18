@@ -109,6 +109,15 @@ public class StartScreenControl extends JButton {
 				intro = true;
 				clickx =0;
 			}
+			else if((clickx > StartingView.getExitX()) 
+					&& (clickx < StartingView.getExitX()+StartingView.getExit().getWidth(null))
+					&& (clicky > StartingView.getExitY())
+					&& (clicky < StartingView.getExitY()+StartingView.getExit().getHeight(null))){
+				Showing = false;
+				intro = false;
+				clickx =0;
+				System.exit(0);
+			}
 			else if(clickx > 0 && intro == true)
 				Showing = false;
 		}
