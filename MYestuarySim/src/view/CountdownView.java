@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 /**
  * The Class CountdownView. Produces the images needed for the various countdown states,
  * used by the @see view.TotalView.java
+ * @author Team 0
  */
 public class CountdownView {
 	

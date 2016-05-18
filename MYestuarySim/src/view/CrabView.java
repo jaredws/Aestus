@@ -11,21 +11,28 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Jared Sharpe
- *
+ * The Class CrabView. Produces the images needed for the various crab states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  */
-
 public class CrabView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
+	
+	/** The screen size. */
 	Dimension screenSize;
+	
+	/** The Image objects to be displayed depending on the circumstance. */
 	Image image2, image3;
+	
+	/** A counter used in calculating which image of the crab to load. */
 	int test;
 	/**
-	 * Buffer the images we will need to move crabs around the screen.
+	 * Constructor
+	 * Creates a new instance of CrabView with default imageloads.
+	 * Buffer the images we will need to move Crabs around the screen.
 	 */
-	//may consider making this private and using a method to only allow one instnace
 	public CrabView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -49,13 +56,13 @@ public class CrabView extends ViewTemplate{
 		
 	
 	/**
-	 * 
-	 * @param i
-	 * @return The buffered image of the BlueCrab
+	 * Gets the image.
+	 *
+	 * @param i the index of the image to get
+	 * @return The buffered image of the Crab
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */
 	public Image getImage(int i){
-		//Must remove %4 will be changed when calling it from above with motion idicator.
 		if(i < 38)
 			return images.get(i);
 		else {
