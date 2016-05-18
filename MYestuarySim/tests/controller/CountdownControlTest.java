@@ -43,10 +43,26 @@ public class CountdownControlTest {
 	 */
 	@Test
 	public void updateCountdownTest() {
-		int t = CDC.getCounter();
-		System.out.println(t);
-		CDC.updateCountdown();CDC.updateCountdown();
-		CDC.updateCountdown();	CDC.updateCountdown();	System.out.println(CDC.getCounter());
+		for(int i = 0;i<179;i++){
+			CDC.updateCountdown();
+		}
+		assertEquals("Image should be 13",CDC.getImage(),13);
+		for(int i = 0;i<32;i++){
+			CDC.updateCountdown();
+		}
+		assertEquals("Image should be 14",CDC.getImage(),14);
+		for(int i = 0;i<23;i++){
+			CDC.updateCountdown();
+		}
+		assertEquals("Image should be 15",CDC.getImage(),15);
+		
+		int time = CDC.getTime();
+		while(CDC.getCounter()%4!=0) {
+			CDC.updateCountdown();
+		}
+		CDC.updateCountdown();
+		assertEquals("Time should be one less than previously",CDC.getTime(),time-1);
+		
 	}
 	
 	/**

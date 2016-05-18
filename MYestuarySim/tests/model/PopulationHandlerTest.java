@@ -31,6 +31,9 @@ public class PopulationHandlerTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		g = null;
+		ph = null;
+		screenSize = null;
+		Game.getTotalView().dispose();
 	}
 	
 	/**

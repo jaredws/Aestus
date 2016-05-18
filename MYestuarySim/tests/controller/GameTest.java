@@ -38,6 +38,9 @@ public class GameTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		g = null;
+		Game.SV.dispose();
+		Game.TV.dispose();
+		Game.EV.dispose();
 	}
 	
 	/**

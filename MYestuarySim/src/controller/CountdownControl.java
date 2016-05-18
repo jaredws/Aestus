@@ -125,7 +125,4 @@ public class CountdownControl {
 	public int getCounter(){
 		return counter;
 	}
-	
-	
-	
 }

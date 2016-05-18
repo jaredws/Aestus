@@ -89,7 +89,7 @@ public class Game {
 		SV.add(StartingView.timeL);
 		SV.add(StartingView.settingsL);
 		SoundController.playIntro();
-	int x = 0;
+
 		while(s.getShowing()){
 			s.check();
 			StartingView.timeL.setText(Integer.toString(StartingView.getTime()));
@@ -100,8 +100,8 @@ public class Game {
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
-			if(G.getTesting() && x > 1000) break;
-			x++;
+			if(G.getTesting()) break;
+			
 		}
 		return;
 	}
