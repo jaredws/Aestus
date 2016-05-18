@@ -64,7 +64,7 @@ public class StartingViewTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		sv = null;
+		sv = null;ssc=null;rand=null;screenSize=null;
 		BG = null;title = null;play = null;
 		settings = null;exit = null;intro = null;
 		clipboard = null;timeUp = null;timeDown = null;
@@ -236,24 +236,7 @@ public class StartingViewTest {
 		StartingView.decTime();StartingView.decTime();StartingView.decTime();
 		StartingView.decTime();StartingView.decTime();StartingView.decTime();
 		assertEquals("Time should be 0 seconds",StartingView.getTime(),0);
+		StartingView.incTime();StartingView.incTime();StartingView.incTime();
+		StartingView.incTime();StartingView.incTime();
 	}
-	
-	/**
-	 * @author Steven
-	 * @Tests Checks to make sure repainting functionality is correct
-	 */
-	@Test
-	public void paintTest() {
-		Game g = new Game(true);
-		g.start(g);
-		/*while(ssc.getShowing()) {
-			sv.repaint();
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}*/
-	}
-	
 }

@@ -71,7 +71,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getPauseB().getX()+Game.TLC.getPauseB().getSizeX()/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getPauseB().getY()+Game.TLC.getPauseB().getSizeY()/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -84,7 +84,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getPauseB().getX()+Game.TLC.getPauseB().getSizeX()/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getPauseB().getY()+Game.TLC.getPauseB().getSizeY()/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -106,7 +106,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -122,7 +122,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.CH.getCrab(0).getX()+20) * i)/100) + ((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.CH.getCrab(0).getY()+20) * i)/100) + ((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -144,7 +144,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -160,7 +160,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.BCH.getBlueCrab(0).getX()+20) * i)/100) + ((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.BCH.getBlueCrab(0).getY()+20) * i)/100) + ((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -182,7 +182,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -198,7 +198,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TH.getTurtle(0).getX()+20) * i)/100) + ((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.TH.getTurtle(0).getY()+20) * i)/100) + ((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -220,7 +220,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -236,7 +236,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.PH.getPhragmites(0).getX()+20) * i)/100) + ((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.PH.getPhragmites(0).getY()+20) * i)/100) + ((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -258,7 +258,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -274,7 +274,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.CGH.getCordGrass(0).getX()+20) * i)/100) + ((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.CGH.getCordGrass(0).getY()+20) * i)/100) + ((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -296,7 +296,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -312,7 +312,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.PH.getPhragmites(0).getX()+20) * i)/100) + ((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.PH.getPhragmites(0).getY()+20) * i)/100) + ((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -334,7 +334,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
@@ -350,7 +350,7 @@ public class ScreenControlTest {
 		    int mov_x = (((Game.CGH.getCordGrass(0).getX()+20) * i)/100) + ((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2)*(100-i)/100);
 		    int mov_y = (((Game.CGH.getCordGrass(0).getY()+20) * i)/100) + ((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2)*(100-i)/100);
 		    r.mouseMove(mov_x,mov_y);
-		    r.delay(5);
+		    r.delay(3);
 		}
 		r.mousePress(1024);
 		r.delay(100);
