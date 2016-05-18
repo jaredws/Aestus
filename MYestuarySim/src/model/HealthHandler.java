@@ -61,13 +61,13 @@ public class HealthHandler {
 	public int check(int health){
 		if(health <= 0){
 			return 0;
-		}else if(health <=1){
+		}else if(health <=40){
 			return 1;
-		}else if(health < 12){
+		}else if(health <80){
 			return 2;
-		}else if(health < 23){
+		}else if(health < 120){
 			return 3;
-		}else if(health < 31){
+		}else if(health < 160){
 			return 4;
 		}else
 			return 5;

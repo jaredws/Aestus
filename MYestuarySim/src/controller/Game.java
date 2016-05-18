@@ -72,15 +72,26 @@ public class Game {
 
 
 	public int calculateHealth(){
-		int c,bc,t,p,cg;
-		//Crabs are worth double plants right now
-		c = 2*CH.getCrabs().size();
-		bc = 2*BCH.getBlueCrabs().size();
-		t = TH.getTurtles().size();
-		p = PH.getPhragmites().size();
-		cg = CGH.getCordGrass().size();
-		return (bc+t+cg-p-c);
-	}
+			int score = 0;
+			score -= 10*Game.getCrabHandler().getCrabs().size();
+			score += 10*Game.getBlueCrabHandler().getBlueCrabs().size();
+			score += 7*Game.getTurtleHandler().getTurtles().size();
+			score -= 5*Game.getPhragmitesHandler().getPhragmites().size();
+			score += 5*Game.getCordGrassHandler().getCordGrass().size();
+			score -= 20*Game.getPollutionHandler().getPollution().size();
+			if(Game.getCrabHandler().getResearched())
+				score += 10;
+			if(Game.getBlueCrabHandler().getResearched())
+				score += 10;
+			if(Game.getTurtleHandler().getResearched())
+				score += 10;
+			if(Game.getPhragmitesHandler().getResearched())
+				score += 10;
+			if(Game.getCordGrassHandler().getResearched())
+				score += 10;
+			if(score < 0)return 0;
+			else return score;
+		}
 	
 	public void start(Game G) {
 		StartScreenControl s = new StartScreenControl();
@@ -241,15 +252,22 @@ public class Game {
 		}
         
 		int run = 0;
+		esc.checkPos();
+		EV.repaint();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		while(EV.Showing){
 			run++;
 			esc.checkPos();
 			EV.repaint();
 			try {
-    			Thread.sleep(50);
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if(testing)break;
 			if(run > 2000 || esc.getClicked())break;
 		}
