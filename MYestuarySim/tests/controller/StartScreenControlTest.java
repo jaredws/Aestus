@@ -8,7 +8,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import view.StartingView;
-
+/**
+ * @author Steven Sell
+ * @Test Tests all functions of StartScreenControl
+ */
 public class StartScreenControlTest {
 
 	static Game G;
@@ -29,6 +32,7 @@ public class StartScreenControlTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		G = null;
+		Game.SV.dispose();
 		r = null;
 	}
 	

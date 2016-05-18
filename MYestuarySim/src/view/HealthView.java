@@ -11,20 +11,19 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Steven
- *
+ * The Class HealthView. Produces the images needed for the various health states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  */
-
-
 public class HealthView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
 	
 	/**
-	 * Buffer the Star images
+	 * Constructor
+	 * Instantiates a new healthview with default imageloads and multiple scaled instances of each.
 	 */
-	//may consider making this private and using a method to only allow one instnace
 	public HealthView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -40,14 +39,14 @@ public class HealthView extends ViewTemplate{
 		}
 		
 	}
+	
 	/**
-	 * 
-	 * @param i
-	 * @return The buffered image of the Star
-	 * 
+	 * Gets the image.
+	 *
+	 * @param i the index of the desired image
+	 * @return the image
 	 */
 	public Image getImage(int i){
-		//Must remove %4 will be changed when calling it from above with motion idicator.
 		return(images.get(0));
 	}
 

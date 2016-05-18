@@ -11,18 +11,21 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Jared Sharpe
+ * The Class BackgroundView. Produces the images needed for the various background states,
+ * used by the @see view.TotalView.java
  *
+ * @author Team 0
  */
 
 public class BackgroundView {
 	
+	/** The list of images. */
 	private List<Image> images;
 	
 	/**
-	 * Buffer the Backgrounds we will circulate through 
-	 * 
+	 * Constructor
+	 * Creates a new instance of BackgroundView with default values, loads default images.
+	 * Buffer the Backgrounds we will circulate through.
 	 */
 	public BackgroundView(){
 		images = new ArrayList<Image>();
@@ -34,18 +37,17 @@ public class BackgroundView {
 	         image = ImageIO.read(new File("./img/"+fileName+".png"));
 	         images.add(image.getScaledInstance((int)screenSize.getWidth(), -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
-	            // handle exception...
+	    	   System.out.println("Background Image read error");
 	       }
 		}	
 	}
 	
 	/**
-	 * 
-	 * @param i
+	 * Switch the image based on estuary health.
+	 *
+	 * @param i the index of the image: 0 - good, 1 - poor, 2 - bad
 	 * @return Buffered Image of the corresponding background
 	 * 
-	 * i should be the index of the buffered Image
-	 * 0 - good, 1 - poor, 2 - bad
 	 */
 	public Image switchImage(int i){
 		return images.get(i);

@@ -11,23 +11,29 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Jared Sharpe
- *
+ * The Class BlueCrabView. Produces the images needed for the various bluecrab states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  */
-
-
 public class BlueCrabView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
+	
+	/** The screen size. */
 	Dimension screenSize;
+	
+	/** The Image objects to be displayed depending on the circumstance. */
 	Image image2, image3;
+	
+	/** A counter used in calculating which image of the crab to load. */
 	int test;
 	
 	/**
+	 * Constructor
+	 * Creates a new instance of BlueCrabView with default imageloads.
 	 * Buffer the images we will need to move BlueCrabs around the screen.
 	 */
-	//may consider making this private and using a method to only allow one instnace
 	public BlueCrabView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -51,8 +57,9 @@ public class BlueCrabView extends ViewTemplate{
 		
 	
 	/**
-	 * 
-	 * @param i
+	 * Gets the image.
+	 *
+	 * @param i the index of the image to get
 	 * @return The buffered image of the BlueCrab
 	 * 0-Front, 1-back, 2-left, 3-right
 	 */

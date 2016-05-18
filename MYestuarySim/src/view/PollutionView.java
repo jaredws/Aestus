@@ -10,20 +10,23 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 /**
- * 
- * @author Adam K.
- *
+ * The Class PollutionView. Produces the images needed for the various pollution states,
+ * used by the @see view.TotalView.java
+ * @author Team 0
  */
-
-
 public class PollutionView extends ViewTemplate{
 	
+	/** The list of images. */
 	private List<Image> images;
+	
+	/** The screen size. */
 	Dimension screenSize;
+	
 	/**
-	 * Buffer the images we will need to move pollution around the screen.
+	 * Constructor
+	 * Creates a new instance of PollutionView with default imageloads
+	 * Buffer the images we will need to move the pollution around the screen.
 	 */
-	//may consider making this private and using a method to only allow one instance
 	public PollutionView(){
 		images = new ArrayList<Image>();
 		Image image;
@@ -43,7 +46,8 @@ public class PollutionView extends ViewTemplate{
 	
 	
 	/**
-	 * 
+	 * Gets the image.
+	 *
 	 * @param i - the type of the trash (held in the trash model)
 	 * @return The buffered image of the pollution
 	 */

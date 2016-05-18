@@ -19,7 +19,7 @@ import org.junit.Test;
 import controller.Game;
 import controller.StartScreenControl;
 
-public class StartingViewTest {
+public class EndingViewTest {
 	
 	static StartingView sv;
 	static StartScreenControl ssc;
