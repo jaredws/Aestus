@@ -37,7 +37,7 @@ public class CountdownControl {
 	/**
 	 * Default time is set to 1 minute (60 seconds).
 	 */
-	final static int defaultTime = 60;
+	final static int defaultTime = 120;
 	/**
 	 * Time can be changed from the settings menu in the main screen and this reflects that.
 	 */
