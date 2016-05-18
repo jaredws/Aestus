@@ -70,7 +70,7 @@ public class PollutionHandler {
 	 */
 	public void deletePollution(ToolControl tc){
 		for(int i = 0; i < Pollution.size(); i++){
-			if(Pollution.get(i).getX() > tc.getRecycle().getX() - tc.getRecycle().getSizeX()/2 && Pollution.get(i).getX() < tc.getRecycle().getX() + tc.getRecycle().getSizeX()/4){
+			if(Pollution.get(i).getX() > tc.getRecycle().getX() - tc.getRecycle().getSizeX() && Pollution.get(i).getX() < tc.getRecycle().getX() + tc.getRecycle().getSizeX()){
 				if((Pollution.get(i).getY() > tc.getRecycle().getY()-tc.getRecycle().getSizeY()) && (Pollution.get(i).getY() < tc.getRecycle().getY() + tc.getRecycle().getSizeY()/2)){
 					Pollution.remove(i);
 					Removed++;
