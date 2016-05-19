@@ -42,7 +42,7 @@ public class ToolControl extends JButton {
 		crabTrap = new Tool(mag.getX()+tv.getMag().getWidth(null)+20,0,4);
 		
 		//Will need to add more buttons later
-		Tool[] bns ={recycle,shears,mag,crabTrap,pauseB};	
+		Tool[] bns ={recycle,crabTrap,pauseB,shears,mag};	
 		tools = new ArrayList<Tool>();
 		for(Tool b: bns){
 			tools.add(b);

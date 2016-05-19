@@ -363,18 +363,18 @@ public class ScreenControl extends JPanel {
 	}
 
 	/**
-	 * Gets the mag glass.
+	 * Gets the mag glass active boolean.
 	 *
-	 * @return the mag glass
+	 * @return the mag glass active boolean
 	 */
 	public boolean getMagGlass() {
 		return this.magGlass;
 	}
 
 	/**
-	 * Gets the shears.
+	 * Gets the shears active boolean
 	 *
-	 * @return the shears
+	 * @return the shears active boolean
 	 */
 	public boolean getShears() {
 		return this.shears;

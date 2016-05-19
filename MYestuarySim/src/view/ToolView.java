@@ -20,6 +20,10 @@ public class ToolView extends ViewTemplate{
 	/** The list of images. */
 	private List<Image> images;
 	
+	/** Select the glowing or not glowing image*/
+	boolean glowMag;
+	boolean glowShears;
+	
 	/** The screen size. */
 	Dimension screenSize;
 
@@ -31,14 +35,16 @@ public class ToolView extends ViewTemplate{
 	public ToolView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"recycle","shears","mag","crabtrap","pauseB","shearsOpen","shearsClose"};
+		glowMag = false;
+		glowShears = false;
+		String[] names = {"recycle","crabtrap","pauseB","shears","mag","shearsOpen","shearsClose","shearsGlow","magGlow"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
 			image = ImageIO.read(new File("./img/"+fileName+".png"));
 			images.add(image.getScaledInstance((int)screenSize.getWidth()/12, -1,Image.SCALE_SMOOTH));
 	       } catch (IOException ex) {
-	    	   System.out.println("Image read error");
+	    	   System.out.println("Tool Image read error");
 	       }
 		}
 		
@@ -56,20 +62,22 @@ public class ToolView extends ViewTemplate{
 	
 	/**
 	 * Gets the mag tool.
+	 * @param glow - boolean to select the glowing image or not
 	 *
 	 * @return the mag
 	 */
 	public Image getMag() {
-		return images.get(2);
+		return images.get(4);
 	}
 	
 	/**
 	 * Gets the shears.
+	 * @param glow - boolean to select the glowing image or not
 	 *
 	 * @return the shears
 	 */
 	public Image getShears(){
-		return images.get(1);
+		return images.get(3);
 	}
 	
 	/**

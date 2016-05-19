@@ -31,7 +31,7 @@ public class MagView extends ViewTemplate{
 	public MagView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String[] names = {"mag"};
+		String[] names = {"mag", "magGlow"};
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		for(String fileName: names){
 		try {                
@@ -49,10 +49,9 @@ public class MagView extends ViewTemplate{
 	 * Gets the image.
 	 *
 	 * @param i the index of the desired image
-	 * @return The buffered image of the BlueCrab
-	 * 0-Front, 1-back, 2-left, 3-right
+	 * @return The buffered image
 	 */
 	public Image getImage(int i){
-			return images.get(1);
+			return images.get(i);
 	}
 }
