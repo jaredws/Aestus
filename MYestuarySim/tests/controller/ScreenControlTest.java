@@ -102,6 +102,7 @@ public class ScreenControlTest {
 	@Test
 	public void crabResearchTest() {
 		Game.CH.addCrab(200, 400);
+		Game.CH.addCrab(200, 400);
 		for (int i=0; i<100; i++){  
 		    int mov_x = (((Game.TLC.getMag().getX()+TLV.getMag().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getMag().getY()+TLV.getMag().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
