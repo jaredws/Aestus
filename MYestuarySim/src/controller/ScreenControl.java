@@ -300,7 +300,7 @@ public class ScreenControl extends JPanel {
 						j = i;
 						break;
 					} else if (magGlass) {
-						research = 12 + cordResearch;
+						research = 12 + cordResearch%3;
 						cgc.setResearched(true);
 						magGlass = false;
 						pause = true;
