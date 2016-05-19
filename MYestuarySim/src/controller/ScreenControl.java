@@ -215,7 +215,7 @@ public class ScreenControl extends JPanel {
 					if (magGlass) {
 						research = 0 + mittenCrabResearch%3;
 						c.setResearched(true);
-						//magGlass = false;
+						magGlass = false;
 						pause = true;
 						clicked = false;
 						mittenCrabResearch++;
@@ -233,7 +233,7 @@ public class ScreenControl extends JPanel {
 					if (magGlass) {
 						research = 6 + bluecrabResearch%3;
 						bc.setResearched(true);
-						//magGlass = false;
+						magGlass = false;
 						pause = true;
 						clicked = false;
 						bluecrabResearch++;
@@ -252,7 +252,7 @@ public class ScreenControl extends JPanel {
 					if (magGlass) {
 						research = 9 + turtleResearch%3;
 						t.setResearched(true);
-						//magGlass = false;
+						magGlass = false;
 						pause = true;
 						clicked = false;
 						turtleResearch++;
@@ -270,7 +270,7 @@ public class ScreenControl extends JPanel {
 					if (magGlass) {
 						research = 3 + phragResearch%3;
 						pc.setResearched(true);
-						//magGlass = false;
+						magGlass = false;
 						pause = true;
 						clicked = false;
 						phragResearch++;
@@ -293,7 +293,7 @@ public class ScreenControl extends JPanel {
 					} else if (magGlass) {
 						research = 12 + cordResearch%3;
 						cgc.setResearched(true);
-						//magGlass = false;
+						magGlass = false;
 						pause = true;
 						clicked = false; 
 						cordResearch++;
