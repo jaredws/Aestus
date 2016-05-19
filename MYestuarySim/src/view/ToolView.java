@@ -86,7 +86,7 @@ public class ToolView extends ViewTemplate{
 	 * @return the crab trap
 	 */
 	public Image getCrabTrap() {
-		return images.get(3);
+		return images.get(1);
 	}
 	
 	/**
@@ -104,7 +104,7 @@ public class ToolView extends ViewTemplate{
 	 * @return the pause button
 	 */
 	public Image getPauseB() {
-		return images.get(4);
+		return images.get(2);
 	}
 	
 	/**

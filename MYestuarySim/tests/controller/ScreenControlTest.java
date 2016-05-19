@@ -57,6 +57,7 @@ public class ScreenControlTest {
 	public void tearDown() throws Exception {
 		G = null;
 		r = null;
+		SC = null;
 		Game.TV.dispose();
 		TLV = null;
 	}
@@ -293,6 +294,7 @@ public class ScreenControlTest {
 	@Test
 	public void deletePhragmitesTest() {
 		Game.PH.addPhragmites(200, 400);
+		int size = Game.PH.getPhragmites().size();
 		for (int i=0; i<100; i++){  
 		    int mov_x = (((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
@@ -321,7 +323,7 @@ public class ScreenControlTest {
 		SC.checkPos(Game.CH, Game.TH, Game.BCH, Game.CGH, Game.PH, Game.TLC, Game.PolH);
 		Game.TV.repaint();
 		Game.TV.update(G);
-		assertEquals("The # of Phragmites should be 0",Game.PH.getPhragmites().size(),0);		
+		assertEquals("The # of Phragmites should be "+(size-1),Game.PH.getPhragmites().size(),size-1);		
 	}
 	
 	/**
@@ -331,6 +333,7 @@ public class ScreenControlTest {
 	@Test
 	public void deleteCordGrassTest() {
 		Game.CGH.addCordGrass(200, 400);
+		int size = Game.CGH.getCordGrass().size();
 		for (int i=0; i<100; i++){  
 		    int mov_x = (((Game.TLC.getShears().getX()+TLV.getShears().getWidth(null)/2) * i)/100) + (200*(100-i)/100);
 		    int mov_y = (((Game.TLC.getShears().getY()+TLV.getShears().getHeight(null)/2) * i)/100) + (400*(100-i)/100);
@@ -359,7 +362,7 @@ public class ScreenControlTest {
 		SC.checkPos(Game.CH, Game.TH, Game.BCH, Game.CGH, Game.PH, Game.TLC, Game.PolH);
 		Game.TV.repaint();
 		Game.TV.update(G);
-		assertEquals("The # of CordGrass should be 0",Game.PH.getPhragmites().size(),0);		
+		assertEquals("The # of CordGrass should be "+(size-1),Game.PH.getPhragmites().size(),size-1);		
 	}
 	
 	/**
