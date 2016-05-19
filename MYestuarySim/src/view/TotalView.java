@@ -134,12 +134,6 @@ public class TotalView extends JPanel{
  
         g.drawImage(CDV.getImage(Game.getCountdownControl().getImage()), 0, (int)(screenSize.getHeight() - screenSize.getWidth()/10), null); 
         
-        if(S.getMagGlass()) {
-        	g.drawImage(TLV.getImage(4), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
-        	frame.setCursor(frame.getToolkit().createCustomCursor(
-                new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
-                "null"));
-        }
         if(S.getShears()) {
         	if(S.getShearsOpen()) 
         		g.drawImage(TLV.getShearsOpen(), (int)(S.getShearX()-screenSize.getWidth()/24)+25, (int)(S.getShearY()-screenSize.getWidth()/24)+35, null);
@@ -158,9 +152,14 @@ public class TotalView extends JPanel{
         //if(S.getPause()){
         	if(S.getResearch() > -1){
         		g.drawImage(RV.getImage(S.getResearch()),300, 
-        				75, null);
-        		
+        				75, null);	
     			}
+        }
+        if(S.getMagGlass()) {
+        	g.drawImage(TLV.getImage(4), (int)(S.getMagX()-screenSize.getWidth()/24)+25, (int)(S.getMagY()-screenSize.getWidth()/24)+25, null);
+        	frame.setCursor(frame.getToolkit().createCustomCursor(
+                new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
+                "null"));
         }
         if(!S.getMagGlass() && !S.getShears()) frame.setCursor(Cursor.getDefaultCursor());
 	
