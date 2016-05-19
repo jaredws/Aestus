@@ -60,4 +60,20 @@ public class BlueCrabViewTest {
 			assertEquals("The integer pixels should be equal",img.getRGB(ry, rx),bcvi.getRGB(ry, rx));
 		}
 	}
+	
+	@Test
+	public void getImageTest() {
+		for(int i=0;i<100;i++) {
+			bcv.getImage(50);
+		}
+		assertEquals("Count should be 100",bcv.getCount(),100);
+		for(int i=0;i<150;i++) {
+			bcv.getImage(50);
+		}
+		assertEquals("Count should be 250",bcv.getCount(),250);
+		for(int i=0;i<51;i++) {
+			bcv.getImage(50);
+		}
+		assertEquals("Count should be 0",bcv.getCount(),0);
+	}
 }

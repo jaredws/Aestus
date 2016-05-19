@@ -1,4 +1,5 @@
 package model;
+
 import java.awt.Dimension;
 
 /**
@@ -38,8 +39,8 @@ public class Pollution extends Grabbable {
 	public Pollution(int x, int y){
 		this.x = x;
 		this.y = y;
-		this.sizeX = 165;
-		this.sizeY = 165;
+		Pollution.sizeX = 165;
+		Pollution.sizeY = 165;
 		type=0;
     }
 	
@@ -102,7 +103,7 @@ public class Pollution extends Grabbable {
 	 * @return the size x
 	 */
 	public int getSizeX() {
-		return this.sizeX;
+		return Pollution.sizeX;
 	}
 	
 	/**
@@ -111,7 +112,7 @@ public class Pollution extends Grabbable {
 	 * @return the size y
 	 */
 	public int getSizeY() {
-		return this.sizeY;
+		return Pollution.sizeY;
 	}
 	
 	/**
@@ -120,7 +121,7 @@ public class Pollution extends Grabbable {
 	 * @param y the new size y
 	 */
 	public void setSizeY(int y) {
-		this.sizeY = y;
+		Pollution.sizeY = y;
 	}
 	
 	/**
@@ -129,7 +130,7 @@ public class Pollution extends Grabbable {
 	 * @param x the new size x
 	 */
 	public void setSizeX(int x) {
-		this.sizeX = x;
+		Pollution.sizeX = x;
 	}
 	
 	/**

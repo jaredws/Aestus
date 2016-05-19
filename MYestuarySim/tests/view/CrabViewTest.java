@@ -60,4 +60,20 @@ public class CrabViewTest {
 			assertEquals("The integer pixels should be equal",img.getRGB(ry, rx),cvi.getRGB(ry, rx));
 		}
 	}
+	
+	@Test
+	public void getImageTest() {
+		for(int i=0;i<100;i++) {
+			cv.getImage(50);
+		}
+		assertEquals("Count should be 100",cv.getCount(),100);
+		for(int i=0;i<150;i++) {
+			cv.getImage(50);
+		}
+		assertEquals("Count should be 250",cv.getCount(),250);
+		for(int i=0;i<51;i++) {
+			cv.getImage(50);
+		}
+		assertEquals("Count should be 0",cv.getCount(),0);
+	}
 }

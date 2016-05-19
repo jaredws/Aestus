@@ -5,15 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import model.BlueCrab;
 import model.BlueCrabHandler;
@@ -28,7 +20,6 @@ import model.Pollution;
 import model.PollutionHandler;
 import model.Turtle;
 import model.TurtleHandler;
-
 
 /**
  * The Class ScreenControl. Manages the interface of the client mouse with positions on the screen, 

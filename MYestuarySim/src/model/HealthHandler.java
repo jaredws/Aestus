@@ -22,18 +22,18 @@ public class HealthHandler {
 	 * @param x the x location for spawn
 	 * @param y the y location for spawn
 	 */
-	public void addStar(int x, int y){
+	/*public void addStar(int x, int y){
 		Stars.add(new Health(x,y,screenSize));
-	}
+	}*/
 	
 	/**
 	 * Gets the list of stars.
 	 *
 	 * @return the list of stars
 	 */
-	public List<Health> getStars() {
+	/*public List<Health> getStars() {
 		return this.Stars;
-	}
+	}*/
 	
 	/**
 	 * Instantiates a new health handler.
@@ -48,9 +48,9 @@ public class HealthHandler {
 	 * @param i the index of the star
 	 * @return the star
 	 */
-	public Health getStar(int i){
+	/*public Health getStar(int i){
 		return Stars.get(i);
-	}
+	}*/
 	
 	/**
 	 * Check the health level of the estuary

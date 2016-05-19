@@ -49,8 +49,8 @@ public class BackgroundTest {
 	 */
 	@Test
 	public void checkTest() {
-		assertEquals("check(20) should return 0",b.check(14),2);
-		assertEquals("check(14) should return 1",b.check(20),1);
-		assertEquals("check(5) should return 2",b.check(35),0);
+		assertEquals("check(20) should return 2",b.check(20),2);
+		assertEquals("check(101) should return 1",b.check(101),1);
+		assertEquals("check(201) should return 0",b.check(201),0);
 	}
 }

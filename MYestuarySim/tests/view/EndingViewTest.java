@@ -219,9 +219,9 @@ public class EndingViewTest {
 	 */
 	@Test
 	public void incTimeTest() {
-		assertEquals("Time should be 60 seconds",StartingView.getTime(),60);
+		assertEquals("Time should be 120 seconds",StartingView.getTime(),120);
 		StartingView.incTime();
-		assertEquals("Time should be 72 seconds",StartingView.getTime(),72);
+		assertEquals("Time should be 132 seconds",StartingView.getTime(),132);
 	}
 	
 	/**
@@ -230,13 +230,15 @@ public class EndingViewTest {
 	 */
 	@Test
 	public void decTimeTest() {
-		assertEquals("Time should be 72 seconds",StartingView.getTime(),72);
+		assertEquals("Time should be 132 seconds",StartingView.getTime(),132);
 		StartingView.decTime();
-		assertEquals("Time should be 60 seconds",StartingView.getTime(),60);
-		StartingView.decTime();StartingView.decTime();StartingView.decTime();
-		StartingView.decTime();StartingView.decTime();StartingView.decTime();
+		assertEquals("Time should be 120 seconds",StartingView.getTime(),120);
+		for(int i =0;i<10;i++) {
+			StartingView.decTime();
+		}
 		assertEquals("Time should be 0 seconds",StartingView.getTime(),0);
-		StartingView.incTime();StartingView.incTime();StartingView.incTime();
-		StartingView.incTime();StartingView.incTime();
+		for(int i =0;i<10;i++) {
+			StartingView.incTime();
+		}
 	}
 }

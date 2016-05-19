@@ -1,24 +1,16 @@
 package model;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
-/**
- * @author Steven
- */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
 import controller.SoundController;
 import controller.ToolControl;
 
+/**
+ * @author Steven
+ */
 
 /**
  * The Class BlueCrabHandler. Contains a list of BlueCrabs, functionality to move the crabs

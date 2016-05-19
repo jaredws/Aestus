@@ -1,19 +1,9 @@
 package controller;
 
 import static org.junit.Assert.*;
-import java.util.Random;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import model.BlueCrabHandler;
-import model.CordGrassHandler;
-import model.CrabHandler;
-import model.HealthHandler;
-import model.PhragmitesHandler;
-import model.PollutionHandler;
-import model.PopulationHandler;
-import model.TurtleHandler;
-import view.TotalView;
 
 /**
  * @author Steven Sell

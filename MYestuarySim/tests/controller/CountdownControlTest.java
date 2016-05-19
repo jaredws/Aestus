@@ -43,11 +43,11 @@ public class CountdownControlTest {
 	 */
 	@Test
 	public void updateCountdownTest() {
-		for(int i = 0;i<179;i++){
+		for(int i = 0;i<359;i++){
 			CDC.updateCountdown();
 		}
 		assertEquals("Image should be 13",CDC.getImage(),13);
-		for(int i = 0;i<32;i++){
+		for(int i = 0;i<64;i++){
 			CDC.updateCountdown();
 		}
 		assertEquals("Image should be 14",CDC.getImage(),14);

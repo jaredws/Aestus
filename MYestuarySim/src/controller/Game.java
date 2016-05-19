@@ -5,17 +5,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JLabel;
 import javax.swing.Timer;
-
 import model.BlueCrabHandler;
 import model.CordGrassHandler;
 import model.CrabHandler;
@@ -62,11 +54,11 @@ public class Game {
 	public static void main(String[] args){
 		Game G = new Game(false);
 		while(true){
-				G.start(G);
-				if(G.testing)break;
-				G.run(G);
-				if(G.testing)break;
-				G.end(G);
+			G.start(G);
+			if(G.testing)break;
+			G.run(G);
+			if(G.testing)break;
+			G.end(G);
 		}
 	}
 

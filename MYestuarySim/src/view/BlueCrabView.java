@@ -27,7 +27,7 @@ public class BlueCrabView extends ViewTemplate{
 	Image image2, image3;
 	
 	/** A counter used in calculating which image of the crab to load. */
-	int test;
+	int count;
 	
 	/**
 	 * Constructor
@@ -68,16 +68,23 @@ public class BlueCrabView extends ViewTemplate{
 		if(i < 38)
 			return images.get(i);
 		else {
-			if(test < 200) {
-				test++;
+			if(count < 200) {
+				count++;
 				return image2;
-			} else if(test < 300) {
-				test++;
+			} else if(count < 300) {
+				count++;
 				return image3;
-			} else if(test == 300){ 
-				test = 0;
+			} else if(count == 300){ 
+				count = 0;
 			}
 		}
 		return image3;
+	}
+	
+	/**
+	 * Gets the count.
+	 */
+	public int getCount() {
+		return count;
 	}
 }

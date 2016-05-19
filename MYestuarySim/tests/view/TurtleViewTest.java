@@ -60,4 +60,20 @@ public class TurtleViewTest {
 			assertEquals("The integer pixels should be equal",img.getRGB(ry, rx),tvi.getRGB(ry, rx));
 		}
 	}
+	
+	@Test
+	public void getImageTest() {
+		for(int i=0;i<100;i++) {
+			tv.getImage(50);
+		}
+		assertEquals("Count should be 100",tv.getCount(),100);
+		for(int i=0;i<150;i++) {
+			tv.getImage(50);
+		}
+		assertEquals("Count should be 250",tv.getCount(),250);
+		for(int i=0;i<51;i++) {
+			tv.getImage(50);
+		}
+		assertEquals("Count should be 0",tv.getCount(),0);
+	}
 }

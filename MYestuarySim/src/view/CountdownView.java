@@ -30,7 +30,6 @@ public class CountdownView {
 	public CountdownView(){
 		images = new ArrayList<Image>();
 		Image image;
-		String names = "";
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try{
 			for(int i = 1; i < 13; i++){ 

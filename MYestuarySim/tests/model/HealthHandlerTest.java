@@ -1,10 +1,7 @@
 package model;
 
 import static org.junit.Assert.*;
-
 import java.awt.Dimension;
-import java.awt.Toolkit;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,9 +36,9 @@ public class HealthHandlerTest {
 	public void checkTest() {
 		assertEquals("Should return 0", hh.check(0), 0);
 		assertEquals("Should return 1", hh.check(1), 1);
-		assertEquals("Should return 2", hh.check(10), 2);
-		assertEquals("Should return 3", hh.check(20), 3);
-		assertEquals("Should return 4", hh.check(25), 4);
-		assertEquals("Should return 5", hh.check(50), 5);
+		assertEquals("Should return 2", hh.check(99), 2);
+		assertEquals("Should return 3", hh.check(149), 3);
+		assertEquals("Should return 4", hh.check(199), 4);
+		assertEquals("Should return 5", hh.check(201), 5);
 	}
 }

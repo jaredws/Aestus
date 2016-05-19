@@ -88,7 +88,7 @@ public class PopulationHandlerTest {
 		assertEquals("TA should be NIA+IA=22",ph.getTA(),22);
 		assertEquals("NonInvasivePlant should be NIP=10",ph.getNonInvasivePlant(),10);
 		assertEquals("InvasivePlant should be IP=2",ph.getInvasivePlant(),2);
-		assertEquals("TotalPlant should be 35-2*P=12",ph.getTotalPlant(),12);
+		assertEquals("TotalPlant should be 35-2*P=16",ph.getTotalPlant(),16);
 		assertEquals("TotalAnimal should be maxAnimal="+ph.maxAnimal(),(int)ph.getTotalAnimal(),(int)ph.maxAnimal());
 		assertEquals("InvasiveAnimal should be TotalAnimal-NonInvasiveAnimal="+((int)ph.maxAnimal()-13),ph.getInvasiveAnimal(),(int)ph.maxAnimal()-13);
 		assertEquals("NonInvasiveAnimal should be TotalAnimal-InvasiveAnimal="+((int)ph.maxAnimal()-ph.getInvasiveAnimal()),ph.getNonInvasiveAnimal(),(int)ph.maxAnimal()-ph.getInvasiveAnimal());
