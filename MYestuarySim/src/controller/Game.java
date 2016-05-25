@@ -20,6 +20,13 @@ import view.EndingView;
 import view.StartingView;
 import view.TotalView;
 
+
+/**
+ * The Game Class
+ * The main function contained herein will run an instance of the game.
+ * @author Team0
+ *
+ */
 public class Game {
 	public boolean testing;
 	Random rand = new Random();
@@ -45,12 +52,18 @@ public class Game {
 	static boolean researchPause = false;
 	private Dimension screenSize;
 
-	
+	/**
+	 * Boolean for testing the game class.
+	 * @param test
+	 */
 	public Game(boolean test){
 		testing = test;
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	}
-	
+	/**
+	 * The main function to run Aestus
+	 * @param args
+	 */
 	public static void main(String[] args){
 		Game G = new Game(false);
 		while(true){
@@ -62,7 +75,9 @@ public class Game {
 		}
 	}
 
-
+	/**
+	 * Calculate health manages the user's score.
+	 */
 	public int calculateHealth(){
 			int score = 0;
 			score -= 10*Game.getCrabHandler().getCrabs().size();
@@ -85,6 +100,11 @@ public class Game {
 			else return score;
 		}
 	
+	/**
+	 * Helper function to run a game.
+	 * Run the start screen.
+	 * @param G
+	 */
 	public void start(Game G) {
 		StartScreenControl s = new StartScreenControl();
 		SV = new StartingView(s);
@@ -108,7 +128,11 @@ public class Game {
 		}
 		return;
 	}
-	
+	/**
+	 * Run the entirety of a game. 
+	 * The simulator and game play. 
+	 * @param G
+	 */
 	public void run(Game G){
 		ScreenControl S = new ScreenControl();
 		TV = new TotalView(S);
@@ -212,7 +236,11 @@ public class Game {
 		}
 		return;
 	}
-	
+	/**
+	 * run the ending screen of a game
+	 * Displays score and statistics about the game
+	 * @param G
+	 */
 	public void end(Game G) {
 		int health = this.calculateHealth();
 		EndScreenControl esc = new EndScreenControl();
@@ -266,62 +294,109 @@ public class Game {
 		EV.close();
 	}
 	
+	/**
+	 * Get the random number generator
+	 * @return instance of random number generator
+	 */
 	public Random getRand() {
 		return rand;
 	}
-
+/**
+ * Get the instance of the CrabHandler
+ * @return
+ */
 	public static CrabHandler getCrabHandler() {
 		return CH;
 	}
+	/**
+	 * Get the instance of the ToolControl
+	 * @return
+	 */
 
 	public static ToolControl getToolControl() {
 		return TLC;
 	}
-
+/**
+ * Get the instance of TotalView
+ * @return
+ */
 	public static TotalView getTotalView() {
 		return TV;
 	}
-	
+	/**
+	 * Get the instance of the TurtleHanlder
+	 * @return
+	 */
 	public static TurtleHandler getTurtleHandler() {
 		return TH;
 	}
+	/**
+	 * Get the instance of the BlueCrabHandler
+	 * @return
+	 */
 	
 	public static BlueCrabHandler getBlueCrabHandler() {
 		return BCH;
 	}
-	
+	/**
+	 * Get the instance of the PhragmitesHandler
+	 * @return
+	 */
 	public static PhragmitesHandler getPhragmitesHandler(){
 		return PH;
 	}
-	
+	/**
+	 * Get the instance of the CordGrassHandler
+	 * @return
+	 */
 	public static CordGrassHandler getCordGrassHandler(){
 		return CGH;
 	}
-	
+	/**
+	 * Get the instance of the HealthHandler
+	 * @return
+	 */
 	public static HealthHandler getHealthHandler(){
 		return HH;
 	}
-	
+	/**
+	 * Get the instance of the PollutionHandler
+	 * @return
+	 */
 	public static PollutionHandler getPollutionHandler(){
 		return PolH;
 	}
-		
+	/**
+	 * Get the instance of the CountDownControl	
+	 * @return
+	 */
 	public static CountdownControl getCountdownControl(){
 		return CDC;
 	}
-	
+	/**
+	 * Get the instance of the PopulationHandler
+	 * @return
+	 */
 	public static PopulationHandler getPopulationHandler() {
 		return PopH;
 	}
-	
+	/**
+	 * Get the Testing boolean
+	 * @return
+	 */
 	public boolean getTesting() {
 		return testing;
 	}
-	
+	/**
+	 * Set the testing boolean
+	 * @param t
+	 */
 	public void setTesting(boolean t) {
 		this.testing = t;
 	}
-	
+	/**
+	 * Run spawnTrash() from the PollutionHandler
+	 */
 	public void spawnTrash(){
 		PolH.spawnTrash();
 	}
